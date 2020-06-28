@@ -1,7 +1,15 @@
+/* Import font(s) */
+
+@font-face {
+	font-family: Manrope;
+	src: url('./fonts/Manrope.ttf') format('ttf');
+}
+
 body {
 	margin: 0;
 	font-size: 14px;
 	line-height: 1.5;
+	font-family: Manrope;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -16,6 +24,10 @@ h1 {
 
 a {
 	color: inherit;
+}
+
+code, pre {
+	font-family: "Lucida Console", Monaco, monospace;
 }
 
 @media (min-width: 400px) {
