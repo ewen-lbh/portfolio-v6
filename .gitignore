@@ -179,3 +179,4 @@ node_modules/
 # Temporary compilation/translation files
 trans/
 messages/*.mo
+dist/
