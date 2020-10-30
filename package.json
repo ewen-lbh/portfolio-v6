@@ -16,7 +16,7 @@
     "build:messages": "msgfmt messages/fr_FR.po -o messages/fr_FR.mo",
     "trans:en": "mkdir -p trans/en && echo 'wip…'",
     "trans:fr": "mkdir -p trans/fr && echo 'wip…'",
-    "hydrate": "mkdir -p trans/src && cd compiler && ./compiler",
+    "hydrate": "mkdir -p trans/src && cd hydrator && ./hydrate",
     "prepare:i18n": "pnpm hydrate && pnpm extract:messages && pnpm combine:messages",
     "make": "pnpm build:messages && concurrently 'pnpm trans:fr' 'pnpm trans:en' && pnpm build",
     "makeclean": "pnpm make && pnpm clean"
