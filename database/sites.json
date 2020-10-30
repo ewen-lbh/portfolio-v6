@@ -1,0 +1,37 @@
+[
+	{
+		"name": "spotify",
+		"url": "https://",
+		"purpose": "my music",
+		"username": "Ewen-lbh"
+	},
+	{
+		"name": "twitter",
+		"url": "https://twitter.com/ewen_lbh",
+		"purpose": "random thoughts",
+		"username": "ewen_lbh"
+	},
+	{
+		"name": "github",
+		"url": "https://github.com/ewen-lbh",
+		"purpose": "open-source code",
+		"username": "ewen-lbh"
+	},
+	{
+		"name": "youtube",
+		"url": "https://youtube.com/c/ewen-lbh",
+		"purpose": "visual+music",
+		"username": "ewen-lbh"
+	},
+	{
+		"name": "deezer",
+		"url": "",
+		"purpose": "my music",
+		"username": "Ewen-lbh"
+	},
+	{
+		"name": "mail",
+		"url": "mailto:hey@ewen.works",
+		"purpose": "contact"
+	}
+]

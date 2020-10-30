@@ -5,33 +5,28 @@
   "license": "CC-BY-NC-ND-4.0",
   "version": "0.1.0",
   "scripts": {
-    "dev": "sapper dev",
-    "build": "sapper build --legacy",
-    "export": "sapper export --legacy",
-    "start": "node __sapper__/build"
-  },
-  "dependencies": {
-    "@rollup/plugin-json": "^4.1.0",
-    "compression": "^1.7.1",
-    "polka": "next",
-    "sirv": "^0.4.0",
-    "svelte-i18n": "^3.0.4"
+    "build:html": "mkdir -p trans/fr trans/en && pug trans/src -o trans/en && cp trans/en/** trans/fr/",
+    "build:css": "stylus --compress --sourcemap src/style.styl -o dist/style.css",
+    "build:js": "tsc -p tsconfig.json && mv src/*.js dist/",
+    "clean": "rm -r trans messages/*.mo",
+    "build": "concurrently 'pnpm run build:html' 'pnpm run build:css' 'pnpm run build:js' 'pnpm run build:messages'",
+    "dev": "nodemon --watch src --ext ts,pug,styl --exec pnpm run build",
+    "extract:messages": "mv messages/fr_FR.po messages/fr_FR.old.po; gettext-extract --output messages/fr_FR.new.po --startDelimiter '[#' --endDelimiter '#]' trans/src/**.pug",
+    "combine:messages": "msgcat messages/fr_FR.old.po messages/fr_FR.new.po -o messages/fr_FR.po && rm messages/fr_FR.new.po messages/fr_FR.old.po",
+    "build:messages": "msgfmt messages/fr_FR.po -o messages/fr_FR.mo",
+    "trans:en": "mkdir -p trans/en && echo 'wip…'",
+    "trans:fr": "mkdir -p trans/fr && echo 'wip…'",
+    "hydrate": "mkdir -p trans/src && cd compiler && ./compiler",
+    "prepare:i18n": "pnpm hydrate && pnpm extract:messages && pnpm combine:messages",
+    "make": "pnpm build:messages && concurrently 'pnpm trans:fr' 'pnpm trans:en' && pnpm build",
+    "makeclean": "pnpm make && pnpm clean"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/runtime": "^7.0.0",
-    "@rollup/plugin-babel": "^5.0.0",
-    "@rollup/plugin-commonjs": "^12.0.0",
-    "@rollup/plugin-node-resolve": "^8.0.0",
-    "@rollup/plugin-replace": "^2.2.0",
-    "npm-run-all": "^4.1.5",
-    "rollup": "^2.3.4",
-    "rollup-plugin-svelte": "^5.0.1",
-    "rollup-plugin-terser": "^5.3.0",
-    "sapper": "^0.27.0",
-    "svelte": "^3.0.0"
+    "concurrently": "^5.3.0",
+    "easygettext": "^2.15.0",
+    "nodemon": "^2.0.6",
+    "pug-cli": "^1.0.0-alpha6",
+    "stylus": "^0.54.8",
+    "typescript": "^4.0.3"
   }
 }

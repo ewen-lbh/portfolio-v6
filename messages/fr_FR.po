@@ -1,0 +1,218 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+
+#: trans/src/index.pug:56
+msgid "api"
+msgstr "api"
+
+#: trans/src/index.pug:50
+msgid "app"
+msgstr "app"
+
+#: trans/src/about.pug:4
+msgid "artistique"
+msgstr ""
+
+#: trans/src/index.pug:38
+msgid "automation"
+msgstr ""
+
+#: trans/src/index.pug:74
+msgid "banner"
+msgstr "bannière"
+
+#: trans/src/made-with.pug:3
+msgid "beautiful OFL typeface"
+msgstr "magnifique fonte sous license OFL"
+
+#: trans/src/index.pug:53
+msgid "book"
+msgstr "livre"
+
+#: trans/src/made-with.pug:5
+msgid "by"
+msgstr "par"
+
+#: trans/src/index.pug:23
+msgid "card"
+msgstr "carte"
+
+#: trans/src/index.pug:62
+msgid "cli"
+msgstr "interface en ligne de commande"
+
+#: trans/src/index.pug:68
+msgid "compositing"
+msgstr ""
+
+#: trans/src/index.pug:26 trans/src/neptune.pug:3
+msgid "cover art"
+msgstr ""
+
+#: trans/src/index.pug:107
+msgid "date"
+msgstr ""
+
+#: trans/src/made-with.pug:10
+msgid "Design and coded by hand"
+msgstr ""
+
+#: trans/src/about.pug:5
+msgid ""
+"Dessin à l'école des beaux-arts de Nîmes, ateliers de peinture, de "
+"sculpture. Depuis mes 7 ans, je compose de la musique électronique, j'ai "
+"suivi des cours de piano et de DJ et participé à une masterclass de "
+"production musicale. Pendant mes années de collège, j'ai réalisé de "
+"nombreuses affiches et logos en utilisant divers logiciels (3D, motion "
+"design, graphisme…)"
+msgstr ""
+
+#: trans/src/index.pug:86
+msgid "drawing"
+msgstr ""
+
+#: trans/src/made-with.pug:7
+msgid "efficient and comfortable programming language"
+msgstr ""
+
+#: trans/src/index.pug:29
+msgid "game"
+msgstr ""
+
+#: trans/src/index.pug:32
+msgid "graphism"
+msgstr ""
+
+#: trans/src/about.pug:1 trans/src/index.pug:1
+msgid "Hi, I'm Ewen Le Bihan."
+msgstr ""
+
+#: trans/src/about.pug:3 trans/src/index.pug:4
+msgid ""
+"Hi! I'm Ewen Le Bihan, I'm 16 years old and I'm interested in almost "
+"anything that is both creative and digital."
+msgstr ""
+
+#: trans/src/index.pug:89
+msgid "iconography"
+msgstr ""
+
+#: trans/src/index.pug:77 trans/src/trigonometry-synth.pug:3
+msgid "illustration"
+msgstr ""
+
+#: trans/src/index.pug:44
+msgid "intro"
+msgstr ""
+
+#: trans/src/about.pug:7
+msgid ""
+"J'ai appris à programmer dans différents langages informatiques: HTML, "
+"Python et JavaScript, ce qui m'a permis de créer mon site et, actuellement, "
+"une application web pour étudiants. J'ai aussi pour projet la création de "
+"plusieurs langages de programmation."
+msgstr ""
+
+#: trans/src/about.pug:10
+msgid ""
+"L'anglais étant indispensable à la lecture de documentations, j'ai "
+"approfondi cette langue (TOEIC Bridge: 176/180), conversé par mail avec un "
+"américain pour réaliser un logo. Je suis aussi fasciné depuis l'enfance par "
+"l'écriture: le cyrillique (d'où mon choix de LV3, le russe), le grec (cours "
+"particuliers) et les hiraganas et katakanas (japonais en autodidacte)."
+msgstr ""
+
+#: trans/src/index.pug:95
+msgid "language"
+msgstr ""
+
+#: trans/src/about.pug:12
+msgid ""
+"Le langage mathématique m'intéresse tout autant: il m'arrive d'appréhender "
+"des concepts complexes mathématiques en naviguant sur wikipédia anglais ou "
+"en regardant des vidéos de chaînes YouTube telles que \"3Blue1Brown\" ou "
+"\"Numerphile\""
+msgstr ""
+
+#: trans/src/index.pug:5
+msgid "Learn more"
+msgstr ""
+
+#: trans/src/about.pug:9
+msgid "linguistique"
+msgstr ""
+
+#: trans/src/index.pug:80
+msgid "logo"
+msgstr ""
+
+#: trans/src/index.pug:65
+msgid "motion design"
+msgstr ""
+
+#: trans/src/index.pug:47 trans/src/neptune.pug:5
+msgid "music"
+msgstr ""
+
+#: trans/src/about.pug:6
+msgid "numérique"
+msgstr ""
+
+#: trans/src/index.pug:35
+msgid "poster"
+msgstr ""
+
+#: trans/src/index.pug:59
+msgid "program"
+msgstr ""
+
+#: trans/src/about.pug:11
+msgid "scientifique"
+msgstr ""
+
+#: trans/src/index.pug:101
+msgid "search"
+msgstr ""
+
+#: trans/src/contact.pug:3
+msgid "send a mail at"
+msgstr ""
+
+#: trans/src/index.pug:92
+msgid "site"
+msgstr ""
+
+#: trans/src/contact.pug:5
+msgid "slide into my dms at"
+msgstr ""
+
+#: trans/src/index.pug:104
+msgctxt "Gallery toolbar"
+msgid "sorted by"
+msgstr ""
+
+#: trans/src/about.pug:2 trans/src/index.pug:2
+msgid "These are my creations."
+msgstr ""
+
+#: trans/src/about.pug:8
+msgid ""
+"Tout mes projets de programmation sont visibles par tous sur mon profil "
+"GitHub: tout mes projets sont dits \"Open Source\"."
+msgstr ""
+
+#: trans/src/index.pug:83
+msgid "typography"
+msgstr ""
+
+#: trans/src/index.pug:71
+msgid "visual identity"
+msgstr ""
+
+#: trans/src/index.pug:41
+msgid "web"
+msgstr ""
