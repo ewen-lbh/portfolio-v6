@@ -2,21 +2,60 @@
 
 ## Compile
 
+```
+   +------------------------------+
+   | ~/projects/*/.portfoliodb/** |
+   +---------------+--------------+
+                   |
+                   |   pnpm database:crawl
+                   v
++------------------+----------------+
+| ~/projects/.buildarea/database/** |
++------------------+----------------+
+                   |
+                   |   pnpm database:build
+                   v
+        +----------+----------+     +-----------+                             +----------+          +-----------+         +-----------+
+        | database/works.json |     | src/*.pug |                             | src/*.ts |          | src/*.css |         | static/** |
+        +----------+----------+     +-----+-----+                             +----+-----+          +-----+-----+         +-----+-----+
+                   |                      |                                        |                      |                     |
+                   +--------------------->+   pnpm pug:hydrate                     |                      |                     |
+                                          v                                        |                      |                     |
+                         +----------------+---------------+                        |                      |                     |
+                         | artifacts/phase_1/{lang}/*.pug |                        |                      |                     |
+                         +----------------+---------------+                        |                      |                     |
+                                          |                                        |                      |                     |
+                                          |   pnpm messages:extract                |                      |                     |
+                                          |                                        |                      |                     |
+                              +-----------+-----------+                            |                      |                     |
+                              |                       |                            |                      |                     |
+                              v                       v                            |                      |                     |
+                   +----------+--------+  +-----------+--------------------+       |                      |                     |
+                   | messages/fr_FR.po |  | artifacts/phase_2/{lang}/*.pug |       |                      |                     |
+                   +----------+--------+  +-----------+--------------------+       |                      |                     |
+                              |                       |                            |                      |                     |
+        pnpm messages:build   |                       |   pnpm pug:build           |                      |                     |
+                              v                       v                            |                      |                     |
+                   +----------+--------+  +-----------+--------------------+       |                      |                     |
+                   | messages/fr_FR.mo |  |artifacts/phase_3/{lang}/*.html |       |                      |                     |
+                   +----------+--------+  +-----------+--------------------+       |                      |                     |
+                              |                       |                            |                      |                     |
+                              |                       |                            |                      |                     |
+                              +-----------+-----------+                            |                      |                     |
+                                          |                                        |                      |                     |
+                                          |   pnpm html:translate                  |                      |                     |
+                                          v                                        |   pnpm js:build      |   pnpm css:build    |   pnpm static:build
+                               +----------+---------+                              |                      |                     |
+                               | dist/{lang}/*.html +<-----------------------------+----------------------+---------------------+
+                               +--------------------+
+```
 
-_not shown: compilation of static assets (TS→JS, Stylus→CSS)_
-```
-            src/*.pug
-                ↓  go template rendering
-         trans/src/*.pug
-                ↓  gettext-extract
-             ↙      ↘
-      fr_FR.po   trans/src/*.pug
-        ↓ msgfmt         ↓ pug-cli
-      fr_FR.mo   trans/src/*.html
-        ↘                ↙
-                ↓  go apply .mo file
-        dist/{fr,en}/*.html
-```
+## 
+
+<dl>
+  <dt></dt>
+  <dd></dd>
+</dl>
 
 ## Cleanup
 
