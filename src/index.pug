@@ -10,8 +10,15 @@ p.intro
 h2 most recent one
 
 section.work-card.work-card--large
+	{{ if len .LatestWork.Media }}
+	img.work-card__image(src="{{ (index .LatestWork.Media 0).Source }}")
+	{{ else }}
+	svg.work-card__image--empty
+	{{ end }}
 	h3 {{ .LatestWork.Title }}
+	{{ if len .LatestWork.Paragraphs }}
 	p. {{ summarize ((index .LatestWork.Paragraphs 0).Content) | tnindent 2 }}
+	{{ end }}
 
 h2 all of 'em
 
@@ -22,7 +29,7 @@ section.gallery
 				img.icon(src="../static/icons/tag.svg" alt="tags")
 			select#filter
 				{{ range .Tags }}
-				option(value="{{ .DisplayName }}"): i18n {{ .DisplayName }}
+				option(value="{{ .DisplayName }}" translate) {{ .DisplayName }}
 				{{- end }}
 		li.gallery__toolbar__search
 			label(for="search")
@@ -32,14 +39,25 @@ section.gallery
 			label(for="sort-by" translate translate-context="Gallery toolbar") sorted by
 			select#sort-by
 				{{ range .SortingOptions }}
-				option(value="{{ . }}"): i18n {{ . }}
+				option(value="{{ . }}" translate) {{ . }}
 				{{- end }}
 	ul.gallery__works
 		{{ range $year, $works := .WorksByYear }}
+		{{ if ne $year 9999 }}
 		h3 {{ $year }}
+		{{ else }}
+		h3(translate) Unknown year
+		{{ end }}
 		{{ range $works }}
 		li.gallery__works__work.work-card.work-card--medium
+			{{ if len .Media }}
+			img.work-card__image(src="{{ (index .Media 0).Source }}")
+			{{ else }}
+			svg.work-card__image--empty
+			{{ end }}
 			h4 {{ .Title }}
+			{{ if len .Paragraphs }}
 			p. {{ summarize (index .Paragraphs 0).Content | tnindent 4 }}
+			{{ end }}
 		{{- end }}
 		{{- end }}

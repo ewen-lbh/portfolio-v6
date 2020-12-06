@@ -1,0 +1,256 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: fr\n"
+"X-Generator: Poedit 2.4.1\n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+
+#: artifacts/phase_1/en/index.pug:62
+msgid "api"
+msgstr "api"
+
+#: artifacts/phase_1/en/index.pug:56
+msgid "app"
+msgstr "application"
+
+#: artifacts/phase_1/en/about.pug:4
+msgid "artistique"
+msgstr "artistique"
+
+#: artifacts/phase_1/en/index.pug:44 artifacts/phase_1/en/phelng.pug:7
+msgid "automation"
+msgstr "automatisation"
+
+#: artifacts/phase_1/en/index.pug:80
+msgid "banner"
+msgstr "bannière"
+
+#: artifacts/phase_1/en/made-with.pug:3
+msgid "beautiful OFL typeface"
+msgstr "magnifique police sous OFL"
+
+#: artifacts/phase_1/en/condenses.pug:7 artifacts/phase_1/en/index.pug:59
+msgid "book"
+msgstr "livre"
+
+#: artifacts/phase_1/en/made-with.pug:5
+msgid "by"
+msgstr "par"
+
+#: artifacts/phase_1/en/index.pug:29
+msgid "card"
+msgstr "carte"
+
+#: artifacts/phase_1/en/index.pug:68 artifacts/phase_1/en/phelng.pug:3
+#: artifacts/phase_1/en/pychemin.pug:5
+msgid "cli"
+msgstr "programme en ligne de commande"
+
+#: artifacts/phase_1/en/index.pug:74
+msgid "compositing"
+msgstr "compositing"
+
+#: artifacts/phase_1/en/index.pug:32
+msgid "cover art"
+msgstr "pochette"
+
+#: artifacts/phase_1/en/index.pug:113
+msgid "date"
+msgstr "date"
+
+#: artifacts/phase_1/en/made-with.pug:10
+msgid "Design and coded by hand"
+msgstr "Design et code fait-maison"
+
+#: artifacts/phase_1/en/about.pug:5
+msgid ""
+"Dessin à l'école des beaux-arts de Nîmes, ateliers de peinture, de "
+"sculpture. Depuis mes 7 ans, je compose de la musique électronique, j'ai "
+"suivi des cours de piano et de DJ et participé à une masterclass de "
+"production musicale. Pendant mes années de collège, j'ai réalisé de "
+"nombreuses affiches et logos en utilisant divers logiciels (3D, motion "
+"design, graphisme…)"
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:92
+msgid "drawing"
+msgstr "dessin"
+
+#: artifacts/phase_1/en/made-with.pug:7
+msgid "efficient and comfortable programming language"
+msgstr "langage de programmation efficient et agréable"
+
+#: artifacts/phase_1/en/index.pug:35
+msgid "game"
+msgstr "jeux"
+
+#: artifacts/phase_1/en/index.pug:38
+msgid "graphism"
+msgstr "graphisme"
+
+#: artifacts/phase_1/en/about.pug:1 artifacts/phase_1/en/index.pug:1
+msgid "Hi, I'm Ewen Le Bihan."
+msgstr "Hey! Je suis Ewen Le Bihan."
+
+#: artifacts/phase_1/en/about.pug:3 artifacts/phase_1/en/index.pug:4
+msgid ""
+"Hi! I'm Ewen Le Bihan, I'm 16 years old and I'm interested in almost "
+"anything that is both creative and digital."
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:95 artifacts/phase_1/en/index.pug:46
+msgid "iconography"
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:83 artifacts/phase_1/en/index.pug:42
+msgid "illustration"
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:50 artifacts/phase_1/en/index.pug:31
+msgid "intro"
+msgstr ""
+
+#: artifacts/phase_1/en/about.pug:7
+msgid ""
+"J'ai appris à programmer dans différents langages informatiques: HTML, "
+"Python et JavaScript, ce qui m'a permis de créer mon site et, actuellement, "
+"une application web pour étudiants. J'ai aussi pour projet la création de "
+"plusieurs langages de programmation."
+msgstr ""
+
+#: artifacts/phase_1/en/about.pug:10
+msgid ""
+"L'anglais étant indispensable à la lecture de documentations, j'ai "
+"approfondi cette langue (TOEIC Bridge: 176/180), conversé par mail avec un "
+"américain pour réaliser un logo. Je suis aussi fasciné depuis l'enfance par "
+"l'écriture: le cyrillique (d'où mon choix de LV3, le russe), le grec (cours "
+"particuliers) et les hiraganas et katakanas (japonais en autodidacte)."
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:101 artifacts/phase_1/en/pychemin.pug:7
+#: artifacts/phase_1/en/index.pug:48 artifacts/phase_1/en/pychemin.pug:4
+msgid "language"
+msgstr ""
+
+#: artifacts/phase_1/en/about.pug:12
+msgid ""
+"Le langage mathématique m'intéresse tout autant: il m'arrive d'appréhender "
+"des concepts complexes mathématiques en naviguant sur wikipédia anglais ou "
+"en regardant des vidéos de chaînes YouTube telles que \"3Blue1Brown\" ou "
+"\"Numerphile\""
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:5
+msgid "Learn more"
+msgstr "En savoir plus"
+
+#: artifacts/phase_1/en/about.pug:9
+msgid "linguistique"
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:86 artifacts/phase_1/en/index.pug:43
+msgid "logo"
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:71 artifacts/phase_1/en/index.pug:38
+msgid "motion design"
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:53 artifacts/phase_1/en/index.pug:32
+msgid "music"
+msgstr ""
+
+#: artifacts/phase_1/en/about.pug:6
+msgid "numérique"
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:41 artifacts/phase_1/en/index.pug:28
+msgid "poster"
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:65 artifacts/phase_1/en/phelng.pug:5
+#: artifacts/phase_1/en/pychemin.pug:3 artifacts/phase_1/en/index.pug:36
+#: artifacts/phase_1/en/phelng.pug:3 artifacts/phase_1/en/pychemin.pug:2
+msgid "program"
+msgstr ""
+
+#: artifacts/phase_1/en/condenses.pug:5 artifacts/phase_1/en/index.pug:23
+#: artifacts/phase_1/en/condenses.pug:3 artifacts/phase_1/en/index.pug:22
+msgid "school"
+msgstr ""
+
+#: artifacts/phase_1/en/condenses.pug:3 artifacts/phase_1/en/index.pug:26
+#: artifacts/phase_1/en/condenses.pug:2 artifacts/phase_1/en/index.pug:23
+msgid "science"
+msgstr ""
+
+#: artifacts/phase_1/en/about.pug:11
+msgid "scientifique"
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:107 artifacts/phase_1/en/index.pug:53
+msgid "search"
+msgstr ""
+
+#: artifacts/phase_1/en/contact.pug:3
+msgid "send a mail at"
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:98 artifacts/phase_1/en/index.pug:47
+msgid "site"
+msgstr ""
+
+#: artifacts/phase_1/en/contact.pug:5
+msgid "slide into my dms at"
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:110 artifacts/phase_1/en/index.pug:56
+msgctxt "Gallery toolbar"
+msgid "sorted by"
+msgstr ""
+
+#: artifacts/phase_1/en/about.pug:2 artifacts/phase_1/en/index.pug:2
+msgid "These are my creations."
+msgstr ""
+
+#: artifacts/phase_1/en/about.pug:8
+msgid ""
+"Tout mes projets de programmation sont visibles par tous sur mon profil "
+"GitHub: tout mes projets sont dits \"Open Source\"."
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:89 artifacts/phase_1/en/index.pug:44
+msgid "typography"
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:133 artifacts/phase_1/en/index.pug:77
+msgid "Unknown year"
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:77 artifacts/phase_1/en/index.pug:40
+msgid "visual identity"
+msgstr ""
+
+#: artifacts/phase_1/en/index.pug:47 artifacts/phase_1/en/index.pug:30
+msgid "web"
+msgstr ""

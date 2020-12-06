@@ -15,9 +15,9 @@
                    |
                    |   pnpm database:build
                    v
-        +----------+----------+     +-----------+                             +----------+          +-----------+         +-----------+
-        | database/works.json |     | src/*.pug |                             | src/*.ts |          | src/*.css |         | static/** |
-        +----------+----------+     +-----+-----+                             +----+-----+          +-----+-----+         +-----+-----+
+     +-------------+----------+     +-----------+                             +----------+          +-----------+         +-----------+
+     | database/database.json |     | src/*.pug |                             | src/*.ts |          | src/*.css |         | static/** |
+     +-------------+----------+     +-----+-----+                             +----+-----+          +-----+-----+         +-----+-----+
                    |                      |                                        |                      |                     |
                    +--------------------->+   pnpm pug:hydrate                     |                      |                     |
                                           v                                        |                      |                     |
@@ -25,49 +25,53 @@
                          | artifacts/phase_1/{lang}/*.pug |                        |                      |                     |
                          +----------------+---------------+                        |                      |                     |
                                           |                                        |                      |                     |
-                                          |   pnpm messages:extract                |                      |                     |
+                                          |                                        |                      |                     |
                                           |                                        |                      |                     |
                               +-----------+-----------+                            |                      |                     |
-                              |                       |                            |                      |                     |
+      pnpm messages:extract   |                       |                            |                      |                     |
+      pnpm messages:combine   |                       |   pnpm pug:build           |                      |                     |
                               v                       v                            |                      |                     |
-                   +----------+--------+  +-----------+--------------------+       |                      |                     |
-                   | messages/fr_FR.po |  | artifacts/phase_2/{lang}/*.pug |       |                      |                     |
-                   +----------+--------+  +-----------+--------------------+       |                      |                     |
+                  +-----------+--------+  +-----------+--------------------+       |                      |                     |
+                  | messages/{lang}.po |  | artifacts/phase_2/{lang}/*.pug |       |                      |                     |
+                  +-----------+--------+  +-----------+--------------------+       |                      |                     |
                               |                       |                            |                      |                     |
-        pnpm messages:build   |                       |   pnpm pug:build           |                      |                     |
-                              v                       v                            |                      |                     |
-                   +----------+--------+  +-----------+--------------------+       |                      |                     |
-                   | messages/fr_FR.mo |  |artifacts/phase_3/{lang}/*.html |       |                      |                     |
-                   +----------+--------+  +-----------+--------------------+       |                      |                     |
+        pnpm messages:build   |                       |                            |                      |                     |
+                              v                       |                            |                      |                     |
+                  +-----------+--------+              |                            |                      |                     |
+                  | messages/{lang}.mo |              |                            |                      |                     |
+                  +-----------+--------+              |                            |                      |                     |
                               |                       |                            |                      |                     |
                               |                       |                            |                      |                     |
                               +-----------+-----------+                            |                      |                     |
                                           |                                        |                      |                     |
                                           |   pnpm html:translate                  |                      |                     |
-                                          v                                        |   pnpm js:build      |   pnpm css:build    |   pnpm static:build
+                                          v                                        |   pnpm ts:build      |   pnpm stylus:build |   pnpm static:build
                                +----------+---------+                              |                      |                     |
                                | dist/{lang}/*.html +<-----------------------------+----------------------+---------------------+
                                +--------------------+
 ```
 
-## 
+## Macro-commands
 
 <dl>
-  <dt></dt>
-  <dd></dd>
+  <dt><code>database:update</code></dt>
+  <dd><code>database:crawl</code> then <code>database:build</code></dd>
+  <dt><code>prepare:i18n</code></dt>
+  <dd>from <code>pug:hydrate</code> to <code>messages:combine</code></dd>
+  <dt><code>make</code></dt>
+  <dd><code>*:build</code> and <code>html:translate</code></dd>
 </dl>
 
 ## Cleanup
 
-- `rm -r trans/`
-- `rm messages/dictionary.mo`
 
 ## Workflow
 
 1. Edit `{src,}/**` files
-2. Run `pnpm prepare:i18n`
-3. Add missing translations to `messages/fr_FR.po`
-4. Run `pnpm makeclean`
+2. Update database if needed: `pnpm database:update` (i.e. if you changed some description.md files and/or added a new project)
+3. Run `pnpm prepare:i18n`
+4. Add missing translations to `messages/*.po`
+5. Run `pnpm makeclean`
 
 Or:
 

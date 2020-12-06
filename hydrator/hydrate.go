@@ -15,111 +15,8 @@ import (
 	"github.com/relvacode/iso8601"
 )
 
-var tags = [...]Tag{
-	{
-		DisplayName: "card",
-		URLName:     "cards",
-	},
-	{
-		DisplayName: "cover art",
-		URLName:     "cover-arts",
-	},
-	{
-		DisplayName: "game",
-		URLName:     "games",
-	},
-	{
-		DisplayName: "graphism",
-		URLName:     "graphism",
-	},
-	{
-		DisplayName: "poster",
-		URLName:     "posters",
-	},
-	{
-		DisplayName: "automation",
-		URLName:     "automation",
-	},
-	{
-		DisplayName: "web",
-		URLName:     "web",
-	},
-	{
-		DisplayName: "intro",
-		URLName:     "intros",
-	},
-	{
-		DisplayName: "music",
-		URLName:     "music",
-	},
-	{
-		DisplayName: "app",
-		URLName:     "apps",
-	},
-	{
-		DisplayName: "book",
-		URLName:     "books",
-	},
-	{
-		DisplayName: "api",
-		URLName:     "APIs",
-	},
-	{
-		DisplayName: "program",
-		URLName:     "programs",
-	},
-	{
-		DisplayName: "cli",
-		URLName:     "CLIs",
-	},
-	{
-		DisplayName: "motion design",
-		URLName:     "motion-design",
-	},
-	{
-		DisplayName: "compositing",
-		URLName:     "compositing",
-	},
-	{
-		DisplayName: "visual identity",
-		URLName:     "visual-identities",
-	},
-	{
-		DisplayName: "banner",
-		URLName:     "banners",
-	},
-	{
-		DisplayName: "illustration",
-		URLName:     "illustrations",
-	},
-	{
-		DisplayName: "logo",
-		URLName:     "logos",
-	},
-	{
-		DisplayName: "typography",
-		URLName:     "typography",
-	},
-	{
-		DisplayName: "drawing",
-		URLName:     "drawings",
-	},
-	{
-		DisplayName: "iconography",
-		URLName:     "iconography",
-	},
-	{
-		DisplayName: "site",
-		URLName:     "sites",
-	},
-	{
-		DisplayName: "language",
-		URLName:     "languages",
-	},
-}
-
 func main() {
-	db, err := LoadDatabase("../database/works.json")
+	db, err := LoadDatabase("../database/database.json")
 	if err != nil {
 		panic(err)
 	}
@@ -127,20 +24,29 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	for _, file := range files {
-		if strings.HasSuffix(file.Name(), ".pug") {
-			templateString, err := ReadFile("../src/" + file.Name())
-			if err != nil {
-				panic(err)
-			}
-			if file.Name() == "_work.pug" {
-				for _, work := range db.Works {
-					println("[hydrator]     hydrating: '" + file.Name() + "' @ " + work.ID)
-					replaced, err := ExecuteTemplate(string(templateString), db, GetOneLang("en-US", work)[0], "/"+work.ID)
+	for _, lang := range []string{"fr", "en"} {
+		for _, file := range files {
+			if strings.HasSuffix(file.Name(), ".pug") {
+				templateString, err := ReadFile("../src/" + file.Name())
+				if file.Name() == "_work.pug" {
 					if err != nil {
 						panic(err)
 					}
-					file, err := os.Create("../trans/src/" + work.ID + ".pug")
+					for _, work := range db.Works {
+						println("[hydrator]     hydrating: '" + file.Name() + "' @ " + work.ID)
+						HydrateWorkFileWithLang(templateString, "src/"+file.Name(), db, work, lang)
+					}
+				} else {
+					println("[hydrator]     hydrating: '" + file.Name() + "'")
+					currentPath := strings.TrimSuffix(file.Name(), ".pug")
+					if currentPath == "index" {
+						currentPath = ""
+					}
+					replaced, err := ExecuteTemplate(string(templateString), "src/"+file.Name(), db, WorkOneLang{}, "/"+currentPath, lang)
+					if err != nil {
+						panic(err)
+					}
+					file, err := os.Create("../artifacts/phase_1/" + lang + "/" + file.Name())
 					if err != nil {
 						panic(err)
 					}
@@ -149,27 +55,25 @@ func main() {
 						panic(err)
 					}
 				}
-			} else {
-				println("[hydrator]     hydrating: '" + file.Name() + "'")
-				currentPath := strings.TrimSuffix(file.Name(), ".pug")
-				if currentPath == "index" {
-					currentPath = ""
-				}
-				replaced, err := ExecuteTemplate(string(templateString), db, WorkOneLang{}, "/"+currentPath)
-				if err != nil {
-					panic(err)
-				}
-				file, err := os.Create("../trans/src/" + file.Name())
-				if err != nil {
-					panic(err)
-				}
-				_, err = file.WriteString(replaced)
-				if err != nil {
-					panic(err)
-				}
-			}
 
+			}
 		}
+	}
+}
+
+func HydrateWorkFileWithLang(templateString []byte, templateName string, db Database, work Work, lang string) {
+	replaced, err := ExecuteTemplate(string(templateString), templateName, db, GetOneLang(lang, work)[0], "/"+work.ID, lang)
+	if err != nil {
+		panic(err)
+	}
+	os.MkdirAll("../artifacts/phase_1/"+lang, 0o0666)
+	file, err := os.Create("../artifacts/phase_1/" + lang + "/" + work.ID + ".pug")
+	if err != nil {
+		panic(err)
+	}
+	_, err = file.WriteString(replaced)
+	if err != nil {
+		panic(err)
 	}
 }
 
@@ -194,7 +98,11 @@ type Database struct {
 
 func (work *Work) Created() time.Time {
 	createdDate := work.Metadata.Created
-	parsedDate, err := iso8601.ParseString(strings.ReplaceAll(createdDate, "?", "1"))
+	parsedDate, err := iso8601.ParseString(
+		strings.ReplaceAll(
+			strings.Replace(createdDate, "????", "9999", 1), "?", "1",
+		),
+	)
 	if err != nil {
 		fmt.Printf("Error while parsing creation date of %v:\n", work.ID)
 		panic(err)
@@ -205,6 +113,9 @@ func (work *Work) Created() time.Time {
 func (db *Database) LatestWork() Work {
 	latest := db.Works[0]
 	for _, work := range db.Works {
+		if work.Created().Year() == 9999 {
+			continue
+		}
 		if work.Created().After(latest.Created()) {
 			latest = work
 		}
@@ -215,14 +126,44 @@ func (db *Database) LatestWork() Work {
 func GetOneLang(lang string, works ...Work) []WorkOneLang {
 	result := make([]WorkOneLang, 0, len(works))
 	for _, work := range works {
+		var title string
+		paragraphs := make([]Paragraph, 0)
+		media := make([]Media, 0)
+		links := make([]Link, 0)
+		footnotes := make([]Footnote, 0)
+		if len(work.Title[lang]) > 0 {
+			title = work.Title[lang]
+		} else {
+			title = work.Title["default"]
+		}
+		if len(work.Paragraphs[lang]) > 0 {
+			paragraphs = work.Paragraphs[lang]
+		} else {
+			paragraphs = work.Paragraphs["default"]
+		}
+		if len(work.Media[lang]) > 0 {
+			media = work.Media[lang]
+		} else {
+			media = work.Media["default"]
+		}
+		if len(work.Links[lang]) > 0 {
+			links = work.Links[lang]
+		} else {
+			links = work.Links["default"]
+		}
+		if len(work.Footnotes[lang]) > 0 {
+			footnotes = work.Footnotes[lang]
+		} else {
+			footnotes = work.Footnotes["default"]
+		}
 		result = append(result, WorkOneLang{
 			ID:         work.ID,
 			Metadata:   work.Metadata,
-			Title:      work.Title[lang],
-			Paragraphs: work.Paragraphs[lang],
-			Media:      work.Media[lang],
-			Links:      work.Links[lang],
-			Footnotes:  work.Footnotes[lang],
+			Title:      title,
+			Paragraphs: paragraphs,
+			Media:      media,
+			Links:      links,
+			Footnotes:  footnotes,
 		})
 	}
 	return result
@@ -237,13 +178,13 @@ func (db *Database) WorksByYearOneLang(lang string) map[int][]WorkOneLang {
 	return worksByYear
 }
 
-func ExecuteTemplate(templateString string, db Database, currentWork WorkOneLang, currentPath string) (string, error) {
-	tmpl := template.Must(template.New("whatever").Funcs(template.FuncMap{
+func ExecuteTemplate(templateString string, templateName string, db Database, currentWork WorkOneLang, currentPath string, lang string) (string, error) {
+	tmpl := template.Must(template.New(templateName).Funcs(template.FuncMap{
 		"summarize": func(s string) string {
 			var runesCount = 0
 			for index := range s {
 				runesCount++
-				if runesCount > 25 {
+				if runesCount > 150 {
 					return s[:index] + "…"
 				}
 			}
@@ -255,7 +196,7 @@ func ExecuteTemplate(templateString string, db Database, currentWork WorkOneLang
 					return tag
 				}
 			}
-			panic("Cannot find tag with name " + tagName)
+			panic("cannot find tag with name " + tagName + ", look at /mnt/d/projects/portfolio-next/hydrator/tags.go")
 		},
 	}).Funcs(sprig.TxtFuncMap()).Funcs(template.FuncMap{
 		"tindent":  IndentWithTabs,
@@ -264,9 +205,9 @@ func ExecuteTemplate(templateString string, db Database, currentWork WorkOneLang
 	var buf bytes.Buffer
 	err := tmpl.Execute(&buf, TemplateData{
 		Tags:                   tags,
-		LatestWork:             GetOneLang("en-US", db.LatestWork())[0],
+		LatestWork:             GetOneLang(lang, db.LatestWork())[0],
 		SortingOptions:         []string{"date"}, //TODO: more sorting options
-		WorksByYear:            db.WorksByYearOneLang("en-US"),
+		WorksByYear:            db.WorksByYearOneLang(lang),
 		CurrentWork:            currentWork,
 		CurrentWorkBuiltLayout: currentWork.BuildLayout(),
 		CurrentPath:            currentPath,

@@ -1,4 +1,4 @@
-module github.com/ewen-lbh/portfolio-next/compiler
+module github.com/ewen-lbh/portfolio-next/hydrate
 
 go 1.14
 

@@ -180,3 +180,7 @@ node_modules/
 trans/
 messages/*.mo
 dist/
+
+database/
+!database/database.json
+!database/.portfoliodb.y{a,}ml

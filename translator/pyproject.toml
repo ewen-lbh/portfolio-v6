@@ -7,6 +7,7 @@ authors = ["Ewen Le Bihan <hey@ewen.works>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 beautifulsoup4 = "^4.9.3"
+polib = "^1.1.0"
 
 [tool.poetry.dev-dependencies]
 pylint = "^2.6.0"

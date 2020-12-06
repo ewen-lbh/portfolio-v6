@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-pnpm prepare:i18n && read -p 'Press Enter when messages/fr_FR.po is filled' && pnpm makeclean
+pnpm database:update && pnpm prepare:i18n && read -p 'Press Enter when messages/*.po are filled' && pnpm makeclean

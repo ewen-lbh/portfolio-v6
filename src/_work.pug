@@ -1,6 +1,6 @@
 ul.tags
 	{{ range .CurrentWork.Metadata.Tags }}
-	li: a(href="/{{ (lookupTag .).URLName }}"): i18n {{ . }}
+	li: a(href="/{{ (lookupTag .).URLName }}" translate) {{ . }}
 	{{ end }}
 
 section.contents
