@@ -26,7 +26,9 @@ def translate(lang: str):
             for tag in html("i18n") + html(translate="translate"):
                 del tag["translate"]
                 if tag.name == "i18n":
-                    tag.name = "span"
+                    # TODO: Find a way to _remove_ the tag and insert the content 
+                    # into the parent tag as a text node directly, this is ugly af.
+                    tag.name = "span" 
         with open(translated_dir / lang / filepath, 'w') as file:
             file.write(str(html))
 
