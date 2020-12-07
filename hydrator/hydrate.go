@@ -85,6 +85,7 @@ type TemplateData struct {
 	CurrentWork            WorkOneLang
 	CurrentWorkBuiltLayout string
 	CurrentPath            string
+	Age                    uint8
 }
 
 type Tag struct {
@@ -178,6 +179,11 @@ func (db *Database) WorksByYearOneLang(lang string) map[int][]WorkOneLang {
 	return worksByYear
 }
 
+func GetAge() uint8 {
+	// TODO Do it dynamically
+	return 17
+}
+
 func ExecuteTemplate(templateString string, templateName string, db Database, currentWork WorkOneLang, currentPath string, lang string) (string, error) {
 	tmpl := template.Must(template.New(templateName).Funcs(template.FuncMap{
 		"summarize": func(s string) string {
@@ -211,6 +217,7 @@ func ExecuteTemplate(templateString string, templateName string, db Database, cu
 		CurrentWork:            currentWork,
 		CurrentWorkBuiltLayout: currentWork.BuildLayout(),
 		CurrentPath:            currentPath,
+		Age:                    GetAge(),
 	})
 	if err != nil {
 		return "", err
