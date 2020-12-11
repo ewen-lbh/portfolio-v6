@@ -12,6 +12,7 @@ import (
 	jsoniter "github.com/json-iterator/go"
 
 	"github.com/Masterminds/sprig"
+	"github.com/joho/godotenv"
 	"github.com/relvacode/iso8601"
 )
 
@@ -24,6 +25,17 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+	err = godotenv.Load("./.env")
+	if err != nil {
+		panic("Could not load the .env file")
+	}
+	fmt.Println("------")
+	if os.Getenv("ENVIRONMENT") != "dev" {
+		fmt.Println("Hydrating for production")
+	} else {
+		fmt.Println("Hydrating for developement")
+	}
+	fmt.Println("------")
 	for _, lang := range []string{"fr", "en"} {
 		for _, file := range files {
 			if strings.HasSuffix(file.Name(), ".pug") {
@@ -184,6 +196,28 @@ func GetAge() uint8 {
 	return 17
 }
 
+// AssetURL returns the full URL for a given asset.
+func AssetURL(assetPath string) string {
+	var urlScheme string
+	if os.Getenv("ENVIRONMENT") == "dev" {
+		urlScheme = "file:///home/ewen/projects/portfolio-next/assets/%s"
+	} else {
+		urlScheme = "https://assets.ewen.works/%s"
+	}
+	return fmt.Sprintf(urlScheme, assetPath)
+}
+
+// MediaURL returns the full URL for a given media.
+func MediaURL(mediaPath string) string {
+	var urlScheme string
+	if os.Getenv("ENVIRONMENT") == "dev" {
+		urlScheme = "file:///home/ewen/projects/%s"
+	} else {
+		urlScheme = "https://media.ewen.works/%s"
+	}
+	return fmt.Sprintf(urlScheme, mediaPath)
+}
+
 func ExecuteTemplate(templateString string, templateName string, db Database, currentWork WorkOneLang, currentPath string, lang string) (string, error) {
 	tmpl := template.Must(template.New(templateName).Funcs(template.FuncMap{
 		"summarize": func(s string) string {
@@ -202,7 +236,13 @@ func ExecuteTemplate(templateString string, templateName string, db Database, cu
 					return tag
 				}
 			}
-			panic("cannot find tag with name " + tagName + ", look at /mnt/d/projects/portfolio-next/hydrator/tags.go")
+		},
+		"asset": AssetURL,
+		"media": func(mediaPath string) string {
+			if strings.HasPrefix(mediaPath, "/") {
+				return MediaURL(strings.TrimPrefix(mediaPath, "/"))
+			}
+			return MediaURL(currentWork.ID + "/" + mediaPath)
 		},
 	}).Funcs(sprig.TxtFuncMap()).Funcs(template.FuncMap{
 		"tindent":  IndentWithTabs,
