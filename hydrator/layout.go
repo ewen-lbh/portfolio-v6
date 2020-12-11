@@ -62,6 +62,8 @@ func (work *WorkOneLang) BuildLayout() string {
 	return built
 }
 
+// TODO: handle no layout defined explicitly
+
 func loadLayout(layout []interface{}) Layout {
 	loaded := make([][]LayoutElement, 0)
 	for _, layoutRowMaybeSlice := range layout {

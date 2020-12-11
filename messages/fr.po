@@ -3,6 +3,22 @@ msgid ""
 msgstr ""
 "#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
 "#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: easygettext\n"
@@ -14,6 +30,86 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Language: fr\n"
 "X-Generator: Poedit 2.4.1\n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
 "#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -119,14 +215,65 @@ msgid ""
 msgstr ""
 
 #: artifacts/phase_1/en/index.pug:95 artifacts/phase_1/en/index.pug:46
+#: artifacts/phase_1/en/index.pug:42 artifacts/phase_1/en/index.pug:47
+#: artifacts/phase_1/en/APIs.pug:31 artifacts/phase_1/en/CLIs.pug:31
+#: artifacts/phase_1/en/apps.pug:31 artifacts/phase_1/en/automation.pug:31
+#: artifacts/phase_1/en/banners.pug:31 artifacts/phase_1/en/books.pug:31
+#: artifacts/phase_1/en/cards.pug:31 artifacts/phase_1/en/compositing.pug:31
+#: artifacts/phase_1/en/cover-arts.pug:31 artifacts/phase_1/en/drawings.pug:31
+#: artifacts/phase_1/en/games.pug:31 artifacts/phase_1/en/graphism.pug:31
+#: artifacts/phase_1/en/iconography.pug:31
+#: artifacts/phase_1/en/illustrations.pug:31 artifacts/phase_1/en/intros.pug:31
+#: artifacts/phase_1/en/languages.pug:31 artifacts/phase_1/en/logos.pug:31
+#: artifacts/phase_1/en/math.pug:31 artifacts/phase_1/en/motion-design.pug:31
+#: artifacts/phase_1/en/music.pug:31 artifacts/phase_1/en/posters.pug:31
+#: artifacts/phase_1/en/programs.pug:31 artifacts/phase_1/en/school.pug:31
+#: artifacts/phase_1/en/science.pug:31 artifacts/phase_1/en/sites.pug:31
+#: artifacts/phase_1/en/typography.pug:31
+#: artifacts/phase_1/en/visual-identities.pug:31
+#: artifacts/phase_1/en/web.pug:31 artifacts/phase_1/en/iconography.pug:1
 msgid "iconography"
 msgstr ""
 
 #: artifacts/phase_1/en/index.pug:83 artifacts/phase_1/en/index.pug:42
+#: artifacts/phase_1/en/index.pug:38 artifacts/phase_1/en/index.pug:43
+#: artifacts/phase_1/en/APIs.pug:27 artifacts/phase_1/en/CLIs.pug:27
+#: artifacts/phase_1/en/apps.pug:27 artifacts/phase_1/en/automation.pug:27
+#: artifacts/phase_1/en/banners.pug:27 artifacts/phase_1/en/books.pug:27
+#: artifacts/phase_1/en/cards.pug:27 artifacts/phase_1/en/compositing.pug:27
+#: artifacts/phase_1/en/cover-arts.pug:27 artifacts/phase_1/en/drawings.pug:27
+#: artifacts/phase_1/en/games.pug:27 artifacts/phase_1/en/graphism.pug:27
+#: artifacts/phase_1/en/iconography.pug:27
+#: artifacts/phase_1/en/illustrations.pug:27 artifacts/phase_1/en/intros.pug:27
+#: artifacts/phase_1/en/languages.pug:27 artifacts/phase_1/en/logos.pug:27
+#: artifacts/phase_1/en/math.pug:27 artifacts/phase_1/en/motion-design.pug:27
+#: artifacts/phase_1/en/music.pug:27 artifacts/phase_1/en/posters.pug:27
+#: artifacts/phase_1/en/programs.pug:27 artifacts/phase_1/en/school.pug:27
+#: artifacts/phase_1/en/science.pug:27 artifacts/phase_1/en/sites.pug:27
+#: artifacts/phase_1/en/typography.pug:27
+#: artifacts/phase_1/en/visual-identities.pug:27
+#: artifacts/phase_1/en/web.pug:27 artifacts/phase_1/en/illustrations.pug:1
 msgid "illustration"
 msgstr ""
 
 #: artifacts/phase_1/en/index.pug:50 artifacts/phase_1/en/index.pug:31
+#: artifacts/phase_1/en/index.pug:27 artifacts/phase_1/en/index.pug:32
+#: artifacts/phase_1/en/APIs.pug:16 artifacts/phase_1/en/CLIs.pug:16
+#: artifacts/phase_1/en/apps.pug:16 artifacts/phase_1/en/automation.pug:16
+#: artifacts/phase_1/en/banners.pug:16 artifacts/phase_1/en/books.pug:16
+#: artifacts/phase_1/en/cards.pug:16 artifacts/phase_1/en/compositing.pug:16
+#: artifacts/phase_1/en/cover-arts.pug:16 artifacts/phase_1/en/drawings.pug:16
+#: artifacts/phase_1/en/games.pug:16 artifacts/phase_1/en/graphism.pug:16
+#: artifacts/phase_1/en/iconography.pug:16
+#: artifacts/phase_1/en/illustrations.pug:16 artifacts/phase_1/en/intros.pug:16
+#: artifacts/phase_1/en/languages.pug:16 artifacts/phase_1/en/logos.pug:16
+#: artifacts/phase_1/en/math.pug:16 artifacts/phase_1/en/motion-design.pug:16
+#: artifacts/phase_1/en/music.pug:16 artifacts/phase_1/en/posters.pug:16
+#: artifacts/phase_1/en/programs.pug:16 artifacts/phase_1/en/school.pug:16
+#: artifacts/phase_1/en/science.pug:16 artifacts/phase_1/en/sites.pug:16
+#: artifacts/phase_1/en/typography.pug:16
+#: artifacts/phase_1/en/visual-identities.pug:16
+#: artifacts/phase_1/en/web.pug:16 artifacts/phase_1/en/intros.pug:1
 msgid "intro"
 msgstr ""
 
@@ -149,6 +296,23 @@ msgstr ""
 
 #: artifacts/phase_1/en/index.pug:101 artifacts/phase_1/en/pychemin.pug:7
 #: artifacts/phase_1/en/index.pug:48 artifacts/phase_1/en/pychemin.pug:4
+#: artifacts/phase_1/en/index.pug:44 artifacts/phase_1/en/index.pug:49
+#: artifacts/phase_1/en/APIs.pug:33 artifacts/phase_1/en/CLIs.pug:33
+#: artifacts/phase_1/en/apps.pug:33 artifacts/phase_1/en/automation.pug:33
+#: artifacts/phase_1/en/banners.pug:33 artifacts/phase_1/en/books.pug:33
+#: artifacts/phase_1/en/cards.pug:33 artifacts/phase_1/en/compositing.pug:33
+#: artifacts/phase_1/en/cover-arts.pug:33 artifacts/phase_1/en/drawings.pug:33
+#: artifacts/phase_1/en/games.pug:33 artifacts/phase_1/en/graphism.pug:33
+#: artifacts/phase_1/en/iconography.pug:33
+#: artifacts/phase_1/en/illustrations.pug:33 artifacts/phase_1/en/intros.pug:33
+#: artifacts/phase_1/en/languages.pug:33 artifacts/phase_1/en/logos.pug:33
+#: artifacts/phase_1/en/math.pug:33 artifacts/phase_1/en/motion-design.pug:33
+#: artifacts/phase_1/en/music.pug:33 artifacts/phase_1/en/posters.pug:33
+#: artifacts/phase_1/en/programs.pug:33 artifacts/phase_1/en/school.pug:33
+#: artifacts/phase_1/en/science.pug:33 artifacts/phase_1/en/sites.pug:33
+#: artifacts/phase_1/en/typography.pug:33
+#: artifacts/phase_1/en/visual-identities.pug:33
+#: artifacts/phase_1/en/web.pug:33 artifacts/phase_1/en/languages.pug:1
 msgid "language"
 msgstr ""
 
@@ -169,14 +333,66 @@ msgid "linguistique"
 msgstr ""
 
 #: artifacts/phase_1/en/index.pug:86 artifacts/phase_1/en/index.pug:43
+#: artifacts/phase_1/en/index.pug:39 artifacts/phase_1/en/index.pug:44
+#: artifacts/phase_1/en/APIs.pug:28 artifacts/phase_1/en/CLIs.pug:28
+#: artifacts/phase_1/en/apps.pug:28 artifacts/phase_1/en/automation.pug:28
+#: artifacts/phase_1/en/banners.pug:28 artifacts/phase_1/en/books.pug:28
+#: artifacts/phase_1/en/cards.pug:28 artifacts/phase_1/en/compositing.pug:28
+#: artifacts/phase_1/en/cover-arts.pug:28 artifacts/phase_1/en/drawings.pug:28
+#: artifacts/phase_1/en/games.pug:28 artifacts/phase_1/en/graphism.pug:28
+#: artifacts/phase_1/en/iconography.pug:28
+#: artifacts/phase_1/en/illustrations.pug:28 artifacts/phase_1/en/intros.pug:28
+#: artifacts/phase_1/en/languages.pug:28 artifacts/phase_1/en/logos.pug:28
+#: artifacts/phase_1/en/math.pug:28 artifacts/phase_1/en/motion-design.pug:28
+#: artifacts/phase_1/en/music.pug:28 artifacts/phase_1/en/posters.pug:28
+#: artifacts/phase_1/en/programs.pug:28 artifacts/phase_1/en/school.pug:28
+#: artifacts/phase_1/en/science.pug:28 artifacts/phase_1/en/sites.pug:28
+#: artifacts/phase_1/en/typography.pug:28
+#: artifacts/phase_1/en/visual-identities.pug:28
+#: artifacts/phase_1/en/web.pug:28 artifacts/phase_1/en/logos.pug:1
 msgid "logo"
 msgstr ""
 
 #: artifacts/phase_1/en/index.pug:71 artifacts/phase_1/en/index.pug:38
+#: artifacts/phase_1/en/fubini-visualized.pug:5
+#: artifacts/phase_1/en/index.pug:34 artifacts/phase_1/en/index.pug:39
+#: artifacts/phase_1/en/APIs.pug:23 artifacts/phase_1/en/CLIs.pug:23
+#: artifacts/phase_1/en/apps.pug:23 artifacts/phase_1/en/automation.pug:23
+#: artifacts/phase_1/en/banners.pug:23 artifacts/phase_1/en/books.pug:23
+#: artifacts/phase_1/en/cards.pug:23 artifacts/phase_1/en/compositing.pug:23
+#: artifacts/phase_1/en/cover-arts.pug:23 artifacts/phase_1/en/drawings.pug:23
+#: artifacts/phase_1/en/games.pug:23 artifacts/phase_1/en/graphism.pug:23
+#: artifacts/phase_1/en/iconography.pug:23
+#: artifacts/phase_1/en/illustrations.pug:23 artifacts/phase_1/en/intros.pug:23
+#: artifacts/phase_1/en/languages.pug:23 artifacts/phase_1/en/logos.pug:23
+#: artifacts/phase_1/en/math.pug:23 artifacts/phase_1/en/motion-design.pug:23
+#: artifacts/phase_1/en/music.pug:23 artifacts/phase_1/en/posters.pug:23
+#: artifacts/phase_1/en/programs.pug:23 artifacts/phase_1/en/school.pug:23
+#: artifacts/phase_1/en/science.pug:23 artifacts/phase_1/en/sites.pug:23
+#: artifacts/phase_1/en/typography.pug:23
+#: artifacts/phase_1/en/visual-identities.pug:23
+#: artifacts/phase_1/en/web.pug:23 artifacts/phase_1/en/motion-design.pug:1
 msgid "motion design"
 msgstr ""
 
 #: artifacts/phase_1/en/index.pug:53 artifacts/phase_1/en/index.pug:32
+#: artifacts/phase_1/en/index.pug:28 artifacts/phase_1/en/index.pug:33
+#: artifacts/phase_1/en/APIs.pug:17 artifacts/phase_1/en/CLIs.pug:17
+#: artifacts/phase_1/en/apps.pug:17 artifacts/phase_1/en/automation.pug:17
+#: artifacts/phase_1/en/banners.pug:17 artifacts/phase_1/en/books.pug:17
+#: artifacts/phase_1/en/cards.pug:17 artifacts/phase_1/en/compositing.pug:17
+#: artifacts/phase_1/en/cover-arts.pug:17 artifacts/phase_1/en/drawings.pug:17
+#: artifacts/phase_1/en/games.pug:17 artifacts/phase_1/en/graphism.pug:17
+#: artifacts/phase_1/en/iconography.pug:17
+#: artifacts/phase_1/en/illustrations.pug:17 artifacts/phase_1/en/intros.pug:17
+#: artifacts/phase_1/en/languages.pug:17 artifacts/phase_1/en/logos.pug:17
+#: artifacts/phase_1/en/math.pug:17 artifacts/phase_1/en/motion-design.pug:17
+#: artifacts/phase_1/en/music.pug:17 artifacts/phase_1/en/posters.pug:17
+#: artifacts/phase_1/en/programs.pug:17 artifacts/phase_1/en/school.pug:17
+#: artifacts/phase_1/en/science.pug:17 artifacts/phase_1/en/sites.pug:17
+#: artifacts/phase_1/en/typography.pug:17
+#: artifacts/phase_1/en/visual-identities.pug:17
+#: artifacts/phase_1/en/web.pug:17 artifacts/phase_1/en/music.pug:1
 msgid "music"
 msgstr ""
 
@@ -185,22 +401,92 @@ msgid "numérique"
 msgstr ""
 
 #: artifacts/phase_1/en/index.pug:41 artifacts/phase_1/en/index.pug:28
+#: artifacts/phase_1/en/index.pug:24 artifacts/phase_1/en/index.pug:29
+#: artifacts/phase_1/en/APIs.pug:13 artifacts/phase_1/en/CLIs.pug:13
+#: artifacts/phase_1/en/apps.pug:13 artifacts/phase_1/en/automation.pug:13
+#: artifacts/phase_1/en/banners.pug:13 artifacts/phase_1/en/books.pug:13
+#: artifacts/phase_1/en/cards.pug:13 artifacts/phase_1/en/compositing.pug:13
+#: artifacts/phase_1/en/cover-arts.pug:13 artifacts/phase_1/en/drawings.pug:13
+#: artifacts/phase_1/en/games.pug:13 artifacts/phase_1/en/graphism.pug:13
+#: artifacts/phase_1/en/iconography.pug:13
+#: artifacts/phase_1/en/illustrations.pug:13 artifacts/phase_1/en/intros.pug:13
+#: artifacts/phase_1/en/languages.pug:13 artifacts/phase_1/en/logos.pug:13
+#: artifacts/phase_1/en/math.pug:13 artifacts/phase_1/en/motion-design.pug:13
+#: artifacts/phase_1/en/music.pug:13 artifacts/phase_1/en/posters.pug:13
+#: artifacts/phase_1/en/programs.pug:13 artifacts/phase_1/en/school.pug:13
+#: artifacts/phase_1/en/science.pug:13 artifacts/phase_1/en/sites.pug:13
+#: artifacts/phase_1/en/typography.pug:13
+#: artifacts/phase_1/en/visual-identities.pug:13
+#: artifacts/phase_1/en/web.pug:13 artifacts/phase_1/en/posters.pug:1
 msgid "poster"
 msgstr ""
 
 #: artifacts/phase_1/en/index.pug:65 artifacts/phase_1/en/phelng.pug:5
 #: artifacts/phase_1/en/pychemin.pug:3 artifacts/phase_1/en/index.pug:36
 #: artifacts/phase_1/en/phelng.pug:3 artifacts/phase_1/en/pychemin.pug:2
+#: artifacts/phase_1/en/fubini-visualized.pug:2
+#: artifacts/phase_1/en/ideaseed.pug:3 artifacts/phase_1/en/index.pug:32
+#: artifacts/phase_1/en/index.pug:37 artifacts/phase_1/en/APIs.pug:21
+#: artifacts/phase_1/en/CLIs.pug:21 artifacts/phase_1/en/apps.pug:21
+#: artifacts/phase_1/en/automation.pug:21 artifacts/phase_1/en/banners.pug:21
+#: artifacts/phase_1/en/books.pug:21 artifacts/phase_1/en/cards.pug:21
+#: artifacts/phase_1/en/compositing.pug:21
+#: artifacts/phase_1/en/cover-arts.pug:21 artifacts/phase_1/en/drawings.pug:21
+#: artifacts/phase_1/en/games.pug:21 artifacts/phase_1/en/graphism.pug:21
+#: artifacts/phase_1/en/iconography.pug:21
+#: artifacts/phase_1/en/illustrations.pug:21 artifacts/phase_1/en/intros.pug:21
+#: artifacts/phase_1/en/languages.pug:21 artifacts/phase_1/en/logos.pug:21
+#: artifacts/phase_1/en/math.pug:21 artifacts/phase_1/en/motion-design.pug:21
+#: artifacts/phase_1/en/music.pug:21 artifacts/phase_1/en/posters.pug:21
+#: artifacts/phase_1/en/programs.pug:21 artifacts/phase_1/en/school.pug:21
+#: artifacts/phase_1/en/science.pug:21 artifacts/phase_1/en/sites.pug:21
+#: artifacts/phase_1/en/typography.pug:21
+#: artifacts/phase_1/en/visual-identities.pug:21
+#: artifacts/phase_1/en/web.pug:21 artifacts/phase_1/en/programs.pug:1
 msgid "program"
 msgstr ""
 
 #: artifacts/phase_1/en/condenses.pug:5 artifacts/phase_1/en/index.pug:23
 #: artifacts/phase_1/en/condenses.pug:3 artifacts/phase_1/en/index.pug:22
+#: artifacts/phase_1/en/index.pug:18 artifacts/phase_1/en/APIs.pug:7
+#: artifacts/phase_1/en/CLIs.pug:7 artifacts/phase_1/en/apps.pug:7
+#: artifacts/phase_1/en/automation.pug:7 artifacts/phase_1/en/banners.pug:7
+#: artifacts/phase_1/en/books.pug:7 artifacts/phase_1/en/cards.pug:7
+#: artifacts/phase_1/en/compositing.pug:7 artifacts/phase_1/en/cover-arts.pug:7
+#: artifacts/phase_1/en/drawings.pug:7 artifacts/phase_1/en/games.pug:7
+#: artifacts/phase_1/en/graphism.pug:7 artifacts/phase_1/en/iconography.pug:7
+#: artifacts/phase_1/en/illustrations.pug:7 artifacts/phase_1/en/intros.pug:7
+#: artifacts/phase_1/en/languages.pug:7 artifacts/phase_1/en/logos.pug:7
+#: artifacts/phase_1/en/math.pug:7 artifacts/phase_1/en/motion-design.pug:7
+#: artifacts/phase_1/en/music.pug:7 artifacts/phase_1/en/posters.pug:7
+#: artifacts/phase_1/en/programs.pug:7 artifacts/phase_1/en/school.pug:7
+#: artifacts/phase_1/en/science.pug:7 artifacts/phase_1/en/sites.pug:7
+#: artifacts/phase_1/en/typography.pug:7
+#: artifacts/phase_1/en/visual-identities.pug:7 artifacts/phase_1/en/web.pug:7
+#: artifacts/phase_1/en/school.pug:1
 msgid "school"
 msgstr ""
 
 #: artifacts/phase_1/en/condenses.pug:3 artifacts/phase_1/en/index.pug:26
 #: artifacts/phase_1/en/condenses.pug:2 artifacts/phase_1/en/index.pug:23
+#: artifacts/phase_1/en/fubini-visualized.pug:4
+#: artifacts/phase_1/en/index.pug:19 artifacts/phase_1/en/index.pug:24
+#: artifacts/phase_1/en/APIs.pug:8 artifacts/phase_1/en/CLIs.pug:8
+#: artifacts/phase_1/en/apps.pug:8 artifacts/phase_1/en/automation.pug:8
+#: artifacts/phase_1/en/banners.pug:8 artifacts/phase_1/en/books.pug:8
+#: artifacts/phase_1/en/cards.pug:8 artifacts/phase_1/en/compositing.pug:8
+#: artifacts/phase_1/en/cover-arts.pug:8 artifacts/phase_1/en/drawings.pug:8
+#: artifacts/phase_1/en/games.pug:8 artifacts/phase_1/en/graphism.pug:8
+#: artifacts/phase_1/en/iconography.pug:8
+#: artifacts/phase_1/en/illustrations.pug:8 artifacts/phase_1/en/intros.pug:8
+#: artifacts/phase_1/en/languages.pug:8 artifacts/phase_1/en/logos.pug:8
+#: artifacts/phase_1/en/math.pug:8 artifacts/phase_1/en/motion-design.pug:8
+#: artifacts/phase_1/en/music.pug:8 artifacts/phase_1/en/posters.pug:8
+#: artifacts/phase_1/en/programs.pug:8 artifacts/phase_1/en/school.pug:8
+#: artifacts/phase_1/en/science.pug:8 artifacts/phase_1/en/sites.pug:8
+#: artifacts/phase_1/en/typography.pug:8
+#: artifacts/phase_1/en/visual-identities.pug:8 artifacts/phase_1/en/web.pug:8
+#: artifacts/phase_1/en/science.pug:1
 msgid "science"
 msgstr ""
 
@@ -209,6 +495,23 @@ msgid "scientifique"
 msgstr ""
 
 #: artifacts/phase_1/en/index.pug:107 artifacts/phase_1/en/index.pug:53
+#: artifacts/phase_1/en/index.pug:50 artifacts/phase_1/en/index.pug:55
+#: artifacts/phase_1/en/APIs.pug:39 artifacts/phase_1/en/CLIs.pug:39
+#: artifacts/phase_1/en/apps.pug:39 artifacts/phase_1/en/automation.pug:39
+#: artifacts/phase_1/en/banners.pug:39 artifacts/phase_1/en/books.pug:39
+#: artifacts/phase_1/en/cards.pug:39 artifacts/phase_1/en/compositing.pug:39
+#: artifacts/phase_1/en/cover-arts.pug:39 artifacts/phase_1/en/drawings.pug:39
+#: artifacts/phase_1/en/games.pug:39 artifacts/phase_1/en/graphism.pug:39
+#: artifacts/phase_1/en/iconography.pug:39
+#: artifacts/phase_1/en/illustrations.pug:39 artifacts/phase_1/en/intros.pug:39
+#: artifacts/phase_1/en/languages.pug:39 artifacts/phase_1/en/logos.pug:39
+#: artifacts/phase_1/en/math.pug:39 artifacts/phase_1/en/motion-design.pug:39
+#: artifacts/phase_1/en/music.pug:39 artifacts/phase_1/en/posters.pug:39
+#: artifacts/phase_1/en/programs.pug:39 artifacts/phase_1/en/school.pug:39
+#: artifacts/phase_1/en/science.pug:39 artifacts/phase_1/en/sites.pug:39
+#: artifacts/phase_1/en/typography.pug:39
+#: artifacts/phase_1/en/visual-identities.pug:39
+#: artifacts/phase_1/en/web.pug:39
 msgid "search"
 msgstr ""
 
@@ -217,6 +520,23 @@ msgid "send a mail at"
 msgstr ""
 
 #: artifacts/phase_1/en/index.pug:98 artifacts/phase_1/en/index.pug:47
+#: artifacts/phase_1/en/index.pug:43 artifacts/phase_1/en/index.pug:48
+#: artifacts/phase_1/en/APIs.pug:32 artifacts/phase_1/en/CLIs.pug:32
+#: artifacts/phase_1/en/apps.pug:32 artifacts/phase_1/en/automation.pug:32
+#: artifacts/phase_1/en/banners.pug:32 artifacts/phase_1/en/books.pug:32
+#: artifacts/phase_1/en/cards.pug:32 artifacts/phase_1/en/compositing.pug:32
+#: artifacts/phase_1/en/cover-arts.pug:32 artifacts/phase_1/en/drawings.pug:32
+#: artifacts/phase_1/en/games.pug:32 artifacts/phase_1/en/graphism.pug:32
+#: artifacts/phase_1/en/iconography.pug:32
+#: artifacts/phase_1/en/illustrations.pug:32 artifacts/phase_1/en/intros.pug:32
+#: artifacts/phase_1/en/languages.pug:32 artifacts/phase_1/en/logos.pug:32
+#: artifacts/phase_1/en/math.pug:32 artifacts/phase_1/en/motion-design.pug:32
+#: artifacts/phase_1/en/music.pug:32 artifacts/phase_1/en/posters.pug:32
+#: artifacts/phase_1/en/programs.pug:32 artifacts/phase_1/en/school.pug:32
+#: artifacts/phase_1/en/science.pug:32 artifacts/phase_1/en/sites.pug:32
+#: artifacts/phase_1/en/typography.pug:32
+#: artifacts/phase_1/en/visual-identities.pug:32
+#: artifacts/phase_1/en/web.pug:32 artifacts/phase_1/en/sites.pug:1
 msgid "site"
 msgstr ""
 
@@ -225,6 +545,23 @@ msgid "slide into my dms at"
 msgstr ""
 
 #: artifacts/phase_1/en/index.pug:110 artifacts/phase_1/en/index.pug:56
+#: artifacts/phase_1/en/index.pug:53 artifacts/phase_1/en/index.pug:58
+#: artifacts/phase_1/en/APIs.pug:42 artifacts/phase_1/en/CLIs.pug:42
+#: artifacts/phase_1/en/apps.pug:42 artifacts/phase_1/en/automation.pug:42
+#: artifacts/phase_1/en/banners.pug:42 artifacts/phase_1/en/books.pug:42
+#: artifacts/phase_1/en/cards.pug:42 artifacts/phase_1/en/compositing.pug:42
+#: artifacts/phase_1/en/cover-arts.pug:42 artifacts/phase_1/en/drawings.pug:42
+#: artifacts/phase_1/en/games.pug:42 artifacts/phase_1/en/graphism.pug:42
+#: artifacts/phase_1/en/iconography.pug:42
+#: artifacts/phase_1/en/illustrations.pug:42 artifacts/phase_1/en/intros.pug:42
+#: artifacts/phase_1/en/languages.pug:42 artifacts/phase_1/en/logos.pug:42
+#: artifacts/phase_1/en/math.pug:42 artifacts/phase_1/en/motion-design.pug:42
+#: artifacts/phase_1/en/music.pug:42 artifacts/phase_1/en/posters.pug:42
+#: artifacts/phase_1/en/programs.pug:42 artifacts/phase_1/en/school.pug:42
+#: artifacts/phase_1/en/science.pug:42 artifacts/phase_1/en/sites.pug:42
+#: artifacts/phase_1/en/typography.pug:42
+#: artifacts/phase_1/en/visual-identities.pug:42
+#: artifacts/phase_1/en/web.pug:42
 msgctxt "Gallery toolbar"
 msgid "sorted by"
 msgstr ""
@@ -240,17 +577,208 @@ msgid ""
 msgstr ""
 
 #: artifacts/phase_1/en/index.pug:89 artifacts/phase_1/en/index.pug:44
+#: artifacts/phase_1/en/index.pug:40 artifacts/phase_1/en/index.pug:45
+#: artifacts/phase_1/en/APIs.pug:29 artifacts/phase_1/en/CLIs.pug:29
+#: artifacts/phase_1/en/apps.pug:29 artifacts/phase_1/en/automation.pug:29
+#: artifacts/phase_1/en/banners.pug:29 artifacts/phase_1/en/books.pug:29
+#: artifacts/phase_1/en/cards.pug:29 artifacts/phase_1/en/compositing.pug:29
+#: artifacts/phase_1/en/cover-arts.pug:29 artifacts/phase_1/en/drawings.pug:29
+#: artifacts/phase_1/en/games.pug:29 artifacts/phase_1/en/graphism.pug:29
+#: artifacts/phase_1/en/iconography.pug:29
+#: artifacts/phase_1/en/illustrations.pug:29 artifacts/phase_1/en/intros.pug:29
+#: artifacts/phase_1/en/languages.pug:29 artifacts/phase_1/en/logos.pug:29
+#: artifacts/phase_1/en/math.pug:29 artifacts/phase_1/en/motion-design.pug:29
+#: artifacts/phase_1/en/music.pug:29 artifacts/phase_1/en/posters.pug:29
+#: artifacts/phase_1/en/programs.pug:29 artifacts/phase_1/en/school.pug:29
+#: artifacts/phase_1/en/science.pug:29 artifacts/phase_1/en/sites.pug:29
+#: artifacts/phase_1/en/typography.pug:29
+#: artifacts/phase_1/en/visual-identities.pug:29
+#: artifacts/phase_1/en/web.pug:29 artifacts/phase_1/en/typography.pug:1
 msgid "typography"
 msgstr ""
 
 #: artifacts/phase_1/en/index.pug:133 artifacts/phase_1/en/index.pug:77
+#: artifacts/phase_1/en/index.pug:65
 msgid "Unknown year"
 msgstr ""
 
 #: artifacts/phase_1/en/index.pug:77 artifacts/phase_1/en/index.pug:40
+#: artifacts/phase_1/en/index.pug:36 artifacts/phase_1/en/index.pug:41
+#: artifacts/phase_1/en/APIs.pug:25 artifacts/phase_1/en/CLIs.pug:25
+#: artifacts/phase_1/en/apps.pug:25 artifacts/phase_1/en/automation.pug:25
+#: artifacts/phase_1/en/banners.pug:25 artifacts/phase_1/en/books.pug:25
+#: artifacts/phase_1/en/cards.pug:25 artifacts/phase_1/en/compositing.pug:25
+#: artifacts/phase_1/en/cover-arts.pug:25 artifacts/phase_1/en/drawings.pug:25
+#: artifacts/phase_1/en/games.pug:25 artifacts/phase_1/en/graphism.pug:25
+#: artifacts/phase_1/en/iconography.pug:25
+#: artifacts/phase_1/en/illustrations.pug:25 artifacts/phase_1/en/intros.pug:25
+#: artifacts/phase_1/en/languages.pug:25 artifacts/phase_1/en/logos.pug:25
+#: artifacts/phase_1/en/math.pug:25 artifacts/phase_1/en/motion-design.pug:25
+#: artifacts/phase_1/en/music.pug:25 artifacts/phase_1/en/posters.pug:25
+#: artifacts/phase_1/en/programs.pug:25 artifacts/phase_1/en/school.pug:25
+#: artifacts/phase_1/en/science.pug:25 artifacts/phase_1/en/sites.pug:25
+#: artifacts/phase_1/en/typography.pug:25
+#: artifacts/phase_1/en/visual-identities.pug:25
+#: artifacts/phase_1/en/web.pug:25 artifacts/phase_1/en/visual-identities.pug:1
 msgid "visual identity"
 msgstr ""
 
 #: artifacts/phase_1/en/index.pug:47 artifacts/phase_1/en/index.pug:30
+#: artifacts/phase_1/en/index.pug:26 artifacts/phase_1/en/index.pug:31
+#: artifacts/phase_1/en/APIs.pug:15 artifacts/phase_1/en/CLIs.pug:15
+#: artifacts/phase_1/en/apps.pug:15 artifacts/phase_1/en/automation.pug:15
+#: artifacts/phase_1/en/banners.pug:15 artifacts/phase_1/en/books.pug:15
+#: artifacts/phase_1/en/cards.pug:15 artifacts/phase_1/en/compositing.pug:15
+#: artifacts/phase_1/en/cover-arts.pug:15 artifacts/phase_1/en/drawings.pug:15
+#: artifacts/phase_1/en/games.pug:15 artifacts/phase_1/en/graphism.pug:15
+#: artifacts/phase_1/en/iconography.pug:15
+#: artifacts/phase_1/en/illustrations.pug:15 artifacts/phase_1/en/intros.pug:15
+#: artifacts/phase_1/en/languages.pug:15 artifacts/phase_1/en/logos.pug:15
+#: artifacts/phase_1/en/math.pug:15 artifacts/phase_1/en/motion-design.pug:15
+#: artifacts/phase_1/en/music.pug:15 artifacts/phase_1/en/posters.pug:15
+#: artifacts/phase_1/en/programs.pug:15 artifacts/phase_1/en/school.pug:15
+#: artifacts/phase_1/en/science.pug:15 artifacts/phase_1/en/sites.pug:15
+#: artifacts/phase_1/en/typography.pug:15
+#: artifacts/phase_1/en/visual-identities.pug:15
+#: artifacts/phase_1/en/web.pug:15 artifacts/phase_1/en/web.pug:1
 msgid "web"
+msgstr ""
+
+#: artifacts/phase_1/en/about.pug:3
+msgid ""
+"Hi! I'm Ewen Le Bihan, I'm { Age } years old and I'm interested in almost "
+"anything that is both creative and digital."
+msgstr ""
+
+#: artifacts/phase_1/en/fubini-visualized.pug:3
+#: artifacts/phase_1/en/index.pug:45 artifacts/phase_1/en/index.pug:50
+#: artifacts/phase_1/en/APIs.pug:34 artifacts/phase_1/en/CLIs.pug:34
+#: artifacts/phase_1/en/apps.pug:34 artifacts/phase_1/en/automation.pug:34
+#: artifacts/phase_1/en/banners.pug:34 artifacts/phase_1/en/books.pug:34
+#: artifacts/phase_1/en/cards.pug:34 artifacts/phase_1/en/compositing.pug:34
+#: artifacts/phase_1/en/cover-arts.pug:34 artifacts/phase_1/en/drawings.pug:34
+#: artifacts/phase_1/en/games.pug:34 artifacts/phase_1/en/graphism.pug:34
+#: artifacts/phase_1/en/iconography.pug:34
+#: artifacts/phase_1/en/illustrations.pug:34 artifacts/phase_1/en/intros.pug:34
+#: artifacts/phase_1/en/languages.pug:34 artifacts/phase_1/en/logos.pug:34
+#: artifacts/phase_1/en/math.pug:34 artifacts/phase_1/en/motion-design.pug:34
+#: artifacts/phase_1/en/music.pug:34 artifacts/phase_1/en/posters.pug:34
+#: artifacts/phase_1/en/programs.pug:34 artifacts/phase_1/en/school.pug:34
+#: artifacts/phase_1/en/science.pug:34 artifacts/phase_1/en/sites.pug:34
+#: artifacts/phase_1/en/typography.pug:34
+#: artifacts/phase_1/en/visual-identities.pug:34
+#: artifacts/phase_1/en/web.pug:34 artifacts/phase_1/en/math.pug:1
+msgid "math"
+msgstr ""
+
+#: artifacts/phase_1/en/APIs.pug:1
+msgid "{APIs api}"
+msgstr ""
+
+#: artifacts/phase_1/en/apps.pug:1
+msgid "{apps app}"
+msgstr ""
+
+#: artifacts/phase_1/en/automation.pug:1
+msgid "{automation automation}"
+msgstr ""
+
+#: artifacts/phase_1/en/banners.pug:1
+msgid "{banners banner}"
+msgstr ""
+
+#: artifacts/phase_1/en/books.pug:1
+msgid "{books book}"
+msgstr ""
+
+#: artifacts/phase_1/en/cards.pug:1
+msgid "{cards card}"
+msgstr ""
+
+#: artifacts/phase_1/en/CLIs.pug:1
+msgid "{CLIs cli}"
+msgstr ""
+
+#: artifacts/phase_1/en/compositing.pug:1
+msgid "{compositing compositing}"
+msgstr ""
+
+#: artifacts/phase_1/en/cover-arts.pug:1
+msgid "{cover-arts cover art}"
+msgstr ""
+
+#: artifacts/phase_1/en/drawings.pug:1
+msgid "{drawings drawing}"
+msgstr ""
+
+#: artifacts/phase_1/en/games.pug:1
+msgid "{games game}"
+msgstr ""
+
+#: artifacts/phase_1/en/graphism.pug:1
+msgid "{graphism graphism}"
+msgstr ""
+
+#: artifacts/phase_1/en/iconography.pug:1
+msgid "{iconography iconography}"
+msgstr ""
+
+#: artifacts/phase_1/en/illustrations.pug:1
+msgid "{illustrations illustration}"
+msgstr ""
+
+#: artifacts/phase_1/en/intros.pug:1
+msgid "{intros intro}"
+msgstr ""
+
+#: artifacts/phase_1/en/languages.pug:1
+msgid "{languages language}"
+msgstr ""
+
+#: artifacts/phase_1/en/logos.pug:1
+msgid "{logos logo}"
+msgstr ""
+
+#: artifacts/phase_1/en/math.pug:1
+msgid "{math math}"
+msgstr ""
+
+#: artifacts/phase_1/en/motion-design.pug:1
+msgid "{motion-design motion design}"
+msgstr ""
+
+#: artifacts/phase_1/en/music.pug:1
+msgid "{music music}"
+msgstr ""
+
+#: artifacts/phase_1/en/posters.pug:1
+msgid "{posters poster}"
+msgstr ""
+
+#: artifacts/phase_1/en/programs.pug:1
+msgid "{programs program}"
+msgstr ""
+
+#: artifacts/phase_1/en/school.pug:1
+msgid "{school school}"
+msgstr ""
+
+#: artifacts/phase_1/en/science.pug:1
+msgid "{science science}"
+msgstr ""
+
+#: artifacts/phase_1/en/sites.pug:1
+msgid "{sites site}"
+msgstr ""
+
+#: artifacts/phase_1/en/typography.pug:1
+msgid "{typography typography}"
+msgstr ""
+
+#: artifacts/phase_1/en/visual-identities.pug:1
+msgid "{visual-identities visual identity}"
+msgstr ""
+
+#: artifacts/phase_1/en/web.pug:1
+msgid "{web web}"
 msgstr ""

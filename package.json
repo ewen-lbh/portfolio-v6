@@ -5,14 +5,14 @@
   "license": "CC-BY-NC-ND-4.0",
   "version": "0.1.0",
   "scripts": {
-    "database:crawl": "cd /mnt/d/projects/portfoliodb-crawler && python3.8 crawler.py /mnt/d/projects/portfolio-next/database",
+    "database:crawl": "cd /home/ewen/projects/portfoliodb-crawler && python3.8 crawler.py /home/ewen/projects/portfolio-next/database",
     "database:build": "portfoliodb database build database/database.json --config database/.portfoliodb.yaml -m",
-    "database:upload": "",
+    "database:upload": "rclone ",
     "pug:hydrate": "cd hydrator && ./hydrate",
     "messages:extract": "mv messages/fr.po messages/fr.old.po; gettext-extract --output messages/fr.new.po --startDelimiter '[#' --endDelimiter '#]' artifacts/phase_1/en/**.pug",
     "messages:build": "msgfmt messages/fr.po -o messages/fr.mo",
     "messages:combine": "msgcat messages/fr.old.po messages/fr.new.po -o messages/fr.po && rm messages/fr.new.po messages/fr.old.po",
-    "pug:build": "mkdir -p artifacts/phase_2/fr artifacts/phase_2/en && pug artifacts/phase_1/en -o artifacts/phase_2/en && pug artifacts/phase_1/fr -o artifacts/phase_2/fr",
+    "pug:build": "pug artifacts/phase_1/en -o artifacts/phase_2/en && pug artifacts/phase_1/fr -o artifacts/phase_2/fr",
     "html:translate": "cd translator && poetry run python translate.py && cd ..",
     "ts:build": "tsc -p tsconfig.json && mv src/*.js dist/",
     "stylus:build": "stylus --compress --sourcemap src/style.styl -o dist/style.css",
@@ -22,7 +22,8 @@
     "prepare:i18n": "pnpm pug:hydrate && pnpm messages:extract && pnpm messages:combine",
     "make": "concurrently 'pnpm messages:build' 'pnpm pug:build' && mkdir -p dist/fr dist/en && concurrently 'pnpm html:translate' 'pnpm stylus:build' 'pnpm ts:build' 'pnpm static:build'",
     "makeclean": "pnpm make && pnpm clean",
-    "clean": "rm -r artifacts messages/*.mo"
+    "clean": "rm -r artifacts messages/*.mo",
+    "makedirs": "mkdir --mode=666 --parents artifacts/phase_{1,2}/{fr,en}"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",

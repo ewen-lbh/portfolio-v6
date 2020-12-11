@@ -3,7 +3,7 @@ package main
 var tags = [...]Tag{
 	{
 		DisplayName: "school",
-		URLName: "school",
+		URLName:     "school",
 	},
 	{
 		DisplayName: "science",
@@ -108,5 +108,9 @@ var tags = [...]Tag{
 	{
 		DisplayName: "language",
 		URLName:     "languages",
+	},
+	{
+		DisplayName: "math",
+		URLName:     "math",
 	},
 }

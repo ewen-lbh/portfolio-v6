@@ -43,17 +43,17 @@ section.gallery
 				{{- end }}
 	ul.gallery__works
 		{{ range $year, $works := .WorksByYear }}
-		{{ if ne $year 9999 }}
+		{{ if ne $year -1 }}
 		h3 {{ $year }}
 		{{ else }}
 		h3(translate) Unknown year
 		{{ end }}
 		{{ range $works }}
-		li.gallery__works__work.work-card.work-card--medium
+		a(href="{{ .ID }}"): li.gallery__works__work.work-card.work-card--medium
 			{{ if len .Media }}
 			img.work-card__image(src="{{ (index .Media 0).Source }}")
 			{{ else }}
-			svg.work-card__image--empty
+			.work-card__image--empty
 			{{ end }}
 			h4 {{ .Title }}
 			{{ if len .Paragraphs }}
