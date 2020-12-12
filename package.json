@@ -22,7 +22,8 @@
     "prepare:i18n": "pnpm pug:hydrate && pnpm messages:extract && pnpm messages:combine",
     "make": "concurrently 'pnpm messages:build' 'pnpm pug:build' && mkdir -p dist/fr dist/en && concurrently 'pnpm html:translate' 'pnpm stylus:build' 'pnpm ts:build' 'pnpm static:build'",
     "makeclean": "pnpm make && pnpm clean",
-    "clean": "rm -r artifacts messages/*.mo",
+    "messages:clean": "./merged_po_file_cleaner/merged_po_file_cleaner messages/fr.po messages/fr.po",
+    "clean": "concurrently 'rm -r artifacts messages/*.mo; exit 0' 'pnpm messages:clean'",
     "makedirs": "mkdir --mode=666 --parents artifacts/phase_{1,2}/{fr,en}"
   },
   "devDependencies": {
