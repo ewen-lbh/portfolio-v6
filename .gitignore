@@ -177,10 +177,9 @@ node_modules/
 
 
 # Temporary compilation/translation files
-trans/
 messages/*.mo
 dist/
-
+artifacts/
 database/
 !database/database.json
 !database/.portfoliodb.y{a,}ml
