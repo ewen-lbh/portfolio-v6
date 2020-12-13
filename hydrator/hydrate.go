@@ -227,11 +227,15 @@ func GetAge() uint8 {
 	return 17
 }
 
+func BuildingForProduction() bool {
+	return os.Getenv("ENVIRONMENT") == "dev"
+}
+
 // AssetURL returns the full URL for a given asset.
 func AssetURL(assetPath string) string {
 	var urlScheme string
-	if os.Getenv("ENVIRONMENT") == "dev" {
-		urlScheme = "file:///home/ewen/projects/portfolio-next/assets/%s"
+	if !BuildingForProduction() {
+		urlScheme = "file://" + os.Getenv("LOCAL_PROJECTS_DIR") +  "portfolio-next/assets/%s"
 	} else {
 		urlScheme = "https://assets.ewen.works/%s"
 	}
@@ -242,7 +246,7 @@ func AssetURL(assetPath string) string {
 func MediaURL(mediaPath string) string {
 	var urlScheme string
 	if os.Getenv("ENVIRONMENT") == "dev" {
-		urlScheme = "file:///home/ewen/projects/%s"
+		urlScheme = "file://" + os.Getenv("LOCAL_PROJECTS_DIR") +  "/%s"
 	} else {
 		urlScheme = "https://media.ewen.works/%s"
 	}
