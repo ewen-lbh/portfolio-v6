@@ -70,7 +70,7 @@ msgstr "date"
 msgid "Design and coded by hand"
 msgstr "Design et code fait-maison"
 
-#: artifacts/phase_1/en/about.pug:5
+#: artifacts/phase_1/en/about.pug:5 about.pug:13
 msgid ""
 "Dessin à l'école des beaux-arts de Nîmes, ateliers de peinture, de "
 "sculpture. Depuis mes 7 ans, je compose de la musique électronique, j'ai "
@@ -101,6 +101,7 @@ msgid "Hi, I'm Ewen Le Bihan."
 msgstr "Hey! Je suis Ewen Le Bihan."
 
 #: artifacts/phase_1/en/about.pug:3 artifacts/phase_1/en/index.pug:4
+#: index.pug:12
 msgid ""
 "Hi! I'm Ewen Le Bihan, I'm 16 years old and I'm interested in almost "
 "anything that is both creative and digital."
@@ -124,6 +125,13 @@ msgstr ""
 #: artifacts/phase_1/en/typography.pug:31
 #: artifacts/phase_1/en/visual-identities.pug:31
 #: artifacts/phase_1/en/web.pug:31 artifacts/phase_1/en/iconography.pug:1
+#: APIs.pug:39 CLIs.pug:39 apps.pug:39 automation.pug:39 banners.pug:39
+#: books.pug:39 cards.pug:39 compositing.pug:39 cover-arts.pug:39
+#: drawings.pug:39 games.pug:39 graphism.pug:39 iconography.pug:9
+#: iconography.pug:39 illustrations.pug:39 index.pug:51 intros.pug:39
+#: languages.pug:39 logos.pug:39 math.pug:39 motion-design.pug:39 music.pug:39
+#: posters.pug:39 programs.pug:39 school.pug:39 science.pug:39 sites.pug:39
+#: typography.pug:39 visual-identities.pug:39 web.pug:39 index.pug:54
 msgid "iconography"
 msgstr ""
 
@@ -145,6 +153,13 @@ msgstr ""
 #: artifacts/phase_1/en/typography.pug:27
 #: artifacts/phase_1/en/visual-identities.pug:27
 #: artifacts/phase_1/en/web.pug:27 artifacts/phase_1/en/illustrations.pug:1
+#: APIs.pug:35 CLIs.pug:35 apps.pug:35 automation.pug:35 banners.pug:35
+#: books.pug:35 cards.pug:35 compositing.pug:35 cover-arts.pug:35
+#: drawings.pug:35 games.pug:35 graphism.pug:35 iconography.pug:35
+#: illustrations.pug:9 illustrations.pug:35 index.pug:47 intros.pug:35
+#: languages.pug:35 logos.pug:35 math.pug:35 motion-design.pug:35 music.pug:35
+#: posters.pug:35 programs.pug:35 school.pug:35 science.pug:35 sites.pug:35
+#: typography.pug:35 visual-identities.pug:35 web.pug:35 index.pug:50
 msgid "illustration"
 msgstr ""
 
@@ -166,10 +181,17 @@ msgstr ""
 #: artifacts/phase_1/en/typography.pug:16
 #: artifacts/phase_1/en/visual-identities.pug:16
 #: artifacts/phase_1/en/web.pug:16 artifacts/phase_1/en/intros.pug:1
+#: APIs.pug:24 CLIs.pug:24 apps.pug:24 automation.pug:24 banners.pug:24
+#: books.pug:24 cards.pug:24 compositing.pug:24 cover-arts.pug:24
+#: drawings.pug:24 games.pug:24 graphism.pug:24 iconography.pug:24
+#: illustrations.pug:24 index.pug:36 intros.pug:9 intros.pug:24
+#: languages.pug:24 logos.pug:24 math.pug:24 motion-design.pug:24 music.pug:24
+#: posters.pug:24 programs.pug:24 school.pug:24 science.pug:24 sites.pug:24
+#: typography.pug:24 visual-identities.pug:24 web.pug:24 index.pug:39
 msgid "intro"
 msgstr ""
 
-#: artifacts/phase_1/en/about.pug:7
+#: artifacts/phase_1/en/about.pug:7 about.pug:15
 msgid ""
 "J'ai appris à programmer dans différents langages informatiques: HTML, "
 "Python et JavaScript, ce qui m'a permis de créer mon site et, actuellement, "
@@ -177,7 +199,7 @@ msgid ""
 "plusieurs langages de programmation."
 msgstr ""
 
-#: artifacts/phase_1/en/about.pug:10
+#: artifacts/phase_1/en/about.pug:10 about.pug:18
 msgid ""
 "L'anglais étant indispensable à la lecture de documentations, j'ai "
 "approfondi cette langue (TOEIC Bridge: 176/180), conversé par mail avec un "
@@ -205,10 +227,18 @@ msgstr ""
 #: artifacts/phase_1/en/typography.pug:33
 #: artifacts/phase_1/en/visual-identities.pug:33
 #: artifacts/phase_1/en/web.pug:33 artifacts/phase_1/en/languages.pug:1
+#: APIs.pug:41 CLIs.pug:41 apps.pug:41 automation.pug:41 banners.pug:41
+#: books.pug:41 cards.pug:41 compositing.pug:41 cover-arts.pug:41
+#: drawings.pug:41 games.pug:41 graphism.pug:41 iconography.pug:41
+#: illustrations.pug:41 index.pug:53 intros.pug:41 languages.pug:9
+#: languages.pug:41 logos.pug:41 math.pug:41 motion-design.pug:41 music.pug:41
+#: posters.pug:41 programs.pug:41 pychemin.pug:12 school.pug:41 science.pug:41
+#: sites.pug:41 typography.pug:41 visual-identities.pug:41 web.pug:41
+#: index.pug:56
 msgid "language"
 msgstr ""
 
-#: artifacts/phase_1/en/about.pug:12
+#: artifacts/phase_1/en/about.pug:12 about.pug:20
 msgid ""
 "Le langage mathématique m'intéresse tout autant: il m'arrive d'appréhender "
 "des concepts complexes mathématiques en naviguant sur wikipédia anglais ou "
@@ -220,7 +250,7 @@ msgstr ""
 msgid "Learn more"
 msgstr "En savoir plus"
 
-#: artifacts/phase_1/en/about.pug:9
+#: artifacts/phase_1/en/about.pug:9 about.pug:17
 msgid "linguistique"
 msgstr ""
 
@@ -241,7 +271,14 @@ msgstr ""
 #: artifacts/phase_1/en/science.pug:28 artifacts/phase_1/en/sites.pug:28
 #: artifacts/phase_1/en/typography.pug:28
 #: artifacts/phase_1/en/visual-identities.pug:28
-#: artifacts/phase_1/en/web.pug:28 artifacts/phase_1/en/logos.pug:1
+#: artifacts/phase_1/en/web.pug:28 artifacts/phase_1/en/logos.pug:1 APIs.pug:36
+#: CLIs.pug:36 apps.pug:36 automation.pug:36 banners.pug:36 books.pug:36
+#: cards.pug:36 compositing.pug:36 cover-arts.pug:36 drawings.pug:36
+#: games.pug:36 graphism.pug:36 iconography.pug:36 illustrations.pug:36
+#: index.pug:48 intros.pug:36 languages.pug:36 logos.pug:9 logos.pug:36
+#: math.pug:36 motion-design.pug:36 music.pug:36 posters.pug:36 programs.pug:36
+#: school.pug:36 science.pug:36 sites.pug:36 typography.pug:36
+#: visual-identities.pug:36 web.pug:36 index.pug:51
 msgid "logo"
 msgstr ""
 
@@ -264,6 +301,14 @@ msgstr ""
 #: artifacts/phase_1/en/typography.pug:23
 #: artifacts/phase_1/en/visual-identities.pug:23
 #: artifacts/phase_1/en/web.pug:23 artifacts/phase_1/en/motion-design.pug:1
+#: APIs.pug:31 CLIs.pug:31 apps.pug:31 automation.pug:31 banners.pug:31
+#: books.pug:31 cards.pug:31 compositing.pug:31 cover-arts.pug:31
+#: drawings.pug:31 games.pug:31 graphism.pug:31 iconography.pug:31
+#: illustrations.pug:31 index.pug:43 intros.pug:31 languages.pug:31
+#: logos.pug:31 math.pug:31 motion-design.pug:9 motion-design.pug:31
+#: music.pug:31 posters.pug:31 programs.pug:31 school.pug:31 science.pug:31
+#: sites.pug:31 typography.pug:31 visual-identities.pug:31 web.pug:31
+#: index.pug:46
 msgid "motion design"
 msgstr ""
 
@@ -284,11 +329,18 @@ msgstr ""
 #: artifacts/phase_1/en/science.pug:17 artifacts/phase_1/en/sites.pug:17
 #: artifacts/phase_1/en/typography.pug:17
 #: artifacts/phase_1/en/visual-identities.pug:17
-#: artifacts/phase_1/en/web.pug:17 artifacts/phase_1/en/music.pug:1
+#: artifacts/phase_1/en/web.pug:17 artifacts/phase_1/en/music.pug:1 APIs.pug:25
+#: CLIs.pug:25 apps.pug:25 automation.pug:25 banners.pug:25 books.pug:25
+#: cards.pug:25 compositing.pug:25 cover-arts.pug:25 drawings.pug:25
+#: games.pug:25 graphism.pug:25 iconography.pug:25 illustrations.pug:25
+#: index.pug:37 intros.pug:25 languages.pug:25 logos.pug:25 math.pug:25
+#: motion-design.pug:25 music.pug:9 music.pug:25 posters.pug:25 programs.pug:25
+#: school.pug:25 science.pug:25 sites.pug:25 typography.pug:25
+#: visual-identities.pug:25 web.pug:25 index.pug:40
 msgid "music"
 msgstr ""
 
-#: artifacts/phase_1/en/about.pug:6
+#: artifacts/phase_1/en/about.pug:6 about.pug:14
 msgid "numérique"
 msgstr ""
 
@@ -310,6 +362,13 @@ msgstr ""
 #: artifacts/phase_1/en/typography.pug:13
 #: artifacts/phase_1/en/visual-identities.pug:13
 #: artifacts/phase_1/en/web.pug:13 artifacts/phase_1/en/posters.pug:1
+#: APIs.pug:21 CLIs.pug:21 apps.pug:21 automation.pug:21 banners.pug:21
+#: books.pug:21 cards.pug:21 compositing.pug:21 cover-arts.pug:21
+#: drawings.pug:21 games.pug:21 graphism.pug:21 iconography.pug:21
+#: illustrations.pug:21 index.pug:33 intros.pug:21 languages.pug:21
+#: logos.pug:21 math.pug:21 motion-design.pug:21 music.pug:21 posters.pug:9
+#: posters.pug:21 programs.pug:21 school.pug:21 science.pug:21 sites.pug:21
+#: typography.pug:21 visual-identities.pug:21 web.pug:21 index.pug:36
 msgid "poster"
 msgstr ""
 
@@ -335,6 +394,14 @@ msgstr ""
 #: artifacts/phase_1/en/typography.pug:21
 #: artifacts/phase_1/en/visual-identities.pug:21
 #: artifacts/phase_1/en/web.pug:21 artifacts/phase_1/en/programs.pug:1
+#: APIs.pug:29 CLIs.pug:29 apps.pug:29 automation.pug:29 banners.pug:29
+#: books.pug:29 cards.pug:29 compositing.pug:29 cover-arts.pug:29
+#: drawings.pug:29 games.pug:29 graphism.pug:29 iconography.pug:29
+#: illustrations.pug:29 index.pug:41 intros.pug:29 languages.pug:29
+#: logos.pug:29 math.pug:29 motion-design.pug:29 music.pug:29 phelng.pug:11
+#: posters.pug:29 programs.pug:9 programs.pug:29 pychemin.pug:10 school.pug:29
+#: science.pug:29 sites.pug:29 typography.pug:29 visual-identities.pug:29
+#: web.pug:29 index.pug:44
 msgid "program"
 msgstr ""
 
@@ -355,7 +422,14 @@ msgstr ""
 #: artifacts/phase_1/en/science.pug:7 artifacts/phase_1/en/sites.pug:7
 #: artifacts/phase_1/en/typography.pug:7
 #: artifacts/phase_1/en/visual-identities.pug:7 artifacts/phase_1/en/web.pug:7
-#: artifacts/phase_1/en/school.pug:1
+#: artifacts/phase_1/en/school.pug:1 APIs.pug:15 CLIs.pug:15 apps.pug:15
+#: automation.pug:15 banners.pug:15 books.pug:15 cards.pug:15
+#: compositing.pug:15 condenses.pug:11 cover-arts.pug:15 drawings.pug:15
+#: games.pug:15 graphism.pug:15 iconography.pug:15 illustrations.pug:15
+#: index.pug:27 intros.pug:15 languages.pug:15 logos.pug:15 math.pug:15
+#: motion-design.pug:15 music.pug:15 posters.pug:15 programs.pug:15
+#: school.pug:9 school.pug:15 science.pug:15 sites.pug:15 typography.pug:15
+#: visual-identities.pug:15 web.pug:15 index.pug:30
 msgid "school"
 msgstr ""
 
@@ -378,11 +452,18 @@ msgstr ""
 #: artifacts/phase_1/en/science.pug:8 artifacts/phase_1/en/sites.pug:8
 #: artifacts/phase_1/en/typography.pug:8
 #: artifacts/phase_1/en/visual-identities.pug:8 artifacts/phase_1/en/web.pug:8
-#: artifacts/phase_1/en/science.pug:1
+#: artifacts/phase_1/en/science.pug:1 APIs.pug:16 CLIs.pug:16 apps.pug:16
+#: automation.pug:16 banners.pug:16 books.pug:16 cards.pug:16
+#: compositing.pug:16 condenses.pug:10 cover-arts.pug:16 drawings.pug:16
+#: games.pug:16 graphism.pug:16 iconography.pug:16 illustrations.pug:16
+#: index.pug:28 intros.pug:16 languages.pug:16 logos.pug:16 math.pug:16
+#: motion-design.pug:16 music.pug:16 posters.pug:16 programs.pug:16
+#: school.pug:16 science.pug:9 science.pug:16 sites.pug:16 typography.pug:16
+#: visual-identities.pug:16 web.pug:16 index.pug:31
 msgid "science"
 msgstr ""
 
-#: artifacts/phase_1/en/about.pug:11
+#: artifacts/phase_1/en/about.pug:11 about.pug:19
 msgid "scientifique"
 msgstr ""
 
@@ -403,11 +484,18 @@ msgstr ""
 #: artifacts/phase_1/en/science.pug:39 artifacts/phase_1/en/sites.pug:39
 #: artifacts/phase_1/en/typography.pug:39
 #: artifacts/phase_1/en/visual-identities.pug:39
-#: artifacts/phase_1/en/web.pug:39
+#: artifacts/phase_1/en/web.pug:39 artifacts/phase_1/en/index.pug:54
+#: APIs.pug:47 CLIs.pug:47 apps.pug:47 automation.pug:47 banners.pug:47
+#: books.pug:47 cards.pug:47 compositing.pug:47 cover-arts.pug:47
+#: drawings.pug:47 games.pug:47 graphism.pug:47 iconography.pug:47
+#: illustrations.pug:47 index.pug:59 intros.pug:47 languages.pug:47
+#: logos.pug:47 math.pug:47 motion-design.pug:47 music.pug:47 posters.pug:47
+#: programs.pug:47 school.pug:47 science.pug:47 sites.pug:47 typography.pug:47
+#: visual-identities.pug:47 web.pug:47 index.pug:62
 msgid "search"
 msgstr ""
 
-#: artifacts/phase_1/en/contact.pug:3
+#: artifacts/phase_1/en/contact.pug:3 contact.pug:11
 msgid "send a mail at"
 msgstr ""
 
@@ -428,11 +516,18 @@ msgstr ""
 #: artifacts/phase_1/en/science.pug:32 artifacts/phase_1/en/sites.pug:32
 #: artifacts/phase_1/en/typography.pug:32
 #: artifacts/phase_1/en/visual-identities.pug:32
-#: artifacts/phase_1/en/web.pug:32 artifacts/phase_1/en/sites.pug:1
+#: artifacts/phase_1/en/web.pug:32 artifacts/phase_1/en/sites.pug:1 APIs.pug:40
+#: CLIs.pug:40 apps.pug:40 automation.pug:40 banners.pug:40 books.pug:40
+#: cards.pug:40 compositing.pug:40 cover-arts.pug:40 drawings.pug:40
+#: games.pug:40 graphism.pug:40 iconography.pug:40 illustrations.pug:40
+#: index.pug:52 intros.pug:40 languages.pug:40 logos.pug:40 math.pug:40
+#: motion-design.pug:40 music.pug:40 posters.pug:40 programs.pug:40
+#: school.pug:40 science.pug:40 sites.pug:9 sites.pug:40 typography.pug:40
+#: visual-identities.pug:40 web.pug:40 index.pug:55
 msgid "site"
 msgstr ""
 
-#: artifacts/phase_1/en/contact.pug:5
+#: artifacts/phase_1/en/contact.pug:5 contact.pug:13
 msgid "slide into my dms at"
 msgstr ""
 
@@ -453,16 +548,24 @@ msgstr ""
 #: artifacts/phase_1/en/science.pug:42 artifacts/phase_1/en/sites.pug:42
 #: artifacts/phase_1/en/typography.pug:42
 #: artifacts/phase_1/en/visual-identities.pug:42
-#: artifacts/phase_1/en/web.pug:42
+#: artifacts/phase_1/en/web.pug:42 artifacts/phase_1/en/index.pug:57
+#: APIs.pug:50 CLIs.pug:50 apps.pug:50 automation.pug:50 banners.pug:50
+#: books.pug:50 cards.pug:50 compositing.pug:50 cover-arts.pug:50
+#: drawings.pug:50 games.pug:50 graphism.pug:50 iconography.pug:50
+#: illustrations.pug:50 index.pug:62 intros.pug:50 languages.pug:50
+#: logos.pug:50 math.pug:50 motion-design.pug:50 music.pug:50 posters.pug:50
+#: programs.pug:50 school.pug:50 science.pug:50 sites.pug:50 typography.pug:50
+#: visual-identities.pug:50 web.pug:50 index.pug:65
 msgctxt "Gallery toolbar"
 msgid "sorted by"
 msgstr ""
 
 #: artifacts/phase_1/en/about.pug:2 artifacts/phase_1/en/index.pug:2
+#: about.pug:10 index.pug:10
 msgid "These are my creations."
 msgstr ""
 
-#: artifacts/phase_1/en/about.pug:8
+#: artifacts/phase_1/en/about.pug:8 about.pug:16
 msgid ""
 "Tout mes projets de programmation sont visibles par tous sur mon profil "
 "GitHub: tout mes projets sont dits \"Open Source\"."
@@ -486,6 +589,13 @@ msgstr ""
 #: artifacts/phase_1/en/typography.pug:29
 #: artifacts/phase_1/en/visual-identities.pug:29
 #: artifacts/phase_1/en/web.pug:29 artifacts/phase_1/en/typography.pug:1
+#: APIs.pug:37 CLIs.pug:37 apps.pug:37 automation.pug:37 banners.pug:37
+#: books.pug:37 cards.pug:37 compositing.pug:37 cover-arts.pug:37
+#: drawings.pug:37 games.pug:37 graphism.pug:37 iconography.pug:37
+#: illustrations.pug:37 index.pug:49 intros.pug:37 languages.pug:37
+#: logos.pug:37 math.pug:37 motion-design.pug:37 music.pug:37 posters.pug:37
+#: programs.pug:37 school.pug:37 science.pug:37 sites.pug:37 typography.pug:9
+#: typography.pug:37 visual-identities.pug:37 web.pug:37 index.pug:52
 msgid "typography"
 msgstr ""
 
@@ -512,6 +622,13 @@ msgstr ""
 #: artifacts/phase_1/en/typography.pug:25
 #: artifacts/phase_1/en/visual-identities.pug:25
 #: artifacts/phase_1/en/web.pug:25 artifacts/phase_1/en/visual-identities.pug:1
+#: APIs.pug:33 CLIs.pug:33 apps.pug:33 automation.pug:33 banners.pug:33
+#: books.pug:33 cards.pug:33 compositing.pug:33 cover-arts.pug:33
+#: drawings.pug:33 games.pug:33 graphism.pug:33 iconography.pug:33
+#: illustrations.pug:33 index.pug:45 intros.pug:33 languages.pug:33
+#: logos.pug:33 math.pug:33 motion-design.pug:33 music.pug:33 posters.pug:33
+#: programs.pug:33 school.pug:33 science.pug:33 sites.pug:33 typography.pug:33
+#: visual-identities.pug:9 visual-identities.pug:33 web.pug:33 index.pug:48
 msgid "visual identity"
 msgstr ""
 
@@ -532,7 +649,14 @@ msgstr ""
 #: artifacts/phase_1/en/science.pug:15 artifacts/phase_1/en/sites.pug:15
 #: artifacts/phase_1/en/typography.pug:15
 #: artifacts/phase_1/en/visual-identities.pug:15
-#: artifacts/phase_1/en/web.pug:15 artifacts/phase_1/en/web.pug:1
+#: artifacts/phase_1/en/web.pug:15 artifacts/phase_1/en/web.pug:1 APIs.pug:23
+#: CLIs.pug:23 apps.pug:23 automation.pug:23 banners.pug:23 books.pug:23
+#: cards.pug:23 compositing.pug:23 cover-arts.pug:23 drawings.pug:23
+#: games.pug:23 graphism.pug:23 iconography.pug:23 illustrations.pug:23
+#: index.pug:35 intros.pug:23 languages.pug:23 logos.pug:23 math.pug:23
+#: motion-design.pug:23 music.pug:23 posters.pug:23 programs.pug:23
+#: school.pug:23 science.pug:23 sites.pug:23 typography.pug:23
+#: visual-identities.pug:23 web.pug:9 web.pug:23 index.pug:38
 msgid "web"
 msgstr ""
 
@@ -560,6 +684,14 @@ msgstr ""
 #: artifacts/phase_1/en/typography.pug:34
 #: artifacts/phase_1/en/visual-identities.pug:34
 #: artifacts/phase_1/en/web.pug:34 artifacts/phase_1/en/math.pug:1
+#: artifacts/phase_1/en/index.pug:49 APIs.pug:42 CLIs.pug:42 apps.pug:42
+#: automation.pug:42 banners.pug:42 books.pug:42 cards.pug:42
+#: compositing.pug:42 cover-arts.pug:42 drawings.pug:42 games.pug:42
+#: graphism.pug:42 iconography.pug:42 illustrations.pug:42 index.pug:54
+#: intros.pug:42 languages.pug:42 logos.pug:42 math.pug:9 math.pug:42
+#: motion-design.pug:42 music.pug:42 posters.pug:42 programs.pug:42
+#: school.pug:42 science.pug:42 sites.pug:42 typography.pug:42
+#: visual-identities.pug:42 web.pug:42 index.pug:57
 msgid "math"
 msgstr ""
 
@@ -673,4 +805,82 @@ msgstr ""
 
 #: artifacts/phase_1/en/web.pug:1
 msgid "{web web}"
+msgstr ""
+
+#: artifacts/phase_1/en/about.pug:3 about.pug:11
+msgid ""
+"Hi! I'm Ewen Le Bihan, I'm 17 years old and I'm interested in almost "
+"anything that is both creative and digital."
+msgstr ""
+
+#: APIs.pug:68 CLIs.pug:68 about.pug:31 apps.pug:68 automation.pug:71
+#: banners.pug:68 books.pug:68 cards.pug:68 compositing.pug:68 condenses.pug:27
+#: contact.pug:26 cover-arts.pug:68 drawings.pug:68 games.pug:68
+#: graphism.pug:68 iconography.pug:68 illustrations.pug:68 index.pug:96
+#: intros.pug:68 languages.pug:68 logos.pug:68 made-with.pug:29 math.pug:68
+#: motion-design.pug:68 music.pug:68 phelng.pug:27 posters.pug:68
+#: programs.pug:68 pychemin.pug:27 school.pug:72 science.pug:72 sites.pug:68
+#: typography.pug:68 visual-identities.pug:68 web.pug:68 index.pug:102
+#: index.pug:107 index.pug:110 _using.pug:20
+msgid "also my music"
+msgstr ""
+
+#: APIs.pug:72 CLIs.pug:72 about.pug:35 apps.pug:72 automation.pug:75
+#: banners.pug:72 books.pug:72 cards.pug:72 compositing.pug:72 condenses.pug:31
+#: contact.pug:30 cover-arts.pug:72 drawings.pug:72 games.pug:72
+#: graphism.pug:72 iconography.pug:72 illustrations.pug:72 index.pug:100
+#: intros.pug:72 languages.pug:72 logos.pug:72 made-with.pug:33 math.pug:72
+#: motion-design.pug:72 music.pug:72 phelng.pug:31 posters.pug:72
+#: programs.pug:72 pychemin.pug:31 school.pug:76 science.pug:76 sites.pug:72
+#: typography.pug:72 visual-identities.pug:72 web.pug:72 index.pug:106
+#: index.pug:111 index.pug:114 _using.pug:24
+msgid "contact"
+msgstr ""
+
+#: APIs.pug:70 CLIs.pug:70 about.pug:33 apps.pug:70 automation.pug:73
+#: banners.pug:70 books.pug:70 cards.pug:70 compositing.pug:70 condenses.pug:29
+#: contact.pug:28 cover-arts.pug:70 drawings.pug:70 games.pug:70
+#: graphism.pug:70 iconography.pug:70 illustrations.pug:70 index.pug:98
+#: intros.pug:70 languages.pug:70 logos.pug:70 made-with.pug:31 math.pug:70
+#: motion-design.pug:70 music.pug:70 phelng.pug:29 posters.pug:70
+#: programs.pug:70 pychemin.pug:29 school.pug:74 science.pug:74 sites.pug:70
+#: typography.pug:70 visual-identities.pug:70 web.pug:70 index.pug:104
+#: index.pug:109 index.pug:112 _using.pug:22
+msgid "music+visual"
+msgstr ""
+
+#: APIs.pug:66 CLIs.pug:66 about.pug:29 apps.pug:66 automation.pug:69
+#: banners.pug:66 books.pug:66 cards.pug:66 compositing.pug:66 condenses.pug:25
+#: contact.pug:24 cover-arts.pug:66 drawings.pug:66 games.pug:66
+#: graphism.pug:66 iconography.pug:66 illustrations.pug:66 index.pug:94
+#: intros.pug:66 languages.pug:66 logos.pug:66 made-with.pug:27 math.pug:66
+#: motion-design.pug:66 music.pug:66 phelng.pug:25 posters.pug:66
+#: programs.pug:66 pychemin.pug:25 school.pug:70 science.pug:70 sites.pug:66
+#: typography.pug:66 visual-identities.pug:66 web.pug:66 index.pug:100
+#: index.pug:105 index.pug:108 _using.pug:18
+msgid "my music"
+msgstr ""
+
+#: APIs.pug:64 CLIs.pug:64 about.pug:27 apps.pug:64 automation.pug:67
+#: banners.pug:64 books.pug:64 cards.pug:64 compositing.pug:64 condenses.pug:23
+#: contact.pug:22 cover-arts.pug:64 drawings.pug:64 games.pug:64
+#: graphism.pug:64 iconography.pug:64 illustrations.pug:64 index.pug:92
+#: intros.pug:64 languages.pug:64 logos.pug:64 made-with.pug:25 math.pug:64
+#: motion-design.pug:64 music.pug:64 phelng.pug:23 posters.pug:64
+#: programs.pug:64 pychemin.pug:23 school.pug:68 science.pug:68 sites.pug:64
+#: typography.pug:64 visual-identities.pug:64 web.pug:64 index.pug:98
+#: index.pug:103 index.pug:106 _using.pug:16
+msgid "open-source code"
+msgstr ""
+
+#: APIs.pug:62 CLIs.pug:62 about.pug:25 apps.pug:62 automation.pug:65
+#: banners.pug:62 books.pug:62 cards.pug:62 compositing.pug:62 condenses.pug:21
+#: contact.pug:20 cover-arts.pug:62 drawings.pug:62 games.pug:62
+#: graphism.pug:62 iconography.pug:62 illustrations.pug:62 index.pug:90
+#: intros.pug:62 languages.pug:62 logos.pug:62 made-with.pug:23 math.pug:62
+#: motion-design.pug:62 music.pug:62 phelng.pug:21 posters.pug:62
+#: programs.pug:62 pychemin.pug:21 school.pug:66 science.pug:66 sites.pug:62
+#: typography.pug:62 visual-identities.pug:62 web.pug:62 index.pug:96
+#: index.pug:101 index.pug:104 _using.pug:14
+msgid "random thoughts"
 msgstr ""

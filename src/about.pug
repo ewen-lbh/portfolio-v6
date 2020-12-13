@@ -1,16 +1,19 @@
-p.pre-h1(translate) Hi, I'm Ewen Le Bihan.
-h1(translate) These are my creations.
-p(translate) Hi! I'm Ewen Le Bihan, I'm {{ Age }} years old and I'm interested in almost anything that is both creative and digital.
+extends .layout
 
-h2(translate) artistique
-p(translate) Dessin à l'école des beaux-arts de Nîmes, ateliers de peinture, de sculpture. Depuis mes 7 ans, je compose de la musique électronique, j'ai suivi des cours de piano et de DJ et participé à une masterclass de production musicale. Pendant mes années de collège, j'ai réalisé de nombreuses affiches et logos en utilisant divers logiciels (3D, motion design, graphisme…)
+block content
+    p.pre-h1(translate) Hi, I'm Ewen Le Bihan.
+    h1(translate) These are my creations.
+    p(translate) Hi! I'm Ewen Le Bihan, I'm {{ .Age }} years old and I'm interested in almost anything that is both creative and digital.
 
-h2(translate) numérique
-p(translate) J'ai appris à programmer dans différents langages informatiques: HTML, Python et JavaScript, ce qui m'a permis de créer mon site et, actuellement, une application web pour étudiants. J'ai aussi pour projet la création de plusieurs langages de programmation.
-p(translate) Tout mes projets de programmation sont visibles par tous sur mon profil GitHub: tout mes projets sont dits "Open Source".
+    h2(translate) artistique
+    p(translate) Dessin à l'école des beaux-arts de Nîmes, ateliers de peinture, de sculpture. Depuis mes 7 ans, je compose de la musique électronique, j'ai suivi des cours de piano et de DJ et participé à une masterclass de production musicale. Pendant mes années de collège, j'ai réalisé de nombreuses affiches et logos en utilisant divers logiciels (3D, motion design, graphisme…)
 
-h2(translate) linguistique
-p(translate) L'anglais étant indispensable à la lecture de documentations, j'ai approfondi cette langue (TOEIC Bridge: 176/180), conversé par mail avec un américain pour réaliser un logo. Je suis aussi fasciné depuis l'enfance par l'écriture: le cyrillique (d'où mon choix de LV3, le russe), le grec (cours particuliers) et les hiraganas et katakanas (japonais en autodidacte).
+    h2(translate) numérique
+    p(translate) J'ai appris à programmer dans différents langages informatiques: HTML, Python et JavaScript, ce qui m'a permis de créer mon site et, actuellement, une application web pour étudiants. J'ai aussi pour projet la création de plusieurs langages de programmation.
+    p(translate) Tout mes projets de programmation sont visibles par tous sur mon profil GitHub: tout mes projets sont dits "Open Source".
 
-h2(translate) scientifique
-p(translate) Le langage mathématique m'intéresse tout autant: il m'arrive d'appréhender des concepts complexes mathématiques en naviguant sur wikipédia anglais ou en regardant des vidéos de chaînes YouTube telles que "3Blue1Brown" ou "Numerphile"
+    h2(translate) linguistique
+    p(translate) L'anglais étant indispensable à la lecture de documentations, j'ai approfondi cette langue (TOEIC Bridge: 176/180), conversé par mail avec un américain pour réaliser un logo. Je suis aussi fasciné depuis l'enfance par l'écriture: le cyrillique (d'où mon choix de LV3, le russe), le grec (cours particuliers) et les hiraganas et katakanas (japonais en autodidacte).
+
+    h2(translate) scientifique
+    p(translate) Le langage mathématique m'intéresse tout autant: il m'arrive d'appréhender des concepts complexes mathématiques en naviguant sur wikipédia anglais ou en regardant des vidéos de chaînes YouTube telles que "3Blue1Brown" ou "Numerphile"

@@ -1,22 +1,25 @@
-ul.tags
-	{{ range .CurrentWork.Metadata.Tags }}
-	li: a(href="/{{ (lookupTag .).URLName }}" translate) {{ . }}
+extends .layout
+
+block content
+	ul.tags
+		{{ range .CurrentWork.Metadata.Tags }}
+		li: a(href="/{{ (lookupTag .).URLName }}" translate) {{ . }}
+		{{ end }}
+
+	section.contents
+		h1 {{ .CurrentWork.Title }}
+
+		{{ .CurrentWorkBuiltLayout | tnindent 1 }}
+
+
+	{{ if (len .CurrentWork.Metadata.MadeWith) }}
+	section.made-with
+		h2.made-with__title(translate) made with
+		p.made-with__explainer(translate) the software, frameworks, libraries, materials and services I used to make this
+		ul.made-with__list
+			{{ range .CurrentWork.MadeWith }}
+			li: a(href="/using/{{ .URLName }}")
+				img(src="/logos/{{ .URLName }}")
+				span(translate) {{ .DisplayName }}
+			{{ end -}}
 	{{ end }}
-
-section.contents
-	h1 {{ .CurrentWork.Title }}
-
-	{{ .CurrentWorkBuiltLayout | tnindent 1 }}
-
-
-{{ if (len .CurrentWork.Metadata.MadeWith) }}
-section.made-with
-	h2.made-with__title(translate) made with
-	p.made-with__explainer(translate) the software, frameworks, libraries, materials and services I used to make this
-	ul.made-with__list
-		{{ range .CurrentWork.MadeWith }}
-		li: a(href="/with/{{ .URLName }}")
-			img(src="/logos/{{ .URLName }}")
-			span(translate) {{ .DisplayName }}
-		{{ end -}}
-{{ end }}

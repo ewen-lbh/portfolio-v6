@@ -1,63 +1,70 @@
-p.pre-h1(translate) Hi, I'm Ewen Le Bihan.
-h1(translate) These are my creations.
-p.intro
-	i18n Hi! I'm Ewen Le Bihan, I'm 16 years old and I'm interested in almost anything that is both creative and digital.
-	a(href="/learn-more") 
-		img.icon.points-right(src="../static/icons/arrow.svg")
-		i18n Learn more
+extends .layout
+
+block content
+	p.pre-h1(translate) Hi, I'm Ewen Le Bihan.
+	h1(translate) These are my creations.
+	p.intro
+		i18n Hi! I'm Ewen Le Bihan, I'm 16 years old and I'm interested in almost anything that is both creative and digital.
+		a(href="/learn-more") 
+			img.icon.points-right(src="{{ asset "icons/arrow.svg" }}")
+			i18n Learn more
 
 
-h2 most recent one
+	h2 most recent one
 
-section.work-card.work-card--large
-	{{ if len .LatestWork.Media }}
-	img.work-card__image(src="{{ (index .LatestWork.Media 0).Source }}")
-	{{ else }}
-	svg.work-card__image--empty
-	{{ end }}
-	h3 {{ .LatestWork.Title }}
-	{{ if len .LatestWork.Paragraphs }}
-	p. {{ summarize ((index .LatestWork.Paragraphs 0).Content) | tnindent 2 }}
-	{{ end }}
-
-h2 all of 'em
-
-section.gallery
-	ul.gallery__toolbar
-		li.gallery__toolbar__category
-			label(for="filter")
-				img.icon(src="../static/icons/tag.svg" alt="tags")
-			select#filter
-				{{ range .Tags }}
-				option(value="{{ .DisplayName }}" translate) {{ .DisplayName }}
-				{{- end }}
-		li.gallery__toolbar__search
-			label(for="search")
-				img.icon(src="../static/icons/magnifying_glass.svg")
-			input#search(placeholder="[# 'search' | translate #]")
-		li.gallery__toolbar__sort
-			label(for="sort-by" translate translate-context="Gallery toolbar") sorted by
-			select#sort-by
-				{{ range .SortingOptions }}
-				option(value="{{ . }}" translate) {{ . }}
-				{{- end }}
-	ul.gallery__works
-		{{ range $year, $works := .WorksByYear }}
-		{{ if ne $year -1 }}
-		h3 {{ $year }}
+	section.work-card.work-card--large
+		{{ if len .LatestWork.Media }}
+		img.work-card__image(src="{{ (index .LatestWork.Media 0).Source }}")
 		{{ else }}
-		h3(translate) Unknown year
+		svg.work-card__image--empty
 		{{ end }}
-		{{ range $works }}
-		a(href="{{ .ID }}"): li.gallery__works__work.work-card.work-card--medium
-			{{ if len .Media }}
-			img.work-card__image(src="{{ (index .Media 0).Source }}")
-			{{ else }}
-			.work-card__image--empty
-			{{ end }}
-			h4 {{ .Title }}
-			{{ if len .Paragraphs }}
-			p. {{ summarize (index .Paragraphs 0).Content | tnindent 4 }}
-			{{ end }}
-		{{- end }}
-		{{- end }}
+		h3 {{ .LatestWork.Title }}
+		{{ if len .LatestWork.Paragraphs }}
+		p. 
+			{{ summarize ((index .LatestWork.Paragraphs 0).Content) | tindent 2 }}
+		{{ end }}
+
+	h2 all of 'em
+
+	section.gallery
+		ul.gallery__toolbar
+			li.gallery__toolbar__category
+				label(for="filter")
+					img.icon(src="{{ asset "icons/tag.svg" }}" alt="tags")
+				select#filter
+					{{ range .Tags }}
+					option(value="{{ .DisplayName }}" translate) {{ .DisplayName }}
+					{{- end }}
+			li.gallery__toolbar__search
+				label(for="search")
+					img.icon(src="{{ asset "icons/magnifying_glass.svg" }}")
+				input#search(placeholder="[# 'search' | translate #]")
+			li.gallery__toolbar__sort
+				label(for="sort-by" translate translate-context="Gallery toolbar") sorted by
+				select#sort-by
+					{{ range .SortingOptions }}
+					option(value="{{ . }}" translate) {{ . }}
+					{{- end }}
+		ul.gallery__works
+			{{ range $year, $works := .WorksByYear }}
+			li
+				{{ if ne $year -1 }}
+				h3 {{ $year }}
+				{{ else }}
+				h3(translate) Unknown year
+				{{ end }}
+				ul.gallery__works__year
+				{{ range $works }}
+					li.gallery__works__work.work-card.work-card--medium: a(href="/{{ .ID }}")
+						{{ if len .Media }}
+						img.work-card__image(src="{{ (index .Media 0).Source }}")
+						{{ else }}
+						.work-card__image--empty
+						{{ end }}
+						h4 {{ .Title }}
+						{{ if len .Paragraphs }}
+						p. 
+							{{ summarize (index .Paragraphs 0).Content | tindent 5 }}
+						{{ end }}
+					{{- end }}
+			{{- end }}
