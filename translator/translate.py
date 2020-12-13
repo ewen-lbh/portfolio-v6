@@ -36,6 +36,7 @@ def translate(lang: str):
             html = bs4.BeautifulSoup(raw, features="html.parser")
             for tag in html("i18n") + html(translate="translate"):
                 del tag["translate"]
+                del tag["translate-context"]
                 if tag.name == "i18n":
                     # TODO: Find a way to _remove_ the tag and insert the content 
                     # into the parent tag as a text node directly, this is ugly af.
