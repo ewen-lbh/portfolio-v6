@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+echo "ENVIRONMENT=prod" > hydrator/.env
+
+pnpm database:update &&\
+pnpm prepare:i18n &&\
+pnpm makeclean &&\
+rsync -r --progress dist/ ubuntu@ewen.works:/home/user-data/www/ewen.works/
+
+echo "ENVIRONMENT=dev" > hydrator/.env
