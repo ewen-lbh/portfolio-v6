@@ -41,6 +41,8 @@ def translate(lang: str):
                     # TODO: Find a way to _remove_ the tag and insert the content 
                     # into the parent tag as a text node directly, this is ugly af.
                     tag.name = "span" 
+                    p(2, f"{tag.string} ~> {translation(tag.string)}")
+                tag.string = translation(tag.string)
         with open(translated_dir / lang / filepath, 'w') as file:
             file.write(str(html))
 
