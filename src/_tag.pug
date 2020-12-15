@@ -32,6 +32,6 @@ block content
 				{{ end }}
 				h4 {{ .Title }}
 				{{ if len .Paragraphs }}
-				p. {{ summarize (index .Paragraphs 0).Content | tnindent 4 }}
+				p. {{ summarize (index .Paragraphs 0).Content | tnindent 5 }}
 				{{ end }}
 			{{- end }}
