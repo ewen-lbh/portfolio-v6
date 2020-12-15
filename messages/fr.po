@@ -132,6 +132,7 @@ msgstr ""
 #: languages.pug:39 logos.pug:39 math.pug:39 motion-design.pug:39 music.pug:39
 #: posters.pug:39 programs.pug:39 school.pug:39 science.pug:39 sites.pug:39
 #: typography.pug:39 visual-identities.pug:39 web.pug:39 index.pug:54
+#: index.pug:55
 msgid "iconography"
 msgstr ""
 
@@ -160,6 +161,7 @@ msgstr ""
 #: languages.pug:35 logos.pug:35 math.pug:35 motion-design.pug:35 music.pug:35
 #: posters.pug:35 programs.pug:35 school.pug:35 science.pug:35 sites.pug:35
 #: typography.pug:35 visual-identities.pug:35 web.pug:35 index.pug:50
+#: index.pug:51
 msgid "illustration"
 msgstr ""
 
@@ -188,6 +190,7 @@ msgstr ""
 #: languages.pug:24 logos.pug:24 math.pug:24 motion-design.pug:24 music.pug:24
 #: posters.pug:24 programs.pug:24 school.pug:24 science.pug:24 sites.pug:24
 #: typography.pug:24 visual-identities.pug:24 web.pug:24 index.pug:39
+#: index.pug:40
 msgid "intro"
 msgstr ""
 
@@ -234,7 +237,7 @@ msgstr ""
 #: languages.pug:41 logos.pug:41 math.pug:41 motion-design.pug:41 music.pug:41
 #: posters.pug:41 programs.pug:41 pychemin.pug:12 school.pug:41 science.pug:41
 #: sites.pug:41 typography.pug:41 visual-identities.pug:41 web.pug:41
-#: index.pug:56
+#: index.pug:56 index.pug:57
 msgid "language"
 msgstr ""
 
@@ -278,7 +281,7 @@ msgstr ""
 #: index.pug:48 intros.pug:36 languages.pug:36 logos.pug:9 logos.pug:36
 #: math.pug:36 motion-design.pug:36 music.pug:36 posters.pug:36 programs.pug:36
 #: school.pug:36 science.pug:36 sites.pug:36 typography.pug:36
-#: visual-identities.pug:36 web.pug:36 index.pug:51
+#: visual-identities.pug:36 web.pug:36 index.pug:51 index.pug:52
 msgid "logo"
 msgstr ""
 
@@ -308,7 +311,7 @@ msgstr ""
 #: logos.pug:31 math.pug:31 motion-design.pug:9 motion-design.pug:31
 #: music.pug:31 posters.pug:31 programs.pug:31 school.pug:31 science.pug:31
 #: sites.pug:31 typography.pug:31 visual-identities.pug:31 web.pug:31
-#: index.pug:46
+#: index.pug:46 fubini-visualized.pug:13 index.pug:47
 msgid "motion design"
 msgstr ""
 
@@ -336,7 +339,7 @@ msgstr ""
 #: index.pug:37 intros.pug:25 languages.pug:25 logos.pug:25 math.pug:25
 #: motion-design.pug:25 music.pug:9 music.pug:25 posters.pug:25 programs.pug:25
 #: school.pug:25 science.pug:25 sites.pug:25 typography.pug:25
-#: visual-identities.pug:25 web.pug:25 index.pug:40
+#: visual-identities.pug:25 web.pug:25 index.pug:40 index.pug:41
 msgid "music"
 msgstr ""
 
@@ -369,6 +372,7 @@ msgstr ""
 #: logos.pug:21 math.pug:21 motion-design.pug:21 music.pug:21 posters.pug:9
 #: posters.pug:21 programs.pug:21 school.pug:21 science.pug:21 sites.pug:21
 #: typography.pug:21 visual-identities.pug:21 web.pug:21 index.pug:36
+#: index.pug:37
 msgid "poster"
 msgstr ""
 
@@ -401,7 +405,8 @@ msgstr ""
 #: logos.pug:29 math.pug:29 motion-design.pug:29 music.pug:29 phelng.pug:11
 #: posters.pug:29 programs.pug:9 programs.pug:29 pychemin.pug:10 school.pug:29
 #: science.pug:29 sites.pug:29 typography.pug:29 visual-identities.pug:29
-#: web.pug:29 index.pug:44
+#: web.pug:29 index.pug:44 fubini-visualized.pug:10 ideaseed.pug:11
+#: index.pug:45
 msgid "program"
 msgstr ""
 
@@ -429,7 +434,7 @@ msgstr ""
 #: index.pug:27 intros.pug:15 languages.pug:15 logos.pug:15 math.pug:15
 #: motion-design.pug:15 music.pug:15 posters.pug:15 programs.pug:15
 #: school.pug:9 school.pug:15 science.pug:15 sites.pug:15 typography.pug:15
-#: visual-identities.pug:15 web.pug:15 index.pug:30
+#: visual-identities.pug:15 web.pug:15 index.pug:30 index.pug:31
 msgid "school"
 msgstr ""
 
@@ -459,7 +464,8 @@ msgstr ""
 #: index.pug:28 intros.pug:16 languages.pug:16 logos.pug:16 math.pug:16
 #: motion-design.pug:16 music.pug:16 posters.pug:16 programs.pug:16
 #: school.pug:16 science.pug:9 science.pug:16 sites.pug:16 typography.pug:16
-#: visual-identities.pug:16 web.pug:16 index.pug:31
+#: visual-identities.pug:16 web.pug:16 index.pug:31 fubini-visualized.pug:12
+#: index.pug:32
 msgid "science"
 msgstr ""
 
@@ -491,7 +497,7 @@ msgstr ""
 #: illustrations.pug:47 index.pug:59 intros.pug:47 languages.pug:47
 #: logos.pug:47 math.pug:47 motion-design.pug:47 music.pug:47 posters.pug:47
 #: programs.pug:47 school.pug:47 science.pug:47 sites.pug:47 typography.pug:47
-#: visual-identities.pug:47 web.pug:47 index.pug:62
+#: visual-identities.pug:47 web.pug:47 index.pug:62 index.pug:63
 msgid "search"
 msgstr ""
 
@@ -523,7 +529,7 @@ msgstr ""
 #: index.pug:52 intros.pug:40 languages.pug:40 logos.pug:40 math.pug:40
 #: motion-design.pug:40 music.pug:40 posters.pug:40 programs.pug:40
 #: school.pug:40 science.pug:40 sites.pug:9 sites.pug:40 typography.pug:40
-#: visual-identities.pug:40 web.pug:40 index.pug:55
+#: visual-identities.pug:40 web.pug:40 index.pug:55 index.pug:56
 msgid "site"
 msgstr ""
 
@@ -555,15 +561,15 @@ msgstr ""
 #: illustrations.pug:50 index.pug:62 intros.pug:50 languages.pug:50
 #: logos.pug:50 math.pug:50 motion-design.pug:50 music.pug:50 posters.pug:50
 #: programs.pug:50 school.pug:50 science.pug:50 sites.pug:50 typography.pug:50
-#: visual-identities.pug:50 web.pug:50 index.pug:65
+#: visual-identities.pug:50 web.pug:50 index.pug:65 index.pug:66
 msgctxt "Gallery toolbar"
 msgid "sorted by"
-msgstr ""
+msgstr "trié par"
 
 #: artifacts/phase_1/en/about.pug:2 artifacts/phase_1/en/index.pug:2
 #: about.pug:10 index.pug:10
 msgid "These are my creations."
-msgstr ""
+msgstr "Voici mes créations."
 
 #: artifacts/phase_1/en/about.pug:8 about.pug:16
 msgid ""
@@ -596,13 +602,14 @@ msgstr ""
 #: logos.pug:37 math.pug:37 motion-design.pug:37 music.pug:37 posters.pug:37
 #: programs.pug:37 school.pug:37 science.pug:37 sites.pug:37 typography.pug:9
 #: typography.pug:37 visual-identities.pug:37 web.pug:37 index.pug:52
+#: index.pug:53
 msgid "typography"
-msgstr ""
+msgstr "typographie"
 
 #: artifacts/phase_1/en/index.pug:133 artifacts/phase_1/en/index.pug:77
-#: artifacts/phase_1/en/index.pug:65
+#: artifacts/phase_1/en/index.pug:65 index.pug:74
 msgid "Unknown year"
-msgstr ""
+msgstr "Année iconnue"
 
 #: artifacts/phase_1/en/index.pug:77 artifacts/phase_1/en/index.pug:40
 #: artifacts/phase_1/en/index.pug:36 artifacts/phase_1/en/index.pug:41
@@ -629,8 +636,9 @@ msgstr ""
 #: logos.pug:33 math.pug:33 motion-design.pug:33 music.pug:33 posters.pug:33
 #: programs.pug:33 school.pug:33 science.pug:33 sites.pug:33 typography.pug:33
 #: visual-identities.pug:9 visual-identities.pug:33 web.pug:33 index.pug:48
+#: index.pug:49
 msgid "visual identity"
-msgstr ""
+msgstr "identité visuelle"
 
 #: artifacts/phase_1/en/index.pug:47 artifacts/phase_1/en/index.pug:30
 #: artifacts/phase_1/en/index.pug:26 artifacts/phase_1/en/index.pug:31
@@ -656,15 +664,9 @@ msgstr ""
 #: index.pug:35 intros.pug:23 languages.pug:23 logos.pug:23 math.pug:23
 #: motion-design.pug:23 music.pug:23 posters.pug:23 programs.pug:23
 #: school.pug:23 science.pug:23 sites.pug:23 typography.pug:23
-#: visual-identities.pug:23 web.pug:9 web.pug:23 index.pug:38
+#: visual-identities.pug:23 web.pug:9 web.pug:23 index.pug:38 index.pug:39
 msgid "web"
-msgstr ""
-
-#: artifacts/phase_1/en/about.pug:3
-msgid ""
-"Hi! I'm Ewen Le Bihan, I'm { Age } years old and I'm interested in almost "
-"anything that is both creative and digital."
-msgstr ""
+msgstr "web"
 
 #: artifacts/phase_1/en/fubini-visualized.pug:3
 #: artifacts/phase_1/en/index.pug:45 artifacts/phase_1/en/index.pug:50
@@ -691,7 +693,8 @@ msgstr ""
 #: intros.pug:42 languages.pug:42 logos.pug:42 math.pug:9 math.pug:42
 #: motion-design.pug:42 music.pug:42 posters.pug:42 programs.pug:42
 #: school.pug:42 science.pug:42 sites.pug:42 typography.pug:42
-#: visual-identities.pug:42 web.pug:42 index.pug:57
+#: visual-identities.pug:42 web.pug:42 index.pug:57 fubini-visualized.pug:11
+#: index.pug:58
 msgid "math"
 msgstr ""
 
@@ -821,7 +824,9 @@ msgstr ""
 #: motion-design.pug:68 music.pug:68 phelng.pug:27 posters.pug:68
 #: programs.pug:68 pychemin.pug:27 school.pug:72 science.pug:72 sites.pug:68
 #: typography.pug:68 visual-identities.pug:68 web.pug:68 index.pug:102
-#: index.pug:107 index.pug:110 _using.pug:20
+#: index.pug:107 index.pug:110 _using.pug:20 automation.pug:74
+#: fubini-visualized.pug:28 ideaseed.pug:30 index.pug:106 math.pug:74
+#: school.pug:68 science.pug:74 automation.pug:73 math.pug:73 science.pug:73
 msgid "also my music"
 msgstr ""
 
@@ -833,9 +838,11 @@ msgstr ""
 #: motion-design.pug:72 music.pug:72 phelng.pug:31 posters.pug:72
 #: programs.pug:72 pychemin.pug:31 school.pug:76 science.pug:76 sites.pug:72
 #: typography.pug:72 visual-identities.pug:72 web.pug:72 index.pug:106
-#: index.pug:111 index.pug:114 _using.pug:24
+#: index.pug:111 index.pug:114 _using.pug:24 automation.pug:78
+#: fubini-visualized.pug:32 ideaseed.pug:34 index.pug:110 math.pug:78
+#: school.pug:72 science.pug:78 automation.pug:77 math.pug:77 science.pug:77
 msgid "contact"
-msgstr ""
+msgstr "contact"
 
 #: APIs.pug:70 CLIs.pug:70 about.pug:33 apps.pug:70 automation.pug:73
 #: banners.pug:70 books.pug:70 cards.pug:70 compositing.pug:70 condenses.pug:29
@@ -845,9 +852,11 @@ msgstr ""
 #: motion-design.pug:70 music.pug:70 phelng.pug:29 posters.pug:70
 #: programs.pug:70 pychemin.pug:29 school.pug:74 science.pug:74 sites.pug:70
 #: typography.pug:70 visual-identities.pug:70 web.pug:70 index.pug:104
-#: index.pug:109 index.pug:112 _using.pug:22
+#: index.pug:109 index.pug:112 _using.pug:22 automation.pug:76
+#: fubini-visualized.pug:30 ideaseed.pug:32 index.pug:108 math.pug:76
+#: school.pug:70 science.pug:76 automation.pug:75 math.pug:75 science.pug:75
 msgid "music+visual"
-msgstr ""
+msgstr "musique+vidéo"
 
 #: APIs.pug:66 CLIs.pug:66 about.pug:29 apps.pug:66 automation.pug:69
 #: banners.pug:66 books.pug:66 cards.pug:66 compositing.pug:66 condenses.pug:25
@@ -857,9 +866,11 @@ msgstr ""
 #: motion-design.pug:66 music.pug:66 phelng.pug:25 posters.pug:66
 #: programs.pug:66 pychemin.pug:25 school.pug:70 science.pug:70 sites.pug:66
 #: typography.pug:66 visual-identities.pug:66 web.pug:66 index.pug:100
-#: index.pug:105 index.pug:108 _using.pug:18
+#: index.pug:105 index.pug:108 _using.pug:18 automation.pug:72
+#: fubini-visualized.pug:26 ideaseed.pug:28 index.pug:104 math.pug:72
+#: school.pug:66 science.pug:72 automation.pug:71 math.pug:71 science.pug:71
 msgid "my music"
-msgstr ""
+msgstr "ma musique"
 
 #: APIs.pug:64 CLIs.pug:64 about.pug:27 apps.pug:64 automation.pug:67
 #: banners.pug:64 books.pug:64 cards.pug:64 compositing.pug:64 condenses.pug:23
@@ -869,9 +880,11 @@ msgstr ""
 #: motion-design.pug:64 music.pug:64 phelng.pug:23 posters.pug:64
 #: programs.pug:64 pychemin.pug:23 school.pug:68 science.pug:68 sites.pug:64
 #: typography.pug:64 visual-identities.pug:64 web.pug:64 index.pug:98
-#: index.pug:103 index.pug:106 _using.pug:16
+#: index.pug:103 index.pug:106 _using.pug:16 automation.pug:70
+#: fubini-visualized.pug:24 ideaseed.pug:26 index.pug:102 math.pug:70
+#: school.pug:64 science.pug:70 automation.pug:69 math.pug:69 science.pug:69
 msgid "open-source code"
-msgstr ""
+msgstr "code open-source"
 
 #: APIs.pug:62 CLIs.pug:62 about.pug:25 apps.pug:62 automation.pug:65
 #: banners.pug:62 books.pug:62 cards.pug:62 compositing.pug:62 condenses.pug:21
@@ -881,6 +894,8 @@ msgstr ""
 #: motion-design.pug:62 music.pug:62 phelng.pug:21 posters.pug:62
 #: programs.pug:62 pychemin.pug:21 school.pug:66 science.pug:66 sites.pug:62
 #: typography.pug:62 visual-identities.pug:62 web.pug:62 index.pug:96
-#: index.pug:101 index.pug:104 _using.pug:14
+#: index.pug:101 index.pug:104 _using.pug:14 automation.pug:68
+#: fubini-visualized.pug:22 ideaseed.pug:24 index.pug:100 math.pug:68
+#: school.pug:62 science.pug:68 automation.pug:67 math.pug:67 science.pug:67
 msgid "random thoughts"
 msgstr ""
