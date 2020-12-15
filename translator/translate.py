@@ -29,6 +29,7 @@ def translate(lang: str):
         p(1, f"Translating {filepath}")
         with open(to_translate_dir / lang / filepath, 'r') as file:
             raw = file.read()
+            raw = raw.replace("[# LANGUAGE CODE #]", lang)
             if (matches := translate_strings_pattern.finditer(raw)):
                 for match in matches:
                     p(2, f"{match.group(0)} ~> {translation(match.group(1))}")
