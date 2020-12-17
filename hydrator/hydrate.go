@@ -25,12 +25,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	err = godotenv.Load("./.env")
-	if err != nil {
-		panic("Could not load the .env file")
-	}
 	fmt.Println("------")
-	if os.Getenv("ENVIRONMENT") != "dev" {
+	if BuildingForProduction() {
 		fmt.Println("Hydrating for production")
 	} else {
 		fmt.Println("Hydrating for developement")
@@ -305,7 +301,11 @@ func GetAge() uint8 {
 }
 
 func BuildingForProduction() bool {
-	return os.Getenv("ENVIRONMENT") == "dev"
+	err := godotenv.Load("./.env")
+	if err != nil {
+		panic("Could not load the .env file")
+	}
+	return os.Getenv("ENVIRONMENT") != "dev"
 }
 
 // AssetURL returns the full URL for a given asset.
@@ -322,7 +322,7 @@ func AssetURL(assetPath string) string {
 // MediaURL returns the full URL for a given media.
 func MediaURL(mediaPath string) string {
 	var urlScheme string
-	if os.Getenv("ENVIRONMENT") == "dev" {
+	if !BuildingForProduction() {
 		urlScheme = "file://" + os.Getenv("LOCAL_PROJECTS_DIR") + "/%s"
 	} else {
 		urlScheme = "https://media.ewen.works/%s"
