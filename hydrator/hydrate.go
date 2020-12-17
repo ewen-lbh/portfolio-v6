@@ -42,7 +42,31 @@ func main() {
 		println("[hydrator]     language: " + lang)
 		os.Mkdir("../artifacts/phase_1/"+lang, 0777)
 		for _, file := range files {
-			if strings.HasSuffix(file.Name(), ".pug") {
+			if file.IsDir() && file.Name() == "using" {
+				files, err := ioutil.ReadDir("../src/using")
+				if err != nil {
+					panic(err)
+				}
+				os.Mkdir("../artifacts/phase_1/"+lang+"/using", 0777)
+				for _, file := range files {
+					if file.Name() == "_technology.pug" {
+						templateString, err := ReadFile("../src/using/_technology.pug")
+						if err != nil {
+							panic(err)
+						}
+						for _, tech := range AvailableTechnologies {
+							println("[hydrator]     hydrating: 'using/_technology.pug' @ " + tech.URLName)
+							HydrateDynamicFileWithLang(HydrationArgs{
+								templateString: templateString,
+								db:             db,
+								lang:           lang,
+								tech:           tech,
+								templateName:   "using/_technology.pug",
+							})
+						}
+					}
+				}
+			} else if strings.HasSuffix(file.Name(), ".pug") {
 				templateString, err := ReadFile("../src/" + file.Name())
 				if file.Name() == "_work.pug" {
 					if err != nil {
@@ -50,7 +74,13 @@ func main() {
 					}
 					for _, work := range db.Works {
 						println("[hydrator]     hydrating: '" + file.Name() + "' @ " + work.ID)
-						HydrateDynamicFileWithLang(templateString, "src/"+file.Name(), db, work, Tag{}, lang)
+						HydrateDynamicFileWithLang(HydrationArgs{
+							templateString: templateString,
+							db:             db,
+							lang:           lang,
+							work:           work,
+							templateName:   file.Name(),
+						})
 					}
 				} else if file.Name() == "_tag.pug" {
 					templateString, err := ReadFile("../src/" + file.Name())
@@ -59,15 +89,28 @@ func main() {
 					}
 					for _, tag := range tags {
 						println("[hydrator]     hydrating: '" + file.Name() + "' @ " + tag.URLName)
-						HydrateDynamicFileWithLang(templateString, "src/"+file.Name(), db, Work{}, tag, lang)		
+						HydrateDynamicFileWithLang(HydrationArgs{
+							templateString: templateString,
+							db:             db,
+							lang:           lang,
+							tag:            tag,
+							templateName:   file.Name(),
+						})
 					}
- 				} else {
+				} else {
 					println("[hydrator]     hydrating: '" + file.Name() + "'")
 					currentPath := strings.TrimSuffix(file.Name(), ".pug")
 					if currentPath == "index" {
 						currentPath = ""
 					}
-					replaced, err := ExecuteTemplate(string(templateString), "src/"+file.Name(), db, WorkOneLang{}, "/"+currentPath, Tag{}, lang)
+					// replaced, err := ExecuteTemplate(string(templateString), "src/"+file.Name(), db, WorkOneLang{}, "/"+currentPath, Tag{}, lang)
+					replaced, err := ExecuteTemplate(ExecuteTemplateArgs{
+						templateString: string(templateString),
+						currentPath:    "/" + currentPath,
+						db:             db,
+						templateName:   file.Name(),
+						lang:           lang,
+					})
 					if err != nil {
 						panic(err)
 					}
@@ -86,18 +129,39 @@ func main() {
 	}
 }
 
-func HydrateDynamicFileWithLang(templateString []byte, templateName string, db Database, work Work, tag Tag, lang string) {
-	replaced, err := ExecuteTemplate(string(templateString), templateName, db, GetOneLang(lang, work)[0], "/"+work.ID, tag, lang)
+type HydrationArgs struct {
+	templateString []byte
+	templateName   string
+	db             Database
+	work           Work
+	tag            Tag
+	tech           Technology
+	lang           string
+}
+
+func HydrateDynamicFileWithLang(args HydrationArgs) {
+	// replaced, err := ExecuteTemplate(string(args.templateString), args.templateName, args.db, GetOneLang(args.lang, args.work)[0], "/"+args.work.ID, args.tag, lang)
+	replaced, err := ExecuteTemplate(ExecuteTemplateArgs{
+		templateString: string(args.templateString),
+		templateName:   args.templateName,
+		db:             args.db,
+		currentWork:    GetOneLang(args.lang, args.work)[0],
+		currentPath:    "/" + args.work.ID,
+		currentTag:     args.tag,
+		currentTech:    args.tech,
+	})
 	if err != nil {
 		panic(err)
 	}
 	var pathIdentifier string
-	if work.ID != "" {
-		pathIdentifier = work.ID
+	if args.work.ID != "" {
+		pathIdentifier = args.work.ID
+	} else if args.tag.URLName != "" {
+		pathIdentifier = args.tag.URLName
 	} else {
-		pathIdentifier = tag.URLName
+		pathIdentifier = "using/" + args.tech.URLName
 	}
-	file, err := os.Create("../artifacts/phase_1/" + lang + "/" + pathIdentifier + ".pug")
+	file, err := os.Create("../artifacts/phase_1/" + args.lang + "/" + pathIdentifier + ".pug")
 	if err != nil {
 		panic(err)
 	}
@@ -117,6 +181,8 @@ type TemplateData struct {
 	CurrentPath            string
 	CurrentTag             Tag
 	CurrentTagWorks        []WorkOneLang
+	CurrentTech            Technology
+	CurrentTechWorks       []WorkOneLang
 	Age                    uint8
 }
 
@@ -159,7 +225,7 @@ func (db *Database) LatestWork() Work {
 func (db *Database) WorksOfTag(tag Tag) []Work {
 	worksOfTag := make([]Work, 0)
 	for _, work := range db.Works {
-		_, findError := FindInArray(work.Metadata.Tags, tag.URLName)
+		_, findError := FindInArrayLax(work.Metadata.Tags, tag.URLName)
 		if findError == nil {
 			worksOfTag = append(worksOfTag, work)
 		}
@@ -222,6 +288,17 @@ func (db *Database) WorksByYearOneLang(lang string) map[int][]WorkOneLang {
 	return worksByYear
 }
 
+func (db *Database) WorksMadeWith(tech Technology) []Work {
+	worksMadeWith := make([]Work, 0)
+	for _, work := range db.Works {
+		_, findError := FindInArrayLax(work.Metadata.MadeWith, tech.URLName)
+		if findError == nil {
+			worksMadeWith = append(worksMadeWith, work)
+		}
+	}
+	return worksMadeWith
+}
+
 func GetAge() uint8 {
 	// TODO Do it dynamically
 	return 17
@@ -235,7 +312,7 @@ func BuildingForProduction() bool {
 func AssetURL(assetPath string) string {
 	var urlScheme string
 	if !BuildingForProduction() {
-		urlScheme = "file://" + os.Getenv("LOCAL_PROJECTS_DIR") +  "portfolio-next/assets/%s"
+		urlScheme = "file://" + os.Getenv("LOCAL_PROJECTS_DIR") + "portfolio-next/assets/%s"
 	} else {
 		urlScheme = "https://assets.ewen.works/%s"
 	}
@@ -246,15 +323,26 @@ func AssetURL(assetPath string) string {
 func MediaURL(mediaPath string) string {
 	var urlScheme string
 	if os.Getenv("ENVIRONMENT") == "dev" {
-		urlScheme = "file://" + os.Getenv("LOCAL_PROJECTS_DIR") +  "/%s"
+		urlScheme = "file://" + os.Getenv("LOCAL_PROJECTS_DIR") + "/%s"
 	} else {
 		urlScheme = "https://media.ewen.works/%s"
 	}
 	return fmt.Sprintf(urlScheme, mediaPath)
 }
 
-func ExecuteTemplate(templateString string, templateName string, db Database, currentWork WorkOneLang, currentPath string, currentTag Tag, lang string) (string, error) {
-	tmpl := template.Must(template.New(templateName).Funcs(template.FuncMap{
+type ExecuteTemplateArgs struct {
+	templateString string
+	templateName   string
+	db             Database
+	currentWork    WorkOneLang
+	currentPath    string
+	currentTag     Tag
+	currentTech    Technology
+	lang           string
+}
+
+func ExecuteTemplate(args ExecuteTemplateArgs) (string, error) {
+	tmpl := template.Must(template.New(args.templateName).Funcs(template.FuncMap{
 		"summarize": func(s string) string {
 			var runesCount = 0
 			for index := range s {
@@ -273,28 +361,38 @@ func ExecuteTemplate(templateString string, templateName string, db Database, cu
 			}
 			panic("cannot find tag with name " + tagName + ", look at /home/ewen/projects/portfolio-next/hydrator/tags.go")
 		},
+		"lookupTech": func(techName string) Technology {
+			for _, tech := range AvailableTechnologies {
+				if tech.URLName == strings.TrimSpace(strings.ToLower(techName)) {
+					return tech
+				}
+			}
+			panic("cannot find technology with name " + techName + ", look at /home/ewen/projects/portfolio-next/hydrator/technologies.go")
+		},
 		"asset": AssetURL,
 		"media": func(mediaPath string) string {
 			if strings.HasPrefix(mediaPath, "/") {
 				return MediaURL(strings.TrimPrefix(mediaPath, "/"))
 			}
-			return MediaURL(currentWork.ID + "/" + mediaPath)
+			return MediaURL(args.currentWork.ID + "/" + mediaPath)
 		},
 	}).Funcs(sprig.TxtFuncMap()).Funcs(template.FuncMap{
 		"tindent":  IndentWithTabs,
 		"tnindent": IndentWithTabsNewline,
-	}).Parse(templateString))
+	}).Parse(args.templateString))
 	var buf bytes.Buffer
 	err := tmpl.Execute(&buf, TemplateData{
 		Tags:                   tags,
-		LatestWork:             GetOneLang(lang, db.LatestWork())[0],
+		LatestWork:             GetOneLang(args.lang, args.db.LatestWork())[0],
 		SortingOptions:         []string{"date"}, //TODO: more sorting options
-		WorksByYear:            db.WorksByYearOneLang(lang),
-		CurrentWork:            currentWork,
-		CurrentWorkBuiltLayout: currentWork.BuildLayout(),
-		CurrentTag:             currentTag,
-		CurrentTagWorks:        GetOneLang(lang, db.WorksOfTag(currentTag)...),
-		CurrentPath:            currentPath,
+		WorksByYear:            args.db.WorksByYearOneLang(args.lang),
+		CurrentWork:            args.currentWork,
+		CurrentWorkBuiltLayout: args.currentWork.BuildLayout(),
+		CurrentTag:             args.currentTag,
+		CurrentTagWorks:        GetOneLang(args.lang, args.db.WorksOfTag(args.currentTag)...),
+		CurrentTech:            args.currentTech,
+		CurrentTechWorks:       GetOneLang(args.lang, args.db.WorksMadeWith(args.currentTech)...),
+		CurrentPath:            args.currentPath,
 		Age:                    GetAge(),
 	})
 	if err != nil {

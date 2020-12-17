@@ -1,0 +1,40 @@
+extends .layout
+
+block content
+	h1 [# 'made with' | translate #] {{ .CurrentTech.DisplayName }}
+
+	section.gallery
+		ul.gallery__toolbar
+			li.gallery__toolbar__category
+				section.gallery
+		ul.gallery__toolbar
+			li.gallery__toolbar__category
+				label(for="filter")
+					img.icon(src="../assets/icons/tag.svg" alt="tags")
+				select#filter
+					{{ range .Tags }}
+					option(value="{{ .DisplayName }}" translate) {{ .DisplayName }}
+					{{- end }}
+			li.gallery__toolbar__search
+				label(for="search")
+					img.icon(src="../assets/icons/magnifying_glass.svg")
+				input#search(placeholder="[# 'search' | translate #]")
+			li.gallery__toolbar__sort
+				label(for="sort-by" translate translate-context="Gallery toolbar") sorted by
+				select#sort-by
+					{{ range .SortingOptions }}
+					option(value="{{ . }}" translate) {{ . }}
+					{{- end }}
+		ul.gallery__works
+			{{ range .CurrentTechWorks }}
+			a(href="{{ .ID }}"): li.gallery__works__work.work-card.work-card--medium
+				{{ if len .Media }}
+				img.work-card__image(src="{{ (index .Media 0).Source }}")
+				{{ else }}
+				.work-card__image--empty
+				{{ end }}
+				h4 {{ .Title }}
+				{{ if len .Paragraphs }}
+				p. {{ summarize (index .Paragraphs 0).Content | tnindent 5 }}
+				{{ end }}
+			{{- end }}

@@ -33,7 +33,7 @@ type Work struct {
 		Created  string
 		Tags     []string
 		Layout   []interface{}
-		MadeWith []string
+		MadeWith []string `json:"made with"`
 	}
 	Title      map[string]string
 	Paragraphs map[string][]Paragraph
@@ -48,7 +48,7 @@ type WorkOneLang struct {
 		Created  string
 		Tags     []string
 		Layout   []interface{}
-		MadeWith []string
+		MadeWith []string `json:"made with"`
 	}
 	Title      string
 	Paragraphs []Paragraph

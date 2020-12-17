@@ -9,7 +9,7 @@ block content
 	section.contents
 		h1 {{ .CurrentWork.Title }}
 
-		{{ .CurrentWorkBuiltLayout | tnindent 1 }}
+		{{ .CurrentWorkBuiltLayout | tnindent 2 }}
 
 
 	{{ if (len .CurrentWork.Metadata.MadeWith) }}
@@ -17,9 +17,9 @@ block content
 		h2.made-with__title(translate) made with
 		p.made-with__explainer(translate) the software, frameworks, libraries, materials and services I used to make this
 		ul.made-with__list
-			{{ range .CurrentWork.MadeWith }}
-			li: a(href="/using/{{ .URLName }}")
-				img(src="/logos/{{ .URLName }}")
-				span(translate) {{ .DisplayName }}
+			{{ range .CurrentWork.Metadata.MadeWith }}
+			li: a(href="/using/{{ (lookupTech .).URLName }}")
+				img(src='{{ asset (printf "logos/%s.svg" (lookupTech .).URLName) }}')
+				span(translate) {{ (lookupTech .).DisplayName }}
 			{{ end -}}
 	{{ end }}

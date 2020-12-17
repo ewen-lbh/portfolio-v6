@@ -1,10 +1,13 @@
 package main
 
-import "errors"
+import (
+	"errors"
+	"strings"
+)
 
-func FindInArray(haystack []string, needle string) (string, error) {
+func FindInArrayLax(haystack []string, needle string) (string, error) {
 	for _, element := range haystack {
-		if element == needle {
+		if strings.TrimSpace(strings.ToLower(element)) == needle {
 			return needle, nil
 		}
 	}
