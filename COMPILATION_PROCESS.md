@@ -16,7 +16,7 @@
                    |   pnpm database:build
                    v
      +-------------+----------+     +-----------+                             +----------+          +-----------+         +-----------+
-     | database/database.json |     | src/*.pug |                             | src/*.ts |          | src/*.css |         | static/** |
+     | database/database.json |     | src/*.pug |                             | src/*.ts |          | src/*.css |         | assets/** |
      +-------------+----------+     +-----+-----+                             +----+-----+          +-----+-----+         +-----+-----+
                    |                      |                                        |                      |                     |
                    +--------------------->+   pnpm pug:hydrate                     |                      |                     |
@@ -45,7 +45,7 @@
                               +-----------+-----------+                            |                      |                     |
                                           |                                        |                      |                     |
                                           |   pnpm html:translate                  |                      |                     |
-                                          v                                        |   pnpm ts:build      |   pnpm stylus:build |   pnpm static:build
+                                          v                                        |   pnpm ts:build      |   pnpm stylus:build |   pnpm assets:build
                                +----------+---------+                              |                      |                     |
                                | dist/{lang}/*.html +<-----------------------------+----------------------+---------------------+
                                +--------------------+
