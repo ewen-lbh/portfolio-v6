@@ -7,14 +7,14 @@ block content
 		ul.gallery__toolbar
 			li.gallery__toolbar__category
 				label(for="filter")
-					img.icon(src="../assets/icons/tag.svg" alt="tags")
+					img.icon(src='{{ asset "icons/tag.svg"}}' alt="tags")
 				select#filter
 					{{ range .Tags }}
 					option(value="{{ .DisplayName }}" translate) {{ .DisplayName }}
 					{{- end }}
 			li.gallery__toolbar__search
 				label(for="search")
-					img.icon(src="../assets/icons/magnifying_glass.svg")
+					img.icon(src='{{ asset "/magnifying_glass.svg" }}')
 				input#search(placeholder="[# 'search' | translate #]")
 			li.gallery__toolbar__sort
 				label(for="sort-by" translate translate-context="Gallery toolbar") sorted by
