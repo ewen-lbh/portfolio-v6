@@ -70,7 +70,7 @@ msgstr "date"
 msgid "Design and coded by hand"
 msgstr "Design et code fait-maison"
 
-#: artifacts/phase_1/en/about.pug:5 about.pug:13
+#: artifacts/phase_1/en/about.pug:5 about.pug:13 about.pug:27
 msgid ""
 "Dessin à l'école des beaux-arts de Nîmes, ateliers de peinture, de "
 "sculpture. Depuis mes 7 ans, je compose de la musique électronique, j'ai "
@@ -101,7 +101,7 @@ msgid "Hi, I'm Ewen Le Bihan."
 msgstr "Hey! Je suis Ewen Le Bihan."
 
 #: artifacts/phase_1/en/about.pug:3 artifacts/phase_1/en/index.pug:4
-#: index.pug:12
+#: index.pug:12 index.pug:23
 msgid ""
 "Hi! I'm Ewen Le Bihan, I'm 16 years old and I'm interested in almost "
 "anything that is both creative and digital."
@@ -147,7 +147,29 @@ msgstr ""
 #: using/rubyonrails.pug:44 using/rust.pug:44 using/sapper.pug:44
 #: using/sass.pug:44 using/shell.pug:44 using/stylus.pug:44 using/svelte.pug:44
 #: using/toml.pug:44 using/typescript.pug:44 using/vue.pug:44
-#: using/webpack.pug:44 using/yaml.pug:44 using/manim.pug:44
+#: using/webpack.pug:44 using/yaml.pug:44 using/manim.pug:44 APIs.pug:50
+#: CLIs.pug:50 apps.pug:50 automation.pug:50 banners.pug:50 books.pug:50
+#: cards.pug:50 compositing.pug:50 cover-arts.pug:50 drawings.pug:50
+#: games.pug:50 graphism.pug:50 iconography.pug:20 iconography.pug:50
+#: illustrations.pug:50 index.pug:66 intros.pug:50 languages.pug:50
+#: logos.pug:50 math.pug:50 motion-design.pug:50 music.pug:50 posters.pug:50
+#: programs.pug:50 school.pug:50 science.pug:50 sites.pug:50 typography.pug:50
+#: using/aftereffects.pug:55 using/asciidoc.pug:55 using/assembly.pug:55
+#: using/c#.pug:55 using/c++.pug:55 using/c.pug:55 using/coffeescript.pug:55
+#: using/css.pug:55 using/django.pug:55 using/djangorestframework.pug:55
+#: using/docopt.pug:55 using/figma.pug:55 using/fishshell.pug:55
+#: using/flstudio.pug:55 using/gimp.pug:55 using/go.pug:55 using/html.pug:55
+#: using/illustrator.pug:55 using/indesign.pug:55 using/javascript.pug:55
+#: using/json.pug:55 using/latex.pug:55 using/livescript.pug:55
+#: using/lua.pug:55 using/manim.pug:55 using/markdown.pug:55
+#: using/nestjs.pug:55 using/nim.pug:55 using/nuxt.pug:55 using/oclif.pug:55
+#: using/photoshop.pug:55 using/php.pug:55 using/plantuml.pug:55
+#: using/postgresql.pug:55 using/premierepro.pug:55 using/pug.pug:55
+#: using/pychemin.pug:55 using/python.pug:55 using/ruby.pug:55
+#: using/rubyonrails.pug:55 using/rust.pug:55 using/sapper.pug:55
+#: using/sass.pug:55 using/shell.pug:55 using/stylus.pug:55 using/svelte.pug:55
+#: using/toml.pug:55 using/typescript.pug:55 using/vue.pug:55
+#: using/webpack.pug:55 using/yaml.pug:55 visual-identities.pug:50 web.pug:50
 msgid "iconography"
 msgstr ""
 
@@ -191,7 +213,29 @@ msgstr ""
 #: using/rubyonrails.pug:40 using/rust.pug:40 using/sapper.pug:40
 #: using/sass.pug:40 using/shell.pug:40 using/stylus.pug:40 using/svelte.pug:40
 #: using/toml.pug:40 using/typescript.pug:40 using/vue.pug:40
-#: using/webpack.pug:40 using/yaml.pug:40 using/manim.pug:40
+#: using/webpack.pug:40 using/yaml.pug:40 using/manim.pug:40 APIs.pug:46
+#: CLIs.pug:46 apps.pug:46 automation.pug:46 banners.pug:46 books.pug:46
+#: cards.pug:46 compositing.pug:46 cover-arts.pug:46 drawings.pug:46
+#: games.pug:46 graphism.pug:46 iconography.pug:46 illustrations.pug:20
+#: illustrations.pug:46 index.pug:62 intros.pug:46 languages.pug:46
+#: logos.pug:46 math.pug:46 motion-design.pug:46 music.pug:46 posters.pug:46
+#: programs.pug:46 school.pug:46 science.pug:46 sites.pug:46 typography.pug:46
+#: using/aftereffects.pug:51 using/asciidoc.pug:51 using/assembly.pug:51
+#: using/c#.pug:51 using/c++.pug:51 using/c.pug:51 using/coffeescript.pug:51
+#: using/css.pug:51 using/django.pug:51 using/djangorestframework.pug:51
+#: using/docopt.pug:51 using/figma.pug:51 using/fishshell.pug:51
+#: using/flstudio.pug:51 using/gimp.pug:51 using/go.pug:51 using/html.pug:51
+#: using/illustrator.pug:51 using/indesign.pug:51 using/javascript.pug:51
+#: using/json.pug:51 using/latex.pug:51 using/livescript.pug:51
+#: using/lua.pug:51 using/manim.pug:51 using/markdown.pug:51
+#: using/nestjs.pug:51 using/nim.pug:51 using/nuxt.pug:51 using/oclif.pug:51
+#: using/photoshop.pug:51 using/php.pug:51 using/plantuml.pug:51
+#: using/postgresql.pug:51 using/premierepro.pug:51 using/pug.pug:51
+#: using/pychemin.pug:51 using/python.pug:51 using/ruby.pug:51
+#: using/rubyonrails.pug:51 using/rust.pug:51 using/sapper.pug:51
+#: using/sass.pug:51 using/shell.pug:51 using/stylus.pug:51 using/svelte.pug:51
+#: using/toml.pug:51 using/typescript.pug:51 using/vue.pug:51
+#: using/webpack.pug:51 using/yaml.pug:51 visual-identities.pug:46 web.pug:46
 msgid "illustration"
 msgstr ""
 
@@ -235,11 +279,33 @@ msgstr ""
 #: using/rubyonrails.pug:29 using/rust.pug:29 using/sapper.pug:29
 #: using/sass.pug:29 using/shell.pug:29 using/stylus.pug:29 using/svelte.pug:29
 #: using/toml.pug:29 using/typescript.pug:29 using/vue.pug:29
-#: using/webpack.pug:29 using/yaml.pug:29 using/manim.pug:29
+#: using/webpack.pug:29 using/yaml.pug:29 using/manim.pug:29 APIs.pug:35
+#: CLIs.pug:35 apps.pug:35 automation.pug:35 banners.pug:35 books.pug:35
+#: cards.pug:35 compositing.pug:35 cover-arts.pug:35 drawings.pug:35
+#: games.pug:35 graphism.pug:35 iconography.pug:35 illustrations.pug:35
+#: index.pug:51 intros.pug:20 intros.pug:35 languages.pug:35 logos.pug:35
+#: math.pug:35 motion-design.pug:35 music.pug:35 posters.pug:35 programs.pug:35
+#: school.pug:35 science.pug:35 sites.pug:35 typography.pug:35
+#: using/aftereffects.pug:40 using/asciidoc.pug:40 using/assembly.pug:40
+#: using/c#.pug:40 using/c++.pug:40 using/c.pug:40 using/coffeescript.pug:40
+#: using/css.pug:40 using/django.pug:40 using/djangorestframework.pug:40
+#: using/docopt.pug:40 using/figma.pug:40 using/fishshell.pug:40
+#: using/flstudio.pug:40 using/gimp.pug:40 using/go.pug:40 using/html.pug:40
+#: using/illustrator.pug:40 using/indesign.pug:40 using/javascript.pug:40
+#: using/json.pug:40 using/latex.pug:40 using/livescript.pug:40
+#: using/lua.pug:40 using/manim.pug:40 using/markdown.pug:40
+#: using/nestjs.pug:40 using/nim.pug:40 using/nuxt.pug:40 using/oclif.pug:40
+#: using/photoshop.pug:40 using/php.pug:40 using/plantuml.pug:40
+#: using/postgresql.pug:40 using/premierepro.pug:40 using/pug.pug:40
+#: using/pychemin.pug:40 using/python.pug:40 using/ruby.pug:40
+#: using/rubyonrails.pug:40 using/rust.pug:40 using/sapper.pug:40
+#: using/sass.pug:40 using/shell.pug:40 using/stylus.pug:40 using/svelte.pug:40
+#: using/toml.pug:40 using/typescript.pug:40 using/vue.pug:40
+#: using/webpack.pug:40 using/yaml.pug:40 visual-identities.pug:35 web.pug:35
 msgid "intro"
 msgstr ""
 
-#: artifacts/phase_1/en/about.pug:7 about.pug:15
+#: artifacts/phase_1/en/about.pug:7 about.pug:15 about.pug:31
 msgid ""
 "J'ai appris à programmer dans différents langages informatiques: HTML, "
 "Python et JavaScript, ce qui m'a permis de créer mon site et, actuellement, "
@@ -247,7 +313,7 @@ msgid ""
 "plusieurs langages de programmation."
 msgstr ""
 
-#: artifacts/phase_1/en/about.pug:10 about.pug:18
+#: artifacts/phase_1/en/about.pug:10 about.pug:18 about.pug:36
 msgid ""
 "L'anglais étant indispensable à la lecture de documentations, j'ai "
 "approfondi cette langue (TOEIC Bridge: 176/180), conversé par mail avec un "
@@ -297,11 +363,33 @@ msgstr ""
 #: using/rubyonrails.pug:46 using/rust.pug:46 using/sapper.pug:46
 #: using/sass.pug:46 using/shell.pug:46 using/stylus.pug:46 using/svelte.pug:46
 #: using/toml.pug:46 using/typescript.pug:46 using/vue.pug:46
-#: using/webpack.pug:46 using/yaml.pug:46 using/manim.pug:46
+#: using/webpack.pug:46 using/yaml.pug:46 using/manim.pug:46 APIs.pug:52
+#: CLIs.pug:52 apps.pug:52 automation.pug:52 banners.pug:52 books.pug:52
+#: cards.pug:52 compositing.pug:52 cover-arts.pug:52 drawings.pug:52
+#: games.pug:52 graphism.pug:52 iconography.pug:52 illustrations.pug:52
+#: index.pug:68 intros.pug:52 languages.pug:20 languages.pug:52 logos.pug:52
+#: math.pug:52 motion-design.pug:52 music.pug:52 posters.pug:52 programs.pug:52
+#: school.pug:52 science.pug:52 sites.pug:52 typography.pug:52
+#: using/aftereffects.pug:57 using/asciidoc.pug:57 using/assembly.pug:57
+#: using/c#.pug:57 using/c++.pug:57 using/c.pug:57 using/coffeescript.pug:57
+#: using/css.pug:57 using/django.pug:57 using/djangorestframework.pug:57
+#: using/docopt.pug:57 using/figma.pug:57 using/fishshell.pug:57
+#: using/flstudio.pug:57 using/gimp.pug:57 using/go.pug:57 using/html.pug:57
+#: using/illustrator.pug:57 using/indesign.pug:57 using/javascript.pug:57
+#: using/json.pug:57 using/latex.pug:57 using/livescript.pug:57
+#: using/lua.pug:57 using/manim.pug:57 using/markdown.pug:57
+#: using/nestjs.pug:57 using/nim.pug:57 using/nuxt.pug:57 using/oclif.pug:57
+#: using/photoshop.pug:57 using/php.pug:57 using/plantuml.pug:57
+#: using/postgresql.pug:57 using/premierepro.pug:57 using/pug.pug:57
+#: using/pychemin.pug:57 using/python.pug:57 using/ruby.pug:57
+#: using/rubyonrails.pug:57 using/rust.pug:57 using/sapper.pug:57
+#: using/sass.pug:57 using/shell.pug:57 using/stylus.pug:57 using/svelte.pug:57
+#: using/toml.pug:57 using/typescript.pug:57 using/vue.pug:57
+#: using/webpack.pug:57 using/yaml.pug:57 visual-identities.pug:52 web.pug:52
 msgid "language"
 msgstr ""
 
-#: artifacts/phase_1/en/about.pug:12 about.pug:20
+#: artifacts/phase_1/en/about.pug:12 about.pug:20 about.pug:40
 msgid ""
 "Le langage mathématique m'intéresse tout autant: il m'arrive d'appréhender "
 "des concepts complexes mathématiques en naviguant sur wikipédia anglais ou "
@@ -313,7 +401,7 @@ msgstr ""
 msgid "Learn more"
 msgstr "En savoir plus"
 
-#: artifacts/phase_1/en/about.pug:9 about.pug:17
+#: artifacts/phase_1/en/about.pug:9 about.pug:17 about.pug:35
 msgid "linguistique"
 msgstr ""
 
@@ -356,7 +444,29 @@ msgstr ""
 #: using/rubyonrails.pug:41 using/rust.pug:41 using/sapper.pug:41
 #: using/sass.pug:41 using/shell.pug:41 using/stylus.pug:41 using/svelte.pug:41
 #: using/toml.pug:41 using/typescript.pug:41 using/vue.pug:41
-#: using/webpack.pug:41 using/yaml.pug:41 using/manim.pug:41
+#: using/webpack.pug:41 using/yaml.pug:41 using/manim.pug:41 APIs.pug:47
+#: CLIs.pug:47 apps.pug:47 automation.pug:47 banners.pug:47 books.pug:47
+#: cards.pug:47 compositing.pug:47 cover-arts.pug:47 drawings.pug:47
+#: games.pug:47 graphism.pug:47 iconography.pug:47 illustrations.pug:47
+#: index.pug:63 intros.pug:47 languages.pug:47 logos.pug:20 logos.pug:47
+#: math.pug:47 motion-design.pug:47 music.pug:47 posters.pug:47 programs.pug:47
+#: school.pug:47 science.pug:47 sites.pug:47 typography.pug:47
+#: using/aftereffects.pug:52 using/asciidoc.pug:52 using/assembly.pug:52
+#: using/c#.pug:52 using/c++.pug:52 using/c.pug:52 using/coffeescript.pug:52
+#: using/css.pug:52 using/django.pug:52 using/djangorestframework.pug:52
+#: using/docopt.pug:52 using/figma.pug:52 using/fishshell.pug:52
+#: using/flstudio.pug:52 using/gimp.pug:52 using/go.pug:52 using/html.pug:52
+#: using/illustrator.pug:52 using/indesign.pug:52 using/javascript.pug:52
+#: using/json.pug:52 using/latex.pug:52 using/livescript.pug:52
+#: using/lua.pug:52 using/manim.pug:52 using/markdown.pug:52
+#: using/nestjs.pug:52 using/nim.pug:52 using/nuxt.pug:52 using/oclif.pug:52
+#: using/photoshop.pug:52 using/php.pug:52 using/plantuml.pug:52
+#: using/postgresql.pug:52 using/premierepro.pug:52 using/pug.pug:52
+#: using/pychemin.pug:52 using/python.pug:52 using/ruby.pug:52
+#: using/rubyonrails.pug:52 using/rust.pug:52 using/sapper.pug:52
+#: using/sass.pug:52 using/shell.pug:52 using/stylus.pug:52 using/svelte.pug:52
+#: using/toml.pug:52 using/typescript.pug:52 using/vue.pug:52
+#: using/webpack.pug:52 using/yaml.pug:52 visual-identities.pug:47 web.pug:47
 msgid "logo"
 msgstr ""
 
@@ -401,7 +511,30 @@ msgstr ""
 #: using/rubyonrails.pug:36 using/rust.pug:36 using/sapper.pug:36
 #: using/sass.pug:36 using/shell.pug:36 using/stylus.pug:36 using/svelte.pug:36
 #: using/toml.pug:36 using/typescript.pug:36 using/vue.pug:36
-#: using/webpack.pug:36 using/yaml.pug:36 using/manim.pug:36
+#: using/webpack.pug:36 using/yaml.pug:36 using/manim.pug:36 APIs.pug:42
+#: CLIs.pug:42 apps.pug:42 automation.pug:42 banners.pug:42 books.pug:42
+#: cards.pug:42 compositing.pug:42 cover-arts.pug:42 drawings.pug:42
+#: fubini-visualized.pug:24 games.pug:42 graphism.pug:42 iconography.pug:42
+#: illustrations.pug:42 index.pug:58 intros.pug:42 languages.pug:42
+#: logos.pug:42 math.pug:42 motion-design.pug:20 motion-design.pug:42
+#: music.pug:42 posters.pug:42 programs.pug:42 school.pug:42 science.pug:42
+#: sites.pug:42 typography.pug:42 using/aftereffects.pug:47
+#: using/asciidoc.pug:47 using/assembly.pug:47 using/c#.pug:47 using/c++.pug:47
+#: using/c.pug:47 using/coffeescript.pug:47 using/css.pug:47
+#: using/django.pug:47 using/djangorestframework.pug:47 using/docopt.pug:47
+#: using/figma.pug:47 using/fishshell.pug:47 using/flstudio.pug:47
+#: using/gimp.pug:47 using/go.pug:47 using/html.pug:47 using/illustrator.pug:47
+#: using/indesign.pug:47 using/javascript.pug:47 using/json.pug:47
+#: using/latex.pug:47 using/livescript.pug:47 using/lua.pug:47
+#: using/manim.pug:47 using/markdown.pug:47 using/nestjs.pug:47
+#: using/nim.pug:47 using/nuxt.pug:47 using/oclif.pug:47 using/photoshop.pug:47
+#: using/php.pug:47 using/plantuml.pug:47 using/postgresql.pug:47
+#: using/premierepro.pug:47 using/pug.pug:47 using/pychemin.pug:47
+#: using/python.pug:47 using/ruby.pug:47 using/rubyonrails.pug:47
+#: using/rust.pug:47 using/sapper.pug:47 using/sass.pug:47 using/shell.pug:47
+#: using/stylus.pug:47 using/svelte.pug:47 using/toml.pug:47
+#: using/typescript.pug:47 using/vue.pug:47 using/webpack.pug:47
+#: using/yaml.pug:47 visual-identities.pug:42 web.pug:42
 msgid "motion design"
 msgstr ""
 
@@ -444,11 +577,58 @@ msgstr ""
 #: using/rubyonrails.pug:30 using/rust.pug:30 using/sapper.pug:30
 #: using/sass.pug:30 using/shell.pug:30 using/stylus.pug:30 using/svelte.pug:30
 #: using/toml.pug:30 using/typescript.pug:30 using/vue.pug:30
-#: using/webpack.pug:30 using/yaml.pug:30 using/manim.pug:30
+#: using/webpack.pug:30 using/yaml.pug:30 using/manim.pug:30 APIs.pug:11
+#: APIs.pug:36 CLIs.pug:11 CLIs.pug:36 about.pug:11 apps.pug:11 apps.pug:36
+#: automation.pug:11 automation.pug:36 banners.pug:11 banners.pug:36
+#: books.pug:11 books.pug:36 cards.pug:11 cards.pug:36 compositing.pug:11
+#: compositing.pug:36 contact.pug:11 cover-arts.pug:11 cover-arts.pug:36
+#: drawings.pug:11 drawings.pug:36 fubini-visualized.pug:11 games.pug:11
+#: games.pug:36 graphism.pug:11 graphism.pug:36 iconography.pug:11
+#: iconography.pug:36 ideaseed.pug:11 illustrations.pug:11 illustrations.pug:36
+#: index.pug:11 index.pug:52 intros.pug:11 intros.pug:36 languages.pug:11
+#: languages.pug:36 logos.pug:11 logos.pug:36 made-with.pug:11 math.pug:11
+#: math.pug:36 motion-design.pug:11 motion-design.pug:36 music.pug:11
+#: music.pug:20 music.pug:36 posters.pug:11 posters.pug:36 programs.pug:11
+#: programs.pug:36 school.pug:11 school.pug:36 science.pug:11 science.pug:36
+#: sites.pug:11 sites.pug:36 typography.pug:11 typography.pug:36
+#: using/aftereffects.pug:11 using/aftereffects.pug:41 using/asciidoc.pug:11
+#: using/asciidoc.pug:41 using/assembly.pug:11 using/assembly.pug:41
+#: using/c#.pug:11 using/c#.pug:41 using/c++.pug:11 using/c++.pug:41
+#: using/c.pug:11 using/c.pug:41 using/coffeescript.pug:11
+#: using/coffeescript.pug:41 using/css.pug:11 using/css.pug:41
+#: using/django.pug:11 using/django.pug:41 using/djangorestframework.pug:11
+#: using/djangorestframework.pug:41 using/docopt.pug:11 using/docopt.pug:41
+#: using/figma.pug:11 using/figma.pug:41 using/fishshell.pug:11
+#: using/fishshell.pug:41 using/flstudio.pug:11 using/flstudio.pug:41
+#: using/gimp.pug:11 using/gimp.pug:41 using/go.pug:11 using/go.pug:41
+#: using/html.pug:11 using/html.pug:41 using/illustrator.pug:11
+#: using/illustrator.pug:41 using/indesign.pug:11 using/indesign.pug:41
+#: using/javascript.pug:11 using/javascript.pug:41 using/json.pug:11
+#: using/json.pug:41 using/latex.pug:11 using/latex.pug:41
+#: using/livescript.pug:11 using/livescript.pug:41 using/lua.pug:11
+#: using/lua.pug:41 using/manim.pug:11 using/manim.pug:41 using/markdown.pug:11
+#: using/markdown.pug:41 using/nestjs.pug:11 using/nestjs.pug:41
+#: using/nim.pug:11 using/nim.pug:41 using/nuxt.pug:11 using/nuxt.pug:41
+#: using/oclif.pug:11 using/oclif.pug:41 using/photoshop.pug:11
+#: using/photoshop.pug:41 using/php.pug:11 using/php.pug:41
+#: using/plantuml.pug:11 using/plantuml.pug:41 using/postgresql.pug:11
+#: using/postgresql.pug:41 using/premierepro.pug:11 using/premierepro.pug:41
+#: using/pug.pug:11 using/pug.pug:41 using/pychemin.pug:11
+#: using/pychemin.pug:41 using/python.pug:11 using/python.pug:41
+#: using/ruby.pug:11 using/ruby.pug:41 using/rubyonrails.pug:11
+#: using/rubyonrails.pug:41 using/rust.pug:11 using/rust.pug:41
+#: using/sapper.pug:11 using/sapper.pug:41 using/sass.pug:11 using/sass.pug:41
+#: using/shell.pug:11 using/shell.pug:41 using/stylus.pug:11
+#: using/stylus.pug:41 using/svelte.pug:11 using/svelte.pug:41
+#: using/toml.pug:11 using/toml.pug:41 using/typescript.pug:11
+#: using/typescript.pug:41 using/vue.pug:11 using/vue.pug:41
+#: using/webpack.pug:11 using/webpack.pug:41 using/yaml.pug:11
+#: using/yaml.pug:41 visual-identities.pug:11 visual-identities.pug:36
+#: web.pug:11 web.pug:36
 msgid "music"
 msgstr ""
 
-#: artifacts/phase_1/en/about.pug:6 about.pug:14
+#: artifacts/phase_1/en/about.pug:6 about.pug:14 about.pug:30
 msgid "numérique"
 msgstr ""
 
@@ -492,7 +672,29 @@ msgstr ""
 #: using/rubyonrails.pug:26 using/rust.pug:26 using/sapper.pug:26
 #: using/sass.pug:26 using/shell.pug:26 using/stylus.pug:26 using/svelte.pug:26
 #: using/toml.pug:26 using/typescript.pug:26 using/vue.pug:26
-#: using/webpack.pug:26 using/yaml.pug:26 using/manim.pug:26
+#: using/webpack.pug:26 using/yaml.pug:26 using/manim.pug:26 APIs.pug:32
+#: CLIs.pug:32 apps.pug:32 automation.pug:32 banners.pug:32 books.pug:32
+#: cards.pug:32 compositing.pug:32 cover-arts.pug:32 drawings.pug:32
+#: games.pug:32 graphism.pug:32 iconography.pug:32 illustrations.pug:32
+#: index.pug:48 intros.pug:32 languages.pug:32 logos.pug:32 math.pug:32
+#: motion-design.pug:32 music.pug:32 posters.pug:20 posters.pug:32
+#: programs.pug:32 school.pug:32 science.pug:32 sites.pug:32 typography.pug:32
+#: using/aftereffects.pug:37 using/asciidoc.pug:37 using/assembly.pug:37
+#: using/c#.pug:37 using/c++.pug:37 using/c.pug:37 using/coffeescript.pug:37
+#: using/css.pug:37 using/django.pug:37 using/djangorestframework.pug:37
+#: using/docopt.pug:37 using/figma.pug:37 using/fishshell.pug:37
+#: using/flstudio.pug:37 using/gimp.pug:37 using/go.pug:37 using/html.pug:37
+#: using/illustrator.pug:37 using/indesign.pug:37 using/javascript.pug:37
+#: using/json.pug:37 using/latex.pug:37 using/livescript.pug:37
+#: using/lua.pug:37 using/manim.pug:37 using/markdown.pug:37
+#: using/nestjs.pug:37 using/nim.pug:37 using/nuxt.pug:37 using/oclif.pug:37
+#: using/photoshop.pug:37 using/php.pug:37 using/plantuml.pug:37
+#: using/postgresql.pug:37 using/premierepro.pug:37 using/pug.pug:37
+#: using/pychemin.pug:37 using/python.pug:37 using/ruby.pug:37
+#: using/rubyonrails.pug:37 using/rust.pug:37 using/sapper.pug:37
+#: using/sass.pug:37 using/shell.pug:37 using/stylus.pug:37 using/svelte.pug:37
+#: using/toml.pug:37 using/typescript.pug:37 using/vue.pug:37
+#: using/webpack.pug:37 using/yaml.pug:37 visual-identities.pug:32 web.pug:32
 msgid "poster"
 msgstr ""
 
@@ -541,7 +743,30 @@ msgstr ""
 #: using/rubyonrails.pug:34 using/rust.pug:34 using/sapper.pug:34
 #: using/sass.pug:34 using/shell.pug:34 using/stylus.pug:34 using/svelte.pug:34
 #: using/toml.pug:34 using/typescript.pug:34 using/vue.pug:34
-#: using/webpack.pug:34 using/yaml.pug:34 using/manim.pug:34
+#: using/webpack.pug:34 using/yaml.pug:34 using/manim.pug:34 APIs.pug:40
+#: CLIs.pug:40 apps.pug:40 automation.pug:40 banners.pug:40 books.pug:40
+#: cards.pug:40 compositing.pug:40 cover-arts.pug:40 drawings.pug:40
+#: fubini-visualized.pug:21 games.pug:40 graphism.pug:40 iconography.pug:40
+#: ideaseed.pug:22 illustrations.pug:40 index.pug:56 intros.pug:40
+#: languages.pug:40 logos.pug:40 math.pug:40 motion-design.pug:40 music.pug:40
+#: posters.pug:40 programs.pug:20 programs.pug:40 school.pug:40 science.pug:40
+#: sites.pug:40 typography.pug:40 using/aftereffects.pug:45
+#: using/asciidoc.pug:45 using/assembly.pug:45 using/c#.pug:45 using/c++.pug:45
+#: using/c.pug:45 using/coffeescript.pug:45 using/css.pug:45
+#: using/django.pug:45 using/djangorestframework.pug:45 using/docopt.pug:45
+#: using/figma.pug:45 using/fishshell.pug:45 using/flstudio.pug:45
+#: using/gimp.pug:45 using/go.pug:45 using/html.pug:45 using/illustrator.pug:45
+#: using/indesign.pug:45 using/javascript.pug:45 using/json.pug:45
+#: using/latex.pug:45 using/livescript.pug:45 using/lua.pug:45
+#: using/manim.pug:45 using/markdown.pug:45 using/nestjs.pug:45
+#: using/nim.pug:45 using/nuxt.pug:45 using/oclif.pug:45 using/photoshop.pug:45
+#: using/php.pug:45 using/plantuml.pug:45 using/postgresql.pug:45
+#: using/premierepro.pug:45 using/pug.pug:45 using/pychemin.pug:45
+#: using/python.pug:45 using/ruby.pug:45 using/rubyonrails.pug:45
+#: using/rust.pug:45 using/sapper.pug:45 using/sass.pug:45 using/shell.pug:45
+#: using/stylus.pug:45 using/svelte.pug:45 using/toml.pug:45
+#: using/typescript.pug:45 using/vue.pug:45 using/webpack.pug:45
+#: using/yaml.pug:45 visual-identities.pug:40 web.pug:40
 msgid "program"
 msgstr ""
 
@@ -584,7 +809,29 @@ msgstr ""
 #: using/rubyonrails.pug:20 using/rust.pug:20 using/sapper.pug:20
 #: using/sass.pug:20 using/shell.pug:20 using/stylus.pug:20 using/svelte.pug:20
 #: using/toml.pug:20 using/typescript.pug:20 using/vue.pug:20
-#: using/webpack.pug:20 using/yaml.pug:20 using/manim.pug:20
+#: using/webpack.pug:20 using/yaml.pug:20 using/manim.pug:20 APIs.pug:26
+#: CLIs.pug:26 apps.pug:26 automation.pug:26 banners.pug:26 books.pug:26
+#: cards.pug:26 compositing.pug:26 cover-arts.pug:26 drawings.pug:26
+#: games.pug:26 graphism.pug:26 iconography.pug:26 illustrations.pug:26
+#: index.pug:42 intros.pug:26 languages.pug:26 logos.pug:26 math.pug:26
+#: motion-design.pug:26 music.pug:26 posters.pug:26 programs.pug:26
+#: school.pug:20 school.pug:26 science.pug:26 sites.pug:26 typography.pug:26
+#: using/aftereffects.pug:31 using/asciidoc.pug:31 using/assembly.pug:31
+#: using/c#.pug:31 using/c++.pug:31 using/c.pug:31 using/coffeescript.pug:31
+#: using/css.pug:31 using/django.pug:31 using/djangorestframework.pug:31
+#: using/docopt.pug:31 using/figma.pug:31 using/fishshell.pug:31
+#: using/flstudio.pug:31 using/gimp.pug:31 using/go.pug:31 using/html.pug:31
+#: using/illustrator.pug:31 using/indesign.pug:31 using/javascript.pug:31
+#: using/json.pug:31 using/latex.pug:31 using/livescript.pug:31
+#: using/lua.pug:31 using/manim.pug:31 using/markdown.pug:31
+#: using/nestjs.pug:31 using/nim.pug:31 using/nuxt.pug:31 using/oclif.pug:31
+#: using/photoshop.pug:31 using/php.pug:31 using/plantuml.pug:31
+#: using/postgresql.pug:31 using/premierepro.pug:31 using/pug.pug:31
+#: using/pychemin.pug:31 using/python.pug:31 using/ruby.pug:31
+#: using/rubyonrails.pug:31 using/rust.pug:31 using/sapper.pug:31
+#: using/sass.pug:31 using/shell.pug:31 using/stylus.pug:31 using/svelte.pug:31
+#: using/toml.pug:31 using/typescript.pug:31 using/vue.pug:31
+#: using/webpack.pug:31 using/yaml.pug:31 visual-identities.pug:26 web.pug:26
 msgid "school"
 msgstr ""
 
@@ -630,11 +877,34 @@ msgstr ""
 #: using/rubyonrails.pug:21 using/rust.pug:21 using/sapper.pug:21
 #: using/sass.pug:21 using/shell.pug:21 using/stylus.pug:21 using/svelte.pug:21
 #: using/toml.pug:21 using/typescript.pug:21 using/vue.pug:21
-#: using/webpack.pug:21 using/yaml.pug:21 using/manim.pug:21
+#: using/webpack.pug:21 using/yaml.pug:21 using/manim.pug:21 APIs.pug:27
+#: CLIs.pug:27 apps.pug:27 automation.pug:27 banners.pug:27 books.pug:27
+#: cards.pug:27 compositing.pug:27 cover-arts.pug:27 drawings.pug:27
+#: fubini-visualized.pug:23 games.pug:27 graphism.pug:27 iconography.pug:27
+#: illustrations.pug:27 index.pug:43 intros.pug:27 languages.pug:27
+#: logos.pug:27 math.pug:27 motion-design.pug:27 music.pug:27 posters.pug:27
+#: programs.pug:27 school.pug:27 science.pug:20 science.pug:27 sites.pug:27
+#: typography.pug:27 using/aftereffects.pug:32 using/asciidoc.pug:32
+#: using/assembly.pug:32 using/c#.pug:32 using/c++.pug:32 using/c.pug:32
+#: using/coffeescript.pug:32 using/css.pug:32 using/django.pug:32
+#: using/djangorestframework.pug:32 using/docopt.pug:32 using/figma.pug:32
+#: using/fishshell.pug:32 using/flstudio.pug:32 using/gimp.pug:32
+#: using/go.pug:32 using/html.pug:32 using/illustrator.pug:32
+#: using/indesign.pug:32 using/javascript.pug:32 using/json.pug:32
+#: using/latex.pug:32 using/livescript.pug:32 using/lua.pug:32
+#: using/manim.pug:32 using/markdown.pug:32 using/nestjs.pug:32
+#: using/nim.pug:32 using/nuxt.pug:32 using/oclif.pug:32 using/photoshop.pug:32
+#: using/php.pug:32 using/plantuml.pug:32 using/postgresql.pug:32
+#: using/premierepro.pug:32 using/pug.pug:32 using/pychemin.pug:32
+#: using/python.pug:32 using/ruby.pug:32 using/rubyonrails.pug:32
+#: using/rust.pug:32 using/sapper.pug:32 using/sass.pug:32 using/shell.pug:32
+#: using/stylus.pug:32 using/svelte.pug:32 using/toml.pug:32
+#: using/typescript.pug:32 using/vue.pug:32 using/webpack.pug:32
+#: using/yaml.pug:32 visual-identities.pug:27 web.pug:27
 msgid "science"
 msgstr ""
 
-#: artifacts/phase_1/en/about.pug:11 about.pug:19
+#: artifacts/phase_1/en/about.pug:11 about.pug:19 about.pug:39
 msgid "scientifique"
 msgstr ""
 
@@ -677,11 +947,33 @@ msgstr ""
 #: using/rubyonrails.pug:52 using/rust.pug:52 using/sapper.pug:52
 #: using/sass.pug:52 using/shell.pug:52 using/stylus.pug:52 using/svelte.pug:52
 #: using/toml.pug:52 using/typescript.pug:52 using/vue.pug:52
-#: using/webpack.pug:52 using/yaml.pug:52 using/manim.pug:52
+#: using/webpack.pug:52 using/yaml.pug:52 using/manim.pug:52 APIs.pug:58
+#: CLIs.pug:58 apps.pug:58 automation.pug:58 banners.pug:58 books.pug:58
+#: cards.pug:58 compositing.pug:58 cover-arts.pug:58 drawings.pug:58
+#: games.pug:58 graphism.pug:58 iconography.pug:58 illustrations.pug:58
+#: index.pug:74 intros.pug:58 languages.pug:58 logos.pug:58 math.pug:58
+#: motion-design.pug:58 music.pug:58 posters.pug:58 programs.pug:58
+#: school.pug:58 science.pug:58 sites.pug:58 typography.pug:58
+#: using/aftereffects.pug:63 using/asciidoc.pug:63 using/assembly.pug:63
+#: using/c#.pug:63 using/c++.pug:63 using/c.pug:63 using/coffeescript.pug:63
+#: using/css.pug:63 using/django.pug:63 using/djangorestframework.pug:63
+#: using/docopt.pug:63 using/figma.pug:63 using/fishshell.pug:63
+#: using/flstudio.pug:63 using/gimp.pug:63 using/go.pug:63 using/html.pug:63
+#: using/illustrator.pug:63 using/indesign.pug:63 using/javascript.pug:63
+#: using/json.pug:63 using/latex.pug:63 using/livescript.pug:63
+#: using/lua.pug:63 using/manim.pug:63 using/markdown.pug:63
+#: using/nestjs.pug:63 using/nim.pug:63 using/nuxt.pug:63 using/oclif.pug:63
+#: using/photoshop.pug:63 using/php.pug:63 using/plantuml.pug:63
+#: using/postgresql.pug:63 using/premierepro.pug:63 using/pug.pug:63
+#: using/pychemin.pug:63 using/python.pug:63 using/ruby.pug:63
+#: using/rubyonrails.pug:63 using/rust.pug:63 using/sapper.pug:63
+#: using/sass.pug:63 using/shell.pug:63 using/stylus.pug:63 using/svelte.pug:63
+#: using/toml.pug:63 using/typescript.pug:63 using/vue.pug:63
+#: using/webpack.pug:63 using/yaml.pug:63 visual-identities.pug:58 web.pug:58
 msgid "search"
 msgstr ""
 
-#: artifacts/phase_1/en/contact.pug:3 contact.pug:11
+#: artifacts/phase_1/en/contact.pug:3 contact.pug:11 contact.pug:22
 msgid "send a mail at"
 msgstr ""
 
@@ -724,11 +1016,33 @@ msgstr ""
 #: using/rubyonrails.pug:45 using/rust.pug:45 using/sapper.pug:45
 #: using/sass.pug:45 using/shell.pug:45 using/stylus.pug:45 using/svelte.pug:45
 #: using/toml.pug:45 using/typescript.pug:45 using/vue.pug:45
-#: using/webpack.pug:45 using/yaml.pug:45 using/manim.pug:45
+#: using/webpack.pug:45 using/yaml.pug:45 using/manim.pug:45 APIs.pug:51
+#: CLIs.pug:51 apps.pug:51 automation.pug:51 banners.pug:51 books.pug:51
+#: cards.pug:51 compositing.pug:51 cover-arts.pug:51 drawings.pug:51
+#: games.pug:51 graphism.pug:51 iconography.pug:51 illustrations.pug:51
+#: index.pug:67 intros.pug:51 languages.pug:51 logos.pug:51 math.pug:51
+#: motion-design.pug:51 music.pug:51 posters.pug:51 programs.pug:51
+#: school.pug:51 science.pug:51 sites.pug:20 sites.pug:51 typography.pug:51
+#: using/aftereffects.pug:56 using/asciidoc.pug:56 using/assembly.pug:56
+#: using/c#.pug:56 using/c++.pug:56 using/c.pug:56 using/coffeescript.pug:56
+#: using/css.pug:56 using/django.pug:56 using/djangorestframework.pug:56
+#: using/docopt.pug:56 using/figma.pug:56 using/fishshell.pug:56
+#: using/flstudio.pug:56 using/gimp.pug:56 using/go.pug:56 using/html.pug:56
+#: using/illustrator.pug:56 using/indesign.pug:56 using/javascript.pug:56
+#: using/json.pug:56 using/latex.pug:56 using/livescript.pug:56
+#: using/lua.pug:56 using/manim.pug:56 using/markdown.pug:56
+#: using/nestjs.pug:56 using/nim.pug:56 using/nuxt.pug:56 using/oclif.pug:56
+#: using/photoshop.pug:56 using/php.pug:56 using/plantuml.pug:56
+#: using/postgresql.pug:56 using/premierepro.pug:56 using/pug.pug:56
+#: using/pychemin.pug:56 using/python.pug:56 using/ruby.pug:56
+#: using/rubyonrails.pug:56 using/rust.pug:56 using/sapper.pug:56
+#: using/sass.pug:56 using/shell.pug:56 using/stylus.pug:56 using/svelte.pug:56
+#: using/toml.pug:56 using/typescript.pug:56 using/vue.pug:56
+#: using/webpack.pug:56 using/yaml.pug:56 visual-identities.pug:51 web.pug:51
 msgid "site"
 msgstr ""
 
-#: artifacts/phase_1/en/contact.pug:5 contact.pug:13
+#: artifacts/phase_1/en/contact.pug:5 contact.pug:13 contact.pug:24
 msgid "slide into my dms at"
 msgstr ""
 
@@ -766,7 +1080,7 @@ msgstr "trié par"
 msgid "These are my creations."
 msgstr "Voici mes créations."
 
-#: artifacts/phase_1/en/about.pug:8 about.pug:16
+#: artifacts/phase_1/en/about.pug:8 about.pug:16 about.pug:32
 msgid ""
 "Tout mes projets de programmation sont visibles par tous sur mon profil "
 "GitHub: tout mes projets sont dits \"Open Source\"."
@@ -904,7 +1218,30 @@ msgstr "web"
 #: using/rubyonrails.pug:47 using/rust.pug:47 using/sapper.pug:47
 #: using/sass.pug:47 using/shell.pug:47 using/stylus.pug:47 using/svelte.pug:47
 #: using/toml.pug:47 using/typescript.pug:47 using/vue.pug:47
-#: using/webpack.pug:47 using/yaml.pug:47 using/manim.pug:47
+#: using/webpack.pug:47 using/yaml.pug:47 using/manim.pug:47 APIs.pug:53
+#: CLIs.pug:53 apps.pug:53 automation.pug:53 banners.pug:53 books.pug:53
+#: cards.pug:53 compositing.pug:53 cover-arts.pug:53 drawings.pug:53
+#: fubini-visualized.pug:22 games.pug:53 graphism.pug:53 iconography.pug:53
+#: illustrations.pug:53 index.pug:69 intros.pug:53 languages.pug:53
+#: logos.pug:53 math.pug:20 math.pug:53 motion-design.pug:53 music.pug:53
+#: posters.pug:53 programs.pug:53 school.pug:53 science.pug:53 sites.pug:53
+#: typography.pug:53 using/aftereffects.pug:58 using/asciidoc.pug:58
+#: using/assembly.pug:58 using/c#.pug:58 using/c++.pug:58 using/c.pug:58
+#: using/coffeescript.pug:58 using/css.pug:58 using/django.pug:58
+#: using/djangorestframework.pug:58 using/docopt.pug:58 using/figma.pug:58
+#: using/fishshell.pug:58 using/flstudio.pug:58 using/gimp.pug:58
+#: using/go.pug:58 using/html.pug:58 using/illustrator.pug:58
+#: using/indesign.pug:58 using/javascript.pug:58 using/json.pug:58
+#: using/latex.pug:58 using/livescript.pug:58 using/lua.pug:58
+#: using/manim.pug:58 using/markdown.pug:58 using/nestjs.pug:58
+#: using/nim.pug:58 using/nuxt.pug:58 using/oclif.pug:58 using/photoshop.pug:58
+#: using/php.pug:58 using/plantuml.pug:58 using/postgresql.pug:58
+#: using/premierepro.pug:58 using/pug.pug:58 using/pychemin.pug:58
+#: using/python.pug:58 using/ruby.pug:58 using/rubyonrails.pug:58
+#: using/rust.pug:58 using/sapper.pug:58 using/sass.pug:58 using/shell.pug:58
+#: using/stylus.pug:58 using/svelte.pug:58 using/toml.pug:58
+#: using/typescript.pug:58 using/vue.pug:58 using/webpack.pug:58
+#: using/yaml.pug:58 visual-identities.pug:53 web.pug:53
 msgid "math"
 msgstr ""
 
@@ -1020,7 +1357,7 @@ msgstr ""
 msgid "{web web}"
 msgstr ""
 
-#: artifacts/phase_1/en/about.pug:3 about.pug:11
+#: artifacts/phase_1/en/about.pug:3 about.pug:11 about.pug:23
 msgid ""
 "Hi! I'm Ewen Le Bihan, I'm 17 years old and I'm interested in almost "
 "anything that is both creative and digital."
@@ -1054,7 +1391,30 @@ msgstr ""
 #: using/toml.pug:73 using/typescript.pug:73 using/vue.pug:73
 #: using/webpack.pug:73 using/yaml.pug:73 fubini-visualized.pug:37
 #: ideaseed.pug:45 using/docopt.pug:78 using/latex.pug:77 using/manim.pug:77
-#: using/python.pug:82
+#: using/python.pug:82 APIs.pug:79 CLIs.pug:79 about.pug:53 apps.pug:79
+#: automation.pug:84 banners.pug:79 books.pug:79 cards.pug:79
+#: compositing.pug:79 contact.pug:37 cover-arts.pug:79 drawings.pug:79
+#: fubini-visualized.pug:48 games.pug:79 graphism.pug:79 iconography.pug:79
+#: ideaseed.pug:56 illustrations.pug:79 index.pug:117 intros.pug:79
+#: languages.pug:79 logos.pug:79 made-with.pug:40 math.pug:83
+#: motion-design.pug:79 music.pug:79 posters.pug:79 programs.pug:79
+#: school.pug:79 science.pug:83 sites.pug:79 typography.pug:79
+#: using/aftereffects.pug:84 using/asciidoc.pug:84 using/assembly.pug:84
+#: using/c#.pug:84 using/c++.pug:84 using/c.pug:84 using/coffeescript.pug:84
+#: using/css.pug:84 using/django.pug:84 using/djangorestframework.pug:84
+#: using/docopt.pug:89 using/figma.pug:84 using/fishshell.pug:84
+#: using/flstudio.pug:84 using/gimp.pug:84 using/go.pug:84 using/html.pug:84
+#: using/illustrator.pug:84 using/indesign.pug:84 using/javascript.pug:84
+#: using/json.pug:84 using/latex.pug:88 using/livescript.pug:84
+#: using/lua.pug:84 using/manim.pug:88 using/markdown.pug:84
+#: using/nestjs.pug:84 using/nim.pug:84 using/nuxt.pug:84 using/oclif.pug:84
+#: using/photoshop.pug:84 using/php.pug:84 using/plantuml.pug:84
+#: using/postgresql.pug:84 using/premierepro.pug:84 using/pug.pug:84
+#: using/pychemin.pug:84 using/python.pug:93 using/ruby.pug:84
+#: using/rubyonrails.pug:84 using/rust.pug:84 using/sapper.pug:84
+#: using/sass.pug:84 using/shell.pug:84 using/stylus.pug:84 using/svelte.pug:84
+#: using/toml.pug:84 using/typescript.pug:84 using/vue.pug:84
+#: using/webpack.pug:84 using/yaml.pug:84 visual-identities.pug:79 web.pug:79
 msgid "also my music"
 msgstr ""
 
@@ -1142,7 +1502,30 @@ msgstr "code open-source"
 #: using/toml.pug:67 using/typescript.pug:67 using/vue.pug:67
 #: using/webpack.pug:67 using/yaml.pug:67 fubini-visualized.pug:31
 #: ideaseed.pug:39 using/docopt.pug:72 using/latex.pug:71 using/manim.pug:71
-#: using/python.pug:76
+#: using/python.pug:76 APIs.pug:73 CLIs.pug:73 about.pug:47 apps.pug:73
+#: automation.pug:78 banners.pug:73 books.pug:73 cards.pug:73
+#: compositing.pug:73 contact.pug:31 cover-arts.pug:73 drawings.pug:73
+#: fubini-visualized.pug:42 games.pug:73 graphism.pug:73 iconography.pug:73
+#: ideaseed.pug:50 illustrations.pug:73 index.pug:111 intros.pug:73
+#: languages.pug:73 logos.pug:73 made-with.pug:34 math.pug:77
+#: motion-design.pug:73 music.pug:73 posters.pug:73 programs.pug:73
+#: school.pug:73 science.pug:77 sites.pug:73 typography.pug:73
+#: using/aftereffects.pug:78 using/asciidoc.pug:78 using/assembly.pug:78
+#: using/c#.pug:78 using/c++.pug:78 using/c.pug:78 using/coffeescript.pug:78
+#: using/css.pug:78 using/django.pug:78 using/djangorestframework.pug:78
+#: using/docopt.pug:83 using/figma.pug:78 using/fishshell.pug:78
+#: using/flstudio.pug:78 using/gimp.pug:78 using/go.pug:78 using/html.pug:78
+#: using/illustrator.pug:78 using/indesign.pug:78 using/javascript.pug:78
+#: using/json.pug:78 using/latex.pug:82 using/livescript.pug:78
+#: using/lua.pug:78 using/manim.pug:82 using/markdown.pug:78
+#: using/nestjs.pug:78 using/nim.pug:78 using/nuxt.pug:78 using/oclif.pug:78
+#: using/photoshop.pug:78 using/php.pug:78 using/plantuml.pug:78
+#: using/postgresql.pug:78 using/premierepro.pug:78 using/pug.pug:78
+#: using/pychemin.pug:78 using/python.pug:87 using/ruby.pug:78
+#: using/rubyonrails.pug:78 using/rust.pug:78 using/sapper.pug:78
+#: using/sass.pug:78 using/shell.pug:78 using/stylus.pug:78 using/svelte.pug:78
+#: using/toml.pug:78 using/typescript.pug:78 using/vue.pug:78
+#: using/webpack.pug:78 using/yaml.pug:78 visual-identities.pug:73 web.pug:73
 msgid "random thoughts"
 msgstr ""
 
@@ -1163,24 +1546,160 @@ msgstr ""
 msgid "made with"
 msgstr "créé avec"
 
-#: ideaseed.pug:32
+#: ideaseed.pug:32 ideaseed.pug:43
 msgid "Docopt"
 msgstr ""
 
-#: fubini-visualized.pug:24
+#: fubini-visualized.pug:24 fubini-visualized.pug:35
 msgid "LaTeX"
 msgstr ""
 
-#: fubini-visualized.pug:23
+#: fubini-visualized.pug:23 fubini-visualized.pug:34
 msgid "ManimCE"
 msgstr ""
 
-#: fubini-visualized.pug:22 ideaseed.pug:31
+#: fubini-visualized.pug:22 ideaseed.pug:31 fubini-visualized.pug:33
+#: ideaseed.pug:42
 msgid "Python"
 msgstr ""
 
-#: fubini-visualized.pug:20 ideaseed.pug:29
+#: fubini-visualized.pug:20 ideaseed.pug:29 fubini-visualized.pug:31
+#: ideaseed.pug:40
 msgid ""
 "the software, frameworks, libraries, materials and services I used to make "
 "this"
 msgstr ""
+
+#: APIs.pug:12 CLIs.pug:12 about.pug:12 apps.pug:12 automation.pug:12
+#: banners.pug:12 books.pug:12 cards.pug:12 compositing.pug:12 contact.pug:12
+#: cover-arts.pug:12 drawings.pug:12 fubini-visualized.pug:12 games.pug:12
+#: graphism.pug:12 iconography.pug:12 ideaseed.pug:12 illustrations.pug:12
+#: index.pug:12 intros.pug:12 languages.pug:12 logos.pug:12 made-with.pug:12
+#: math.pug:12 motion-design.pug:12 music.pug:12 posters.pug:12 programs.pug:12
+#: school.pug:12 science.pug:12 sites.pug:12 typography.pug:12
+#: using/aftereffects.pug:12 using/asciidoc.pug:12 using/assembly.pug:12
+#: using/c#.pug:12 using/c++.pug:12 using/c.pug:12 using/coffeescript.pug:12
+#: using/css.pug:12 using/django.pug:12 using/djangorestframework.pug:12
+#: using/docopt.pug:12 using/figma.pug:12 using/fishshell.pug:12
+#: using/flstudio.pug:12 using/gimp.pug:12 using/go.pug:12 using/html.pug:12
+#: using/illustrator.pug:12 using/indesign.pug:12 using/javascript.pug:12
+#: using/json.pug:12 using/latex.pug:12 using/livescript.pug:12
+#: using/lua.pug:12 using/manim.pug:12 using/markdown.pug:12
+#: using/nestjs.pug:12 using/nim.pug:12 using/nuxt.pug:12 using/oclif.pug:12
+#: using/photoshop.pug:12 using/php.pug:12 using/plantuml.pug:12
+#: using/postgresql.pug:12 using/premierepro.pug:12 using/pug.pug:12
+#: using/pychemin.pug:12 using/python.pug:12 using/ruby.pug:12
+#: using/rubyonrails.pug:12 using/rust.pug:12 using/sapper.pug:12
+#: using/sass.pug:12 using/shell.pug:12 using/stylus.pug:12 using/svelte.pug:12
+#: using/toml.pug:12 using/typescript.pug:12 using/vue.pug:12
+#: using/webpack.pug:12 using/yaml.pug:12 visual-identities.pug:12 web.pug:12
+msgid "about"
+msgstr "à propos"
+
+#: about.pug:42
+msgid "Back home"
+msgstr "Retour à l'accueil"
+
+#: APIs.pug:13 CLIs.pug:13 about.pug:13 apps.pug:13 automation.pug:13
+#: banners.pug:13 books.pug:13 cards.pug:13 compositing.pug:13 contact.pug:13
+#: cover-arts.pug:13 drawings.pug:13 fubini-visualized.pug:13 games.pug:13
+#: graphism.pug:13 iconography.pug:13 ideaseed.pug:13 illustrations.pug:13
+#: index.pug:13 intros.pug:13 languages.pug:13 logos.pug:13 made-with.pug:13
+#: math.pug:13 motion-design.pug:13 music.pug:13 posters.pug:13 programs.pug:13
+#: school.pug:13 science.pug:13 sites.pug:13 typography.pug:13
+#: using/aftereffects.pug:13 using/asciidoc.pug:13 using/assembly.pug:13
+#: using/c#.pug:13 using/c++.pug:13 using/c.pug:13 using/coffeescript.pug:13
+#: using/css.pug:13 using/django.pug:13 using/djangorestframework.pug:13
+#: using/docopt.pug:13 using/figma.pug:13 using/fishshell.pug:13
+#: using/flstudio.pug:13 using/gimp.pug:13 using/go.pug:13 using/html.pug:13
+#: using/illustrator.pug:13 using/indesign.pug:13 using/javascript.pug:13
+#: using/json.pug:13 using/latex.pug:13 using/livescript.pug:13
+#: using/lua.pug:13 using/manim.pug:13 using/markdown.pug:13
+#: using/nestjs.pug:13 using/nim.pug:13 using/nuxt.pug:13 using/oclif.pug:13
+#: using/photoshop.pug:13 using/php.pug:13 using/plantuml.pug:13
+#: using/postgresql.pug:13 using/premierepro.pug:13 using/pug.pug:13
+#: using/pychemin.pug:13 using/python.pug:13 using/ruby.pug:13
+#: using/rubyonrails.pug:13 using/rust.pug:13 using/sapper.pug:13
+#: using/sass.pug:13 using/shell.pug:13 using/stylus.pug:13 using/svelte.pug:13
+#: using/toml.pug:13 using/typescript.pug:13 using/vue.pug:13
+#: using/webpack.pug:13 using/yaml.pug:13 visual-identities.pug:13 web.pug:13
+msgid "blog"
+msgstr "blog"
+
+#: APIs.pug:16 CLIs.pug:16 about.pug:16 apps.pug:16 automation.pug:16
+#: banners.pug:16 books.pug:16 cards.pug:16 compositing.pug:16 contact.pug:16
+#: cover-arts.pug:16 drawings.pug:16 fubini-visualized.pug:16 games.pug:16
+#: graphism.pug:16 iconography.pug:16 ideaseed.pug:16 illustrations.pug:16
+#: index.pug:16 intros.pug:16 languages.pug:16 logos.pug:16 made-with.pug:16
+#: math.pug:16 motion-design.pug:16 music.pug:16 posters.pug:16 programs.pug:16
+#: school.pug:16 science.pug:16 sites.pug:16 typography.pug:16
+#: using/aftereffects.pug:16 using/asciidoc.pug:16 using/assembly.pug:16
+#: using/c#.pug:16 using/c++.pug:16 using/c.pug:16 using/coffeescript.pug:16
+#: using/css.pug:16 using/django.pug:16 using/djangorestframework.pug:16
+#: using/docopt.pug:16 using/figma.pug:16 using/fishshell.pug:16
+#: using/flstudio.pug:16 using/gimp.pug:16 using/go.pug:16 using/html.pug:16
+#: using/illustrator.pug:16 using/indesign.pug:16 using/javascript.pug:16
+#: using/json.pug:16 using/latex.pug:16 using/livescript.pug:16
+#: using/lua.pug:16 using/manim.pug:16 using/markdown.pug:16
+#: using/nestjs.pug:16 using/nim.pug:16 using/nuxt.pug:16 using/oclif.pug:16
+#: using/photoshop.pug:16 using/php.pug:16 using/plantuml.pug:16
+#: using/postgresql.pug:16 using/premierepro.pug:16 using/pug.pug:16
+#: using/pychemin.pug:16 using/python.pug:16 using/ruby.pug:16
+#: using/rubyonrails.pug:16 using/rust.pug:16 using/sapper.pug:16
+#: using/sass.pug:16 using/shell.pug:16 using/stylus.pug:16 using/svelte.pug:16
+#: using/toml.pug:16 using/typescript.pug:16 using/vue.pug:16
+#: using/webpack.pug:16 using/yaml.pug:16 visual-identities.pug:16 web.pug:16
+msgid "en français"
+msgstr "in english"
+
+#: APIs.pug:15 CLIs.pug:15 about.pug:15 apps.pug:15 automation.pug:15
+#: banners.pug:15 books.pug:15 cards.pug:15 compositing.pug:15 contact.pug:15
+#: cover-arts.pug:15 drawings.pug:15 fubini-visualized.pug:15 games.pug:15
+#: graphism.pug:15 iconography.pug:15 ideaseed.pug:15 illustrations.pug:15
+#: index.pug:15 intros.pug:15 languages.pug:15 logos.pug:15 made-with.pug:15
+#: math.pug:15 motion-design.pug:15 music.pug:15 posters.pug:15 programs.pug:15
+#: school.pug:15 science.pug:15 sites.pug:15 typography.pug:15
+#: using/aftereffects.pug:15 using/asciidoc.pug:15 using/assembly.pug:15
+#: using/c#.pug:15 using/c++.pug:15 using/c.pug:15 using/coffeescript.pug:15
+#: using/css.pug:15 using/django.pug:15 using/djangorestframework.pug:15
+#: using/docopt.pug:15 using/figma.pug:15 using/fishshell.pug:15
+#: using/flstudio.pug:15 using/gimp.pug:15 using/go.pug:15 using/html.pug:15
+#: using/illustrator.pug:15 using/indesign.pug:15 using/javascript.pug:15
+#: using/json.pug:15 using/latex.pug:15 using/livescript.pug:15
+#: using/lua.pug:15 using/manim.pug:15 using/markdown.pug:15
+#: using/nestjs.pug:15 using/nim.pug:15 using/nuxt.pug:15 using/oclif.pug:15
+#: using/photoshop.pug:15 using/php.pug:15 using/plantuml.pug:15
+#: using/postgresql.pug:15 using/premierepro.pug:15 using/pug.pug:15
+#: using/pychemin.pug:15 using/python.pug:15 using/ruby.pug:15
+#: using/rubyonrails.pug:15 using/rust.pug:15 using/sapper.pug:15
+#: using/sass.pug:15 using/shell.pug:15 using/stylus.pug:15 using/svelte.pug:15
+#: using/toml.pug:15 using/typescript.pug:15 using/vue.pug:15
+#: using/webpack.pug:15 using/yaml.pug:15 visual-identities.pug:15 web.pug:15
+msgid "thanks"
+msgstr "merci à"
+
+#: APIs.pug:10 CLIs.pug:10 about.pug:10 apps.pug:10 automation.pug:10
+#: banners.pug:10 books.pug:10 cards.pug:10 compositing.pug:10 contact.pug:10
+#: cover-arts.pug:10 drawings.pug:10 fubini-visualized.pug:10 games.pug:10
+#: graphism.pug:10 iconography.pug:10 ideaseed.pug:10 illustrations.pug:10
+#: index.pug:10 intros.pug:10 languages.pug:10 logos.pug:10 made-with.pug:10
+#: math.pug:10 motion-design.pug:10 music.pug:10 posters.pug:10 programs.pug:10
+#: school.pug:10 science.pug:10 sites.pug:10 typography.pug:10
+#: using/aftereffects.pug:10 using/asciidoc.pug:10 using/assembly.pug:10
+#: using/c#.pug:10 using/c++.pug:10 using/c.pug:10 using/coffeescript.pug:10
+#: using/css.pug:10 using/django.pug:10 using/djangorestframework.pug:10
+#: using/docopt.pug:10 using/figma.pug:10 using/fishshell.pug:10
+#: using/flstudio.pug:10 using/gimp.pug:10 using/go.pug:10 using/html.pug:10
+#: using/illustrator.pug:10 using/indesign.pug:10 using/javascript.pug:10
+#: using/json.pug:10 using/latex.pug:10 using/livescript.pug:10
+#: using/lua.pug:10 using/manim.pug:10 using/markdown.pug:10
+#: using/nestjs.pug:10 using/nim.pug:10 using/nuxt.pug:10 using/oclif.pug:10
+#: using/photoshop.pug:10 using/php.pug:10 using/plantuml.pug:10
+#: using/postgresql.pug:10 using/premierepro.pug:10 using/pug.pug:10
+#: using/pychemin.pug:10 using/python.pug:10 using/ruby.pug:10
+#: using/rubyonrails.pug:10 using/rust.pug:10 using/sapper.pug:10
+#: using/sass.pug:10 using/shell.pug:10 using/stylus.pug:10 using/svelte.pug:10
+#: using/toml.pug:10 using/typescript.pug:10 using/vue.pug:10
+#: using/webpack.pug:10 using/yaml.pug:10 visual-identities.pug:10 web.pug:10
+msgid "works"
+msgstr "œuvres"

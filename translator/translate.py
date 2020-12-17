@@ -24,8 +24,10 @@ def translate(lang: str):
 
 def translate_files(lang: str, files):
     if lang != 'en':
+        other_lang = 'en'
         translation = lambda msgid: catalog.get(msgid) or msgid
     else:
+        other_lang = 'fr'
         translation = lambda msgid: msgid
     
     for filepath in files:
@@ -37,6 +39,7 @@ def translate_files(lang: str, files):
             with open(filepath, 'r') as file:
                 raw = file.read()
                 raw = raw.replace("[# LANGUAGE CODE #]", lang)
+                raw = raw.replace("[# OTHER LANGUAGE CODE #]", other_lang)
                 if (matches := translate_strings_pattern.finditer(raw)):
                     for match in matches:
                         p(2, f"{match.group(0)} ~> {translation(match.group(1))}")
