@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-echo "ENVIRONMENT=prod" > hydrator/.env
+mv hydrator/prod.env hydrator/.env
 
 pnpm database:update &&\
 pnpm prepare:i18n &&\
@@ -13,4 +13,4 @@ rsync -r --progress dist/fr/  ubuntu@ewen.works:/home/user-data/www/fr.ewen.work
 rsync -r --progress assets/   ubuntu@ewen.works:/home/user-data/www/assets.ewen.works/
 rsync -r --progress database/ ubuntu@ewen.works:/home/user-data/www/media.ewen.works/
 
-echo "ENVIRONMENT=dev" > hydrator/.env
+mv hydrator/.env hydrator/prod.env

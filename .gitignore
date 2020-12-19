@@ -167,7 +167,7 @@ dmypy.json
 .upm/
 
 # dotENV file
-.env
+*.env
 
 # node_modules
 node_modules/
