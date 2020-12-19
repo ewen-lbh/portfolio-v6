@@ -34,6 +34,11 @@ type Work struct {
 		Tags     []string
 		Layout   []interface{}
 		MadeWith []string `json:"made with"`
+		Colors   struct {
+			Primary   string
+			Secondary string
+			Tertiary  string
+		}
 	}
 	Title      map[string]string
 	Paragraphs map[string][]Paragraph
@@ -49,6 +54,11 @@ type WorkOneLang struct {
 		Tags     []string
 		Layout   []interface{}
 		MadeWith []string `json:"made with"`
+		Colors   struct {
+			Primary   string
+			Secondary string
+			Tertiary  string
+		}
 	}
 	Title      string
 	Paragraphs []Paragraph
