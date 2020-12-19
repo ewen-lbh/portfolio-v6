@@ -4,6 +4,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: easygettext\n"
 "Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: fr\n"
+"X-Generator: Poedit 2.4.1\n"
 
 #: APIs.pug:13 CLIs.pug:13 about.pug:13 apps.pug:13 automation.pug:13
 #: banners.pug:13 books.pug:13 cards.pug:13 compositing.pug:13 condenses.pug:13
@@ -31,7 +38,7 @@ msgstr ""
 #: using/toml.pug:13 using/typescript.pug:13 using/vue.pug:13
 #: using/webpack.pug:13 using/yaml.pug:13 visual-identities.pug:13 web.pug:13
 msgid "about"
-msgstr ""
+msgstr "à propos"
 
 #: using/aftereffects.pug:22
 msgid "After Effects"
@@ -39,7 +46,7 @@ msgstr ""
 
 #: index.pug:37
 msgid "all of 'em"
-msgstr ""
+msgstr "toutes"
 
 #: APIs.pug:34 CLIs.pug:34 about.pug:54 apps.pug:34 automation.pug:47
 #: banners.pug:34 books.pug:34 cards.pug:34 compositing.pug:34 condenses.pug:51
@@ -66,17 +73,19 @@ msgstr ""
 #: using/sass.pug:35 using/shell.pug:35 using/stylus.pug:35 using/svelte.pug:35
 #: using/toml.pug:35 using/typescript.pug:35 using/vue.pug:35
 #: using/webpack.pug:35 using/yaml.pug:35 visual-identities.pug:34 web.pug:34
-#: music.pug:58
+#: music.pug:58 index.pug:94 ultisnips-tools.pug:68 using/css.pug:44
+#: using/figma.pug:44 using/html.pug:44 using/javascript.pug:44
+#: using/livescript.pug:44 using/pug.pug:44 using/stylus.pug:44 web.pug:43
 msgid "also my music"
-msgstr ""
+msgstr "ma musique également"
 
 #: APIs.pug:21
 msgid "api"
 msgstr ""
 
-#: apps.pug:21
+#: apps.pug:21 ultisnips-tools.pug:23
 msgid "app"
-msgstr ""
+msgstr "application"
 
 #: about.pug:27
 msgid "artistique"
@@ -92,19 +101,19 @@ msgstr ""
 
 #: automation.pug:21 phelng.pug:24 portfoliodashb.pug:23
 msgid "automation"
-msgstr ""
+msgstr "automatisation"
 
 #: about.pug:43 music.pug:25
 msgid "Back home"
-msgstr ""
+msgstr "Retour à l'accueil"
 
 #: banners.pug:21
 msgid "banner"
-msgstr ""
+msgstr "bannière"
 
 #: made-with.pug:23
 msgid "beautiful OFL typeface"
-msgstr ""
+msgstr "magnifique fonte sous OFL"
 
 #: APIs.pug:14 CLIs.pug:14 about.pug:14 apps.pug:14 automation.pug:14
 #: banners.pug:14 books.pug:14 cards.pug:14 compositing.pug:14 condenses.pug:14
@@ -136,11 +145,11 @@ msgstr ""
 
 #: books.pug:21 condenses.pug:24
 msgid "book"
-msgstr ""
+msgstr "livre"
 
 #: made-with.pug:25
 msgid "by"
-msgstr ""
+msgstr "par"
 
 #: using/c.pug:22
 msgid "C"
@@ -156,7 +165,7 @@ msgstr ""
 
 #: cards.pug:21
 msgid "card"
-msgstr ""
+msgstr "carte"
 
 #: CLIs.pug:21 phelng.pug:22 portfoliodashb.pug:22
 msgid "cli"
@@ -219,21 +228,24 @@ msgstr ""
 #: using/typescript.pug:39 using/vue.pug:15 using/vue.pug:39
 #: using/webpack.pug:15 using/webpack.pug:39 using/yaml.pug:15
 #: using/yaml.pug:39 visual-identities.pug:15 visual-identities.pug:38
-#: web.pug:15 web.pug:38 music.pug:62
+#: web.pug:15 web.pug:38 music.pug:62 index.pug:98 ultisnips-tools.pug:72
+#: using/css.pug:48 using/figma.pug:48 using/html.pug:48
+#: using/javascript.pug:48 using/livescript.pug:48 using/pug.pug:48
+#: using/stylus.pug:48 web.pug:47
 msgid "contact"
 msgstr ""
 
 #: cover-arts.pug:21
 msgid "cover art"
-msgstr ""
+msgstr "pochette"
 
-#: using/css.pug:22
+#: using/css.pug:22 ultisnips-tools.pug:45
 msgid "CSS"
 msgstr ""
 
 #: made-with.pug:30
 msgid "Design and coded by hand"
-msgstr ""
+msgstr "Site web fait maison"
 
 #: about.pug:28
 msgid ""
@@ -259,11 +271,11 @@ msgstr ""
 
 #: drawings.pug:21
 msgid "drawing"
-msgstr ""
+msgstr "dessin"
 
 #: made-with.pug:27
 msgid "efficient and comfortable programming language"
-msgstr ""
+msgstr "langage de programmation efficient et confortable"
 
 #: APIs.pug:17 CLIs.pug:17 about.pug:17 apps.pug:17 automation.pug:17
 #: banners.pug:17 books.pug:17 cards.pug:17 compositing.pug:17 condenses.pug:17
@@ -291,15 +303,15 @@ msgstr ""
 #: using/toml.pug:17 using/typescript.pug:17 using/vue.pug:17
 #: using/webpack.pug:17 using/yaml.pug:17 visual-identities.pug:17 web.pug:17
 msgid "en français"
-msgstr ""
+msgstr "in english"
 
-#: using/figma.pug:22
+#: using/figma.pug:22 ultisnips-tools.pug:40
 msgid "Figma"
 msgstr ""
 
 #: using/fishshell.pug:22
 msgid "Fish Shell"
-msgstr ""
+msgstr "Shell Fish"
 
 #: neptune.pug:41 using/flstudio.pug:22
 msgid "FL Studio"
@@ -307,7 +319,7 @@ msgstr ""
 
 #: games.pug:21
 msgid "game"
-msgstr ""
+msgstr "jeu"
 
 #: using/gimp.pug:22
 msgid "GIMP"
@@ -319,31 +331,35 @@ msgstr ""
 
 #: graphism.pug:21 neptune.pug:23 trigonometry-synth.pug:23
 msgid "graphism"
-msgstr ""
+msgstr "graphisme"
 
 #: about.pug:22 index.pug:21 music.pug:21
 msgid "Hi, I'm Ewen Le Bihan."
-msgstr ""
+msgstr "Hey, je suis Ewen Le Bihan."
 
 #: about.pug:24 index.pug:24
 msgid ""
 "Hi! I'm Ewen Le Bihan, I'm 17 years old and I'm interested in almost "
 "anything that is both creative and digital."
 msgstr ""
+"Hey! Je suis Ewen Le Bihan, j'ai 17 ans et je suis intéressé par presque "
+"tout ce qui est à la fois créatif et digital."
 
-#: using/html.pug:22
+#: using/html.pug:22 ultisnips-tools.pug:44
 msgid "HTML"
 msgstr ""
 
 #: music.pug:22
 msgid "I also make electronic music."
-msgstr ""
+msgstr "Je crée également de la musique électronique."
 
 #: music.pug:24
 msgid ""
 "I’ve been experimenting with sounds, their textures and their musicality "
 "since I was 7 years old."
 msgstr ""
+"J'expérimente les sons, leurs textures et leur musicalité depuis que j'ai 7 "
+"ans."
 
 #: iconography.pug:21
 msgid "iconography"
@@ -373,7 +389,7 @@ msgid ""
 "plusieurs langages de programmation."
 msgstr ""
 
-#: using/javascript.pug:22
+#: using/javascript.pug:22 ultisnips-tools.pug:46
 msgid "JavaScript"
 msgstr ""
 
@@ -400,7 +416,7 @@ msgstr ""
 
 #: music.pug:27
 msgid "latest release"
-msgstr ""
+msgstr "dernière sortie"
 
 #: condenses.pug:33 using/latex.pug:22
 msgid "LaTeX"
@@ -416,13 +432,13 @@ msgstr ""
 
 #: index.pug:25
 msgid "Learn more"
-msgstr ""
+msgstr "En savoir plus"
 
 #: about.pug:36
 msgid "linguistique"
 msgstr ""
 
-#: using/livescript.pug:22
+#: using/livescript.pug:22 ultisnips-tools.pug:43
 msgid "LiveScript"
 msgstr ""
 
@@ -451,9 +467,9 @@ msgstr ""
 #: using/rubyonrails.pug:21 using/rust.pug:21 using/sapper.pug:21
 #: using/sass.pug:21 using/shell.pug:21 using/stylus.pug:21 using/svelte.pug:21
 #: using/toml.pug:21 using/typescript.pug:21 using/vue.pug:21
-#: using/webpack.pug:21 using/yaml.pug:21
+#: using/webpack.pug:21 using/yaml.pug:21 ultisnips-tools.pug:37
 msgid "made with"
-msgstr ""
+msgstr "réalisé avec"
 
 #: using/manim.pug:22
 msgid "ManimCE"
@@ -465,11 +481,11 @@ msgstr ""
 
 #: math.pug:21 trigonometry-synth.pug:24
 msgid "math"
-msgstr ""
+msgstr "maths"
 
 #: index.pug:27
 msgid "most recent one"
-msgstr ""
+msgstr "la plus récente"
 
 #: motion-design.pug:21
 msgid "motion design"
@@ -501,7 +517,7 @@ msgstr ""
 #: using/toml.pug:12 using/typescript.pug:12 using/vue.pug:12
 #: using/webpack.pug:12 using/yaml.pug:12 visual-identities.pug:12 web.pug:12
 msgid "music"
-msgstr ""
+msgstr "musique"
 
 #: APIs.pug:36 CLIs.pug:36 about.pug:56 apps.pug:36 automation.pug:49
 #: banners.pug:36 books.pug:36 cards.pug:36 compositing.pug:36 condenses.pug:53
@@ -528,9 +544,11 @@ msgstr ""
 #: using/sass.pug:37 using/shell.pug:37 using/stylus.pug:37 using/svelte.pug:37
 #: using/toml.pug:37 using/typescript.pug:37 using/vue.pug:37
 #: using/webpack.pug:37 using/yaml.pug:37 visual-identities.pug:36 web.pug:36
-#: music.pug:60
+#: music.pug:60 index.pug:96 ultisnips-tools.pug:70 using/css.pug:46
+#: using/figma.pug:46 using/html.pug:46 using/javascript.pug:46
+#: using/livescript.pug:46 using/pug.pug:46 using/stylus.pug:46 web.pug:45
 msgid "music+visual"
-msgstr ""
+msgstr "musique+vidéo"
 
 #: APIs.pug:32 CLIs.pug:32 about.pug:52 apps.pug:32 automation.pug:45
 #: banners.pug:32 books.pug:32 cards.pug:32 compositing.pug:32 condenses.pug:49
@@ -557,9 +575,11 @@ msgstr ""
 #: using/sass.pug:33 using/shell.pug:33 using/stylus.pug:33 using/svelte.pug:33
 #: using/toml.pug:33 using/typescript.pug:33 using/vue.pug:33
 #: using/webpack.pug:33 using/yaml.pug:33 visual-identities.pug:32 web.pug:32
-#: music.pug:56
+#: music.pug:56 index.pug:92 ultisnips-tools.pug:66 using/css.pug:42
+#: using/figma.pug:42 using/html.pug:42 using/javascript.pug:42
+#: using/livescript.pug:42 using/pug.pug:42 using/stylus.pug:42 web.pug:41
 msgid "my music"
-msgstr ""
+msgstr "ma musique"
 
 #: using/nestjs.pug:22
 msgid "NestJS"
@@ -606,9 +626,11 @@ msgstr ""
 #: using/sass.pug:31 using/shell.pug:31 using/stylus.pug:31 using/svelte.pug:31
 #: using/toml.pug:31 using/typescript.pug:31 using/vue.pug:31
 #: using/webpack.pug:31 using/yaml.pug:31 visual-identities.pug:30 web.pug:30
-#: music.pug:54
+#: music.pug:54 index.pug:90 ultisnips-tools.pug:64 using/css.pug:40
+#: using/figma.pug:40 using/html.pug:40 using/javascript.pug:40
+#: using/livescript.pug:40 using/pug.pug:40 using/stylus.pug:40 web.pug:39
 msgid "open-source code"
-msgstr ""
+msgstr "code open-source"
 
 #: music.pug:36
 msgid ""
@@ -630,7 +652,7 @@ msgstr ""
 
 #: posters.pug:21
 msgid "poster"
-msgstr ""
+msgstr "affiche"
 
 #: using/postgresql.pug:22
 msgid "PostGreSQL"
@@ -642,9 +664,9 @@ msgstr ""
 
 #: phelng.pug:23 portfoliodashb.pug:24 programs.pug:21
 msgid "program"
-msgstr ""
+msgstr "programme"
 
-#: using/pug.pug:22
+#: using/pug.pug:22 ultisnips-tools.pug:41
 msgid "Pug"
 msgstr ""
 
@@ -681,9 +703,11 @@ msgstr ""
 #: using/sass.pug:29 using/shell.pug:29 using/stylus.pug:29 using/svelte.pug:29
 #: using/toml.pug:29 using/typescript.pug:29 using/vue.pug:29
 #: using/webpack.pug:29 using/yaml.pug:29 visual-identities.pug:28 web.pug:28
-#: music.pug:52
+#: music.pug:52 index.pug:88 ultisnips-tools.pug:62 using/css.pug:38
+#: using/figma.pug:38 using/html.pug:38 using/javascript.pug:38
+#: using/livescript.pug:38 using/pug.pug:38 using/stylus.pug:38 web.pug:37
 msgid "random thoughts"
-msgstr ""
+msgstr "pensées diverses"
 
 #: using/ruby.pug:22
 msgid "Ruby"
@@ -707,7 +731,7 @@ msgstr ""
 
 #: condenses.pug:23 school.pug:21
 msgid "school"
-msgstr ""
+msgstr "scolaire"
 
 #: condenses.pug:22 science.pug:21
 msgid "science"
@@ -719,7 +743,7 @@ msgstr ""
 
 #: contact.pug:23
 msgid "send a mail at"
-msgstr ""
+msgstr "envoyer un mail à"
 
 #: using/shell.pug:22
 msgid "Shell"
@@ -731,9 +755,9 @@ msgstr ""
 
 #: contact.pug:25
 msgid "slide into my dms at"
-msgstr ""
+msgstr "contactez-moi par message privé à"
 
-#: using/stylus.pug:22
+#: using/stylus.pug:22 ultisnips-tools.pug:42
 msgid "Stylus"
 msgstr ""
 
@@ -767,18 +791,20 @@ msgstr ""
 #: using/toml.pug:16 using/typescript.pug:16 using/vue.pug:16
 #: using/webpack.pug:16 using/yaml.pug:16 visual-identities.pug:16 web.pug:16
 msgid "thanks"
-msgstr ""
+msgstr "merci à"
 
 #: condenses.pug:31 neptune.pug:38 portfoliodashb.pug:41
-#: trigonometry-synth.pug:41
+#: trigonometry-synth.pug:41 ultisnips-tools.pug:38
 msgid ""
 "the software, frameworks, libraries, materials and services I used to make "
 "this"
 msgstr ""
+"les logiciels, frameworks, bibliothèques, matériaux et services utilisés "
+"pour cette création"
 
 #: about.pug:23 index.pug:22
 msgid "These are my creations."
-msgstr ""
+msgstr "Voici mes créations."
 
 #: using/toml.pug:22
 msgid "TOML"
@@ -796,17 +822,17 @@ msgstr ""
 
 #: typography.pug:21
 msgid "typography"
-msgstr ""
+msgstr "typographie"
 
 #: visual-identities.pug:21
 msgid "visual identity"
-msgstr ""
+msgstr "identité visuelle"
 
 #: using/vue.pug:22
 msgid "Vue"
 msgstr ""
 
-#: web.pug:21
+#: web.pug:21 ultisnips-tools.pug:22
 msgid "web"
 msgstr ""
 
@@ -840,7 +866,7 @@ msgstr ""
 #: using/toml.pug:11 using/typescript.pug:11 using/vue.pug:11
 #: using/webpack.pug:11 using/yaml.pug:11 visual-identities.pug:11 web.pug:11
 msgid "works"
-msgstr ""
+msgstr "œuvres"
 
 #: using/yaml.pug:22
 msgid "YAML"
@@ -848,4 +874,4 @@ msgstr ""
 
 #: music.pug:36
 msgid "past releases"
-msgstr ""
+msgstr "autres sorties"
