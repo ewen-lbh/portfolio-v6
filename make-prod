@@ -8,7 +8,7 @@ pnpm clean &&\
 cp dist/*.{png,xml,json,ico,css,js} dist/fr
 mv dist/*.{png,xml,json,ico,css,js} dist/en
 # TODO: use rclone sync instead to prevent copying uselessly identical files
-rsync -r --progress dist/en/  ubuntu@ewen.works:/home/user-data/www/ewen.works/
+# rsync -r --progress dist/en/  ubuntu@ewen.works:/home/user-data/www/ewen.works/ # only turn this on when ready to first deploy.
 rsync -r --progress dist/en/  ubuntu@ewen.works:/home/user-data/www/en.ewen.works/
 rsync -r --progress dist/fr/  ubuntu@ewen.works:/home/user-data/www/fr.ewen.works/
 rsync -r --progress assets/   ubuntu@ewen.works:/home/user-data/www/assets.ewen.works/
