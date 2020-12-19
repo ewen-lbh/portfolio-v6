@@ -8,7 +8,7 @@ type Technology struct {
 	Aliases     []string
 }
 
-var AvailableTechnologies = [...]Technology{
+var KnownTechnologies = [...]Technology{
 	{
 		URLName:     "aftereffects",
 		DisplayName: "After Effects",
@@ -219,5 +219,9 @@ var AvailableTechnologies = [...]Technology{
 	{
 		URLName: "manim",
 		DisplayName: "ManimCE",
+	},
+	{
+		URLName: "lark",
+		DisplayName: "Lark",
 	},
 }

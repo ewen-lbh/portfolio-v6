@@ -1,8 +1,14 @@
 package main
 
 import (
+	"encoding/hex"
 	"errors"
+	"io/ioutil"
+	"os"
 	"strings"
+	"time"
+
+	"github.com/relvacode/iso8601"
 )
 
 func FindInArrayLax(haystack []string, needle string) (string, error) {
@@ -12,4 +18,70 @@ func FindInArrayLax(haystack []string, needle string) (string, error) {
 		}
 	}
 	return "", errors.New("not found")
+}
+
+// IsColorHexstring determines if the given string is a valid 6-character hexstring
+func IsColorHexstring(s string) bool {
+	_, err := hex.DecodeString(s)
+	if err != nil {
+		return false
+	}
+	return len(s) == 6
+}
+
+// AddOctothorpeIfNeeded adds a leading "#" to colorValue if it's a valid color hexstring
+func AddOctothorpeIfNeeded(colorValue string) string {
+	if IsColorHexstring(colorValue) {
+		return "#" + colorValue
+	}
+	return colorValue
+}
+
+// SummarizeString summarizes s to at most targetLength characters
+// TODO: do not cut in between of a word/punctuation mark, etc.
+func SummarizeString(s string, targetLength uint32) string {
+	var runesCount uint32
+	for index := range s {
+		runesCount++
+		if runesCount > targetLength {
+			return s[:index] + "…"
+		}
+	}
+	return s
+}
+
+// ParseCreationDate parses datestring using iso8601. If the year is "????", replace it with year 9999
+func ParseCreationDate(datestring string) (time.Time, error) {
+	parsedDate, err := iso8601.ParseString(
+		strings.ReplaceAll(
+			strings.Replace(datestring, "????", "9999", 1), "?", "1",
+		),
+	)
+	return parsedDate, err
+}
+
+func ReadFile(filename string) ([]byte, error) {
+	file, err := os.Open(filename)
+	if err != nil {
+		return []byte{}, err
+	}
+	content, err := ioutil.ReadAll(file)
+	if err != nil {
+		return []byte{}, err
+	}
+	return content, nil
+}
+
+func WriteToFile(filename string, content []byte) error {
+	file, err := os.Open(filename)
+	if err != nil {
+		return err
+	}
+	_, err = file.Write(content)
+	return err
+}
+
+// StringsLooselyMatch checks if s1 == s2, but case-insensitively.
+func StringsLooselyMatch(s1 string, s2 string) bool {
+	return strings.ToLower(s1) == strings.ToLower(s2)
 }

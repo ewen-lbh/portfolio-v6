@@ -1,6 +1,12 @@
 package main
 
-var tags = [...]Tag{
+
+type Tag struct {
+	URLName     string
+	DisplayName string
+}
+
+var KnownTags = [...]Tag{
 	{
 		DisplayName: "school",
 		URLName:     "school",

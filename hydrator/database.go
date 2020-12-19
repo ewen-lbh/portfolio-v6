@@ -1,57 +1,40 @@
 package main
 
 import (
-	"github.com/relvacode/iso8601"
-	"strings"
 	"fmt"
 	"time"
+
+	"github.com/davecgh/go-spew/spew"
+	jsoniter "github.com/json-iterator/go"
 )
 
-type Tag struct {
-	URLName     string
-	DisplayName string
-}
 
 type Database struct {
 	Works []Work
 }
 
-func (work *Work) Created() time.Time {
-	createdDate := work.Metadata.Created
-	parsedDate, err := iso8601.ParseString(
-		strings.ReplaceAll(
-			strings.Replace(createdDate, "????", "9999", 1), "?", "1",
-		),
-	)
+func LoadDatabase(filename string) (Database, error) {
+	var works []Work
+	json := jsoniter.ConfigFastest
+	SetJSONNamingStrategy(LowerCaseWithUnderscores)
+	content, err := ReadFile(filename)
+	if err != nil {
+		return Database{}, err
+	}
+	err = json.Unmarshal(content, &works)
+	spew.Dump(works)
+	return Database{Works: works}, nil
+}
+
+
+
+func (work *WorkOneLang) Created() time.Time {
+	parsedDate, err := ParseCreationDate(work.Metadata.Created)
 	if err != nil {
 		fmt.Printf("Error while parsing creation date of %v:\n", work.ID)
 		panic(err)
 	}
 	return parsedDate
-}
-
-func (db *Database) LatestWork() Work {
-	latest := db.Works[0]
-	for _, work := range db.Works {
-		if work.Created().Year() == 9999 {
-			continue
-		}
-		if work.Created().After(latest.Created()) {
-			latest = work
-		}
-	}
-	return latest
-}
-
-func (db *Database) WorksOfTag(tag Tag) []Work {
-	worksOfTag := make([]Work, 0)
-	for _, work := range db.Works {
-		_, findError := FindInArrayLax(work.Metadata.Tags, tag.URLName)
-		if findError == nil {
-			worksOfTag = append(worksOfTag, work)
-		}
-	}
-	return worksOfTag
 }
 
 func GetOneLang(lang string, works ...Work) []WorkOneLang {
@@ -98,24 +81,4 @@ func GetOneLang(lang string, works ...Work) []WorkOneLang {
 		})
 	}
 	return result
-}
-
-func (db *Database) WorksByYearOneLang(lang string) map[int][]WorkOneLang {
-	worksByYear := make(map[int][]WorkOneLang)
-	for _, work := range db.Works {
-		year := work.Created().Year()
-		worksByYear[year] = append(worksByYear[year], GetOneLang(lang, work)[0])
-	}
-	return worksByYear
-}
-
-func (db *Database) WorksMadeWith(tech Technology) []Work {
-	worksMadeWith := make([]Work, 0)
-	for _, work := range db.Works {
-		_, findError := FindInArrayLax(work.Metadata.MadeWith, tech.URLName)
-		if findError == nil {
-			worksMadeWith = append(worksMadeWith, work)
-		}
-	}
-	return worksMadeWith
 }
