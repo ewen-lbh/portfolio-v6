@@ -71,7 +71,8 @@
 2. Update database if needed: `pnpm database:update` (i.e. if you changed some description.md files and/or added a new project)
 3. Run `pnpm prepare:i18n`
 4. Add missing translations to `messages/*.po`
-5. Run `pnpm makeclean`
+5. Run `pnpm make`
+6. (Optionally) Run `pnpm clean`
 
 Or:
 

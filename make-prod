@@ -3,7 +3,8 @@ mv hydrator/prod.env hydrator/.env
 
 pnpm database:update &&\
 pnpm prepare:i18n &&\
-pnpm makeclean &&\
+pnpm make &&\
+pnpm clean &&\
 cp dist/*.{png,xml,json,ico,css,js} dist/fr
 mv dist/*.{png,xml,json,ico,css,js} dist/en
 # TODO: use rclone sync instead to prevent copying uselessly identical files
