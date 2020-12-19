@@ -7,6 +7,7 @@ import (
 	"text/template"
 
 	"github.com/Masterminds/sprig"
+	"github.com/jaytaylor/html2text"
 )
 
 // Returns the funcmap used to hydrate files
@@ -103,7 +104,11 @@ func getSummary(w WorkOneLang) string {
 	if len(w.Paragraphs) == 0 {
 		return ""
 	}
-	return SummarizeString(w.Paragraphs[0].Content, 150)
+	plainText, err := html2text.FromString(w.Paragraphs[0].Content, html2text.Options{OmitLinks: true})
+	if err != nil {
+		panic(err)
+	}
+	return SummarizeString(plainText, 150)
 }
 
 // getThumbnailSource gets the source URL of the work's first media

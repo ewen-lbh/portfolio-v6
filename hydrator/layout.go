@@ -6,6 +6,7 @@ import (
 	"strings"
 )
 
+// LayoutElement represents a work layout element: paragraph, media, link or spacer.
 type LayoutElement struct {
 	IsParagraph bool
 	IsMedia     bool
@@ -19,6 +20,7 @@ type usedCounts struct {
 	l int
 }
 
+// Layout is a 2d array of layout elements (rows and columns)
 type Layout = [][]LayoutElement
 
 // LayoutElementRepr returns the strings representation of a Layout
@@ -49,6 +51,7 @@ func layoutRepr(layout Layout) string {
 	return repr
 }
 
+// BuildLayout builds an pug layout filled with content, ready to inject in a .pug file.
 func (work *WorkOneLang) BuildLayout() string {
 	var layout Layout
 	if len(work.Metadata.Layout) >= 1 {
