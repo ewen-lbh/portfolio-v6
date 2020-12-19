@@ -14,7 +14,7 @@ block content
 
 	h2(translate) most recent one
 
-	section.work-card.work-card--large
+	section.work-card.work-card--large: a(href="/{{ $latest.ID }}")
 		{{ if len $latest.Media }}
 		img.work-card__image(src="{{ $latest | getThumbnailSource }}")
 		{{ else }}

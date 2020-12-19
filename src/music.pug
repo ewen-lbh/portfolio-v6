@@ -15,7 +15,7 @@ block content
 
 	h2(translate) latest release
 
-	section.work-card.work-card--large
+	section.work-card.work-card--large: a(href="/{{ $latestRelease.ID }}")
 		{{ if len $latestRelease.Media }}
 		img.work-card__image(src='{{ ($latestRelease.Media | first).Source }}')
 		{{ else }}
