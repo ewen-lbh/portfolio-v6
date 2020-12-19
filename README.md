@@ -9,7 +9,7 @@ A [Figma design prototype](https://www.figma.com/file/UvxKH6pmm2CH8aodkMGmQi/ewe
 `⋯` means work in progress
 
 - [x] [UI Prototype](https://www.figma.com/file/UvxKH6pmm2CH8aodkMGmQi/ewen.works?node-id=426%3A77)
-- [ ] ⋯ Hydration, compilation, translation process
+- [x] ⋯ Hydration, compilation, translation process
 - [x] Server-side configuration (mainly NGINX & SSL stuff)
 - [x] Assets
 - [ ] ⋯ HTML Structure
