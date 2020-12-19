@@ -5,7 +5,7 @@
   "license": "CC-BY-NC-ND-4.0",
   "version": "0.1.0",
   "scripts": {
-    "database:crawl": "cd /home/ewen/projects/portfoliodb-crawler && python3.8 crawler.py /home/ewen/projects/portfolio-next/database",
+    "database:crawl": "cd /home/ewen/projects/portfoliodb-crawler && python3.8 crawler.py /home/ewen/projects/portfolio/database",
     "database:build": "portfoliodb database build database/database.json --config database/.portfoliodb.yaml -m",
     "database:upload": "rclone ",
     "pug:hydrate": "cd hydrator && ./hydrate",
