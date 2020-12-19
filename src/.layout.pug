@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 html(lang="[# LANGUAGE CODE #]")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel="stylesheet", href='{{ asset "global.css" }}')
-  body
-    nav
-      ul
-        li: a(translate href="/") works
-        li: a(translate href="/music") music
-        li: a(translate href="/about") about
-        li: a(translate href="https://blog.ewen.works") blog
-        li: a(translate href="/contact") contact
-        li: a(translate href="/made-with") thanks
-        li: a(translate onclick="window.location.hostname = '[# OTHER LANGUAGE CODE #].ewen.works';") en français
-    main
-      block content
-    footer
-      span.hint ewen.works/to/
-      dl
-        dt: a(href="https://ewen.works/to/twitter") twitter
-        dd(translate) random thoughts
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel="stylesheet", href='{{ asset "global.css" }}')
+	body
+		nav
+			ul
+				li: a(translate href="/") works
+				li: a(translate href="/music") music
+				li: a(translate href="/about") about
+				li: a(translate href="https://blog.ewen.works") blog
+				li: a(translate href="/contact") contact
+				li: a(translate href="/made-with") thanks
+				li: a(translate onclick="window.location.hostname = '[# OTHER LANGUAGE CODE #].ewen.works';") en français
+		main
+			block content
+		footer
+			span.hint ewen.works/to/
+			dl
+				dt: a(href="https://ewen.works/to/twitter") twitter
+				dd(translate) random thoughts
 
-        dt: a(href="https://ewen.works/to/github") github
-        dd(translate) open-source code
+				dt: a(href="https://ewen.works/to/github") github
+				dd(translate) open-source code
 
-        dt: a(href="https://ewen.works/to/spotify") spotify
-        dd(translate) my music
+				dt: a(href="https://ewen.works/to/spotify") spotify
+				dd(translate) my music
 
-        dt: a(href="https://ewen.works/to/deezer") deezer
-        dd(translate) also my music
+				dt: a(href="https://ewen.works/to/deezer") deezer
+				dd(translate) also my music
 
-        dt: a(href="https://ewen.works/to/youtube") youtube
-        dd(translate) music+visual
-        
-        dt: a(href="https://ewen.works/to/mail") mail
-        dd(translate) contact
+				dt: a(href="https://ewen.works/to/youtube") youtube
+				dd(translate) music+visual
+
+				dt: a(href="https://ewen.works/to/mail") mail
+				dd(translate) contact

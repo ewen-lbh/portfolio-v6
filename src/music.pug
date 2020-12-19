@@ -1,0 +1,32 @@
+{{ $releases := .Works | withTag ("music" | lookupTag) }}
+{{ $latestRelease := $releases | latest }}
+
+
+extends .layout
+
+block content
+	p.pre-h1(translate) Hi, I'm Ewen Le Bihan.
+	h1(translate) I also make electronic music.
+	p.intro
+		i18n I’ve been experimenting with sounds, their textures and their musicality since I was 7 years old.
+		a(href="/")
+			img.icon(src='{{ asset "icons/arrow-left.svg" }}')
+			i18n Back home
+
+	h2(translate) latest release
+
+	section.work-card.work-card--large
+		{{ if len $latestRelease.Media }}
+		img.work-card__image(src='{{ ($latestRelease.Media | first).Source }}')
+		{{ else }}
+		svg.work-card__image--empty
+		{{ end }}
+		h3 {{ $latestRelease.Title }}
+		{{ if len $latestRelease.Paragraphs }}
+		p.
+			{{ $latestRelease | getSummary | tindent 3 }}
+		{{ end }}
+
+	h2(translate) past releases
+
+	{{ $releases | intoGallery }}

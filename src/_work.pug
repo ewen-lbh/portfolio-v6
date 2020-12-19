@@ -3,13 +3,14 @@ extends .layout
 block content
 	ul.tags
 		{{ range .CurrentWork.Metadata.Tags }}
-		li: a(href="/{{ (lookupTag .).URLName }}" translate) {{ . }}
+		{{ $tag := . | lookupTag }}
+		li: a(href="/{{ $tag.URLName }}" translate) {{ $tag.DisplayName }}
 		{{ end }}
 
 	section.contents
 		h1 {{ .CurrentWork.Title }}
 
-		{{ .CurrentWorkBuiltLayout | tnindent 2 }}
+		{{ .CurrentWork | intoLayout | tnindent 2 }}
 
 
 	{{ if (len .CurrentWork.Metadata.MadeWith) }}
@@ -18,21 +19,16 @@ block content
 		p.made-with__explainer(translate) the software, frameworks, libraries, materials and services I used to make this
 		ul.made-with__list
 			{{ range .CurrentWork.Metadata.MadeWith }}
-			li: a(href="/using/{{ (lookupTech .).URLName }}")
-				img(src='{{ asset (printf "logos/%s.svg" (lookupTech .).URLName) }}')
-				span(translate) {{ (lookupTech .).DisplayName }}
+			{{ $tech := . | lookupTech }}
+			li.made-with__item: a(href="/using/{{ $tech.URLName }}")
+				img(src='{{ asset (printf "logos/%s.svg" $tech.URLName) }}')
+				span(translate) {{ $tech.DisplayName }}
 			{{ end -}}
 	{{ end }}
 
 	style.
 		:root {
-			{{ if .CurrentWork.Metadata.Colors.Primary }}
-			--primary: #{{ .CurrentWork.Metadata.Colors.Primary }};
-			{{ end }}
-			{{ if .CurrentWork.Metadata.Colors.Secondary }}
-			--secondary: #{{ .CurrentWork.Metadata.Colors.Secondary }};
-			{{ end }}
-			{{ if .CurrentWork.Metadata.Colors.Tertiary }}
-			--tertiary: #{{ .CurrentWork.Metadata.Colors.Tertiary }};
+			{{ range $key, $value := .CurrentWork | getColorsMap }}
+				--{{$key}}: {{$value}};
 			{{ end }}
 		}
