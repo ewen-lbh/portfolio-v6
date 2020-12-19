@@ -23,3 +23,16 @@ block content
 				span(translate) {{ (lookupTech .).DisplayName }}
 			{{ end -}}
 	{{ end }}
+
+	style.
+		:root {
+			{{ if .CurrentWork.Metadata.Colors.Primary }}
+			--primary: #{{ .CurrentWork.Metadata.Colors.Primary }};
+			{{ end }}
+			{{ if .CurrentWork.Metadata.Colors.Secondary }}
+			--secondary: #{{ .CurrentWork.Metadata.Colors.Secondary }};
+			{{ end }}
+			{{ if .CurrentWork.Metadata.Colors.Tertiary }}
+			--tertiary: #{{ .CurrentWork.Metadata.Colors.Tertiary }};
+			{{ end }}
+		}

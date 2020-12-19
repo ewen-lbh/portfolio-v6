@@ -35,3 +35,8 @@ code, pre {
 		font-size: 16px;
 	}
 }
+
+body {
+	color: var(--primary, black);
+	background-color: var(--secondary, white);
+}
