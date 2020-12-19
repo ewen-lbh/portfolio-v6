@@ -90,6 +90,9 @@ func (work *WorkOneLang) BuildLayout() string {
 				data := work.Media[usedCounts.m]
 				usedCounts.m++
 				mediaGeneralContentType := strings.Split(data.ContentType, "/")[0]
+				if data.ContentType == "application/pdf" {
+					mediaGeneralContentType = "pdf"
+				}
 				switch mediaGeneralContentType {
 				case "video":
 					element = fmt.Sprintf(`video(src="%v" id="%v" title="%v") %v`, data.Source, data.ID, data.Title, data.Alt)
@@ -97,6 +100,8 @@ func (work *WorkOneLang) BuildLayout() string {
 					element = fmt.Sprintf(`audio(src="%v" id="%v" title="%v") %v`, data.Source, data.ID, data.Title, data.Alt)
 				case "image":
 					element = fmt.Sprintf(`img(src="%v" id="%v" title="%v" alt="%v")`, data.Source, data.ID, data.Title, data.Alt)
+				case "pdf":
+					element = fmt.Sprintf(`.pdf-frame-container: iframe.pdf-frame(src="%v" id="%v" title="%v" width="100%%" height="100%%") %v`, data.Source, data.ID, data.Title, data.Alt)
 				default:
 					element = fmt.Sprintf(`a(href="%v" id="%v" title="%v") %v`, data.Source, data.ID, data.Title, data.Alt)
 				}
