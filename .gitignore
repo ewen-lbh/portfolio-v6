@@ -183,3 +183,8 @@ artifacts/
 database/
 !database/database.json
 !database/.portfoliodb.y{a,}ml
+
+# Compiled assets
+assets/style.css.map
+assets/style.css
+assets/ui.js
