@@ -88,7 +88,6 @@ var KnownTechnologies = [...]Technology{
 	{
 		URLName:     "html",
 		DisplayName: "HTML",
-		Author:      "W3C & WHATWG",
 	},
 	{
 		URLName:     "illustrator",
