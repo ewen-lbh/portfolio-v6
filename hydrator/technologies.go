@@ -6,12 +6,14 @@ type Technology struct {
 	URLName     string
 	DisplayName string
 	Aliases     []string
+	Author      string
 }
 
 var KnownTechnologies = [...]Technology{
 	{
 		URLName:     "aftereffects",
 		DisplayName: "After Effects",
+		Author:      "Adobe",
 	},
 	{
 		URLName:     "asciidoc",
@@ -33,6 +35,7 @@ var KnownTechnologies = [...]Technology{
 		URLName:     "c#",
 		DisplayName: "C#",
 		Aliases:     []string{"cs", "csharp"},
+		Author:      "Microsoft",
 	},
 	{
 		URLName:     "c++",
@@ -46,6 +49,7 @@ var KnownTechnologies = [...]Technology{
 	{
 		URLName:     "djangorestframework",
 		DisplayName: "Django REST Framework",
+		Author:      "encode",
 	},
 	{
 		URLName:     "django",
@@ -58,6 +62,7 @@ var KnownTechnologies = [...]Technology{
 	{
 		URLName:     "figma",
 		DisplayName: "Figma",
+		Author:      "Google",
 	},
 	{
 		URLName:     "fishshell",
@@ -68,31 +73,38 @@ var KnownTechnologies = [...]Technology{
 		URLName:     "flstudio",
 		DisplayName: "FL Studio",
 		Aliases:     []string{"fruityloops"},
+		Author:      "Image-Line",
 	},
 	{
 		URLName:     "gimp",
 		DisplayName: "GIMP",
+		Author:      "GNU",
 	},
 	{
 		URLName:     "go",
 		DisplayName: "Go",
+		Author:      "Google",
 	},
 	{
 		URLName:     "html",
 		DisplayName: "HTML",
+		Author:      "W3C & WHATWG",
 	},
 	{
 		URLName:     "illustrator",
 		DisplayName: "Illustrator",
+		Author:      "Adobe",
 	},
 	{
 		URLName:     "indesign",
 		DisplayName: "InDesign",
+		Author:      "Adobe",
 	},
 	{
 		URLName:     "javascript",
 		DisplayName: "JavaScript",
 		Aliases:     []string{"js"},
+		Author:      "Mozilla",
 	},
 	{
 		URLName:     "json",
@@ -130,10 +142,12 @@ var KnownTechnologies = [...]Technology{
 	{
 		URLName:     "oclif",
 		DisplayName: "Oclif",
+		Author:      "Heroku",
 	},
 	{
 		URLName:     "photoshop",
 		DisplayName: "Photoshop",
+		Author:      "Adobe",
 	},
 	{
 		URLName:     "php",
@@ -150,6 +164,7 @@ var KnownTechnologies = [...]Technology{
 	{
 		URLName:     "premierepro",
 		DisplayName: "Premiere Pro",
+		Author:      "Adobe",
 	},
 	{
 		URLName:     "pug",
@@ -158,10 +173,12 @@ var KnownTechnologies = [...]Technology{
 	{
 		URLName:     "pychemin",
 		DisplayName: "PyChemin",
+		Author:      "ewen-lbh",
 	},
 	{
 		URLName:     "python",
 		DisplayName: "Python",
+		Author:      "PSF",
 	},
 	{
 		URLName:     "rubyonrails",
@@ -174,10 +191,12 @@ var KnownTechnologies = [...]Technology{
 	{
 		URLName:     "rust",
 		DisplayName: "Rust",
+		Author:      "Mozilla",
 	},
 	{
 		URLName:     "sapper",
 		DisplayName: "Sapper",
+		Author:      "Svelte",
 	},
 	{
 		URLName:     "sass",
@@ -202,6 +221,7 @@ var KnownTechnologies = [...]Technology{
 	{
 		URLName:     "typescript",
 		DisplayName: "TypeScript",
+		Author:      "Microsoft",
 	},
 	{
 		URLName:     "vue",
@@ -217,11 +237,12 @@ var KnownTechnologies = [...]Technology{
 		DisplayName: "YAML",
 	},
 	{
-		URLName: "manim",
-		DisplayName: "ManimCE",
+		URLName:     "manim",
+		DisplayName: "Manim",
+		Author:      "3Blue1Brown",
 	},
 	{
-		URLName: "lark",
+		URLName:     "lark",
 		DisplayName: "Lark",
 	},
 }
