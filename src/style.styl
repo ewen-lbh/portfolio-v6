@@ -1,2 +1,186 @@
-.icon.points-right
-    transform: rotate(180deg)
+outlined-text(width)
+	-webkit-text-stroke: width currentColor
+	text-stroke: width currentColor
+	color currentColor
+	-webkit-text-fill-color transparent
+
+$(variable-name)
+	if variable-name is 'primary'
+		fallback = black
+	if variable-name is 'secondary'
+		fallback = white
+	var(unquote('--' + variable-name), fallback)
+
+primary = $(primary)
+secondary = $(secondary)
+
+opacity-link()
+	text-decoration none
+	opacity .5
+	&:hover
+		opacity 1
+	transition: opacity .125s ease
+
+shape-link()
+	text-align center
+	text-decoration none
+	color primary
+	position relative
+	display flex
+	font-size 1.5rem
+	margin 5rem
+
+	&::before
+		content ''
+		position absolute
+		border 2px solid primary
+		width 4rem
+		left 50%
+		transform: translateX(-50%)
+		top -1rem
+		z-index -1
+		height calc(100% + 2rem)
+
+	&:hover::before
+		transform: translateX(-50%) rotate(45deg)
+
+	&:active::before
+		transform: translateX(-50%) rotate(45deg) scale(0.75)
+
+	&, &::before
+		transition all 0.25s ease
+
+ul.tags
+	padding-left 0
+	display flex
+	flex-wrap wrap
+	flex-direction row
+	justify-content center
+	li
+		display block
+		padding 0.5rem
+	a
+		opacity-link()
+		font-size 1.2em
+
+h1
+	text-align center
+	font-weight 800
+	font-size 7rem
+h1.--outlined
+	outlined-text 2px
+h2
+	text-align center
+	font-weight 800
+	font-size 3rem
+
+section.contents
+	max-width 1000px
+	padding 0 1rem
+	margin 0 auto
+	img
+		width 100%
+
+	.row
+		display flex
+		flex-direction row
+		justify-content center
+
+	.row > a
+		shape-link()
+
+.made-with
+	background-color white
+	color black
+	padding 5rem 0
+	&__title
+		padding-bottom .25rem
+	&__explainer
+		text-align center
+		opacity 0.5
+		padding-bottom 3rem
+	&__list
+		// == layout
+		display flex
+		flex-wrap: wrap
+		justify-content center
+		padding-left 0
+		margin 0 auto
+		max-width calc(4 * (2rem + (5rem + 1rem) + 2rem))
+	&__item
+		display flex
+		flex-direction: row
+		padding: 2rem
+		&__name, &__subline
+			display block
+			text-align center
+			transition: all 0.25s ease
+			font-size 1em
+		&__subline
+			opacity 0.5
+		&__name
+			margin-top -0.3em
+		&__logo
+			width 20vw
+			height 20vw
+			max-width 5rem
+			max-height 5rem
+			margin-bottom 0.5rem
+			transition: transform 0.25s ease
+		a
+			display flex
+			align-items center
+			flex-direction column
+			text-decoration none
+		a:hover
+			.made-with__item__subline
+			.made-with__item__name
+				font-weight 800
+			.made-with__item__logo
+				transform: scale(1.1)
+		a:active
+			.made-with__item__logo
+				transform: scale(1)
+
+nav
+	width 100%
+	ul
+		display flex
+		flex-wrap wrap
+		flex-direction row
+		justify-content center
+		padding-left 0
+	ul li
+		display block
+		padding 1rem
+	ul li
+		a
+			font-weight 700
+			opacity-link()
+
+@media (min-width 600px)
+	nav
+		position fixed
+		background-color secondary
+	main
+		padding-top 5rem
+
+@media (min-width 1000px)
+	main
+		padding-top 1rem // Putting zero creates a mysterious space above <body>
+	nav
+		width 10rem
+		right 0
+		background-color transparent
+	nav ul
+		margin 0
+		// + .2em: compensate for text not sticking to the top of its bounding box.
+		// vertical-align: top doesn't seem to fix the problem
+		padding .5em (.5em + .2em) 0 0
+		align-items end
+		flex-direction column
+	nav ul li
+		padding 0
+		padding-bottom 0.2em
+	nav ul li a
+		font-size 1.3em
