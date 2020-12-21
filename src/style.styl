@@ -13,12 +13,22 @@ $(variable-name)
 
 primary = $(primary)
 secondary = $(secondary)
+sans-stack = Manrope Variable, Manrope, sans-serif
+monospace-stack = Inconsolata, monospace
+
+weight-link()
+	text-decoration none
+	&:hover
+		font-weight 800
+		cursor pointer
+	transition: font-weight .125s ease
 
 opacity-link()
 	text-decoration none
 	opacity .5
 	&:hover
 		opacity 1
+		cursor pointer
 	transition: opacity .125s ease
 
 shape-link()
@@ -43,6 +53,9 @@ shape-link()
 
 	&:hover::before
 		transform: translateX(-50%) rotate(45deg)
+
+	&:hover
+		font-weight 800
 
 	&:active::before
 		transform: translateX(-50%) rotate(45deg) scale(0.75)
@@ -155,8 +168,9 @@ nav
 		padding 1rem
 	ul li
 		a
-			font-weight 700
+			font-weight 650
 			opacity-link()
+			weight-link()
 
 @media (min-width 600px)
 	nav
@@ -184,3 +198,40 @@ nav
 		padding-bottom 0.2em
 	nav ul li a
 		font-size 1.3em
+
+footer
+	padding-top 10rem
+	background-color white
+	color black
+	display flex
+	flex-direction column
+	align-items center
+	.links
+		font-family monospace-stack
+		&__hint
+			opacity 0.5
+		dl
+			display grid inline
+			grid-template-columns: 3rem auto
+		dd
+			opacity 0.5
+			font-family sans-stack
+		a
+			display block
+			weight-link()
+	.credits
+		margin 3rem 0
+		display flex
+		justify-content center
+		flex-direction column
+		p
+			margin 0
+			text-align center
+		p a
+			weight-link()
+		&__license
+			margin 0 auto
+			width min-content
+		&__license img
+			margin-top 0.5rem
+			height 1.5rem

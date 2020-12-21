@@ -19,22 +19,29 @@ html(lang="[# LANGUAGE CODE #]")
 		main
 			block content
 		footer
-			span.hint ewen.works/to/
-			dl
-				dt: a(href="https://ewen.works/to/twitter") twitter
-				dd(translate) random thoughts
+			.links
+				span.links__hint ewen.works/to/
+				dl
+					dt: a(href="https://ewen.works/to/twitter") twitter
+					dd random thoughts
 
-				dt: a(href="https://ewen.works/to/github") github
-				dd(translate) open-source code
+					dt: a(href="https://ewen.works/to/github") github
+					dd open-source code
 
-				dt: a(href="https://ewen.works/to/spotify") spotify
-				dd(translate) my music
+					dt: a(href="https://ewen.works/to/spotify") spotify
+					dd my music
 
-				dt: a(href="https://ewen.works/to/deezer") deezer
-				dd(translate) also my music
+					dt: a(href="https://ewen.works/to/deezer") deezer
+					dd also my music
 
-				dt: a(href="https://ewen.works/to/youtube") youtube
-				dd(translate) music+visual
+					dt: a(href="https://ewen.works/to/youtube") youtube
+					dd music+visual
 
-				dt: a(href="https://ewen.works/to/mail") mail
-				dd(translate) contact
+					dt: a(href="https://ewen.works/to/mail") mail
+					dd contact
+
+			.credits
+				p Made with <3 by Ewen Le Bihan
+				p Proudly #[strong not] powered by Wordpress
+				p source code at #[a(href="https://github.com/ewen-lbh/portfolio") github.com/ewen-lbh/portfolio]
+				a.credits__license(href="https://creativecommons.org/licenses/by-sa/4.0/"): img(src='{{ asset "icons/cc-by-sa.svg" }}')
