@@ -1,15 +1,11 @@
 /* Import font(s) */
 
-@font-face {
-	font-family: Manrope;
-	src: url('./fonts/Manrope.ttf') format('ttf');
-}
-
 body {
 	margin: 0;
 	font-size: 14px;
 	line-height: 1.5;
-	font-family: Manrope;
+	font-family: Manrope Variable, Manrope;
+	font-weight: 500;
 }
 
 h1, h2, h3, h4, h5, h6 {
