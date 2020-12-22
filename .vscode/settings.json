@@ -28,7 +28,7 @@
 		},
 		{
 			"label": "CSS",
-			"query": "state:open repo:${owner}/${repository} sort:created-desc label:css"
+			"query": "state:open repo:${owner}/${repository} sort:created-desc label:styling"
 		},
 		{
 			"label": "SEO",
