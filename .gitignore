@@ -172,17 +172,13 @@ dmypy.json
 # node_modules
 node_modules/
 
-# portfoliodb
-.portfoliodb
-
-
 # Temporary compilation/translation files
 messages/*.mo
 dist/
 artifacts/
 database/
 !database/database.json
-!database/.portfoliodb.y{a,}ml
+!database/.portfoliodb.yaml
 
 # Compiled assets
 assets/style.css.map
