@@ -26,20 +26,24 @@ type Link struct {
 	URL   string
 }
 
+type WorkMetadata struct {
+	Created  string
+	Tags     []string
+	Layout   []interface{}
+	MadeWith []string `json:"made with"`
+	Colors   struct {
+		Primary   string
+		Secondary string
+		Tertiary  string
+	}
+	PageBackground string `json:"page background"`
+	Title          string
+}
+
 // Work represents a complete work, with analyzed mediae
 type Work struct {
-	ID       string
-	Metadata struct {
-		Created  string
-		Tags     []string
-		Layout   []interface{}
-		MadeWith []string `json:"made with"`
-		Colors   struct {
-			Primary   string
-			Secondary string
-			Tertiary  string
-		}
-	}
+	ID         string
+	Metadata   WorkMetadata
 	Title      map[string]string
 	Paragraphs map[string][]Paragraph
 	Media      map[string][]Media
@@ -48,18 +52,8 @@ type Work struct {
 }
 
 type WorkOneLang struct {
-	ID       string
-	Metadata struct {
-		Created  string
-		Tags     []string
-		Layout   []interface{}
-		MadeWith []string `json:"made with"`
-		Colors   struct {
-			Primary   string
-			Secondary string
-			Tertiary  string
-		}
-	}
+	ID         string
+	Metadata   WorkMetadata
 	Title      string
 	Paragraphs []Paragraph
 	Media      []Media

@@ -1,8 +1,12 @@
-outlined-text(width)
-	-webkit-text-stroke: width currentColor
-	text-stroke: width currentColor
-	color currentColor
-	-webkit-text-fill-color transparent
+text-stroke(stroke, color)
+	shadow = ()
+	from = stroke * -1
+
+	for i in from .. stroke
+		for j in from .. stroke
+			push(shadow, '' + i * 1px + ' ' + j * 1px + ' 0 ' + color)
+
+	text-shadow unquote(join(', ', shadow))
 
 $(variable-name)
 	if variable-name is 'primary'
@@ -81,8 +85,13 @@ h1
 	font-weight 800
 	font-size: clamp(3rem, 10vw, 7rem)
 
-h1.--outlined
-	outlined-text 2px
+h1[data-style=outlined]
+	text-stroke 2px var(--primary)
+	color var(--secondary)
+
+h1[data-style=hidden]
+	display none
+
 h2
 	text-align center
 	font-weight 800
