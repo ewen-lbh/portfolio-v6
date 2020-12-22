@@ -125,7 +125,7 @@ func (work *WorkOneLang) BuildLayout() string {
 			}
 			row += "\t" + element + "\n"
 		}
-		built += "div.row\n" + row + "\n"
+		built += fmt.Sprintf("div.row(data-columns=%d)\n%s\n", len(layoutRow), row)
 	}
 	return built
 }

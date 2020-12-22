@@ -8,6 +8,7 @@ block content
 		{{ end }}
 
 	section.contents
+		//- h1(class="{{/* .CurrentWork | getStyleClasses */}}") {{ .CurrentWork.Title }}
 		h1 {{ .CurrentWork.Title }}
 
 		{{ .CurrentWork | intoLayout | tnindent 2 }}
@@ -20,11 +21,12 @@ block content
 		ul.made-with__list
 			{{ range .CurrentWork.Metadata.MadeWith }}
 			{{ $tech := . | lookupTech }}
-			li.made-with__item: a(href="/using/{{ $tech.URLName }}")
-				img.made-with__item__logo(src='{{ asset (printf "logos/%s.svg" $tech.URLName) }}')
-				{{ if $tech.Author }}
-				span.made-with__item__subline {{ $tech.Author }} {{ end }}
-				span.made-with__item__name(translate) {{ $tech.DisplayName }}
+			li.made-with__item
+				a(href="/using/{{ $tech.URLName }}")
+					img.made-with__item__logo(src='{{ asset (printf "logos/%s.svg" $tech.URLName) }}')
+					{{ if $tech.Author }}
+					span.made-with__item__subline {{ $tech.Author }} {{ end }}
+					span.made-with__item__name(translate) {{ $tech.DisplayName }}
 			{{ end -}}
 	{{ end }}
 
@@ -32,5 +34,5 @@ block content
 		:root {
 			{{ range $key, $value := .CurrentWork | getColorsMap }}
 				--{{$key}}: {{$value}};
-			{{ end }}
+			{{- end -}}
 		}

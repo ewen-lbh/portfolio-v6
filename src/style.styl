@@ -79,7 +79,8 @@ ul.tags
 h1
 	text-align center
 	font-weight 800
-	font-size 7rem
+	font-size: clamp(3rem, 10vw, 7rem)
+
 h1.--outlined
 	outlined-text 2px
 h2
@@ -93,14 +94,22 @@ section.contents
 	margin 0 auto
 	img
 		width 100%
+		object-fit: contain
+
+	.row[data-columns="1"]
+		@media (min-width 1000px)
+			max-height: 85vh
 
 	.row
 		display flex
 		flex-direction row
 		justify-content center
+		margin 3rem .5rem
 
 	.row > a
 		shape-link()
+		justify-content center
+		align-self center
 
 .made-with
 	background-color white
@@ -176,6 +185,7 @@ nav
 	nav
 		position fixed
 		background-color secondary
+		z-index 100
 	main
 		padding-top 5rem
 
@@ -235,3 +245,52 @@ footer
 		&__license img
 			margin-top 0.5rem
 			height 1.5rem
+
+
+.work-card
+	height 20rem
+	width 30rem
+	&__image
+		height 20rem
+		width 100%
+		object-fit: cover
+		object-position: top
+	a
+		text-decoration none
+	h3
+		font-size 2rem
+
+main
+	display flex
+	flex-direction column
+	justify-content center
+
+
+for num in 2 3 4 5
+	selector = 'section.contents .row[data-columns="' + num + '"]'
+	numpercent = (1/num)*100%
+	{selector}
+		@media (max-width 500px)
+			display flex
+			flex-direction column
+
+		@media (min-width 500px) and (max-width 1000px)
+			display flex
+			flex-direction row
+			flex-wrap wrap
+
+		@media (min-width 500px)
+			~ img
+			~ p
+			~ a
+				max-width numpercent
+
+		@media (min-width 1000px)
+			display grid
+			grid-template-columns: repeat(num, "calc(%s - 1rem)" % numpercent)
+			grid-gap 2rem
+
+
+
+section.contents .row[data-columns="1"] > p
+	text-align center
