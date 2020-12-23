@@ -346,3 +346,17 @@ section.contents .row[data-columns='1'] > p
 body
 	background-size cover
 	background-position center
+
+.work-in-progress
+	text-align center
+	margin-top 1.5rem
+	margin-bottom -1 * @margin-top
+	&::before
+		display inline-block
+		margin-bottom -0.3em
+		content ''
+		height 1.2em
+		width 1.2em
+		border-radius 50%
+		background-color red
+		margin-right 0.5em

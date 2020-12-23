@@ -7,6 +7,10 @@ block content
 		li: a(href="/{{ $tag.URLName }}" translate) {{ $tag.DisplayName }}
 		{{ end }}
 
+	{{ if .CurrentWork.Metadata.WIP }}
+	span.work-in-progress(translate) work in progress
+	{{ end }}
+
 	section.contents
 		h1(data-style="{{ .CurrentWork.Metadata.Title }}") {{ .CurrentWork.Title }}
 

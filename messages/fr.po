@@ -410,3 +410,6 @@ msgstr "autres sorties"
 
 msgid "Manim"
 msgstr ""
+
+msgid "work in progress"
+msgstr ""
