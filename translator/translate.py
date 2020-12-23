@@ -11,7 +11,7 @@ def p(indent_level: int, *args: Any, **kwargs: Any):
 	args = list(args)
 	if indent_level == 0:
 		args = ["\n"] + args
-	print(indent_level * "  ", *args, **kwargs)
+	print(indent_level * "\t", *args, **kwargs)
 
 
 os.chdir("..")
@@ -20,6 +20,8 @@ translated_dir = Path("dist/")
 translate_strings_pattern = re.compile(r"\[# '([^']+)' \| translate #\]")
 
 catalog = {e.msgid: e.msgstr for e in mofile("messages/fr.mo")}
+
+longest_msgid_length = max(len(k) for k in catalog.keys())
 
 
 def translate(lang: str):
@@ -59,11 +61,13 @@ def translate_files(lang: str, files):
 						# TODO: Find a way to _remove_ the tag and insert the content
 						# into the parent tag as a text node directly, this is ugly af.
 						tag.name = "span"
-						p(2, f"{tag.string} ~> {translation(tag.string)}")
-					if tag.string is not None:
-						tag.string = translation(tag.string)
-					else:
-						p(2, colored(f"WARN: tag.string is None for {tag!r}", "yellow"))
+					contents_before = tag.decode_contents()
+					tag.clear()
+					tag.append(bs4.BeautifulSoup(translation(contents_before), features="html.parser"))
+					contents_after = tag.decode_contents()
+					p(2, f"{contents_before:<{min(longest_msgid_length, 20)}} ~> {contents_after}")
+					if not contents_after:
+						cprint(f"WARN: Translation of {contents_before!r} is empty")
 			with open(
 				str(filepath).replace(str(to_translate_dir), str(translated_dir)), "w"
 			) as file:
