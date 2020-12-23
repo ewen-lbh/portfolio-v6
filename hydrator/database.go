@@ -8,7 +8,6 @@ import (
 	jsoniter "github.com/json-iterator/go"
 )
 
-
 type Database struct {
 	Works []Work
 }
@@ -26,15 +25,23 @@ func LoadDatabase(filename string) (Database, error) {
 	return Database{Works: works}, nil
 }
 
-
-
 func (work *WorkOneLang) Created() time.Time {
-	parsedDate, err := ParseCreationDate(work.Metadata.Created)
+	var creationDate string
+	if work.Metadata.Created != "" {
+		creationDate = work.Metadata.Created
+	} else {
+		creationDate = work.Metadata.Finished
+	}
+	parsedDate, err := ParseCreationDate(creationDate)
 	if err != nil {
 		fmt.Printf("Error while parsing creation date of %v:\n", work.ID)
 		panic(err)
 	}
 	return parsedDate
+}
+
+func (work WorkOneLang) IsWIP() bool {
+	return work.Metadata.WIP || (work.Metadata.Started != "" && (work.Metadata.Created != "" || work.Metadata.Started != ""))
 }
 
 func GetOneLang(lang string, works ...Work) []WorkOneLang {

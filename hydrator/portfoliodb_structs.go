@@ -28,6 +28,8 @@ type Link struct {
 
 type WorkMetadata struct {
 	Created  string
+	Started  string
+	Finished string
 	Tags     []string
 	Layout   []interface{}
 	MadeWith []string `json:"made with"`
