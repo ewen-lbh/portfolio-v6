@@ -14,12 +14,7 @@ block content
 
 	h2(translate) most recent one
 
-	section.work-card.work-card--large: a(href="/{{ $latest.ID }}")
-		{{ if len $latest.Media }}
-		img.work-card__image(src="{{ $latest | getThumbnailSource }}")
-		{{ else }}
-		svg.work-card__image--empty
-		{{ end }}
+	a(href="/{{ $latest.ID }}").work-card.work-card--large(style="background-image:url('{{ $latest | getThumbnailSource }}');")
 		h3 {{ $latest.Title }}
 		{{ if len $latest.Paragraphs }}
 		p.

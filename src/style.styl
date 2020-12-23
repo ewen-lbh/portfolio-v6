@@ -296,21 +296,55 @@ footer
 			margin-top 0.5rem
 			height 1.5rem
 
-.work-card
+.work-card--large
+	position relative
+	display flex
+	flex-direction column
+	justify-content flex-end
+	overflow hidden
+	padding 0.5rem 1.5rem
+	// border-radius 0.5em
+	width 40rem
 	height 20rem
-	width 30rem
+	background-color primary
+	background-position center
+	background-size cover
+	background-repeat no-repeat
+	color secondary
+	text-decoration none
 
-	&__image
-		height 20rem
-		width 100%
-		object-fit cover
-		object-position top
-
-	a
-		text-decoration none
-
+	// box-shadow: 0 14px 28px rgba(0,0,0,0.05), 0 10px 10px rgba(0,0,0,0.1);
 	h3
-		font-size 2rem
+		margin-bottom 0
+		font-weight 700
+		font-size 2em
+
+	h3, p
+		z-index 10
+		opacity 0.5
+
+	&, & > *
+		transition all 0.25s ease
+
+	&::before
+		position absolute
+		bottom -@height
+		left 0
+		width 40rem + 2 * 1.5rem
+		height 7.5rem + 2 * 0.5rem
+		background-color secondary
+		content ''
+		transition all 0.25s ease
+
+	&:hover::before
+		bottom 0
+
+	&:hover
+		color primary
+
+		h3, p
+			opacity 1
+
 
 main
 	display flex
