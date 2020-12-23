@@ -155,7 +155,7 @@ msgid "HTML"
 msgstr ""
 
 msgid "I also make electronic music."
-msgstr "Je crée également de la musique électronique."
+msgstr "Je crée aussi de la musique."
 
 msgid ""
 "I’ve been experimenting with sounds, their textures and their musicality "
