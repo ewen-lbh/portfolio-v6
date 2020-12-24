@@ -21,7 +21,7 @@
 		"body": [
 			"{{ if $1 }}",
 			"$0",
-			"{{- end -}}"
+			"{{ end }}"
 		]
 	},
 	"Else block" : {
@@ -38,7 +38,7 @@
 		"body": [
 			"{{ range $$${1:key}, $$${2:value} := $3 }}",
 			"$0",
-			"{{- end -}}"
+			"{{ end }}"
 		]
 	},
 	"Range block for slice": {
@@ -47,7 +47,7 @@
 		"body": [
 			"{{ range $$${1:value} := $2 }}",
 			"$0",
-			"{{- end -}}"
+			"{{ end }}"
 		]
 	},
 	"Interpolation": {

@@ -9,4 +9,4 @@ block content
 		span(translate) {{ .DisplayName }}
 	{{ end }}
 
-	{{ .Works | madeWith .CurrentTech | intoGallery }}
+	{{ .Works | madeWith .CurrentTech | intoGallery | tindent 1 }}

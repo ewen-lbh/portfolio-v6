@@ -3,4 +3,4 @@ extends .layout
 block content
 	h1(translate) {{ .CurrentTag.DisplayName }}
 
-	{{ .Works | withTag .CurrentTag | intoGallery  }}
+	{{ .Works | tagged .CurrentTag | intoGallery | tindent 1 }}
