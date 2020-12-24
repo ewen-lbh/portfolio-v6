@@ -1,24 +1,29 @@
-section.gallery
-		ul.gallery__works
-			{{ range $year, $works := .GivenWorks | byYear }}
-			li.gallery__works__year
-				{{ if ne $year -1 }}
-				h3 {{ $year }}
+{{ $ws := .GivenWorks }}
+
+{{ if len $ws }}
+ul.gallery__works
+	{{ range $year := $ws | getYears }}
+	li.gallery__works__year
+		{{ if ne $year -1 }}
+		h3 {{ $year }}
+		{{ else }}
+		h3(translate) Unknown year
+		{{ end }}
+		ul.gallery__works__year__works
+			{{ range $ws | createdIn $year }}
+			li.gallery__works__year__works__work.work-card.work-card--medium: a(href="/{{ .ID }}")
+				{{ if len .Media }}
+				img.work-card__image(src="{{ . | getThumbnailSource }}")
 				{{ else }}
-				h3(translate) Unknown year
+				.work-card__image--empty
 				{{ end }}
-				ul.gallery__works__year__works
-				{{ range $works }}
-					li.gallery__works__year__works__work.work-card.work-card--medium: a(href="/{{ .ID }}")
-						{{ if len .Media }}
-						img.work-card__image(src="{{ (.Media | first).Source }}")
-						{{ else }}
-						.work-card__image--empty
-						{{ end }}
-						h4 {{ .Title }}
-						{{ if len .Paragraphs }}
-						p.
-							{{ . | getSummary | tnindent 7 }}
-						{{ end }}
-					{{- end }}
-			{{- end }}
+				h4 {{ .Title }}
+				{{ if len .Paragraphs }}
+				p.
+					{{ . | getSummary | tnindent 5 }}
+				{{ end }}
+			{{ end }}
+	{{ end }}
+{{ else }}
+ul.gallery__works--empty
+{{ end }}

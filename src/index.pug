@@ -1,4 +1,4 @@
-{{ $latest := .Works | latest }}
+{{ $latest := .Works | finished | latest }}
 
 extends .layout
 
@@ -12,15 +12,25 @@ block content
 			i18n Learn more
 
 
-	h2(translate) most recent one
+	section#latest
 
-	a(href="/{{ $latest.ID }}").work-card.work-card--large(style="background-image:url('{{ $latest | getThumbnailSource }}');")
-		h3 {{ $latest.Title }}
-		{{ if len $latest.Paragraphs }}
-		p.
-			{{ $latest | getSummary | tindent 2 }}
-		{{ end }}
+		h2(translate) most recent one
 
-	h2(translate) all of 'em
+		a.work-card.work-card--large(href="/{{ $latest.ID }}" style="background-image:url('{{ $latest | getThumbnailSource }}');")
+			h3 {{ $latest.Title }}
+			{{ if len $latest.Paragraphs }}
+			p.
+				{{ $latest | getSummary | tnindent 4 }}
+			{{ end }}
 
-	{{ .Works | intoGallery }}
+	section#finished
+
+		h2(translate) others
+
+		{{ .Works | finished | intoGallery | tindent 2 }}
+
+	section#wip
+
+		h2(translate) work in progress
+
+		{{ .Works | unfinished | intoGallery | tindent 2 }}

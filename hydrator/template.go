@@ -4,13 +4,15 @@ import (
 	"bytes"
 	"fmt"
 	"os"
+	"sort"
 	"text/template"
 
 	"github.com/Masterminds/sprig"
+	"github.com/davecgh/go-spew/spew"
 	"github.com/jaytaylor/html2text"
 )
 
-// Returns the funcmap used to hydrate files
+// GetTemplateFuncMap returns the funcmap used to hydrate files
 func GetTemplateFuncMap() template.FuncMap {
 	return template.FuncMap{
 		// "into" transforms to HTML structures
@@ -20,22 +22,32 @@ func GetTemplateFuncMap() template.FuncMap {
 		"getColorsMap":       getColorsMap,
 		"getSummary":         getSummary,
 		"getThumbnailSource": getThumbnailSource,
+		"getYears":           getYears,
 		// "with" filters a []WorkOneLang
-		"withTag":  withTag,
-		"withTech": withTech,
-		// Nice, cosy aliases for withTag and withTech
-		"tagged":   withTag,
-		"madeWith": withTech,
+		"withTag":       withTag,
+		"withTech":      withTech,
+		"withWIPStatus": withWIPStatus,
+		// Nice, cosy aliases for filters
+		"withCreatedYear": withCreatedYear,
+		"tagged":          withTag,
+		"madeWith":        withTech,
+		"createdIn":       withCreatedYear,
+		"finished": func(ws []WorkOneLang) []WorkOneLang {
+			return withWIPStatus(false, ws)
+		},
+		"unfinished": func(ws []WorkOneLang) []WorkOneLang {
+			return withWIPStatus(true, ws)
+		},
 		// reduces a []WorkOneLang down to a single WorkOneLang
 		"latest": latest,
-		// "by" arranges a []WorkOneLang into a map[whatever][]WorkOneLang
-		"byYear": byYear,
 		// functions acting on paths
 		"asset": asset,
 		"media": media,
 		// lookups for tags & technologies
 		"lookupTag":  lookupTag,
 		"lookupTech": lookupTech,
+		// debugging
+		"log": log,
 	}
 }
 
@@ -119,31 +131,60 @@ func getThumbnailSource(w WorkOneLang) string {
 	return media(w.Media[0].Source)
 }
 
+func getYears(ws []WorkOneLang) []int {
+	years := make([]int, 0)
+	for _, work := range ws {
+		years = append(years, work.Created().Year())
+	}
+	sort.Sort(sort.Reverse(sort.IntSlice(years)))
+	return years
+}
+
 // withTag returns an array of works that have tag in their tags
 func withTag(tag Tag, ws []WorkOneLang) []WorkOneLang {
-	worksOfTag := make([]WorkOneLang, 0)
+	filtered := make([]WorkOneLang, 0)
 	for _, work := range ws {
 		_, findError := FindInArrayLax(work.Metadata.Tags, tag.URLName)
 		if findError == nil {
-			worksOfTag = append(worksOfTag, work)
+			filtered = append(filtered, work)
 		}
 	}
-	if len(worksOfTag) == 0 {
+	if len(filtered) == 0 {
 		// fmt.Printf("WARNING: No works from %v have the %s tag", ws, tag.URLName)
 	}
-	return worksOfTag
+	return filtered
 }
 
 // withTag returns an array of works that have tech in their "made with" technologies list
 func withTech(tech Technology, ws []WorkOneLang) []WorkOneLang {
-	worksOfTech := make([]WorkOneLang, 0)
+	filtered := make([]WorkOneLang, 0)
 	for _, work := range ws {
 		_, findError := FindInArrayLax(work.Metadata.MadeWith, tech.URLName)
 		if findError == nil {
-			worksOfTech = append(worksOfTech, work)
+			filtered = append(filtered, work)
 		}
 	}
-	return worksOfTech
+	return filtered
+}
+
+func withWIPStatus(wipStatus bool, ws []WorkOneLang) []WorkOneLang {
+	filtered := make([]WorkOneLang, 0)
+	for _, work := range ws {
+		if work.IsWIP() == wipStatus {
+			filtered = append(filtered, work)
+		}
+	}
+	return filtered
+}
+
+func withCreatedYear(createdYear int, ws []WorkOneLang) []WorkOneLang {
+	filtered := make([]WorkOneLang, 0)
+	for _, work := range ws {
+		if work.Created().Year() == createdYear {
+			filtered = append(filtered, work)
+		}
+	}
+	return filtered
 }
 
 func latest(ws []WorkOneLang) WorkOneLang {
@@ -152,7 +193,7 @@ func latest(ws []WorkOneLang) WorkOneLang {
 	}
 	latest := ws[0]
 	for _, work := range ws {
-		if work.Created().Year() == 9999 {
+		if work.Created().Year() == 65535 {
 			continue
 		}
 		if work.Created().After(latest.Created()) {
@@ -162,13 +203,12 @@ func latest(ws []WorkOneLang) WorkOneLang {
 	return latest
 }
 
-func byYear(ws []WorkOneLang) map[uint16][]WorkOneLang {
-	worksByYear := make(map[uint16][]WorkOneLang)
-	for _, work := range ws {
-		year := uint16(work.Created().Year())
-		worksByYear[year] = append(worksByYear[year], work)
+func log(o interface{}) string {
+	spew.Dump(o)
+	if !BuildingForProduction() {
+		return fmt.Sprintf("logged %v to stdout", o)
 	}
-	return worksByYear
+	return ""
 }
 
 // asset returns the full URL for a given asset (ie a website's static asset like an icon)
