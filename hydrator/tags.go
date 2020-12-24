@@ -1,6 +1,5 @@
 package main
 
-
 type Tag struct {
 	URLName     string
 	DisplayName string
