@@ -21,7 +21,9 @@ func LoadDatabase(filename string) (Database, error) {
 		return Database{}, err
 	}
 	err = json.Unmarshal(content, &works)
-	spew.Dump(works)
+	if IsVerbose() {
+		spew.Dump(works)
+	}
 	return Database{Works: works}, nil
 }
 

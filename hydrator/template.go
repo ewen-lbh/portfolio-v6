@@ -149,8 +149,8 @@ func withTag(tag Tag, ws []WorkOneLang) []WorkOneLang {
 			filtered = append(filtered, work)
 		}
 	}
-	if len(filtered) == 0 {
-		// fmt.Printf("WARNING: No works from %v have the %s tag", ws, tag.URLName)
+	if len(filtered) == 0 && IsVerbose() {
+		fmt.Printf("WARNING: No works from %v have the %s tag", ws, tag.URLName)
 	}
 	return filtered
 }

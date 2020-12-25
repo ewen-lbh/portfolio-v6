@@ -12,6 +12,17 @@ import (
 	"github.com/joho/godotenv"
 )
 
+func IsVerbose() bool {
+	// return len(os.Args) > 1 && os.Args[1] == "--verbose"
+	return false // TODO
+}
+
+func VerboseLog(s string, fmtArgs ...interface{}) {
+	if IsVerbose() {
+		fmt.Printf(s+"\n", fmtArgs...)
+	}
+}
+
 func main() {
 	db, err := LoadDatabase("../database/database.json")
 	if err != nil {
@@ -21,16 +32,16 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("------")
+	VerboseLog("------")
 	if BuildingForProduction() {
-		fmt.Println("Hydrating for production")
+		VerboseLog("Hydrating for production")
 	} else {
-		fmt.Println("Hydrating for developement")
+		VerboseLog("Hydrating for developement")
 	}
-	fmt.Println("------")
+	VerboseLog("------")
 	MakeDirs([]string{"fr", "en"})
 	for _, lang := range []string{"fr", "en"} {
-		println("[hydrator]     language: " + lang)
+		VerboseLog("[hydrator]     language: " + lang)
 		for _, file := range files {
 			if file.IsDir() && file.Name() == "using" {
 				files, err := ioutil.ReadDir("../src/using")
@@ -157,8 +168,8 @@ func MakeDirs(languages []string) {
 
 func LogHydrating(filename string, identifier string) {
 	if identifier != "" {
-		fmt.Printf("[hydrator]     hydrating: '%s' @ %s\n", filename, identifier)
+		VerboseLog("[hydrator]     hydrating: '%s' @ %s\n", filename, identifier)
 	} else {
-		fmt.Printf("[hydrator]     hydrating: '%s'\n", filename)
+		VerboseLog("[hydrator]     hydrating: '%s'\n", filename)
 	}
 }

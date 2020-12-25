@@ -5,12 +5,18 @@ import bs4
 from polib import mofile
 from typing import Any
 from termcolor import colored
+import sys
 
+def verbose() -> bool:
+	return False # TODO
 
 def p(indent_level: int, *args: Any, **kwargs: Any):
+	# TODO: indent level proportional to verbosity level
+	if not verbose() and indent_level >= 1:
+		return
 	args = list(args)
-	if indent_level == 0:
-		args = ["\n"] + args
+	# if indent_level == 0:
+	# 	args = ["\n"] + args
 	print(indent_level * "\t", *args, **kwargs)
 
 
