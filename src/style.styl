@@ -386,14 +386,34 @@ body
 	text-align center
 	margin-top 1.5rem
 	margin-bottom -1 * @margin-top
+	z-index 10
+	weight-link()
 	&::before
 		display inline-block
 		margin-bottom -0.3em
 		content ''
 		height 1.2em
-		width 1.2em
+		width @height
 		border-radius 50%
+		margin-right 0.5em
 		background-color red
+		transition all 0.25s ease
+	&:hover::before
+		height 1.6em
+		width @height
+		margin-bottom -0.5em
+		animation red-dot-blink .5s step-start infinite alternate
+	&:active::before
+		height 0.8em
+		width @height
+		margin-bottom -0.1em
+@keyframes red-dot-blink
+	0%
+		background red
+	50%
+		background transparent
+	100%
+		background red
 
 .pre-h1
 	margin-bottom -2rem

@@ -8,7 +8,7 @@ block content
 		{{ end }}
 
 	{{ if .CurrentWork.IsWIP }}
-	span.work-in-progress(translate) work in progress
+	a.work-in-progress(href="/#wip" translate) work in progress
 	{{ end }}
 
 	section.contents
