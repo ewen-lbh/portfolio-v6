@@ -10,7 +10,7 @@
                    |   pnpm database:crawl
                    v
 +------------------+----------------+
-| ~/projects/.buildarea/database/** |
+|  ~/projects/portfolio/database/** |
 +------------------+----------------+
                    |
                    |   pnpm database:build
@@ -31,9 +31,9 @@
       pnpm messages:extract   |                       |                            |                      |                     |
       pnpm messages:combine   |                       |   pnpm pug:build           |                      |                     |
                               v                       v                            |                      |                     |
-                  +-----------+--------+  +-----------+--------------------+       |                      |                     |
-                  | messages/{lang}.po |  | artifacts/phase_2/{lang}/*.pug |       |                      |                     |
-                  +-----------+--------+  +-----------+--------------------+       |                      |                     |
+                  +-----------+--------+  +-----------+---------------------+       |                      |                     |
+                  | messages/{lang}.po |  | artifacts/phase_2/{lang}/*.html |       |                      |                     |
+                  +-----------+--------+  +-----------+---------------------+       |                      |                     |
                               |                       |                            |                      |                     |
         pnpm messages:build   |                       |                            |                      |                     |
                               v                       |                            |                      |                     |

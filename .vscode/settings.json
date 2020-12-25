@@ -13,7 +13,7 @@
 		{
 			"label": "Server-side configuration",
 			"query": "state:open repo:${owner}/${repository} sort:created-desc label:server"
-		}
+		},
 		{
 			"label": "Assets",
 			"query": "state:open repo:${owner}/${repository} sort:created-desc label:assets"
@@ -42,4 +42,37 @@
 			"label": "Analytics",
 			"query": "state:open repo:${owner}/${repository} sort:created-desc label:analytics"
 		}
-	}
+	],
+	"filewatcher.commands": [
+		{
+			"event": "onFileChange",
+			"match": "assets/.*\\.styl",
+			"cmd": "cd ${workspaceRoot} && pnpm stylus:build",
+		},
+		{
+			"event": "onFileChange",
+			"match": "assets/.*\\.ls",
+			"cmd": "cd ${workspaceRoot} && pnpm livescript:build"
+		},
+		{
+			"event": "onFileChange",
+			"match": "src/.*\\.pug",
+			"cmd": "cd ${workspaceRoot} && pnpm pug:hydrate && pnpm pug:build && pnpm messages:extract && pnpm messages:combine && pnpm html:translate && pnpm messages:clean"
+		},
+		{
+			"event": "onFileChange",
+			"match": "(messages/\\w{2}\\.po)|(translator/.+)",
+			"cmd": "cd ${workspaceRoot} && pnpm messages:build && pnpm html:translate && pnpm messages:clean"
+		},
+		{
+			"event": "onFileChange",
+			"match": "hydrator/.*\\.go",
+			"cmd": "cd ${workspaceRoot} && pnpm hydrator:build && pnpm pug:hydrate && pnpm pug:build && pnpm messages:extract && pnpm messages:combine && pnpm html:translate && pnpm messages:clean"
+		},
+		{
+			"event": "onFileChange",
+			"match": "/home/ewen/projects/[^/]+/\\.portfoliodb/\\.+",
+			"cmd": "cd ${workspaceRoot} && pnpm database:crawl && pnpm database:build && pnpm messages:build && pnpm html:translate && pnpm messages:clean"
+		}
+	]
+}
