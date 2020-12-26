@@ -46,12 +46,12 @@
 	"filewatcher.commands": [
 		{
 			"event": "onFileChange",
-			"match": "assets/.*\\.styl",
+			"match": "src/.*\\.styl",
 			"cmd": "cd ${workspaceRoot} && pnpm stylus:build",
 		},
 		{
 			"event": "onFileChange",
-			"match": "assets/.*\\.ls",
+			"match": "src/.*\\.ls",
 			"cmd": "cd ${workspaceRoot} && pnpm livescript:build"
 		},
 		{
