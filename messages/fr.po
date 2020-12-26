@@ -1,3 +1,4 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
@@ -52,7 +53,7 @@ msgid "beautiful OFL typeface"
 msgstr "magnifique fonte sous OFL"
 
 msgid "blog"
-msgstr ""
+msgstr "blogue"
 
 msgid "book"
 msgstr "livre"
@@ -165,7 +166,7 @@ msgstr ""
 "ans."
 
 msgid "iconography"
-msgstr ""
+msgstr "icônes"
 
 msgid "illustration"
 msgstr ""
@@ -278,11 +279,6 @@ msgstr ""
 
 msgid "open-source code"
 msgstr "code open-source"
-
-msgid ""
-"past releases\n"
-"        <section class=\"gallery\"/>"
-msgstr ""
 
 msgid "Photoshop"
 msgstr ""
@@ -421,3 +417,9 @@ msgstr "Fièrement <strong>non</strong> propulsé par Wordpress"
 
 msgid "source code at"
 msgstr "code source disponible à"
+
+msgid "others"
+msgstr "autres"
+
+msgid "Unknown year"
+msgstr "Année inconnue"
