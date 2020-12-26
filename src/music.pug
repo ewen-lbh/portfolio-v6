@@ -1,7 +1,5 @@
 {{ $releases := .Works | withTag ("music" | lookupTag) }}
 {{ $latestRelease := $releases | latest }}
-
-
 extends .layout
 
 block content
@@ -18,15 +16,18 @@ block content
 
 		h2(translate) latest release
 
-		a(href="/{{ $latestRelease.ID }}").work-card.work-card--large(style="background-image:url('{{ $latestRelease | getThumbnailSource }}');")
+		a.work-card.work-card--large(
+			href="/{{ $latestRelease.ID }}"
+			style="background-image:url('{{ $latestRelease | getThumbnailSource }}');"
+		)
 			h3 {{ $latestRelease.Title }}
 			{{ if len $latestRelease.Paragraphs }}
 			p.
-				{{ $latestRelease | getSummary | tindent 4 }}
+				{{ $latestRelease | getSummary | tnindent 4 }}
 			{{ end }}
 
 	section#all
 
 		h2(translate) past releases
 
-		{{ $releases | intoGallery | tindent 2 }}
+		{{ $releases | intoGallery | tnindent 2 }}
