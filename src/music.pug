@@ -18,7 +18,7 @@ block content
 
 		a.work-card.work-card--large(
 			href="/{{ $latestRelease.ID }}"
-			style="background-image:url('{{ $latestRelease | getThumbnailSource }}');"
+			style="background-image:url('{{ $latestRelease | getThumbnailSource }}');{{ $latestRelease | intoColorsCSS }}"
 		)
 			h3 {{ $latestRelease.Title }}
 			{{ if len $latestRelease.Paragraphs }}
@@ -30,4 +30,4 @@ block content
 
 		h2(translate) past releases
 
-		{{ $releases | intoGallery | tnindent 2 }}
+		{{ $releases | intoGallery "music" | tnindent 2 }}

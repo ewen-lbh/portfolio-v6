@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"sort"
+	"strings"
 	"text/template"
 
 	"github.com/Masterminds/sprig"
@@ -16,8 +17,9 @@ import (
 func GetTemplateFuncMap() template.FuncMap {
 	return template.FuncMap{
 		// "into" transforms to HTML structures
-		"intoGallery": intoGallery,
-		"intoLayout":  intoLayout,
+		"intoGallery":   intoGallery,
+		"intoLayout":    intoLayout,
+		"intoColorsCSS": intoColorsCSS,
 		// "get" gets a Go value (string, map[string]string, etc.)
 		"getColorsMap":       getColorsMap,
 		"getSummary":         getSummary,
@@ -68,7 +70,7 @@ func GetAge() uint8 {
 	return 17
 }
 
-func intoGallery(ws []WorkOneLang) string {
+func intoGallery(customClasses string, ws []WorkOneLang) string {
 	templateContent, err := ReadFile("../src/.gallery.pug")
 
 	// Hydrate .gallery.pug with ws
@@ -79,11 +81,13 @@ func intoGallery(ws []WorkOneLang) string {
 		}).Parse(string(templateContent)))
 	var buf bytes.Buffer
 	err = tmpl.Execute(&buf, struct {
-		GivenWorks []WorkOneLang
-		KnownTags  [len(KnownTags)]Tag
+		GivenWorks    []WorkOneLang
+		KnownTags     [len(KnownTags)]Tag
+		CustomClasses string
 	}{
-		GivenWorks: ws,
-		KnownTags:  KnownTags,
+		GivenWorks:    ws,
+		KnownTags:     KnownTags,
+		CustomClasses: customClasses,
 	})
 	if err != nil {
 		panic(err)
@@ -93,6 +97,14 @@ func intoGallery(ws []WorkOneLang) string {
 
 func intoLayout(w WorkOneLang) string {
 	return w.BuildLayout()
+}
+
+func intoColorsCSS(w WorkOneLang) string {
+	var cssDeclaration string
+	for key, value := range getColorsMap(w) {
+		cssDeclaration += fmt.Sprintf("--%s:%s;", key, value)
+	}
+	return cssDeclaration
 }
 
 // getColorsMap returns a mapping of "primary", "secondary", etc to the color values,
@@ -134,7 +146,16 @@ func getThumbnailSource(w WorkOneLang) string {
 func getYears(ws []WorkOneLang) []int {
 	years := make([]int, 0)
 	for _, work := range ws {
-		years = append(years, work.Created().Year())
+		var isDuplicate bool
+		for _, year := range years {
+			if work.Created().Year() == year {
+				isDuplicate = true
+				continue
+			}
+		}
+		if !isDuplicate {
+			years = append(years, work.Created().Year())
+		}
 	}
 	sort.Sort(sort.Reverse(sort.IntSlice(years)))
 	return years
@@ -226,10 +247,13 @@ func asset(assetPath string) string {
 func media(mediaPath string) string {
 	var urlScheme string
 	if !BuildingForProduction() {
-		urlScheme = "file://" + os.Getenv("LOCAL_PROJECTS_DIR") + "/%s"
+		urlScheme = "file://" + os.Getenv("LOCAL_PROJECTS_DIR") + "/portfolio/database/%s"
 	} else {
 		urlScheme = "https://media.ewen.works/%s"
 	}
+	urlScheme = strings.ReplaceAll(urlScheme, "//", "/")
+	urlScheme = strings.Replace(urlScheme, "https:/", "https://", 1)
+	urlScheme = strings.Replace(urlScheme, "file:/", "file://", 1)
 	return fmt.Sprintf(urlScheme, mediaPath)
 }
 

@@ -1,7 +1,7 @@
 {{ $ws := .GivenWorks }}
 
 {{ if len $ws }}
-ul.gallery__works
+ul(class="gallery__works {{ .CustomClasses }}")
 	{{ range $year := $ws | getYears }}
 	li.gallery__works__year
 		{{ if ne $year -1 }}
@@ -11,17 +11,18 @@ ul.gallery__works
 		{{ end }}
 		ul.gallery__works__year__works
 			{{ range $ws | createdIn $year }}
-			li.gallery__works__year__works__work.work-card.work-card--medium: a(href="/{{ .ID }}")
+			li.gallery__works__year__works__work(style="{{ . | intoColorsCSS }}"): a.work-card.work-card--medium(href="/{{ .ID }}")
 				{{ if len .Media }}
-				img.work-card__image(src="{{ . | getThumbnailSource }}")
+				img.work-card--medium__image(src="{{ . | getThumbnailSource }}")
 				{{ else }}
-				.work-card__image--empty
+				.work-card--medium__image--empty
 				{{ end }}
-				h4 {{ .Title }}
-				{{ if len .Paragraphs }}
-				p.
-					{{ . | getSummary | tnindent 5 }}
-				{{ end }}
+				.work-card--medium__text
+					h4 {{ .Title }}
+					{{ if len .Paragraphs }}
+					p.
+						{{ . | getSummary | tnindent 6 }}
+					{{ end }}
 			{{ end }}
 	{{ end }}
 {{ else }}

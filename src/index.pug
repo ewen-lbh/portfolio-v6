@@ -18,7 +18,7 @@ block content
 
 		a.work-card.work-card--large(
 			href="/{{ $latest.ID }}"
-			style="background-image:url('{{ $latest | getThumbnailSource }}');"
+			style="background-image:url('{{ $latest | getThumbnailSource }}');{{ $latest | intoColorsCSS }}"
 		)
 			h3 {{ $latest.Title }}
 			{{ if len $latest.Paragraphs }}
@@ -30,10 +30,10 @@ block content
 
 		h2(translate) others
 
-		{{ .Works | finished | intoGallery | tindent 2 }}
+		{{ .Works | finished | intoGallery "" | tindent 2 }}
 
 	section#wip
 
 		h2(translate) work in progress
 
-		{{ .Works | unfinished | intoGallery | tindent 2 }}
+		{{ .Works | unfinished | intoGallery "" | tindent 2 }}
