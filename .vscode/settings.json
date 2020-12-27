@@ -52,7 +52,7 @@
 		{
 			"event": "onFileChange",
 			"match": "src/.*\\.ls",
-			"cmd": "cd ${workspaceRoot} && pnpm livescript:build"
+			"cmd": "cd ${workspaceRoot} && pnpm ls:build"
 		},
 		{
 			"event": "onFileChange",
@@ -73,6 +73,11 @@
 			"event": "onFileChange",
 			"match": "/home/ewen/projects/[^/]+/\\.portfoliodb/\\.+",
 			"cmd": "cd ${workspaceRoot} && pnpm database:crawl && pnpm database:build && pnpm messages:build && pnpm html:translate && pnpm messages:clean"
+		},
+		{
+			"event": "onFileChange",
+			"match": "database/database.json",
+			"cmd": "cd ${workspaceRoot} && pnpm pug:hydrate && pnpm pug:build && pnpm messages:extract && pnpm messages:combine && pnpm html:translate && pnpm messages:clean"
 		}
 	]
 }
