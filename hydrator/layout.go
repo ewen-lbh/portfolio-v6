@@ -98,16 +98,20 @@ func (work *WorkOneLang) BuildLayout() string {
 				}
 				switch mediaGeneralContentType {
 				case "video":
-					element = fmt.Sprintf(`video(src="%v" id="%v" title="%v") %v`, media(data.Source), data.ID, data.Title, data.Alt)
+					element = fmt.Sprintf(`<video src="%v" id="%v" title="%v">%v</video>`, media(data.Source), data.ID, data.Title, data.Alt)
 				case "audio":
-					element = fmt.Sprintf(`audio(src="%v" id="%v" title="%v") %v`, media(data.Source), data.ID, data.Title, data.Alt)
+					element = fmt.Sprintf(`<audio src="%v" id="%v" title="%v">%v</audio>`, media(data.Source), data.ID, data.Title, data.Alt)
 				case "image":
-					element = fmt.Sprintf(`img(src="%v" id="%v" title="%v" alt="%v")`, media(data.Source), data.ID, data.Title, data.Alt)
+					element = fmt.Sprintf(`<img src="%v" id="%v" title="%v" alt="%v" />`, media(data.Source), data.ID, data.Title, data.Alt)
 				case "pdf":
-					element = fmt.Sprintf(`.pdf-frame-container: iframe.pdf-frame(src="%v" id="%v" title="%v" width="100%%" height="100%%") %v`, media(data.Source), data.ID, data.Title, data.Alt)
+					element = fmt.Sprintf(`<div class"pdf-frame-container"><iframe class="pdf-frame" src="%v" id="%v" title="%v" width="100%%" height="100%%">%v</iframe></div>`, media(data.Source), data.ID, data.Title, data.Alt)
 				default:
-					element = fmt.Sprintf(`a(href="%v" id="%v" title="%v") %v`, media(data.Source), data.ID, data.Title, data.Alt)
+					element = fmt.Sprintf(`<a href="%v" id="%v" title="%v">%v</a>`, media(data.Source), data.ID, data.Title, data.Alt)
 				}
+				if data.Title != "" {
+					element += fmt.Sprintf("<figcaption>%s</figcaption>", data.Title)
+				}
+				element = fmt.Sprintf("<figure>%s</figure>", element)
 			} else if layoutElement.IsParagraph {
 				if len(work.Paragraphs) <= usedCounts.p {
 					panic(fmt.Sprintf(`Not enough Paragraphs to satisfy the given layout:
