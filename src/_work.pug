@@ -26,7 +26,10 @@ block content
 			{{ $tech := . | lookupTech }}
 			li.made-with__item
 				a(href="/using/{{ $tech.URLName }}")
-					img.made-with__item__logo(src='{{ asset (printf "logos/%s.svg" $tech.URLName) }}')
+					img.made-with__item__logo(
+						src='{{ asset (printf "logos/%s.svg" $tech.URLName) }}'
+						alt="[# '{{ $tech.DisplayName }}’s logo' | translate #]"
+					)
 					{{ if $tech.Author }}
 					span.made-with__item__subline {{ $tech.Author }}
 					{{- end }}

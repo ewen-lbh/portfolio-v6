@@ -423,3 +423,48 @@ msgstr "autres"
 
 msgid "Unknown year"
 msgstr "Année inconnue"
+
+msgid "Assembly’s logo"
+msgstr "Logo d'Assembly"
+
+msgid "CSS’s logo"
+msgstr "Logo de CSS"
+
+msgid "Docopt’s logo"
+msgstr "Logo de Docopt"
+
+msgid "Figma’s logo"
+msgstr "Logo de Figma"
+
+msgid "FL Studio’s logo"
+msgstr "Logo de FL Studio"
+
+msgid "HTML’s logo"
+msgstr "Logo de HTML"
+
+msgid "Illustrator’s logo"
+msgstr "Logo de Illustrator"
+
+msgid "JavaScript’s logo"
+msgstr "Logo de JavaScript"
+
+msgid "LaTeX’s logo"
+msgstr "Logo de LaTeX"
+
+msgid "LiveScript’s logo"
+msgstr "Logo de LiveScript"
+
+msgid "Manim’s logo"
+msgstr "Logo de Manim"
+
+msgid "Photoshop’s logo"
+msgstr "Logo de Photoshop"
+
+msgid "Pug’s logo"
+msgstr "Logo de pug"
+
+msgid "Python’s logo"
+msgstr "Logo de Python"
+
+msgid "Stylus’s logo"
+msgstr "Logo de Stylus"
