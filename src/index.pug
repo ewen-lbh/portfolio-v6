@@ -7,9 +7,10 @@ block content
 	h1(translate) These are my creations.
 	p.intro
 		i18n Hi! I'm Ewen Le Bihan, I'm {{ .Age }} years old and I'm interested in almost anything that is both creative and digital.
-		a(href="/learn-more")
+		br
+		a(href="/about")
 			img.icon(src='{{ asset "icons/arrow-right.svg" }}')
-			i18n Learn more
+			span(translate) Learn more
 
 
 	section#latest

@@ -22,6 +22,11 @@ secondary = $(secondary)
 sans-stack = Manrope Variable, Manrope, sans-serif
 monospace-stack = Inconsolata Variable, Inconsolata, monospace
 
+underline-link()
+	text-decoration none
+	display: inline-block
+	border-bottom 2px solid currentColor
+
 weight-link()
 	text-decoration none
 
@@ -536,3 +541,20 @@ dialog#media-closeup
 
 // +backdrop-of('dialog#media-closeup')
 // 	background: rgba(0,0,0,.25);
+
+p.intro
+	text-align center
+	max-width 1000px
+	margin 0 auto
+	a
+		margin-top 0.5em
+		display flex
+		align-items center
+		justify-content center
+		text-decoration none
+		weight-link()
+	a .icon
+		height 1.3em
+	a span
+		underline-link()
+		margin-left 0.5em
