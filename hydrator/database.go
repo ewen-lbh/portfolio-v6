@@ -43,7 +43,7 @@ func (work *WorkOneLang) Created() time.Time {
 }
 
 func (work WorkOneLang) IsWIP() bool {
-	return work.Metadata.WIP || (work.Metadata.Started != "" && (work.Metadata.Created != "" || work.Metadata.Started != ""))
+	return work.Metadata.WIP || (work.Metadata.Started != "" && (work.Metadata.Created != "" || work.Metadata.Finished != ""))
 }
 
 func GetOneLang(lang string, works ...Work) []WorkOneLang {
