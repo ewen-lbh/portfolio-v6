@@ -162,10 +162,13 @@ section.contents
 
 	&__item
 		display flex
-		flex-direction row
+		flex-direction column
 		padding 2rem
 
-		&__name, &__subline
+		&__learn-more
+			opacity-link()
+
+		&__name, &__subline, &__learn-more
 			display block
 			text-align center
 			transition all 0.25s ease

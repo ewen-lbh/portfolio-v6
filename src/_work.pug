@@ -35,15 +35,17 @@ block content
 					)
 					{{ if $tech.Author }}
 					span.made-with__item__subline {{ $tech.Author }}
-					{{- end }}
+					{{ end }}
 					span.made-with__item__name(translate) {{ $tech.DisplayName }}
-			{{ end -}}
+				{{ if $tech.LearnMoreURL }}
+				a.made-with__item__learn-more(href="{{ $tech.LearnMoreURL }}" translate) Learn more
+				{{ end }}
+			{{ end }}
 	{{ end }}
 
 	dialog#media-closeup(onclick="this.close()")
 		.media.empty
-		button.close(onclick="this.parentElement.close()" title="[# 'Close' | translate #]")
-			img(src='{{ asset "icons/x.svg" }}' alt="×")
+		button.close(onclick="this.parentElement.close()" title="[# 'Close' | translate #]") ×
 
 	style.
 		:root {
