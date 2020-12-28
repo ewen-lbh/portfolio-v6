@@ -1,5 +1,8 @@
 extends .layout
 
+block append head
+	link(rel="stylesheet" href='{{ asset "vendor/dialog-polyfill.css" }}')
+
 block content
 	ul.tags
 		{{ range .CurrentWork.Metadata.Tags }}
@@ -37,6 +40,11 @@ block content
 			{{ end -}}
 	{{ end }}
 
+	dialog#media-closeup(onclick="this.close()")
+		.media.empty
+		button.close(onclick="this.parentElement.close()" title="[# 'Close' | translate #]")
+			img(src='{{ asset "icons/x.svg" }}' alt="×")
+
 	style.
 		:root {
 			{{ range $key, $value := .CurrentWork | getColorsMap }}
@@ -48,4 +56,11 @@ block content
 		body {
 			background-image: url('{{ media (printf "%s/%s" .CurrentWork.ID .CurrentWork.Metadata.PageBackground) }}');
 		}
-		{{- end -}}
+		{{ end }}
+
+	script(src='{{ asset "vendor/dialog-polyfill.js" }}')
+	script.
+		document.querySelectorAll('dialog').forEach(el => {
+			dialogPolyfill.registerDialog(el)
+		})
+	script(src='{{ asset "ui.js" }}')

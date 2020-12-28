@@ -484,3 +484,45 @@ section#all
 	display flex
 	flex-direction column
 	align-items center
+
+// Why? -> https://github.com/GoogleChrome/dialog-polyfill#backdrop
+// backdrop-of(selector)
+// 	{selector}::backdrop
+// 		{block}
+// 	{selector} + .backdrop
+// 		{block}
+
+dialog#media-closeup
+	position fixed
+	height 100%
+	width 100%
+	top 0
+	left 0
+	right 0
+	bottom 0
+	z-index 9999
+	border none
+	background: rgba(0,0,0,.25);
+	.close
+		position fixed
+		top 1rem
+		right 1rem
+		font-size 5rem
+		background transparent
+		border none
+		cursor pointer
+		color secondary
+		text-stroke 3px primary
+	.media
+		max-width 95vw
+		max-height 95vh
+		position fixed
+		left 50%
+		top 50%
+		transform translate(-50%, -50%)
+		object-fit contain
+		object-position center
+		background-color secondary
+
+// +backdrop-of('dialog#media-closeup')
+// 	background: rgba(0,0,0,.25);

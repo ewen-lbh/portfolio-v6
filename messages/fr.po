@@ -468,3 +468,6 @@ msgstr "Logo de Python"
 
 msgid "Stylus’s logo"
 msgstr "Logo de Stylus"
+
+msgid "Close"
+msgstr "Fermer"
