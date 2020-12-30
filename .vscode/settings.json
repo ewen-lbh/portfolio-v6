@@ -57,7 +57,7 @@
 		{
 			"event": "onFileChange",
 			"match": "src/.*\\.pug",
-			"cmd": "cd ${workspaceRoot} && pnpm pug:hydrate && pnpm pug:build && pnpm messages:extract && pnpm messages:combine && pnpm html:translate && pnpm messages:clean"
+			"cmd": "cd ${workspaceRoot} && pnpm pug:hydrate && pnpm pug:build && pnpm messages:extract && pnpm messages:combine && pnpm messages:build && pnpm html:translate && pnpm messages:clean"
 		},
 		{
 			"event": "onFileChange",
@@ -67,7 +67,7 @@
 		{
 			"event": "onFileChange",
 			"match": "hydrator/.*\\.go",
-			"cmd": "cd ${workspaceRoot} && pnpm hydrator:build && pnpm pug:hydrate && pnpm pug:build && pnpm messages:extract && pnpm messages:combine && pnpm html:translate && pnpm messages:clean"
+			"cmd": "cd ${workspaceRoot} && pnpm hydrator:build && pnpm pug:hydrate && pnpm pug:build && pnpm messages:extract && pnpm messages:combine && pnpm messages:build && pnpm html:translate && pnpm messages:clean"
 		},
 		{
 			"event": "onFileChange",
