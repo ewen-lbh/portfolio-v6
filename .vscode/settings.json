@@ -79,5 +79,13 @@
 			"match": "database/database.json",
 			"cmd": "cd ${workspaceRoot} && pnpm pug:hydrate && pnpm pug:build && pnpm messages:extract && pnpm messages:combine && pnpm html:translate && pnpm messages:clean"
 		}
-	]
+	],
+	"languageStylus.useSeparator": false,
+    "stylusSupremacy.insertColons": false,
+    "stylusSupremacy.insertParenthesisAroundIfCondition": false,
+    "stylusSupremacy.reduceMarginAndPaddingValues": true,
+    "stylusSupremacy.selectorSeparator": ",\n",
+    "stylusSupremacy.sortProperties": "grouped",
+	"stylusSupremacy.insertSemicolons": false,
+    "stylusSupremacy.insertBraces": false,
 }

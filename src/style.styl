@@ -9,10 +9,10 @@ text-stroke(stroke, color)
 	text-shadow unquote(join(', ', shadow))
 
 $(variable-name)
-	if variable-name is 'primary'
+	if variable-name == 'primary'
 		fallback = black
 
-	if variable-name is 'secondary'
+	if variable-name == 'secondary'
 		fallback = white
 
 	var(unquote('--' + variable-name), fallback)
@@ -23,9 +23,9 @@ sans-stack = Manrope Variable, Manrope, sans-serif
 monospace-stack = Inconsolata Variable, Inconsolata, monospace
 
 underline-link()
-	text-decoration none
-	display: inline-block
+	display inline-block
 	border-bottom 2px solid currentColor
+	text-decoration none
 
 weight-link()
 	text-decoration none
@@ -47,24 +47,24 @@ opacity-link()
 	transition opacity 0.125s ease
 
 shape-link()
-	text-align center
-	text-decoration none
-	color primary
 	position relative
 	display flex
-	font-size 1.5rem
 	margin 5rem
+	color primary
+	text-align center
+	text-decoration none
+	font-size 1.5rem
 
 	&::before
-		content ''
 		position absolute
-		border 2px solid primary
-		width 4rem
-		left 50%
-		transform translateX(-50%)
 		top -1rem
+		left 50%
 		z-index -1
+		width 4rem
 		height calc(100% + 2rem)
+		border 2px solid primary
+		content ''
+		transform translateX(-50%)
 
 	&:hover::before
 		transform translateX(-50%) rotate(45deg) scale(1.1)
@@ -75,15 +75,16 @@ shape-link()
 	&:active::before
 		transform translateX(-50%) rotate(45deg) scale(0.75)
 
-	&, &::before
+	&,
+	&::before
 		transition all 0.25s ease
 
 ul.tags
-	padding-left 0
 	display flex
-	flex-wrap wrap
 	flex-direction row
+	flex-wrap wrap
 	justify-content center
+	padding-left 0
 
 	li
 		display block
@@ -99,27 +100,27 @@ h1
 	font-size clamp(3rem, 10vw, 7rem)
 
 h1[data-style=outlined]
-	text-stroke 2px var(--primary)
-	color var(--secondary)
+	color secondary
+	text-stroke 2px primary
 
 h1[data-style=hidden]
 	display none
 
 	// for alt text
 	& + .row > figure
-		font-size clamp(3rem, 10vw, 7rem)
 		margin 0
+		font-size clamp(3rem, 10vw, 7rem)
 
 h2
+	margin 7rem 0
 	text-align center
 	font-weight 800
 	font-size 3rem
-	margin 7rem 0
 
 section.contents
-	max-width 1000px
-	padding 0 1rem
 	margin 0 auto
+	padding 0 1rem
+	max-width 1000px
 
 	img
 		width 100%
@@ -144,25 +145,25 @@ section.contents
 		font-size 1.15rem
 
 .made-with
+	padding 5rem 0
 	background-color white
 	color black
-	padding 5rem 0
 
 	&__title
 		padding-bottom 0.25rem
 
 	&__explainer
+		padding-bottom 3rem
 		text-align center
 		opacity 0.5
-		padding-bottom 3rem
 
 	&__list
 		// == layout
 		display flex
 		flex-wrap wrap
 		justify-content center
-		padding-left 0
 		margin 0 auto
+		padding-left 0
 		max-width calc(4 * (2rem + (5rem + 1rem) + 2rem))
 
 	&__item
@@ -173,11 +174,13 @@ section.contents
 		&__learn-more
 			opacity-link()
 
-		&__name, &__subline, &__learn-more
+		&__name,
+		&__subline,
+		&__learn-more
 			display block
 			text-align center
-			transition all 0.25s ease
 			font-size 1em
+			transition all 0.25s ease
 
 		&__subline
 			opacity 0.5
@@ -186,21 +189,22 @@ section.contents
 			margin-top -0.3em
 
 		&__logo
-			width 20vw
-			height 20vw
+			margin-bottom 0.5rem
 			max-width 5rem
 			max-height 5rem
-			margin-bottom 0.5rem
+			width 20vw
+			height 20vw
 			transition transform 0.25s ease
 
 		a
 			display flex
-			align-items center
 			flex-direction column
+			align-items center
 			text-decoration none
 
 		a:hover
-			.made-with__item__subline, .made-with__item__name
+			.made-with__item__subline,
+			.made-with__item__name
 				font-weight 800
 
 			.made-with__item__logo
@@ -215,8 +219,8 @@ nav
 
 	ul
 		display flex
-		flex-wrap wrap
 		flex-direction row
+		flex-wrap wrap
 		justify-content center
 		padding-left 0
 
@@ -233,8 +237,8 @@ nav
 @media (min-width 600px)
 	nav
 		position fixed
-		background-color secondary
 		z-index 100
+		background-color secondary
 
 	main
 		padding-top 5rem
@@ -244,17 +248,17 @@ nav
 		padding-top 1rem // Putting zero creates a mysterious space above <body>
 
 	nav
-		width 10rem
 		right 0
+		width 10rem
 		background-color transparent
 
 	nav ul
+		flex-direction column
+		align-items flex-end
 		margin 0
 		// + .2em: compensate for text not sticking to the top of its bounding box.
 		// vertical-align: top doesn't seem to fix the problem
 		padding 0.5em 1rem 0 0
-		align-items flex-end
-		flex-direction column
 
 	nav ul li
 		padding 0
@@ -264,12 +268,12 @@ nav
 		font-size 1.3em
 
 footer
-	padding-top 10rem
-	background-color white
-	color black
 	display flex
 	flex-direction column
 	align-items center
+	padding-top 10rem
+	background-color white
+	color black
 
 	.links
 		font-family monospace-stack
@@ -283,18 +287,18 @@ footer
 			grid-template-columns 3rem auto
 
 		dd
-			opacity 0.5
 			font-family sans-stack
+			opacity 0.5
 
 		a
 			display block
 			weight-link()
 
 	.credits
-		margin 3rem 0
 		display flex
-		justify-content center
 		flex-direction column
+		justify-content center
+		margin 3rem 0
 
 		p
 			margin 0
@@ -335,16 +339,19 @@ footer
 		font-size 3rem
 		opacity 1
 
-	h3, p
+	h3,
+	p
 		z-index 10
 		transform translateY(3rem)
+
 	p
 		margin 0
-		transition all 0.25s ease
-		opacity 0
 		height 3rem
+		opacity 0
+		transition all 0.25s ease
 
-	&, & > *
+	&,
+	& > *
 		transition all 0.25s ease
 
 	&::before
@@ -365,9 +372,10 @@ footer
 
 		p
 			opacity 1
-		h3, p
-			transform translateY(0)
 
+		h3,
+		p
+			transform translateY(0)
 
 main
 	display flex
@@ -389,7 +397,9 @@ for num in 2 3 4 5
 			flex-wrap wrap
 
 		@media (min-width 500px)
-			~ img, ~ p, ~ a
+			~ img,
+			~ p,
+			~ a
 				max-width numpercent
 
 		@media (min-width 1000px)
@@ -401,85 +411,104 @@ section.contents .row[data-columns='1'] > p
 	text-align center
 
 body
-	background-size cover
 	background-position center
+	background-size cover
 
 .work-in-progress
-	text-align center
 	margin-top 1.5rem
+	text-align center
+
 	@media (min-width 1000px)
 		margin-bottom -1 * @margin-top
+
 	z-index 10
 	weight-link()
+
 	&::before
 		display inline-block
-		margin-bottom -0.3em
-		content ''
-		height 1.2em
-		width @height
-		border-radius 50%
 		margin-right 0.5em
+		margin-bottom -0.3em
+		width @height
+		height 1.2em
+		border-radius 50%
 		background-color red
+		content ''
 		transition all 0.25s ease
+
 	&:hover::before
-		height 1.6em
-		width @height
 		margin-bottom -0.5em
-		animation red-dot-blink .5s step-start infinite alternate
-	&:active::before
-		height 0.8em
 		width @height
+		height 1.6em
+		animation red-dot-blink 0.5s step-start infinite alternate
+
+	&:active::before
 		margin-bottom -0.1em
+		width @height
+		height 0.8em
+
 @keyframes red-dot-blink
 	0%
 		background red
+
 	50%
 		background transparent
+
 	100%
 		background red
 
 .pre-h1
 	@media (min-width 1000px)
 		margin-bottom -1.5rem
+
 	text-align center
 	font-size 1.2rem
 	opacity 0.5
 
-ul.gallery__works, ul.gallery__works__year__works
+ul.gallery__works,
+ul.gallery__works__year__works
 	padding-left 0
 	list-style none
+
 .gallery__works
 	margin 0 3rem
+
 	&__year h3
-		font-size 1.3em
-		text-align center
 		margin 5rem 0
+		text-align center
+		font-size 1.3em
+
 	&__year__works__work
 		margin 3rem 0
 		transition all 0.25s ease
+
 .work-card--medium
-	text-decoration none
 	display flex
-	max-width min(95vw, 80rem)
 	display grid
-	grid-template-columns min(25rem, 25vw) auto
-	grid-gap 3rem
+	max-width min(95vw, 80rem)
 	background-color secondary
 	color primary
+	text-decoration none
 	// border 1px solid transparent
 	transition all 0.25s ease
+	grid-template-columns min(25rem, 25vw) auto
+	grid-gap 3rem
+
 	&__image
-		height 10rem
 		width min(25rem, 25vw)
+		height 10rem
 		object-fit cover
 		object-position center
+
 	&__text
 		padding 2rem
+
 	h4
-		font-size 1.6em
 		font-weight bold
+		font-size 1.6em
+
 .gallery__works__year__works__work:hover
 	transform translateY(-1rem) /* translateX(-1rem) */
+
 	.work-card--medium
 		// box-shadow 1rem 1rem 0 primary
 		box-shadow 0rem 1rem 0 primary
@@ -487,74 +516,70 @@ ul.gallery__works, ul.gallery__works__year__works
 
 .gallery__works__year__works__work:active
 	transform translateY(-0.5rem) /* translateX(-0.5rem) */
+
 	.work-card--medium
 		// box-shadow 0.5rem 0.5rem 0 primary
 		box-shadow 0rem 0.5rem 0 primary
 		// border-color primary
 
-section#latest
-section#wip
-section#finished
+section#latest,
+section#wip,
+section#finished,
 section#all
 	display flex
 	flex-direction column
 	align-items center
 
-// Why? -> https://github.com/GoogleChrome/dialog-polyfill#backdrop
-// backdrop-of(selector)
-// 	{selector}::backdrop
-// 		{block}
-// 	{selector} + .backdrop
-// 		{block}
-
 dialog#media-closeup
 	position fixed
-	height 100%
-	width 100%
 	top 0
-	left 0
 	right 0
 	bottom 0
+	left 0
 	z-index 9999
+	width 100%
+	height 100%
 	border none
-	background: rgba(0,0,0,.25);
+	background rgba(0, 0, 0, 0.25)
+
 	.close
 		position fixed
 		top 1rem
 		right 1rem
-		font-size 5rem
-		background transparent
 		border none
-		cursor pointer
+		background transparent
 		color secondary
+		font-size 5rem
+		cursor pointer
 		text-stroke 3px primary
+
 	.media
+		position fixed
+		top 50%
+		left 50%
 		max-width 95vw
 		max-height 95vh
-		position fixed
-		left 50%
-		top 50%
+		background-color secondary
 		transform translate(-50%, -50%)
 		object-fit contain
 		object-position center
-		background-color secondary
-
-// +backdrop-of('dialog#media-closeup')
-// 	background: rgba(0,0,0,.25);
 
 p.intro
-	text-align center
-	max-width 1000px
 	margin 0 auto
+	max-width 1000px
+	text-align center
+
 	a
-		margin-top 0.5em
 		display flex
-		align-items center
 		justify-content center
+		align-items center
+		margin-top 0.5em
 		text-decoration none
 		weight-link()
+
 	a .icon
 		height 1.3em
+
 	a span
 		underline-link()
 		margin-left 0.5em
