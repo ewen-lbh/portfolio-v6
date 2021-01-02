@@ -471,3 +471,6 @@ msgstr "Logo de Stylus"
 
 msgid "Close"
 msgstr "Fermer"
+
+msgid "After Effects’s logo"
+msgstr "Logo d'After Effects"
