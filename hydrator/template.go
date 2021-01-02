@@ -165,13 +165,18 @@ func getYears(ws []WorkOneLang) []int {
 func withTag(tag Tag, ws []WorkOneLang) []WorkOneLang {
 	filtered := make([]WorkOneLang, 0)
 	for _, work := range ws {
-		_, findError := FindInArrayLax(work.Metadata.Tags, tag.URLName)
-		if findError == nil {
+		_, notFoundErrD := FindInArrayLax(work.Metadata.Tags, tag.DisplayName)
+		_, notFoundErrU := FindInArrayLax(work.Metadata.Tags, tag.URLName)
+		if notFoundErrD == nil || notFoundErrU == nil {
 			filtered = append(filtered, work)
 		}
 	}
 	if len(filtered) == 0 && IsVerbose() {
-		fmt.Printf("WARNING: No works from %v have the %s tag", ws, tag.URLName)
+		wsIDs := make([]string, len(ws))
+		for _, work := range ws {
+			wsIDs = append(wsIDs, work.ID)
+		}
+		fmt.Printf("WARNING: No works from %v have the %s tag\n", wsIDs, tag.URLName)
 	}
 	return filtered
 }
