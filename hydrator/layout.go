@@ -51,6 +51,16 @@ func layoutRepr(layout Layout) string {
 	return repr
 }
 
+func buildLayoutErrorMessage(whatsMissing string, work *WorkOneLang, usedCount int, layout Layout) string {
+	return fmt.Sprintf(`%v: Not enough %s to satisfy the given layout:
+
+	· Layout is:
+	%v
+
+	· work has only %d %s
+	`, work.ID, whatsMissing, layoutRepr(layout), usedCount, whatsMissing)
+}
+
 // BuildLayout builds an pug layout filled with content, ready to inject in a .pug file.
 func (work *WorkOneLang) BuildLayout() string {
 	var layout Layout
@@ -69,26 +79,14 @@ func (work *WorkOneLang) BuildLayout() string {
 				element = `div.spacer`
 			} else if layoutElement.IsLink {
 				if len(work.Links) <= usedCounts.l {
-					panic(fmt.Sprintf(`Not enough Links to satisfy the given layout:
-
-· Layout is:
-%v
-
-· work has only %d links
-`, layoutRepr(layout), usedCounts.l))
+					panic(buildLayoutErrorMessage("links", work, usedCounts.l, layout))
 				}
 				data := work.Links[usedCounts.l]
 				usedCounts.l++
 				element = fmt.Sprintf(`a(href="%v" id="%v" title="%v") %v`, data.URL, data.ID, data.Title, data.Name)
 			} else if layoutElement.IsMedia {
 				if len(work.Media) <= usedCounts.m {
-					panic(fmt.Sprintf(`Not enough Media to satisfy the given layout:
-
-· Layout is:
-%v
-
-· work has only %d media
-`, layoutRepr(layout), usedCounts.m))
+					panic(buildLayoutErrorMessage("media", work, usedCounts.m, layout))
 				}
 				data := work.Media[usedCounts.m]
 				usedCounts.m++
@@ -99,10 +97,10 @@ func (work *WorkOneLang) BuildLayout() string {
 				if data.Duration <= 5 && !data.HasAudio && data.Duration > 0 {
 					data.Attributes = MediaAttributes{
 						Playsinline: true,
-						Loop: true,
-						Autoplay: true,
-						Muted: true,
-						Controls: false,
+						Loop:        true,
+						Autoplay:    true,
+						Muted:       true,
+						Controls:    false,
 					}
 				}
 				switch mediaGeneralContentType {
@@ -155,13 +153,7 @@ func (work *WorkOneLang) BuildLayout() string {
 				element = fmt.Sprintf("<figure>%s</figure>", element)
 			} else if layoutElement.IsParagraph {
 				if len(work.Paragraphs) <= usedCounts.p {
-					panic(fmt.Sprintf(`Not enough Paragraphs to satisfy the given layout:
-
-· Layout is:
-%v
-
-· work has only %d paragraphs
-`, layoutRepr(layout), usedCounts.p))
+					panic(buildLayoutErrorMessage("paragraphs", work, usedCounts.p, layout))
 				}
 				data := work.Paragraphs[usedCounts.p]
 				usedCounts.p++
