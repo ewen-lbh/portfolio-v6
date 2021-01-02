@@ -8,6 +8,7 @@
 		"database:crawl": "cd /home/ewen/projects/portfoliodb-crawler && python3.8 crawler.py /home/ewen/projects/portfolio/database",
 		"database:build": "portfoliodb database build database/database.json --config database/.portfoliodb.yaml -m",
 		"database:upload": "rclone ",
+		"database:clean": "mv -t ./ database/.portfoliodb.yaml database/sites.json && rm -r database/ && mkdir database && mv -t database/ sites.json .portfoliodb.yaml",
 		"pug:hydrate": "cd hydrator && ./hydrate",
 		"messages:extract": "mv messages/fr.po messages/fr.old.po; cd artifacts/phase_1/en && gettext-extract --output ../../../messages/fr.new.po --startDelimiter '[#' --endDelimiter '#]' *.pug using/*.pug 1> /dev/null",
 		"messages:build": "msgfmt messages/fr.po -o messages/fr.mo",
@@ -19,11 +20,11 @@
 		"assets:build": "echo 'TODO @ assets:build  compress images & others'; cp -r assets/* dist/",
 		"hydrator:build": "cd hydrator && go build",
 		"dev": "nodemon --watch src --ext ls,pug,styl --exec ./imake",
-		"database:update": "pnpm database:crawl && pnpm database:build",
+		"database:update": "pnpm database:clean && pnpm database:crawl && pnpm database:build",
 		"prepare:i18n": "pnpm pug:hydrate && pnpm messages:extract && pnpm messages:combine",
 		"make": "concurrently 'pnpm messages:build' 'pnpm pug:build' && mkdir -p dist/fr dist/en && concurrently 'pnpm html:translate' 'pnpm stylus:build' 'pnpm ls:build' 'pnpm assets:build'",
 		"messages:clean": "./merged_po_file_cleaner/merged_po_file_cleaner messages/fr.po messages/fr.po",
-		"clean": "concurrently 'rm -r artifacts messages/*.mo; exit 0' 'pnpm messages:clean'",
+		"clean": "concurrently 'rm -r artifacts messages/*.mo; exit 0' 'pnpm messages:clean' 'pnpm database:clean'",
 		"makedirs": "mkdir --mode=666 --parents artifacts/phase_{1,2}/{fr,en}"
 	},
 	"devDependencies": {
