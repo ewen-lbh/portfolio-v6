@@ -1,5 +1,7 @@
 package main
 
+import "strings"
+
 // Abbreviation represents an abbreviation declaration in a description.md file
 type Abbreviation struct {
 	Name       string
@@ -64,12 +66,41 @@ type WorkOneLang struct {
 	Footnotes  []Footnote
 }
 
+type MediaAttributes struct {
+	Playsinline bool
+	Loop        bool
+	Autoplay    bool
+	Muted       bool
+	Controls    bool
+}
+
+func (a *MediaAttributes) String() string {
+	attributes := make([]string, 5)
+	if a.Autoplay {
+		attributes = append(attributes, "autoplay")
+	}
+	if a.Controls {
+		attributes = append(attributes, "controls")
+	}
+	if a.Loop {
+		attributes = append(attributes, "loop")
+	}
+	if a.Muted {
+		attributes = append(attributes, "muted")
+	}
+	if a.Playsinline {
+		attributes = append(attributes, "playsinline")
+	}
+	return strings.Join(attributes, " ")
+}
+
 // MediaEmbedDeclaration represents media embeds. (abusing the ![]() syntax to extend it to any file)
 // Only stores the info extracted from the syntax, no filesystem interactions.
 type MediaEmbedDeclaration struct {
-	Alt    string
-	Title  string
-	Source string
+	Alt        string
+	Title      string
+	Source     string
+	Attributes MediaAttributes
 }
 
 // ParsedDescription represents a work, but without analyzed media. All it contains is information from the description.md file
@@ -100,4 +131,6 @@ type Media struct {
 	Dimensions  ImageDimensions
 	Duration    uint // In seconds
 	Online      bool // Whether the media is hosted online (referred to by an URL)
+	Attributes  MediaAttributes
+	HasAudio    bool
 }

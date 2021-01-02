@@ -96,17 +96,58 @@ func (work *WorkOneLang) BuildLayout() string {
 				if data.ContentType == "application/pdf" {
 					mediaGeneralContentType = "pdf"
 				}
+				if data.Duration <= 5 && !data.HasAudio && data.Duration > 0 {
+					data.Attributes = MediaAttributes{
+						Playsinline: true,
+						Loop: true,
+						Autoplay: true,
+						Muted: true,
+						Controls: false,
+					}
+				}
 				switch mediaGeneralContentType {
 				case "video":
-					element = fmt.Sprintf(`<video src="%v" id="%v" title="%v">%v</video>`, media(data.Source), data.ID, data.Title, data.Alt)
+					element = fmt.Sprintf(
+						`<video src="%v" id="%v" title="%v" %v>%v</video>`,
+						media(data.Source),
+						data.ID,
+						data.Title,
+						data.Attributes.String(),
+						data.Alt,
+					)
 				case "audio":
-					element = fmt.Sprintf(`<audio src="%v" id="%v" title="%v">%v</audio>`, media(data.Source), data.ID, data.Title, data.Alt)
+					element = fmt.Sprintf(
+						`<audio src="%v" id="%v" title="%v" %v>%v</audio>`,
+						media(data.Source),
+						data.ID,
+						data.Title,
+						data.Attributes.String(),
+						data.Alt,
+					)
 				case "image":
-					element = fmt.Sprintf(`<img src="%v" id="%v" title="%v" alt="%v" />`, media(data.Source), data.ID, data.Title, data.Alt)
+					element = fmt.Sprintf(
+						`<img src="%v" id="%v" title="%v" alt="%v" />`,
+						media(data.Source),
+						data.ID,
+						data.Title,
+						data.Alt,
+					)
 				case "pdf":
-					element = fmt.Sprintf(`<div class"pdf-frame-container"><iframe class="pdf-frame" src="%v" id="%v" title="%v" width="100%%" height="100%%">%v</iframe></div>`, media(data.Source), data.ID, data.Title, data.Alt)
+					element = fmt.Sprintf(
+						`<div class"pdf-frame-container"><iframe class="pdf-frame" src="%v" id="%v" title="%v" width="100%%" height="100%%">%v</iframe></div>`,
+						media(data.Source),
+						data.ID,
+						data.Title,
+						data.Alt,
+					)
 				default:
-					element = fmt.Sprintf(`<a href="%v" id="%v" title="%v">%v</a>`, media(data.Source), data.ID, data.Title, data.Alt)
+					element = fmt.Sprintf(
+						`<a href="%v" id="%v" title="%v">%v</a>`,
+						media(data.Source),
+						data.ID,
+						data.Title,
+						data.Alt,
+					)
 				}
 				if data.Title != "" {
 					element += fmt.Sprintf("<figcaption>%s</figcaption>", data.Title)
