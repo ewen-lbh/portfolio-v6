@@ -59,6 +59,15 @@ func main() {
 							LogHydrating(templateName, tech.URLName)
 							HydrateDynamicFileWithLang(db, lang, templateName, templateContent, CurrentlyHydrated{tech: tech})
 						}
+					} else {
+						templateContent, err := ReadFile("../src/using/" + file.Name())
+						templateName := "using/" + file.Name()
+						LogHydrating(templateName, "")
+						replaced, err := ExecuteTemplate(db, lang, file.Name(), templateContent, CurrentlyHydrated{})
+						if err != nil {
+							panic(err)
+						}
+						WriteHydratedContent(lang, templateName, replaced)
 					}
 				}
 			} else if strings.HasSuffix(file.Name(), ".pug") {

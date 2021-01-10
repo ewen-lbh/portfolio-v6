@@ -7,6 +7,10 @@
 	"python.linting.enabled": false,
 	"githubIssues.queries": [
 		{
+			"label": "Make it public!",
+			"query": "milestone:\"Make it public\" state:open"
+		},
+		{
 			"label": "Processing",
 			"query": "state:open repo:${owner}/${repository} sort:created-desc label:processing"
 		},

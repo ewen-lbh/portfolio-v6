@@ -62,7 +62,8 @@ shape-link()
 		z-index -1
 		width 4rem
 		height calc(100% + 2rem)
-		border 2px solid primary
+		border 2px solid
+		border-color primary // Separate decl. so it's easily overwriteable
 		content ''
 		transform translateX(-50%)
 
@@ -165,6 +166,9 @@ section.contents
 		margin 0 auto
 		padding-left 0
 		max-width calc(4 * (2rem + (5rem + 1rem) + 2rem))
+
+		&--fullwidth
+			max-width unset
 
 	&__item
 		display flex
@@ -485,7 +489,6 @@ ul.gallery__works__year__works
 		transition all 0.25s ease
 
 .work-card--medium
-	display flex
 	display grid
 	max-width min(95vw, 80rem)
 	background-color secondary
@@ -594,3 +597,46 @@ p.intro
 	align-items center
 	text-align center
 	flex-direction column
+
+.tags-index
+	padding 0
+	cell-size = 15rem
+	display flex
+	flex-wrap wrap
+	justify-content start
+	margin 5rem auto 0
+	max-width 1000px
+	width auto
+
+	li
+		display inline flex
+		flex-wrap wrap
+		justify-content center
+		align-items center
+		width cell-size
+		height cell-size
+		background primary
+		color secondary
+		list-style none
+		text-align center
+
+	li a
+		shape-link()
+		color secondary
+
+		&::before
+			z-index 10
+			border-color secondary
+
+		font-size 1.5rem
+
+	// TODO: random slight variations in scale for each shape-link,
+	// using custom random() stylus function w/ the js API
+
+	li:nth-child(2n) a
+		&::before
+			border-radius 50%
+		&:hover::before
+			transform translateX(-50%) scale(1.3)
+		&:active::before
+			transform translateX(-50%) scale(0.8)

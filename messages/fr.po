@@ -17,7 +17,7 @@ msgid "about"
 msgstr "à propos"
 
 msgid "After Effects"
-msgstr ""
+msgstr "After Effects"
 
 msgid "all of 'em"
 msgstr "toutes"
@@ -26,7 +26,7 @@ msgid "also my music"
 msgstr "ma musique également"
 
 msgid "api"
-msgstr ""
+msgstr "api"
 
 msgid "app"
 msgstr "application"
@@ -35,10 +35,10 @@ msgid "artistique"
 msgstr ""
 
 msgid "asciidoc"
-msgstr ""
+msgstr "asciidoc"
 
 msgid "Assembly"
-msgstr ""
+msgstr "Assembly"
 
 msgid "automation"
 msgstr "automatisation"
@@ -62,34 +62,34 @@ msgid "by"
 msgstr "par"
 
 msgid "C"
-msgstr ""
+msgstr "C"
 
 msgid "C#"
-msgstr ""
+msgstr "C#"
 
 msgid "C++"
-msgstr ""
+msgstr "C++"
 
 msgid "card"
 msgstr "carte"
 
 msgid "cli"
-msgstr ""
+msgstr "cli"
 
 msgid "CoffeeScript"
-msgstr ""
+msgstr "CoffeeScript"
 
 msgid "compositing"
-msgstr ""
+msgstr "compositing"
 
 msgid "contact"
-msgstr ""
+msgstr "contact"
 
 msgid "cover art"
 msgstr "pochette"
 
 msgid "CSS"
-msgstr ""
+msgstr "CSS"
 
 msgid "Design and coded by hand"
 msgstr "Site web fait maison"
@@ -104,13 +104,13 @@ msgid ""
 msgstr ""
 
 msgid "Django"
-msgstr ""
+msgstr "Django"
 
 msgid "Django REST Framework"
-msgstr ""
+msgstr "Django REST Framework"
 
 msgid "Docopt"
-msgstr ""
+msgstr "Docopt"
 
 msgid "drawing"
 msgstr "dessin"
@@ -122,22 +122,22 @@ msgid "en français"
 msgstr "in english"
 
 msgid "Figma"
-msgstr ""
+msgstr "Figma"
 
 msgid "Fish Shell"
 msgstr "Shell Fish"
 
 msgid "FL Studio"
-msgstr ""
+msgstr "FL Studio"
 
 msgid "game"
 msgstr "jeu"
 
 msgid "GIMP"
-msgstr ""
+msgstr "GIMP"
 
 msgid "Go"
-msgstr ""
+msgstr "Go"
 
 msgid "graphism"
 msgstr "graphisme"
@@ -153,7 +153,7 @@ msgstr ""
 "tout ce qui est à la fois créatif et digital."
 
 msgid "HTML"
-msgstr ""
+msgstr "HTML"
 
 msgid "I also make electronic music."
 msgstr "Je crée aussi de la musique."
@@ -169,16 +169,16 @@ msgid "iconography"
 msgstr "icônes"
 
 msgid "illustration"
-msgstr ""
+msgstr "illustration"
 
 msgid "Illustrator"
-msgstr ""
+msgstr "Illustrator"
 
 msgid "InDesign"
-msgstr ""
+msgstr "InDesign"
 
 msgid "intro"
-msgstr ""
+msgstr "intro"
 
 msgid ""
 "J'ai appris à programmer dans différents langages informatiques: HTML, "
@@ -188,10 +188,10 @@ msgid ""
 msgstr ""
 
 msgid "JavaScript"
-msgstr ""
+msgstr "JavaScript"
 
 msgid "JSON"
-msgstr ""
+msgstr "JSON"
 
 msgid ""
 "L'anglais étant indispensable à la lecture de documentations, j'ai "
@@ -202,16 +202,16 @@ msgid ""
 msgstr ""
 
 msgid "language"
-msgstr ""
+msgstr "langage"
 
 msgid "Lark"
-msgstr ""
+msgstr "Lark"
 
 msgid "latest release"
 msgstr "dernière sortie"
 
 msgid "LaTeX"
-msgstr ""
+msgstr "LaTeX"
 
 msgid ""
 "Le langage mathématique m'intéresse tout autant: il m'arrive d'appréhender "
@@ -227,22 +227,22 @@ msgid "linguistique"
 msgstr ""
 
 msgid "LiveScript"
-msgstr ""
+msgstr "LiveScript"
 
 msgid "logo"
-msgstr ""
+msgstr "logo"
 
 msgid "Lua"
-msgstr ""
+msgstr "Lua"
 
 msgid "made with"
 msgstr "réalisé avec"
 
 msgid "ManimCE"
-msgstr ""
+msgstr "ManimCE"
 
 msgid "Markdown"
-msgstr ""
+msgstr "Markdown"
 
 msgid "math"
 msgstr "maths"
@@ -251,7 +251,7 @@ msgid "most recent one"
 msgstr "la plus récente"
 
 msgid "motion design"
-msgstr ""
+msgstr "motion design"
 
 msgid "music"
 msgstr "musique"
@@ -263,76 +263,76 @@ msgid "my music"
 msgstr "ma musique"
 
 msgid "NestJS"
-msgstr ""
+msgstr "NestJS"
 
 msgid "Nim"
-msgstr ""
+msgstr "Nim"
 
 msgid "numérique"
 msgstr ""
 
 msgid "Nuxt"
-msgstr ""
+msgstr "Nuxt"
 
 msgid "Oclif"
-msgstr ""
+msgstr "Oclif"
 
 msgid "open-source code"
 msgstr "code open-source"
 
 msgid "Photoshop"
-msgstr ""
+msgstr "Photoshop"
 
 msgid "PHP"
-msgstr ""
+msgstr "PHP"
 
 msgid "PlantUML"
-msgstr ""
+msgstr "PlantUML"
 
 msgid "poster"
 msgstr "affiche"
 
 msgid "PostGreSQL"
-msgstr ""
+msgstr "PostGreSQL"
 
 msgid "Premiere Pro"
-msgstr ""
+msgstr "Premiere Pro"
 
 msgid "program"
 msgstr "programme"
 
 msgid "Pug"
-msgstr ""
+msgstr "Pug"
 
 msgid "PyChemin"
-msgstr ""
+msgstr "PyChemin"
 
 msgid "Python"
-msgstr ""
+msgstr "Python"
 
 msgid "random thoughts"
 msgstr "pensées diverses"
 
 msgid "Ruby"
-msgstr ""
+msgstr "Ruby"
 
 msgid "Ruby On Rails"
-msgstr ""
+msgstr "Ruby On Rails"
 
 msgid "Rust"
-msgstr ""
+msgstr "Rust"
 
 msgid "Sapper"
-msgstr ""
+msgstr "Sapper"
 
 msgid "SASS"
-msgstr ""
+msgstr "SASS"
 
 msgid "school"
 msgstr "scolaire"
 
 msgid "science"
-msgstr ""
+msgstr "science"
 
 msgid "scientifique"
 msgstr ""
@@ -341,19 +341,19 @@ msgid "send a mail at"
 msgstr "envoyer un mail à"
 
 msgid "Shell"
-msgstr ""
+msgstr "Shell"
 
 msgid "site"
-msgstr ""
+msgstr "site"
 
 msgid "slide into my dms at"
 msgstr "contactez-moi par message privé à"
 
 msgid "Stylus"
-msgstr ""
+msgstr "Stylus"
 
 msgid "Svelte"
-msgstr ""
+msgstr "Svelte"
 
 msgid "thanks"
 msgstr "merci à"
@@ -369,7 +369,7 @@ msgid "These are my creations."
 msgstr "Voici mes créations."
 
 msgid "TOML"
-msgstr ""
+msgstr "TOML"
 
 msgid ""
 "Tout mes projets de programmation sont visibles par tous sur mon profil "
@@ -377,7 +377,7 @@ msgid ""
 msgstr ""
 
 msgid "TypeScript"
-msgstr ""
+msgstr "TypeScript"
 
 msgid "typography"
 msgstr "typographie"
@@ -386,25 +386,25 @@ msgid "visual identity"
 msgstr "identité visuelle"
 
 msgid "Vue"
-msgstr ""
+msgstr "Vue"
 
 msgid "web"
-msgstr ""
+msgstr "web"
 
 msgid "Webpack"
-msgstr ""
+msgstr "Webpack"
 
 msgid "works"
 msgstr "œuvres"
 
 msgid "YAML"
-msgstr ""
+msgstr "YAML"
 
 msgid "past releases"
 msgstr "autres sorties"
 
 msgid "Manim"
-msgstr ""
+msgstr "Manim"
 
 msgid "work in progress"
 msgstr ""
@@ -425,55 +425,55 @@ msgid "Unknown year"
 msgstr "Année inconnue"
 
 msgid "Assembly’s logo"
-msgstr "Logo d'Assembly"
+msgstr "logo d'Assembly"
 
 msgid "CSS’s logo"
-msgstr "Logo de CSS"
+msgstr "logo de CSS"
 
 msgid "Docopt’s logo"
-msgstr "Logo de Docopt"
+msgstr "logo de Docopt"
 
 msgid "Figma’s logo"
-msgstr "Logo de Figma"
+msgstr "logo de Figma"
 
 msgid "FL Studio’s logo"
-msgstr "Logo de FL Studio"
+msgstr "logo de FL Studio"
 
 msgid "HTML’s logo"
-msgstr "Logo de HTML"
+msgstr "logo de HTML"
 
 msgid "Illustrator’s logo"
-msgstr "Logo de Illustrator"
+msgstr "logo d'Illustrator"
 
 msgid "JavaScript’s logo"
-msgstr "Logo de JavaScript"
+msgstr "logo de JavaScript"
 
 msgid "LaTeX’s logo"
-msgstr "Logo de LaTeX"
+msgstr "logo de LaTeX"
 
 msgid "LiveScript’s logo"
-msgstr "Logo de LiveScript"
+msgstr "logo de LiveScript"
 
 msgid "Manim’s logo"
-msgstr "Logo de Manim"
+msgstr "logo de Manim"
 
 msgid "Photoshop’s logo"
-msgstr "Logo de Photoshop"
+msgstr "logo de Photoshop"
 
 msgid "Pug’s logo"
-msgstr "Logo de pug"
+msgstr "logo de Pug"
 
 msgid "Python’s logo"
-msgstr "Logo de Python"
+msgstr "logo de Python"
 
 msgid "Stylus’s logo"
-msgstr "Logo de Stylus"
+msgstr "logo de Stylus"
 
 msgid "Close"
 msgstr "Fermer"
 
 msgid "After Effects’s logo"
-msgstr "Logo d'After Effects"
+msgstr "logo d'After Effects"
 
 msgid "icons"
 msgstr "icônes"
@@ -534,3 +534,116 @@ msgstr "Cette page n'existe pas"
 
 msgid "Server error. I f*cked up somewhere."
 msgstr "Erreur serveur. J'ai foiré quelque part."
+
+msgstr "logo de Go"
+
+msgid "Svelte’s logo"
+msgstr "logo de Svelte"
+
+msgid "works by tag"
+msgstr "œuvres par catégories"
+
+msgid "asciidoc’s logo"
+msgstr "logo d'asciidoc"
+
+msgid "C’s logo"
+msgstr "logo de C"
+
+msgid "C#’s logo"
+msgstr "logo de C#"
+
+msgid "C++’s logo"
+msgstr "logo de C++"
+
+msgid "CoffeeScript’s logo"
+msgstr "logo de CoffeeScript"
+
+msgid "Django REST Framework’s logo"
+msgstr "logo de Django REST Framework"
+
+msgid "Django’s logo"
+msgstr "logo de Django"
+
+msgid "Fish Shell’s logo"
+msgstr "logo de Fish Shell"
+
+msgid "GIMP’s logo"
+msgstr "logo de GIMP"
+
+msgid "InDesign’s logo"
+msgstr "logo d'InDesign"
+
+msgid "JSON’s logo"
+msgstr "logo de JSON"
+
+msgid "Lark’s logo"
+msgstr "logo de Lark"
+
+msgid "Lua’s logo"
+msgstr "logo de Lua"
+
+msgid "Markdown’s logo"
+msgstr "logo de Markdown"
+
+msgid "NestJS’s logo"
+msgstr "logo de NestJS"
+
+msgid "Nim’s logo"
+msgstr "logo de Nim"
+
+msgid "Nuxt’s logo"
+msgstr "logo de Nuxt"
+
+msgid "Oclif’s logo"
+msgstr "logo d'Oclif"
+
+msgid "PHP’s logo"
+msgstr "logo de PHP"
+
+msgid "PlantUML’s logo"
+msgstr "logo de PlantUML"
+
+msgid "PostGreSQL’s logo"
+msgstr "logo de PostGreSQL"
+
+msgid "Premiere Pro’s logo"
+msgstr "logo de Premiere Pro"
+
+msgid "PyChemin’s logo"
+msgstr "logo de PyChemin"
+
+msgid "Ruby On Rails’s logo"
+msgstr "logo de Ruby On Rails"
+
+msgid "Ruby’s logo"
+msgstr "logo de Ruby"
+
+msgid "Rust’s logo"
+msgstr "logo de Rust"
+
+msgid "Sapper’s logo"
+msgstr "logo de Sapper"
+
+msgid "SASS’s logo"
+msgstr "logo de SASS"
+
+msgid "Shell’s logo"
+msgstr "logo de Shell"
+
+msgid "technologies i use"
+msgstr "les technologies que j'utilise"
+
+msgid "TOML’s logo"
+msgstr "logo de TOML"
+
+msgid "TypeScript’s logo"
+msgstr "logo de TypeScript"
+
+msgid "Vue’s logo"
+msgstr "logo de Vue"
+
+msgid "Webpack’s logo"
+msgstr "logo de Webpack"
+
+msgid "YAML’s logo"
+msgstr "logo de YAML"
