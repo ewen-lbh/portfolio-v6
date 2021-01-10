@@ -1,12 +1,30 @@
 package main
 
+import "strings"
+
+// Tag represents a tag
 type Tag struct {
-	URLName     string
-	DisplayName string
+	URLName     string   // Which name to use as an identifier in the URL
+	DisplayName string   // Which name to display to the user
+	Aliases     []string // Works with a tag name in this array will be considered as tagged by the Tag
 }
 
+// TODO: Define "Plural" and "Singular" in KnownTags and figure out URLName from "Plural" by slugifying it.
+
+// PluralDisplayName computes the plural display name. This is just the URLName without dashes.
+func (t *Tag) PluralDisplayName() string {
+	return strings.ReplaceAll(t.URLName, "-", " ")
+}
+
+// ReferredToBy returns whether the given name refers to the tag
+func (t *Tag) ReferredToBy(name string) bool {
+	return StringsLooselyMatch(name, t.URLName, t.DisplayName) || StringsLooselyMatch(name, t.Aliases...)
+}
+
+// KnownTags defines which tags are valid. Each Tag will get its correspoding page generated from _tag.pug.
 var KnownTags = [...]Tag{
 	{
+		// TODO: deprecate
 		DisplayName: "school",
 		URLName:     "school",
 	},
@@ -19,6 +37,7 @@ var KnownTags = [...]Tag{
 		URLName:     "cards",
 	},
 	{
+		// TODO: deprecate
 		DisplayName: "cover art",
 		URLName:     "cover-arts",
 	},
@@ -81,18 +100,11 @@ var KnownTags = [...]Tag{
 	{
 		DisplayName: "visual identity",
 		URLName:     "visual-identities",
-	},
-	{
-		DisplayName: "banner",
-		URLName:     "banners",
+		Aliases:     []string{"logo", "logos", "banner", "banners"},
 	},
 	{
 		DisplayName: "illustration",
 		URLName:     "illustrations",
-	},
-	{
-		DisplayName: "logo",
-		URLName:     "logos",
 	},
 	{
 		DisplayName: "typography",
@@ -103,8 +115,8 @@ var KnownTags = [...]Tag{
 		URLName:     "drawings",
 	},
 	{
-		DisplayName: "iconography",
-		URLName:     "iconography",
+		DisplayName: "icons",
+		URLName:     "icons",
 	},
 	{
 		DisplayName: "site",
@@ -117,5 +129,6 @@ var KnownTags = [...]Tag{
 	{
 		DisplayName: "math",
 		URLName:     "math",
+		Aliases:     []string{"maths", "mathematics"},
 	},
 }

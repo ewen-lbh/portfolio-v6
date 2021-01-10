@@ -474,3 +474,6 @@ msgstr "Fermer"
 
 msgid "After Effects’s logo"
 msgstr "Logo d'After Effects"
+
+msgid "icons"
+msgstr "icônes"

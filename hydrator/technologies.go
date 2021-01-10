@@ -10,6 +10,11 @@ type Technology struct {
 	LearnMoreURL string   // The technology's website
 }
 
+// ReferredToBy returns whether the given name refers to the tech
+func (t *Technology) ReferredToBy(name string) bool {
+	return StringsLooselyMatch(name, t.URLName, t.DisplayName) || StringsLooselyMatch(name, t.Aliases...)
+}
+
 var KnownTechnologies = [...]Technology{
 	{
 		URLName:      "aftereffects",

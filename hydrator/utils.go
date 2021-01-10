@@ -81,7 +81,12 @@ func WriteToFile(filename string, content []byte) error {
 	return err
 }
 
-// StringsLooselyMatch checks if s1 == s2, but case-insensitively.
-func StringsLooselyMatch(s1 string, s2 string) bool {
-	return strings.ToLower(s1) == strings.ToLower(s2)
+// StringsLooselyMatch checks if s1 is equal to any of sn, but case-insensitively.
+func StringsLooselyMatch(s1 string, sn ...string) bool {
+	for _, s2 := range sn {
+		if strings.ToLower(s1) == strings.ToLower(s2) {
+			return true
+		}
+	}
+	return false
 }
