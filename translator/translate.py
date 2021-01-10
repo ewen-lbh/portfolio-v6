@@ -4,7 +4,7 @@ from pathlib import Path
 import bs4
 from polib import mofile
 from typing import Any
-from termcolor import colored
+from termcolor import colored, cprint
 import sys
 
 def verbose() -> bool:
