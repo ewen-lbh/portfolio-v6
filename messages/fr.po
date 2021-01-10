@@ -1,7 +1,6 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: easygettext\n"
@@ -13,11 +12,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Language: fr\n"
 "X-Generator: Poedit 2.4.1\n"
-"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Generated-By: easygettext\n"
-"Project-Id-Version: \n"
 
 msgid "about"
 msgstr "à propos"
@@ -528,3 +522,15 @@ msgstr "sites"
 
 msgid "visual identities"
 msgstr "identités visuelles"
+
+msgid "Go’s logo"
+msgstr ""
+
+msgid "Svelte’s logo"
+msgstr ""
+
+msgid "This page does not exist (anymore)"
+msgstr "Cette page n'existe pas"
+
+msgid "Server error. I f*cked up somewhere."
+msgstr "Erreur serveur. J'ai foiré quelque part."
