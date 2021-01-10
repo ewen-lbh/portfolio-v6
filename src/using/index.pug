@@ -1,0 +1,25 @@
+extends .layout
+
+{{ $works := .Works }}
+
+block content
+	h1(translate) technologies i use
+
+	ul.made-with__list.made-with__list--fullwidth
+		{{ range .KnownTechnologies }}
+		{{ if len ($works | madeWith .) }}
+		li.made-with__item
+			a(href="/using/{{ .URLName }}")
+				img.made-with__item__logo(
+					src='{{ asset (printf "logos/%s.svg" .URLName) }}'
+					alt="[# '{{ .DisplayName }}’s logo' | translate #]"
+				)
+				{{ if .Author }}
+				span.made-with__item__subline {{ .Author }}
+				{{ end }}
+				span.made-with__item__name(translate) {{ .DisplayName }}
+			{{ if .LearnMoreURL }}
+			a.made-with__item__learn-more(href="{{ .LearnMoreURL }}" translate) Learn more
+			{{ end }}
+		{{ end }}
+		{{ end }}

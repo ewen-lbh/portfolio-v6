@@ -29,6 +29,7 @@ func GetTemplateFuncMap() template.FuncMap {
 		"withTag":       withTag,
 		"withTech":      withTech,
 		"withWIPStatus": withWIPStatus,
+		"excluding":     excluding,
 		// Nice, cosy aliases for filters
 		"withCreatedYear": withCreatedYear,
 		"tagged":          withTag,
@@ -50,6 +51,9 @@ func GetTemplateFuncMap() template.FuncMap {
 		"lookupTech": lookupTech,
 		// debugging
 		"log": log,
+		// various
+		"makeWS": makeWorkSlice,
+		"appendWS": appendWorkSlice,
 	}
 }
 
@@ -214,6 +218,23 @@ func withCreatedYear(createdYear int, ws []WorkOneLang) []WorkOneLang {
 	return filtered
 }
 
+// excluding returns the given works excluding those given in excludelist, comparing IDs.
+func excluding(excludelist []WorkOneLang, ws []WorkOneLang) []WorkOneLang {
+	filtered := make([]WorkOneLang, len(ws))
+	for _, work := range ws {
+		excluded := false
+		for _, excludedWork := range excludelist {
+			if work.ID == excludedWork.ID {
+				excluded = true
+			}
+		}
+		if !excluded {
+			filtered = append(filtered, work)
+		}
+	}
+	return filtered
+}
+
 func latest(ws []WorkOneLang) WorkOneLang {
 	if len(ws) == 0 {
 		panic("cannot get the latest element of an empty array")
@@ -240,6 +261,7 @@ func log(o interface{}) string {
 
 // asset returns the full URL for a given asset (ie a website's static asset like an icon)
 func asset(assetPath string) string {
+	assetPath = strings.ReplaceAll(assetPath, "#", "sharp")
 	var urlScheme string
 	if !BuildingForProduction() {
 		urlScheme = "file://" + os.Getenv("LOCAL_PROJECTS_DIR") + "portfolio/assets/%s"
@@ -251,6 +273,7 @@ func asset(assetPath string) string {
 
 // media returns the full URL for a given media (ie a work's media URL)
 func media(mediaPath string) string {
+	mediaPath = strings.ReplaceAll(mediaPath, "#", "sharp")
 	var urlScheme string
 	if !BuildingForProduction() {
 		urlScheme = "file://" + os.Getenv("LOCAL_PROJECTS_DIR") + "/portfolio/database/%s"
@@ -281,4 +304,14 @@ func lookupTech(name string) Technology {
 		}
 	}
 	panic("cannot find tech with display name " + name + ", look at /home/ewen/projects/portfolio/hydrator/technologies.go")
+}
+
+func makeWorkSlice() []WorkOneLang {
+	s := make([]WorkOneLang, 0)
+	return s
+}
+
+func appendWorkSlice(toAppend WorkOneLang, ws []WorkOneLang) []WorkOneLang {
+	new := append(ws, toAppend)
+	return new
 }
