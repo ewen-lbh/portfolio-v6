@@ -36,7 +36,7 @@
 		"scope": "jade,pug",
 		"prefix": "mrange",
 		"body": [
-			"{{ range $$${1:key}, $$${2:value} := $3 }}",
+			"{{ range $${1:key}, $${2:value} := $3 }}",
 			"$0",
 			"{{ end }}"
 		]
@@ -45,7 +45,7 @@
 		"scope": "jade,pug",
 		"prefix": "srange",
 		"body": [
-			"{{ range $$${1:value} := $2 }}",
+			"{{ range $${1:value} := $2 }}",
 			"$0",
 			"{{ end }}"
 		]
