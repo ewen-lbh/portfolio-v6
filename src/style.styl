@@ -228,6 +228,9 @@ nav
 		justify-content center
 		padding-left 0
 
+	&.inline ul li
+		display inline-block
+
 	ul li
 		display block
 		padding 1rem
@@ -239,7 +242,7 @@ nav
 			weight-link()
 
 @media (min-width 600px)
-	nav
+	nav:not(.inline)
 		position fixed
 		z-index 100
 		background-color secondary
@@ -251,12 +254,12 @@ nav
 	main
 		padding-top 1rem // Putting zero creates a mysterious space above <body>
 
-	nav
+	nav:not(.inline)
 		right 0
 		width 10rem
 		background-color transparent
 
-	nav ul
+	nav:not(.inline) ul
 		flex-direction column
 		align-items flex-end
 		margin 0
@@ -264,11 +267,11 @@ nav
 		// vertical-align: top doesn't seem to fix the problem
 		padding 0.5em 1rem 0 0
 
-	nav ul li
+	nav:not(.inline) ul li
 		padding 0
 		padding-bottom 0.2em
 
-	nav ul li a
+	nav:not(.inline) ul li a
 		font-size 1.3em
 
 footer
@@ -586,6 +589,14 @@ p.intro
 	a span
 		underline-link()
 		margin-left 0.5em
+
+.fullheight
+	height 100vh
+	display flex
+	justify-content center
+	align-items center
+	text-align center
+	flex-direction column
 
 .tags-index
 	padding 0

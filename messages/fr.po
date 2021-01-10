@@ -523,8 +523,11 @@ msgstr "sites"
 msgid "visual identities"
 msgstr "identités visuelles"
 
-msgid "Go’s logo"
-msgstr "logo de Go"
+msgid "This page does not exist (anymore)"
+msgstr "Cette page n'existe pas"
+
+msgid "Server error. I f*cked up somewhere."
+msgstr "Erreur serveur. J'ai foiré quelque part."
 
 msgid "Svelte’s logo"
 msgstr "logo de Svelte"
@@ -636,3 +639,6 @@ msgstr "logo de Webpack"
 
 msgid "YAML’s logo"
 msgstr "logo de YAML"
+
+msgid "Go’s logo"
+msgstr ""
