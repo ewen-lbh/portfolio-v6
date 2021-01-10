@@ -165,10 +165,10 @@ func getYears(ws []WorkOneLang) []int {
 func withTag(tag Tag, ws []WorkOneLang) []WorkOneLang {
 	filtered := make([]WorkOneLang, 0)
 	for _, work := range ws {
-		_, notFoundErrD := FindInArrayLax(work.Metadata.Tags, tag.DisplayName)
-		_, notFoundErrU := FindInArrayLax(work.Metadata.Tags, tag.URLName)
-		if notFoundErrD == nil || notFoundErrU == nil {
-			filtered = append(filtered, work)
+		for _, tagName := range work.Metadata.Tags {
+			if tag.ReferredToBy(tagName) {
+				filtered = append(filtered, work)
+			}
 		}
 	}
 	if len(filtered) == 0 && IsVerbose() {
@@ -185,9 +185,10 @@ func withTag(tag Tag, ws []WorkOneLang) []WorkOneLang {
 func withTech(tech Technology, ws []WorkOneLang) []WorkOneLang {
 	filtered := make([]WorkOneLang, 0)
 	for _, work := range ws {
-		_, findError := FindInArrayLax(work.Metadata.MadeWith, tech.URLName)
-		if findError == nil {
-			filtered = append(filtered, work)
+		for _, techName := range work.Metadata.MadeWith {
+			if tech.ReferredToBy(techName) {
+				filtered = append(filtered, work)
+			}
 		}
 	}
 	return filtered
@@ -265,7 +266,7 @@ func media(mediaPath string) string {
 // lookupTag returns the tag with DisplayName name
 func lookupTag(name string) Tag {
 	for _, tag := range KnownTags {
-		if StringsLooselyMatch(tag.DisplayName, name) {
+		if tag.ReferredToBy(name) {
 			return tag
 		}
 	}
@@ -275,7 +276,7 @@ func lookupTag(name string) Tag {
 // lookupTech returns the tech with DisplayName name
 func lookupTech(name string) Technology {
 	for _, tech := range KnownTechnologies {
-		if StringsLooselyMatch(tech.DisplayName, name) {
+		if tech.ReferredToBy(name) {
 			return tech
 		}
 	}
