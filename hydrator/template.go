@@ -176,7 +176,7 @@ func withTag(tag Tag, ws []WorkOneLang) []WorkOneLang {
 		for _, work := range ws {
 			wsIDs = append(wsIDs, work.ID)
 		}
-		fmt.Printf("WARNING: No works from %v have the %s tag\n", wsIDs, tag.URLName)
+		fmt.Printf("WARNING: No works from %v have the %s tag\n", wsIDs, tag.URLName())
 	}
 	return filtered
 }
@@ -263,7 +263,7 @@ func media(mediaPath string) string {
 	return fmt.Sprintf(urlScheme, mediaPath)
 }
 
-// lookupTag returns the tag with DisplayName name
+// lookupTag returns the tag referred to by name
 func lookupTag(name string) Tag {
 	for _, tag := range KnownTags {
 		if tag.ReferredToBy(name) {
@@ -273,7 +273,7 @@ func lookupTag(name string) Tag {
 	panic("cannot find tag with display name " + name + ", look at /home/ewen/projects/portfolio/hydrator/tags.go")
 }
 
-// lookupTech returns the tech with DisplayName name
+// lookupTech returns the tech referred to by name
 func lookupTech(name string) Technology {
 	for _, tech := range KnownTechnologies {
 		if tech.ReferredToBy(name) {

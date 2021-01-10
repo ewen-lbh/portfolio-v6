@@ -7,7 +7,7 @@ block content
 	ul.tags
 		{{ range .CurrentWork.Metadata.Tags }}
 		{{ $tag := . | lookupTag }}
-		li: a(href="/{{ $tag.URLName }}" translate) {{ $tag.DisplayName }}
+		li: a(href="/{{ $tag.URLName }}" translate) {{ $tag.Singular }}
 		{{ end }}
 
 	{{ if .CurrentWork.IsWIP }}

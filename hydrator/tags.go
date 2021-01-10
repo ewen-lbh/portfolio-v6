@@ -1,134 +1,134 @@
 package main
 
-import "strings"
+import (
+	"github.com/metal3d/go-slugify"
+)
 
 // Tag represents a tag
 type Tag struct {
-	URLName     string   // Which name to use as an identifier in the URL
-	DisplayName string   // Which name to display to the user
-	Aliases     []string // Works with a tag name in this array will be considered as tagged by the Tag
+	Singular string   // Plural form display name
+	Plural   string   // Singular form display name
+	Aliases  []string // Works with a tag name in this array will be considered as tagged by the Tag
 }
 
-// TODO: Define "Plural" and "Singular" in KnownTags and figure out URLName from "Plural" by slugifying it.
-
-// PluralDisplayName computes the plural display name. This is just the URLName without dashes.
-func (t *Tag) PluralDisplayName() string {
-	return strings.ReplaceAll(t.URLName, "-", " ")
+// URLName computes the identifier to use in the tag's page's URL
+func (t Tag) URLName() string {
+	return slugify.Marshal(t.Plural)
 }
 
 // ReferredToBy returns whether the given name refers to the tag
 func (t *Tag) ReferredToBy(name string) bool {
-	return StringsLooselyMatch(name, t.URLName, t.DisplayName) || StringsLooselyMatch(name, t.Aliases...)
+	return StringsLooselyMatch(name, t.Plural, t.Singular, t.URLName()) || StringsLooselyMatch(name, t.Aliases...)
 }
 
 // KnownTags defines which tags are valid. Each Tag will get its correspoding page generated from _tag.pug.
 var KnownTags = [...]Tag{
 	{
 		// TODO: deprecate
-		DisplayName: "school",
-		URLName:     "school",
+		Singular: "school",
+		Plural:   "school",
 	},
 	{
-		DisplayName: "science",
-		URLName:     "science",
+		Singular: "science",
+		Plural:   "science",
 	},
 	{
-		DisplayName: "card",
-		URLName:     "cards",
+		Singular: "card",
+		Plural:   "cards",
 	},
 	{
 		// TODO: deprecate
-		DisplayName: "cover art",
-		URLName:     "cover-arts",
+		Singular: "cover art",
+		Plural:   "cover arts",
 	},
 	{
-		DisplayName: "game",
-		URLName:     "games",
+		Singular: "game",
+		Plural:   "games",
 	},
 	{
-		DisplayName: "graphism",
-		URLName:     "graphism",
+		Singular: "graphism",
+		Plural:   "graphism",
 	},
 	{
-		DisplayName: "poster",
-		URLName:     "posters",
+		Singular: "poster",
+		Plural:   "posters",
 	},
 	{
-		DisplayName: "automation",
-		URLName:     "automation",
+		Singular: "automation",
+		Plural:   "automation",
 	},
 	{
-		DisplayName: "web",
-		URLName:     "web",
+		Singular: "web",
+		Plural:   "web",
 	},
 	{
-		DisplayName: "intro",
-		URLName:     "intros",
+		Singular: "intro",
+		Plural:   "intros",
 	},
 	{
-		DisplayName: "music",
-		URLName:     "music",
+		Singular: "music",
+		Plural:   "music",
 	},
 	{
-		DisplayName: "app",
-		URLName:     "apps",
+		Singular: "app",
+		Plural:   "apps",
 	},
 	{
-		DisplayName: "book",
-		URLName:     "books",
+		Singular: "book",
+		Plural:   "books",
 	},
 	{
-		DisplayName: "api",
-		URLName:     "APIs",
+		Singular: "api",
+		Plural:   "APIs",
 	},
 	{
-		DisplayName: "program",
-		URLName:     "programs",
+		Singular: "program",
+		Plural:   "programs",
 	},
 	{
-		DisplayName: "cli",
-		URLName:     "CLIs",
+		Singular: "cli",
+		Plural:   "CLIs",
 	},
 	{
-		DisplayName: "motion design",
-		URLName:     "motion-design",
+		Singular: "motion design",
+		Plural:   "motion design",
 	},
 	{
-		DisplayName: "compositing",
-		URLName:     "compositing",
+		Singular: "compositing",
+		Plural:   "compositing",
 	},
 	{
-		DisplayName: "visual identity",
-		URLName:     "visual-identities",
-		Aliases:     []string{"logo", "logos", "banner", "banners"},
+		Singular: "visual identity",
+		Plural:   "visual identities",
+		Aliases:  []string{"logo", "logos", "banner", "banners"},
 	},
 	{
-		DisplayName: "illustration",
-		URLName:     "illustrations",
+		Singular: "illustration",
+		Plural:   "illustrations",
 	},
 	{
-		DisplayName: "typography",
-		URLName:     "typography",
+		Singular: "typography",
+		Plural:   "typography",
 	},
 	{
-		DisplayName: "drawing",
-		URLName:     "drawings",
+		Singular: "drawing",
+		Plural:   "drawings",
 	},
 	{
-		DisplayName: "icons",
-		URLName:     "icons",
+		Singular: "icons",
+		Plural:   "icons",
 	},
 	{
-		DisplayName: "site",
-		URLName:     "sites",
+		Singular: "site",
+		Plural:   "sites",
 	},
 	{
-		DisplayName: "language",
-		URLName:     "languages",
+		Singular: "language",
+		Plural:   "languages",
 	},
 	{
-		DisplayName: "math",
-		URLName:     "math",
-		Aliases:     []string{"maths", "mathematics"},
+		Singular: "math",
+		Plural:   "math",
+		Aliases:  []string{"maths", "mathematics"},
 	},
 }

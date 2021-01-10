@@ -13,6 +13,7 @@ require (
 	github.com/jaytaylor/html2text v0.0.0-20200412013138-3577fbdbcff7
 	github.com/joho/godotenv v1.3.0
 	github.com/json-iterator/go v1.1.10
+	github.com/metal3d/go-slugify v0.0.0-20160607203414-7ac2014b2f23
 	github.com/mitchellh/copystructure v1.0.0 // indirect
 	github.com/olekukonko/tablewriter v0.0.4 // indirect
 	github.com/relvacode/iso8601 v1.1.0

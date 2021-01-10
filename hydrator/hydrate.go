@@ -74,7 +74,7 @@ func main() {
 					}
 				} else if templateName == "_tag.pug" {
 					for _, tag := range KnownTags {
-						LogHydrating(templateName, tag.URLName)
+						LogHydrating(templateName, tag.URLName())
 						HydrateDynamicFileWithLang(db, lang, templateName, templateContent, CurrentlyHydrated{tag: tag})
 					}
 				} else if templateName == ".gallery.pug" {
@@ -110,8 +110,8 @@ func HydrateDynamicFileWithLang(db Database, language string, templateName strin
 	var pathIdentifier string
 	if currentlyHydrated.work.ID != "" {
 		pathIdentifier = currentlyHydrated.work.ID
-	} else if currentlyHydrated.tag.URLName != "" {
-		pathIdentifier = currentlyHydrated.tag.URLName
+	} else if currentlyHydrated.tag.URLName() != "" {
+		pathIdentifier = currentlyHydrated.tag.URLName()
 	} else {
 		pathIdentifier = "using/" + currentlyHydrated.tech.URLName
 	}

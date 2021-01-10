@@ -1,6 +1,7 @@
 #, fuzzy
 msgid ""
 msgstr ""
+"#-#-#-#-#  fr.old.po  #-#-#-#-#\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: easygettext\n"
@@ -12,6 +13,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Language: fr\n"
 "X-Generator: Poedit 2.4.1\n"
+"#-#-#-#-#  fr.new.po  #-#-#-#-#\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: easygettext\n"
+"Project-Id-Version: \n"
 
 msgid "about"
 msgstr "à propos"
@@ -477,3 +483,48 @@ msgstr "Logo d'After Effects"
 
 msgid "icons"
 msgstr "icônes"
+
+msgid "APIs"
+msgstr "APIs"
+
+msgid "apps"
+msgstr "applications"
+
+msgid "books"
+msgstr "livres"
+
+msgid "cards"
+msgstr "cartes"
+
+msgid "CLIs"
+msgstr "CLIs"
+
+msgid "cover arts"
+msgstr "pochettes"
+
+msgid "drawings"
+msgstr "dessins"
+
+msgid "games"
+msgstr "jeux"
+
+msgid "illustrations"
+msgstr "illustrations"
+
+msgid "intros"
+msgstr "intros"
+
+msgid "languages"
+msgstr "langages"
+
+msgid "posters"
+msgstr "affiches"
+
+msgid "programs"
+msgstr "programmes"
+
+msgid "sites"
+msgstr "sites"
+
+msgid "visual identities"
+msgstr "identités visuelles"

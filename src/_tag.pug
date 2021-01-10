@@ -1,6 +1,6 @@
 extends .layout
 
 block content
-	h1(translate) {{ .CurrentTag.DisplayName }}
+	h1(translate) {{ .CurrentTag.Plural }}
 
 	{{ .Works | tagged .CurrentTag | intoGallery (printf "tag-%s" .CurrentTag.URLName) | tindent 1 }}
