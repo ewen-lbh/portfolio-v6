@@ -38,3 +38,11 @@ block content
 		h2(translate) work in progress
 
 		{{ .Works | unfinished | intoGallery "" | tindent 2 }}
+
+	section#indexes-links
+
+		h2(translate translate-context="On homepage, as a section header for indexes") browse works by...
+
+		ul.big-links
+			li: a(href="/tags" translate) tags
+			li: a(href="/using" translate translate-context="Link to /using on homepage") technologies used
