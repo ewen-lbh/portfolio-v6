@@ -156,10 +156,6 @@ section.contents
 	padding 0 1rem
 	max-width 1000px
 
-	img
-		width 100%
-		object-fit contain
-
 	.row[data-columns='1']
 		@media (min-width 1000px)
 			max-height 85vh
@@ -177,6 +173,14 @@ section.contents
 
 	.row > p
 		font-size 1.15rem
+
+	.row > figure
+		overflow hidden
+
+	.row > figure > *
+		height 100%
+		width 100%
+		object-fit contain
 
 .made-with
 	padding 5rem 0
