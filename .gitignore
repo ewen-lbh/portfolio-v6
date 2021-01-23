@@ -184,3 +184,6 @@ database/
 assets/style.css.map
 assets/style.css
 assets/ui.js
+
+pkg/
+gopls
