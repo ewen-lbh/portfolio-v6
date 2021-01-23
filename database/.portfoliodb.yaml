@@ -1,0 +1,13 @@
+replace media sources:
+  - replace: /mnt/d/projects/portfolio/database/
+    with: ''
+  - replace: /home/ewen/projects/portfolio/database/
+    with: ''
+
+extract colors:
+  enabled: yes
+
+make thumbnails:
+  enabled: yes
+  sizes: [20, 200, 500]
+  file name template: <parent>/<media id>@<size>.<extension>
