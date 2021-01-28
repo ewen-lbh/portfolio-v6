@@ -1,0 +1,16 @@
+extends .layout
+
+//- WARNING: This file has _no_ access to any Go templating whatsoever.
+//- It just replaces every occurence of {{ ID }} with the aliased work's ID.
+
+block append head
+	title ~&gt; {{ ID }}
+
+block content
+	// TODO: Server-side redirect instead, this is ugly af.
+	h1 #[i18n Redirecting you to] {{ ID }}...
+	p(translate) If you aren't redirected, click on this big button:
+	a.manual-redirection-button(href="/{{ ID }}" translate) redirect me
+
+	script.
+		window.location.replace("/{{ ID }}")

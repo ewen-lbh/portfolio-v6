@@ -40,6 +40,7 @@ func main() {
 	}
 	VerboseLog("------")
 	MakeDirs([]string{"fr", "en"})
+	workAliases := make(map[string]string, 0) // Maps every work alias to the work ID it should resolve to.
 	for _, lang := range []string{"fr", "en"} {
 		VerboseLog("[hydrator]     language: " + lang)
 		for _, file := range files {
@@ -76,19 +77,25 @@ func main() {
 					panic(err)
 				}
 				templateName := file.Name()
-				if templateName == "_work.pug" {
+				switch templateName {
+				case "_work.pug":
+
 					for _, work := range GetOneLang(lang, db.Works...) {
+						for _, alias := range work.Metadata.Aliases {
+							workAliases[alias] = work.ID
+						}
 						LogHydrating(templateName, work.ID)
 						HydrateDynamicFileWithLang(db, lang, templateName, templateContent, CurrentlyHydrated{work: work})
 					}
-				} else if templateName == "_tag.pug" {
+				case "_tag.pug":
 					for _, tag := range KnownTags {
 						LogHydrating(templateName, tag.URLName())
 						HydrateDynamicFileWithLang(db, lang, templateName, templateContent, CurrentlyHydrated{tag: tag})
 					}
-				} else if templateName == ".gallery.pug" {
+				case ".gallery.pug":
+				case "_work-alias.pug":
 					continue
-				} else {
+				default:
 					LogHydrating(templateName, "")
 					replaced, err := ExecuteTemplate(db, lang, file.Name(), templateContent, CurrentlyHydrated{})
 					if err != nil {
@@ -99,6 +106,25 @@ func main() {
 
 			}
 		}
+	}
+	workAliasTemplate, err := ReadFile("../src/_work-alias.pug")
+	if err == nil {
+		for _, lang := range []string{"fr", "en"} {
+			for workAlias, actualWork := range workAliases {
+				targetPath := "../artifacts/phase_1/"+lang+"/"+workAlias+".pug"
+				targetContent := strings.ReplaceAll(string(workAliasTemplate), "{{ ID }}", actualWork)
+				file, err := os.Create(targetPath)
+				if err != nil {
+					panic(err)
+				}
+				_, err = file.WriteString(targetContent)
+				if err != nil {
+					panic(err)
+				}
+			}
+		}
+	} else {
+		VerboseLog("=== WARNING: Could not load ../src/_work-alias.pug, not creating work aliases ===")
 	}
 }
 
