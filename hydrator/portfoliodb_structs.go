@@ -43,6 +43,7 @@ type WorkMetadata struct {
 	PageBackground string `json:"page background"`
 	Title          string
 	WIP            bool `json:"wip"`
+	Aliases        []string
 }
 
 // Work represents a complete work, with analyzed mediae
