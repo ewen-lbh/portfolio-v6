@@ -109,9 +109,9 @@ strikeblink-link()
 
 	&:hover
 		animation blink 0.5s
+		animation-timing-function step-start
 		animation-delay 0.25s - 0.125s
 		animation-iteration-count 1
-		animation-timing-function step-start
 
 ul.tags
 	display flex
@@ -178,8 +178,8 @@ section.contents
 		overflow hidden
 
 	.row > figure > *
-		height 100%
 		width 100%
+		height 100%
 		object-fit contain
 
 .made-with
@@ -369,6 +369,10 @@ footer
 	// border-radius 0.5em
 	width 40rem
 	height 20rem
+
+	@media (max-width 45rem)
+		width auto
+
 	background-color secondary
 	background-position center
 	background-size cover
