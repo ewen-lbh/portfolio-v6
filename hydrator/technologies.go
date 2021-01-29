@@ -71,7 +71,7 @@ var KnownTechnologies = [...]Technology{
 	{
 		URLName:      "docopt",
 		DisplayName:  "Docopt",
-		LearnMoreURL: "https://docopt.org",
+		LearnMoreURL: "https://github.com/docopt",
 	},
 	{
 		URLName:      "figma",
