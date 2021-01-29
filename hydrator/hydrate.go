@@ -137,8 +137,18 @@ func BuildingForProduction() bool {
 }
 
 func ExecuteTemplate(db Database, language string, templateName string, templateContent []byte, currentlyHydrated CurrentlyHydrated) (string, error) {
+	var currentlyHydratedStuff string
+	if currentlyHydrated.tag.Singular != "" {
+		currentlyHydratedStuff = "<" + currentlyHydrated.tag.Singular + ">"
+	} else if currentlyHydrated.work.ID != "" {
+		currentlyHydratedStuff = "<" + currentlyHydrated.work.ID + ">"
+	} else if currentlyHydrated.tech.URLName != "" {
+		currentlyHydratedStuff = "<" + currentlyHydrated.tech.URLName + ">"
+	} else {
+		currentlyHydratedStuff = ""
+	}
 	tmpl := template.Must(
-		template.New(templateName).Funcs(GetTemplateFuncMap()).Funcs(sprig.TxtFuncMap()).Funcs(template.FuncMap{
+		template.New(templateName + currentlyHydratedStuff).Funcs(GetTemplateFuncMap()).Funcs(sprig.TxtFuncMap()).Funcs(template.FuncMap{
 			"tindent":  IndentWithTabs,
 			"tnindent": IndentWithTabsNewline,
 		}).Parse(string(templateContent)))

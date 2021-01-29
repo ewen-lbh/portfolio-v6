@@ -52,7 +52,7 @@ func GetTemplateFuncMap() template.FuncMap {
 		// debugging
 		"log": log,
 		// various
-		"makeWS": makeWorkSlice,
+		"makeWS":   makeWorkSlice,
 		"appendWS": appendWorkSlice,
 	}
 }
