@@ -19,6 +19,26 @@ block content
 
 		{{ .CurrentWork | intoLayout | tnindent 2 }}
 
+	{{ if (len .CurrentWork.Footnotes) }}
+	section.footnotes
+		h2.footnotes__title(translate) footnotes
+		dl.footnotes__list
+			{{ range .CurrentWork.Footnotes }}
+			dt(id="fn:{{ .Name }}")
+				a(href="#fn:{{ .Name }}") {{ .Name }}
+			dd
+				p {{ .Content }}
+				a.footnotes__list__item__reference-link(href="#fnref:{{ .Name }}" translate)
+					| ↖ Back to the text
+				//- TODO: handle multiple references (needs change in portfoliodb to add footnotes[].references)
+				//- { if ge (len .References) 2 }
+				//- ol.footnotes__list__item__references
+				//- 	{ range .References }
+				//- 	li: a(href="#fnref:{ . }") ↗ { . }
+				//- 	{ end }
+				//- { end }
+			{{ end }}
+	{{ end }}
 
 	{{ if (len .CurrentWork.Metadata.MadeWith) }}
 	section.made-with
