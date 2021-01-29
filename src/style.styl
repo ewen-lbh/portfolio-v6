@@ -272,6 +272,33 @@ section.contents
 			.made-with__item__logo
 				transform scale(1)
 
+		&:hover
+			.made-with__item__links li a:not(:hover)
+				opacity 0.25
+
+	&__item__links
+		margin-top .125em
+		padding 0
+		display flex
+		justify-content center
+		font-size 2em
+		align-items center
+
+		li
+			list-style none
+
+		li a
+			transition all 0.25s ease
+			@media (pointer: fine)
+				opacity 0
+
+		li a:hover
+			opacity 1
+			transform scale(1.25)
+
+		li:first-child
+			margin-right 1.25em
+
 nav
 	width 100%
 

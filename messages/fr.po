@@ -659,3 +659,6 @@ msgstr "notes de bas de page"
 
 msgid "↖ Back to the text"
 msgstr "↖ Retour au texte"
+
+msgid "See all works made with this technology"
+msgstr "Voir toutes les œuvres utilisant cette technologie"

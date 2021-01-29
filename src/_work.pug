@@ -48,7 +48,7 @@ block content
 			{{ range .CurrentWork.Metadata.MadeWith }}
 			{{ $tech := . | lookupTech }}
 			li.made-with__item
-				a(href="/using/{{ $tech.URLName }}")
+				a(href="/using/{{ $tech.URLName }}" title="[# 'See all works made with this technology' | translate #]")
 					img.made-with__item__logo(
 						src='{{ asset (printf "logos/%s.svg" $tech.URLName) }}'
 						alt="[# '{{ $tech.DisplayName }}’s logo' | translate #]"
@@ -58,7 +58,15 @@ block content
 					{{ end }}
 					span.made-with__item__name(translate) {{ $tech.DisplayName }}
 				{{ if $tech.LearnMoreURL }}
-				a.made-with__item__learn-more(href="{{ $tech.LearnMoreURL }}" translate) Learn more
+				ul.made-with__item__links
+					li: a.made-with__item__links__works(
+						href="/using/{{ $tech.URLName }}"
+						title="[# 'See all works made with this technology' | translate #]"
+					) +
+					li: a.made-with__item__links__learn-more(
+						href="{{ $tech.LearnMoreURL }}"
+						title="[# 'Learn more' | translate #]"
+					) ↗
 				{{ end }}
 			{{ end }}
 	{{ end }}
