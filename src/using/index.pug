@@ -9,7 +9,7 @@ block content
 		{{ range .KnownTechnologies }}
 		{{ if len ($works | madeWith .) }}
 		li.made-with__item
-			a(href="/using/{{ .URLName }}")
+			a(href="/using/{{ .URLName }}" title="[# 'See all works made with this technology' | translate #]")
 				img.made-with__item__logo(
 					src='{{ asset (printf "logos/%s.svg" .URLName) }}'
 					alt="[# '{{ .DisplayName }}’s logo' | translate #]"
@@ -19,7 +19,15 @@ block content
 				{{ end }}
 				span.made-with__item__name(translate) {{ .DisplayName }}
 			{{ if .LearnMoreURL }}
-			a.made-with__item__learn-more(href="{{ .LearnMoreURL }}" translate) Learn more
+			ul.made-with__item__links
+				li: a.made-with__item__links__works(
+					href="/using/{{ .URLName }}"
+					title="[# 'See all works made with this technology' | translate #]"
+				) →
+				li: a.made-with__item__links__learn-more(
+					href="{{ .LearnMoreURL }}"
+					title="[# 'Learn more' | translate #]"
+				) ?
 			{{ end }}
 		{{ end }}
 		{{ end }}

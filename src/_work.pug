@@ -62,11 +62,11 @@ block content
 					li: a.made-with__item__links__works(
 						href="/using/{{ $tech.URLName }}"
 						title="[# 'See all works made with this technology' | translate #]"
-					) +
+					) →
 					li: a.made-with__item__links__learn-more(
 						href="{{ $tech.LearnMoreURL }}"
 						title="[# 'Learn more' | translate #]"
-					) ↗
+					) ?
 				{{ end }}
 			{{ end }}
 	{{ end }}
