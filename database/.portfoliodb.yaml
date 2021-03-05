@@ -5,9 +5,9 @@ replace media sources:
     with: ''
 
 extract colors:
-  enabled: yes
+  enabled: true
 
 make thumbnails:
-  enabled: yes
-  sizes: [20, 200, 500]
+  enabled: true
+  sizes: [400, 700, 1200]
   file name template: <parent>/<media id>@<size>.<extension>

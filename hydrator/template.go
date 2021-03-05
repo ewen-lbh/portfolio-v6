@@ -140,9 +140,14 @@ func getSummary(w WorkOneLang) string {
 }
 
 // getThumbnailSource gets the source URL of the work's first media
-func getThumbnailSource(w WorkOneLang) string {
+func getThumbnailSource(resolution uint16, w WorkOneLang) string {
 	if len(w.Media) == 0 {
 		return ""
+	}
+	if resolution > 0 {
+		if thumbSources, ok := w.Metadata.Thumbnails[w.Media[0].ID]; ok {
+			return media(thumbSources[resolution])
+		}
 	}
 	return media(w.Media[0].Source)
 }
