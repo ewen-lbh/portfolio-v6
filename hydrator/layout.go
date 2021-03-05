@@ -52,13 +52,13 @@ func layoutRepr(layout Layout) string {
 }
 
 func buildLayoutErrorMessage(whatsMissing string, work *WorkOneLang, usedCount int, layout Layout) string {
-	return fmt.Sprintf(`%v: Not enough %s to satisfy the given layout:
+	return fmt.Sprintf(`not enough %s to satisfy the given layout:
 
 	· Layout is:
 	%v
 
 	· work has only %d %s
-	`, work.ID, whatsMissing, layoutRepr(layout), usedCount, whatsMissing)
+	`, whatsMissing, layoutRepr(layout), usedCount, whatsMissing)
 }
 
 // BuildLayout builds an pug layout filled with content, ready to inject in a .pug file.
@@ -150,7 +150,7 @@ func (work *WorkOneLang) BuildLayout() string {
 				if data.Title != "" {
 					element += fmt.Sprintf("<figcaption>%s</figcaption>", data.Title)
 				}
-				element = fmt.Sprintf("<figure>%s</figure>", element)
+				element = fmt.Sprintf(`<figure data-enable-media-closeup="%s">%s</figure>`, data.ContentType, element)
 			} else if layoutElement.IsParagraph {
 				if len(work.Paragraphs) <= usedCounts.p {
 					panic(buildLayoutErrorMessage("paragraphs", work, usedCounts.p, layout))

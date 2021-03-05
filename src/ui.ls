@@ -9,4 +9,7 @@ open-media-closeup =  ->
 	popup.show-modal!
 
 document.query-selector-all \figure .for-each ->
-	it.add-event-listener \click, open-media-closeup
+	content-type = it.dataset.contentType
+	general-type = (content-type / "/")[0]
+	if not (general-type == "video" or content-type == "application/pdf")
+		it.add-event-listener \click, open-media-closeup
