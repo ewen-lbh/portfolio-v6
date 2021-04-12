@@ -968,13 +968,19 @@ msgid "works made with"
 msgstr "œuvres réalisées avec"
 
 msgid ""
+"A high-performance template engine heavily influenced by &lt;a href='https://"
+"haml.info/'&gt;Haml&lt;/a&gt; and implemented with JavaScript for Node.js "
+"and browsers."
+msgstr ""
+
+msgid "A high-quality typesetting &amp; document preparation system"
+msgstr ""
+
+msgid ""
 "A modern parsing library for Python. Lark can parse any context-free grammar"
 msgstr ""
 
 msgid ""
 "Svelte shifts that work into a compile step that happens when you build your "
 "app."
-msgstr ""
-
-msgid ""
 msgstr ""
