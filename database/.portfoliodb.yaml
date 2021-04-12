@@ -1,5 +1,5 @@
 replace media sources:
-  - replace: /mnt/d/projects/portfolio/database/
+  - replace: /mnt/datacore/projects/portfolio/database/
     with: ''
   - replace: /home/ewen/projects/portfolio/database/
     with: ''
