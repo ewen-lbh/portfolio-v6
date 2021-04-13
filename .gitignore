@@ -187,3 +187,5 @@ assets/ui.js
 
 pkg/
 gopls
+
+.lastbuild.yaml
