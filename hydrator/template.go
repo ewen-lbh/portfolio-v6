@@ -145,8 +145,9 @@ func getThumbnailSource(resolution uint16, w WorkOneLang) string {
 		return ""
 	}
 	if resolution > 0 {
-		if thumbSources, ok := w.Metadata.Thumbnails[w.Media[0].ID]; ok {
-			return media(thumbSources[resolution])
+		if thumbSource, ok := w.Metadata.Thumbnails[w.Media[0].Source][resolution]; ok {
+			thumbSource = strings.TrimPrefix(thumbSource, "database/")
+			return media(thumbSource)
 		}
 	}
 	return media(w.Media[0].Source)
