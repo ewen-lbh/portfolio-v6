@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-mv hydrator/prod.env hydrator/.env
+cp hydrator/prod.env hydrator/.env
 
 pnpm database:update &&\
 pnpm prepare:i18n &&\
@@ -13,5 +13,7 @@ rsync -r --progress dist/en/  ubuntu@ewen.works:/home/user-data/www/en.ewen.work
 rsync -r --progress dist/fr/  ubuntu@ewen.works:/home/user-data/www/fr.ewen.works/
 rsync -r --progress assets/   ubuntu@ewen.works:/home/user-data/www/assets.ewen.works/
 rsync -r --progress database/ ubuntu@ewen.works:/home/user-data/www/media.ewen.works/
+# Fix permissions
+ssh ubuntu@ewen.works 'sudo chmod -R a+rx www/{fr,en,media}.ewen.works/'
 
-mv hydrator/.env hydrator/prod.env
+rm hydrator/.env
