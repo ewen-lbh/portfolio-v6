@@ -19,7 +19,12 @@ block content
 
 		a.work-card.work-card--large(
 			href="/{{ $latest.ID }}"
-			style="background-image:url('{{ $latest | getThumbnailSource 900 }}');{{ $latest | intoColorsCSS }}"
+			{{ if $latest | getThumbnailSource 700 }}
+			style="background-image:url('{{ $latest | getThumbnailSource 700 }}');{{ $latest | intoColorsCSS }}"
+			{{ else }}
+			style="{{ $latest | intoColorsCSS }}"
+			class="work-card--no-image"
+			{{ end }}
 		)
 			h3 {{ $latest.Title }}
 			{{ if len $latest.Paragraphs }}

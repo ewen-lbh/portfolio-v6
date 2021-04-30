@@ -411,9 +411,15 @@ footer
 	display flex
 	flex-direction column
 	justify-content flex-end
+	&.work-card--no-image
+		justify-content center
+		text-align center
+		box-sizing border-box
 	overflow hidden
 	padding 1.5rem
 	// border-radius 0.5em
+	&.work-card--no-image
+		border .25rem solid primary
 	width calc(min(40rem, calc(80vw - 2 * 1.5rem)))
 	height 20rem
 	background-color secondary
@@ -433,19 +439,21 @@ footer
 	h3,
 	p
 		z-index 10
-		transform translateY(3rem)
 
 	p
 		margin 0
 		height 3rem
-		opacity 0
 		transition all 0.25s ease
-
+	&:not(.work-card--no-image)
+		p
+			opacity 0
+		h3, p
+			transform translateY(3rem)
 	&,
 	& > *
 		transition all 0.25s ease
 
-	&::before
+	&:not(.work-card--no-image)::before
 		position absolute
 		bottom -@height
 		left 0
@@ -458,7 +466,7 @@ footer
 	&:hover::before
 		bottom 0
 
-	&:hover
+	&:not(.work-card--no-image):hover
 		color secondary
 
 		p
@@ -467,6 +475,16 @@ footer
 		h3,
 		p
 			transform translateY(0)
+
+	&.work-card--no-image:hover
+		border-width 2rem
+
+		h3, p
+			transform scale(1.05)
+		h3
+			font-weight 900
+		p
+			font-weight 700
 
 main
 	display flex
@@ -576,6 +594,9 @@ ul.gallery__works__year__works
 		margin 3rem 0
 		transition all 0.25s ease
 
+	&__year, &__year__works__work
+		width 100%
+
 .work-card--medium
 	display grid
 	max-width min(95vw, 80rem)
@@ -585,6 +606,9 @@ ul.gallery__works__year__works
 	// border 1px solid transparent
 	transition all 0.25s ease
 	grid-template-columns min(25rem, 25vw) auto
+	&.work-card--no-image
+		grid-template-columns auto
+		border 0.125rem solid primary
 	grid-gap 3rem
 
 	@media (max-width 600px)
