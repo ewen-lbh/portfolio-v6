@@ -65,6 +65,7 @@ type WorkOneLang struct {
 	Media      []Media
 	Links      []Link
 	Footnotes  []Footnote
+	Language   string
 }
 
 type MediaAttributes struct {

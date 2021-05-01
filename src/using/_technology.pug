@@ -1,7 +1,7 @@
-extends .layout
+extends layout
 
 block content
-	img.made-with-page__logo(src='{{ asset (printf "logos/%s.svg" .CurrentTech.URLName) }}')
+	img.made-with-page__logo(src=(asset (printf "logos/%s.svg" .CurrentTech.URLName)))
 	h1.made-with-page__header
 		i18n works made with
 		br
@@ -9,4 +9,4 @@ block content
 	p.made-with-page__tech-description(translate) {{ .CurrentTech.Description }}
 
 	section.made-with-page__gallery
-		{{ .Works | madeWith .CurrentTech | intoGallery (printf "tech-%s" .CurrentTech.URLName) | tindent 1 }}
+		= .Works | madeWith .CurrentTech | intoGallery (printf "tech-%s" .CurrentTech.URLName)

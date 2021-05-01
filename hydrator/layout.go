@@ -76,14 +76,14 @@ func (work *WorkOneLang) BuildLayout() string {
 		for _, layoutElement := range layoutRow {
 			var element string
 			if layoutElement.IsSpacer {
-				element = `div.spacer`
+				element = `<div class="spacer">`
 			} else if layoutElement.IsLink {
 				if len(work.Links) <= usedCounts.l {
 					panic(buildLayoutErrorMessage("links", work, usedCounts.l, layout))
 				}
 				data := work.Links[usedCounts.l]
 				usedCounts.l++
-				element = fmt.Sprintf(`a(href="%v" id="%v" title="%v") %v`, data.URL, data.ID, data.Title, data.Name)
+				element = fmt.Sprintf(`<a href="%v" id="%v" title="%v">%v</a>`, data.URL, data.ID, data.Title, data.Name)
 			} else if layoutElement.IsMedia {
 				if len(work.Media) <= usedCounts.m {
 					panic(buildLayoutErrorMessage("media", work, usedCounts.m, layout))
@@ -158,11 +158,11 @@ func (work *WorkOneLang) BuildLayout() string {
 				data := work.Paragraphs[usedCounts.p]
 				usedCounts.p++
 				// element = fmt.Sprintf(`<p id="%v">%v</p>`, data.ID, data.Content)
-				element = "p(id=\"" + data.ID + "\")." + IndentWithTabsNewline(2, data.Content)
+				element = "<p id=\"" + data.ID + "\">" + data.Content + "</p>"
 			}
 			row += "\t" + element + "\n"
 		}
-		built += fmt.Sprintf("div.row(data-columns=%d)\n%s\n", len(layoutRow), row)
+		built += fmt.Sprintf(`<div class="row" data-columns="%d">%s</div>`, len(layoutRow), row)
 	}
 	return built
 }

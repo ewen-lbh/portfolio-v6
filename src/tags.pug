@@ -1,23 +1,22 @@
-extends .layout
+extends layout
 
-{{ $works := .Works }}
 
 block content
-	h1(translate) works by tag
+	= $works := .Works
+
+	h1(i18n) works by tag
 
 	ul.tags-index
 		//- For each tag, a work is selected to use as the tag link's colors.
 		//- Store already-selected works there to avoid seeing the same color multiple times
-		{{ $seen := makeWS }}
-		{{ range $tag := .KnownTags }}
+		= $seen := makeWS
 		//- Don't show tags with no associated works
-		{{ if $works | tagged $tag | len }}
-		//- Select a work: latest of works tagged with the current tag, not already selected
-		{{ $selected := $works | tagged $tag | excluding $seen | latest }}
-		//- Add the selected work to the 'seen' slice
-		{{ $seen = $seen | appendWS $selected }}
-		//- Override --primary and --secondary
-		li(style="{{ $selected | intoColorsCSS }}")
-			a(style="{{ $selected | intoColorsCSS }}" href="/{{ .URLName }}" translate) {{ .Plural }}
-		{{ end }}
-		{{ end }}
+		each _ in $tag := .KnownTags
+			if $works | tagged $tag | len
+				//- Select a work: latest of works tagged with the current tag, not already selected
+				= $selected := $works | tagged $tag | excluding $seen | latest
+				//- Add the selected work to the 'seen' slice
+				= $seen = $seen | appendWS $selected
+				//- Override --primary and --secondary
+				li(style=($selected | intoColorsCSS))
+					a(i18n style=($selected | intoColorsCSS) href=.URLName)=.Plural

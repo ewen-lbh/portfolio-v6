@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+html(lang="[# LANGUAGE CODE #]")
+	head: block head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel="stylesheet", href=(asset "global.css"))
+		link(rel="stylesheet", href=(asset "style.css"))
+		link(rel="stylesheet", href=(asset "fonts/import.css"))
+	body
+		block nav
+			nav
+				ul
+					li: a(i18n href="/") works
+					li: a(i18n href="/music") music
+					li: a(i18n href="/about") about
+					//- li: a(i18n href="https://blog.ewen.works") blog
+					li: a(i18n href="/contact") contact
+					li: a(i18n href="/made-with") thanks
+					li: a(i18n onclick="window.location.hostname = `[# OTHER LANGUAGE CODE #].ewen.works`;") en français
+		main
+			block content
+		footer
+			.links
+				span.links__hint ewen.works/to/
+				dl
+					dt: a(href="https://ewen.works/to/twitter") twitter
+					dd(i18n) random thoughts
+
+					dt: a(href="https://ewen.works/to/github") github
+					dd(i18n) open-source code
+
+					dt: a(href="https://ewen.works/to/spotify") spotify
+					dd(i18n) my music
+
+					dt: a(href="https://ewen.works/to/deezer") deezer
+					dd(i18n) also my music
+
+					dt: a(href="https://ewen.works/to/youtube") youtube
+					dd(i18n) music+visual
+
+					dt: a(href="https://ewen.works/to/mail") mail
+					dd(i18n) contact
+
+			.credits(role="contentinfo")
+				p(i18n) Made with &lt;3 by Ewen Le Bihan
+				p(i18n) Proudly #[strong not] powered by Wordpress
+				p
+					i18n source code at
+					a(href="https://github.com/ewen-lbh/portfolio")  github.com/ewen-lbh/portfolio
+				a.credits__license(href="https://creativecommons.org/licenses/by-sa/4.0/")
+					img(src=(asset "icons/cc-by-sa.svg"))

@@ -1,6 +1,6 @@
-extends .layout
+extends layout
 
 block content
-	h1(translate) {{ .CurrentTag.Plural }}
+	h1(i18n)=.CurrentTag.Plural
 
-	{{ .Works | tagged .CurrentTag | intoGallery (printf "tag-%s" .CurrentTag.URLName) | tindent 1 }}
+	= .Works | tagged .CurrentTag | intoGallery (printf "tag-%s" .CurrentTag.URLName)

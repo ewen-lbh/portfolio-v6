@@ -1,79 +1,71 @@
-extends .layout
+extends layout
 
 block append head
-	link(rel="stylesheet" href='{{ asset "vendor/dialog-polyfill.css" }}')
+	link(rel="stylesheet" href=(asset "vendor/dialog-polyfill.css"))
 
 block content
 	ul.tags
-		{{ range .CurrentWork.Metadata.Tags }}
-		{{ $tag := . | lookupTag }}
-		li: a(href="/{{ $tag.URLName }}" translate) {{ $tag.Singular }}
-		{{ end }}
+		each _ in .CurrentWork.Metadata.Tags
+			= $tag := . | lookupTag
+			li: a(i18n href=`/${ $tag.URLName }`)=$tag.Singular
 
-	{{ if .CurrentWork.IsWIP }}
-	a.work-in-progress(href="/#wip" translate) work in progress
-	{{ end }}
+	if .CurrentWork.IsWIP
+		a.work-in-progress(i18n href="/#wip") work in progress
 
 	section.contents
-		h1(data-style="{{ .CurrentWork.Metadata.Title }}") {{ .CurrentWork.Title }}
+		h1(data-style="{{ .CurrentWork.Metadata.Title }}")=.CurrentWork.Title
 
-		{{ .CurrentWork | intoLayout | tnindent 2 }}
+		= .CurrentWork | intoLayout
 
-	{{ if (len .CurrentWork.Footnotes) }}
-	section.footnotes
-		h2.footnotes__title(translate) footnotes
-		dl.footnotes__list
-			{{ range .CurrentWork.Footnotes }}
-			dt(id="fn:{{ .Name }}")
-				a(href="#fn:{{ .Name }}") {{ .Name }}
-			dd
-				p {{ .Content }}
-				a.footnotes__list__item__reference-link(href="#fnref:{{ .Name }}" translate)
-					| ↖ Back to the text
-				//- TODO: handle multiple references (needs change in portfoliodb to add footnotes[].references)
-				//- { if ge (len .References) 2 }
-				//- ol.footnotes__list__item__references
-				//- 	{ range .References }
-				//- 	li: a(href="#fnref:{ . }") ↗ { . }
-				//- 	{ end }
-				//- { end }
-			{{ end }}
-	{{ end }}
+	if len .CurrentWork.Footnotes
+		section.footnotes
+			h2.footnotes__title(i18n) footnotes
+			dl.footnotes__list
+				each _ in .CurrentWork.Footnotes
+					dt(id=`fn:${ .Name }`)
+						a(href=`#fn:${ .Name }`)= .Name
+					dd
+						p= .Content
+						a.footnotes__list__item__reference-link(i18n href=`#fnref:${ .Name }`)
+							| ↖ Back to the text
+						//- TODO: handle multiple references (needs change in portfoliodb to add footnotes[].references)
+						//- { if ge (len .References) 2 }
+						//- ol.footnotes__list__item__references
+						//- 	{ range .References }
+						//- 	li: a(href="#fnref:{ . }") ↗ { . }
+						//- 	{ end }
+						//- { end }
 
-	{{ if (len .CurrentWork.Metadata.MadeWith) }}
-	section.made-with
-		h2.made-with__title(translate) made with
-		p.made-with__explainer(translate) the software, frameworks, libraries, materials and services I used to make this
-		ul.made-with__list
-			{{ range .CurrentWork.Metadata.MadeWith }}
-			{{ $tech := . | lookupTech }}
-			li.made-with__item
-				a(href="/using/{{ $tech.URLName }}" title="[# 'See all works made with this technology' | translate #]")
-					img.made-with__item__logo(
-						src='{{ asset (printf "logos/%s.svg" $tech.URLName) }}'
-						alt="[# '{{ $tech.DisplayName }}’s logo' | translate #]"
-					)
-					{{ if $tech.Author }}
-					span.made-with__item__subline {{ $tech.Author }}
-					{{ end }}
-					span.made-with__item__name(translate) {{ $tech.DisplayName }}
-				{{ if $tech.LearnMoreURL }}
-				ul.made-with__item__links
-					li: a.made-with__item__links__works(
-						href="/using/{{ $tech.URLName }}"
-						title="[# 'See all works made with this technology' | translate #]"
-					) →
-					li: a.made-with__item__links__learn-more(
-						href="{{ $tech.LearnMoreURL }}"
-						title="[# 'Learn more' | translate #]"
-					) ?
-				{{ end }}
-			{{ end }}
-	{{ end }}
+	if len .CurrentWork.Metadata.MadeWith
+		section.made-with
+			h2.made-with__title(i18n) made with
+			p.made-with__explainer(i18n) the software, frameworks, libraries, materials and services I used to make this
+			ul.made-with__list
+				each _ in .CurrentWork.Metadata.MadeWith
+					= $tech := . | lookupTech 
+					li.made-with__item
+						a(href=`/using/${ $tech.URLName }` title=(translate "See all works made with this technology"))
+							img.made-with__item__logo(
+								src=(asset (printf "logos/%s.svg" $tech.URLName))
+								alt=(translate `${ $tech.DisplayName }’s logo`)
+							)
+							if $tech.Author
+								span.made-with__item__subline= $tech.Author
+							span.made-with__item__name(i18n)= $tech.DisplayName
+						if $tech.LearnMoreURL
+							ul.made-with__item__links
+								li: a.made-with__item__links__works(
+									href=`/using/${ $tech.URLName }`
+									title=(translate "See all works made with this technology")
+								) →
+								li: a.made-with__item__links__learn-more(
+									href=$tech.LearnMoreURL
+									title=(translate "Learn more")
+								) ?
 
 	dialog#media-closeup(onclick="this.close()")
 		.media.empty
-		button.close(onclick="this.parentElement.close()" title="[# 'Close' | translate #]") ×
+		button.close(onclick="this.parentElement.close()" title=(translate "Close")) ×
 
 	style.
 		:root {
@@ -88,9 +80,9 @@ block content
 		}
 		{{ end }}
 
-	script(src='{{ asset "vendor/dialog-polyfill.js" }}')
+	script(src=(asset "vendor/dialog-polyfill.js"))
 	script.
 		document.querySelectorAll('dialog').forEach(el => {
 			dialogPolyfill.registerDialog(el)
 		})
-	script(src='{{ asset "ui.js" }}')
+	script(src=(asset "ui.js"))

@@ -3,9 +3,11 @@ module github.com/ewen-lbh/portfolio/hydrate
 go 1.14
 
 require (
+	github.com/Joker/jade v1.0.0
 	github.com/Masterminds/goutils v1.1.0 // indirect
 	github.com/Masterminds/semver v1.5.0 // indirect
 	github.com/Masterminds/sprig v2.22.0+incompatible
+	github.com/PuerkitoBio/goquery v1.6.1
 	github.com/davecgh/go-spew v1.1.1
 	github.com/google/uuid v1.1.2 // indirect
 	github.com/huandu/xstrings v1.3.2 // indirect
@@ -17,6 +19,9 @@ require (
 	github.com/mitchellh/copystructure v1.0.0 // indirect
 	github.com/olekukonko/tablewriter v0.0.4 // indirect
 	github.com/relvacode/iso8601 v1.1.0
+	github.com/snapcore/go-gettext v0.0.0-20201130093759-38740d1bd3d2
 	github.com/ssor/bom v0.0.0-20170718123548-6386211fdfcf // indirect
+	github.com/yosssi/gohtml v0.0.0-20201013000340-ee4748c638f4
 	golang.org/x/crypto v0.0.0-20201016220609-9e8e0b390897 // indirect
+	golang.org/x/net v0.0.0-20200202094626-16171245cfb2
 )

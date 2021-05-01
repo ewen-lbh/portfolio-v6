@@ -1,0 +1,18 @@
+extends src/layout.pug
+
+block nav
+
+block content
+	.fullheight
+		h1: block code
+			| ???
+		p(i18n): block message
+			| Unknown error
+
+		nav.inline: ul
+			li: a(i18n href="/") works
+			li: a(i18n href="/music") music
+			li: a(i18n href="/about") about
+			//- li: a(i18n href="https://blog.ewen.works") blog
+			li: a(i18n href="/contact") contact
+			li: a(i18n onclick="window.location.hostname = '[# OTHER LANGUAGE CODE #].ewen.works';") en français

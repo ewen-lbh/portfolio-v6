@@ -49,7 +49,7 @@ var KnownTechnologies = [...]Technology{
 		Description:  "A stylesheet language used to describe the presentation of a document written in HTML or XML",
 	},
 	{
-		URLName:     "c#",
+		URLName:     "csharp",
 		DisplayName: "C#",
 		Aliases:     []string{"cs", "csharp"},
 		Author:      "Microsoft",

@@ -5,11 +5,19 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"path"
+	"path/filepath"
+	"regexp"
+	"strconv"
 	"strings"
 	"text/template"
 
+	"github.com/Joker/jade"
 	"github.com/Masterminds/sprig"
 	"github.com/joho/godotenv"
+	"github.com/snapcore/go-gettext"
+	"github.com/yosssi/gohtml"
+	"golang.org/x/net/html"
 )
 
 func IsVerbose() bool {
@@ -24,80 +32,127 @@ func VerboseLog(s string, fmtArgs ...interface{}) {
 }
 
 func main() {
-	db, err := LoadDatabase("../database/database.json")
+	//
+	// Loading files
+	//
+	db, err := LoadDatabase("database/database.json")
 	if err != nil {
-		panic(err)
+		printerr("Could not load the database", err)
+		return
 	}
-	files, err := ioutil.ReadDir("../src")
+	messagesFile, err := os.Open("messages/fr.mo")
 	if err != nil {
-		panic(err)
+		printerr("Could not open the .mo file", err)
+		return
 	}
-	VerboseLog("------")
-	if BuildingForProduction() {
-		VerboseLog("Hydrating for production")
-	} else {
-		VerboseLog("Hydrating for developement")
+	messages, err := gettext.ParseMO(messagesFile)
+	if err != nil {
+		printerr("Could not parse the .mo file", err)
+		return
 	}
-	VerboseLog("------")
-	MakeDirs([]string{"fr", "en"})
-	for _, lang := range []string{"fr", "en"} {
-		VerboseLog("[hydrator]     language: " + lang)
-		for _, file := range files {
-			if file.IsDir() && file.Name() == "using" {
-				files, err := ioutil.ReadDir("../src/using")
-				if err != nil {
-					panic(err)
-				}
-				for _, file := range files {
-					if file.Name() == "_technology.pug" {
-						templateContent, err := ReadFile("../src/using/_technology.pug")
-						templateName := "using/_technology.pug"
-						if err != nil {
-							panic(err)
-						}
-						for _, tech := range KnownTechnologies {
-							LogHydrating(templateName, tech.URLName)
-							HydrateDynamicFileWithLang(db, lang, templateName, templateContent, CurrentlyHydrated{tech: tech})
-						}
-					} else {
-						templateContent, err := ReadFile("../src/using/" + file.Name())
-						templateName := "using/" + file.Name()
-						LogHydrating(templateName, "")
-						replaced, err := ExecuteTemplate(db, lang, file.Name(), templateContent, CurrentlyHydrated{})
-						if err != nil {
-							panic(err)
-						}
-						WriteHydratedContent(lang, templateName, replaced)
-					}
-				}
-			} else if strings.HasSuffix(file.Name(), ".pug") {
-				templateContent, err := ReadFile("../src/" + file.Name())
-				if err != nil {
-					panic(err)
-				}
-				templateName := file.Name()
-				if templateName == "_work.pug" {
-					for _, work := range GetOneLang(lang, db.Works...) {
-						LogHydrating(templateName, work.ID)
-						HydrateDynamicFileWithLang(db, lang, templateName, templateContent, CurrentlyHydrated{work: work})
-					}
-				} else if templateName == "_tag.pug" {
-					for _, tag := range KnownTags {
-						LogHydrating(templateName, tag.URLName())
-						HydrateDynamicFileWithLang(db, lang, templateName, templateContent, CurrentlyHydrated{tag: tag})
-					}
-				} else if templateName == ".gallery.pug" {
-					continue
-				} else {
-					LogHydrating(templateName, "")
-					replaced, err := ExecuteTemplate(db, lang, file.Name(), templateContent, CurrentlyHydrated{})
-					if err != nil {
-						panic(err)
-					}
-					WriteHydratedContent(lang, templateName, replaced)
-				}
-
+	files, err := ioutil.ReadDir("src")
+	getAbsPath := func(basename string) string {
+		absdir, err := filepath.Abs("src")
+		if err != nil {
+			panic(err)
+		}
+		return path.Join(absdir, basename)
+	}
+	if err != nil {
+		printerr("Could not read src/", err)
+	}
+	//
+	// Preparing dist directory
+	//
+	err = os.MkdirAll("dist/fr/using", 0777)
+	if err != nil {
+		printerr("Couldn't create directories for writing", err)
+		return
+	}
+	os.MkdirAll("dist/en/using", 0777)
+	//
+	// Processing regular pages
+	//
+	for _, file := range files {
+		if file.IsDir() || strings.HasPrefix(file.Name(), "_") || !strings.HasSuffix(file.Name(), ".pug") || file.Name() == "gallery.pug" {
+			continue
+		}
+		absFilepath := getAbsPath(file.Name())
+		//
+		// Build the template
+		//
+		templateContent := BuildTemplate(absFilepath)
+		for _, language := range []string{"fr", "en"} {
+			//
+			// Execute the template
+			//
+			content, err := ExecuteTemplate(db, &messages, language, absFilepath, templateContent, CurrentlyHydrated{})
+			if err != nil {
+				continue
 			}
+			content = TranslateHydrated(content, language, &messages)
+			fmt.Printf("\r\033[KTranslated %s into %s", file.Name(), language)
+			WriteDistFile(file.Name(), content, language, &messages)
+		}
+	}
+	//
+	// Processing works
+	//
+	workTemplate := BuildTemplate(getAbsPath("_work.pug"))
+	for _, work := range db.Works {
+		for _, language := range []string{"fr", "en"} {
+			content, err := ExecuteTemplate(
+				db, &messages, language,
+				"_work<"+work.ID+">",
+				workTemplate,
+				CurrentlyHydrated{work: work.InLanguage(language)},
+			)
+			if err != nil {
+				continue
+			}
+			content = TranslateHydrated(content, language, &messages)
+			fmt.Printf("\r\033[KTranslated %s into %s", work.ID, language)
+			WriteDistFile(work.ID, content, language, &messages)
+		}
+	}
+	//
+	// Processing tags
+	//
+	tagTemplate := BuildTemplate(getAbsPath("_tag.pug"))
+	for _, tag := range KnownTags {
+		for _, language := range []string{"fr", "en"} {
+			content, err := ExecuteTemplate(
+				db, &messages, language,
+				"_tag<"+tag.URLName()+">",
+				tagTemplate,
+				CurrentlyHydrated{tag: tag},
+			)
+			if err != nil {
+				continue
+			}
+			content = TranslateHydrated(content, language, &messages)
+			fmt.Printf("\r\033[KTranslated %s into %s", tag.URLName(), language)
+			WriteDistFile(tag.URLName(), content, language, &messages)
+		}
+	}
+	//
+	// Processing technologies
+	//
+	techTemplate := BuildTemplate(getAbsPath("using/_technology.pug"))
+	for _, tech := range KnownTechnologies {
+		for _, language := range []string{"fr", "en"} {
+			content, err := ExecuteTemplate(
+				db, &messages, language,
+				"using/_technology<"+tech.URLName+">",
+				techTemplate,
+				CurrentlyHydrated{tech: tech},
+			)
+			if err != nil {
+				continue
+			}
+			content = TranslateHydrated(content, language, &messages)
+			fmt.Printf("\r\033[KTranslated using/%s into %s", tech.URLName, language)
+			WriteDistFile("using/" + tech.URLName, content, language, &messages)
 		}
 	}
 }
@@ -108,52 +163,95 @@ type CurrentlyHydrated struct {
 	work WorkOneLang
 }
 
-func HydrateDynamicFileWithLang(db Database, language string, templateName string, templateContent []byte, currentlyHydrated CurrentlyHydrated) {
-	// Execute template
-	replaced, err := ExecuteTemplate(db, language, templateName, templateContent, currentlyHydrated)
-	if err != nil {
-		panic(err)
-	}
-
-	// determine where the destination file(path) name
-	var pathIdentifier string
-	if currentlyHydrated.work.ID != "" {
-		pathIdentifier = currentlyHydrated.work.ID
-	} else if currentlyHydrated.tag.URLName() != "" {
-		pathIdentifier = currentlyHydrated.tag.URLName()
-	} else {
-		pathIdentifier = "using/" + currentlyHydrated.tech.URLName
-	}
-
-	WriteHydratedContent(language, pathIdentifier, replaced)
-}
-
 func BuildingForProduction() bool {
-	err := godotenv.Load("./.env")
+	err := godotenv.Load(".env")
 	if err != nil {
 		panic("Could not load the .env file")
 	}
 	return os.Getenv("ENVIRONMENT") != "dev"
 }
 
-func ExecuteTemplate(db Database, language string, templateName string, templateContent []byte, currentlyHydrated CurrentlyHydrated) (string, error) {
-	var currentlyHydratedStuff string
-	if currentlyHydrated.tag.Singular != "" {
-		currentlyHydratedStuff = "<" + currentlyHydrated.tag.Singular + ">"
-	} else if currentlyHydrated.work.ID != "" {
-		currentlyHydratedStuff = "<" + currentlyHydrated.work.ID + ">"
-	} else if currentlyHydrated.tech.URLName != "" {
-		currentlyHydratedStuff = "<" + currentlyHydrated.tech.URLName + ">"
-	} else {
-		currentlyHydratedStuff = ""
+func BuildTemplate(absFilepath string) string {
+	raw, err := ioutil.ReadFile(absFilepath)
+	if err != nil {
+		printerr("Could not read file "+absFilepath, err)
 	}
-	tmpl := template.Must(
-		template.New(templateName + currentlyHydratedStuff).Funcs(GetTemplateFuncMap()).Funcs(sprig.TxtFuncMap()).Funcs(template.FuncMap{
-			"tindent":  IndentWithTabs,
-			"tnindent": IndentWithTabsNewline,
-		}).Parse(string(templateContent)))
+
+	// Fix `extends` statement
+	// From joker/jade's point of view, the current work dir is just the project's root,
+	// thus (project root)/layout.pug does not exist.
+	// Fix that by adding src/ in front
+	// Joker/jade also requires the .pug extension
+	extendsPattern := regexp.MustCompile(`(?m)^extends (.+)$`)
+	raw = extendsPattern.ReplaceAllFunc(raw, func(line []byte) []byte {
+		// printfln("transforming %s", line)
+		extendsArgument := strings.TrimPrefix(string(line), "extends ")
+		if strings.HasPrefix(extendsArgument, "src/") {
+			return line
+		}
+		return []byte(fmt.Sprintf("extends src/%s.pug", extendsArgument))
+	})
+
+	template, err := jade.Parse(absFilepath, raw)
+	if err != nil {
+		_lineIndex, intParseError := strconv.ParseInt(strings.Split(err.Error(), ":")[1], 10, 64)
+		lineIndex := int(_lineIndex) // Stoopid strconv using int64's
+		if intParseError == nil {
+			fmt.Printf("While parsing %s:%d: %s\n", absFilepath, lineIndex, strings.SplitN(err.Error(), ":", 3)[2])
+			lineIndex -= 1 // Lines start at 1, arrays of line are indexed from 0
+			lines := strings.Split(gohtml.FormatWithLineNo(string(raw)), "\n")
+			var lineIndexOffset int
+			if len(lines) >= lineIndex+5+1 && lineIndex > 0 {
+				lines = lines[lineIndex-5 : lineIndex+5]
+				lineIndexOffset = lineIndex - 5
+			}
+			for i, line := range lines {
+				if i+lineIndexOffset == lineIndex {
+					fmt.Print("→ ")
+				} else {
+					fmt.Print("  ")
+				}
+				fmt.Println(line)
+			}
+		}
+	}
+
+	return template
+}
+
+func ExecuteTemplate(db Database, catalog *gettext.Catalog, language string, templateName string, templateContent string, currentlyHydrated CurrentlyHydrated) (string, error) {
+	tmpl := template.New(templateName)
+	tmpl = tmpl.Funcs(GetTemplateFuncMap(language, catalog))
+	tmpl = tmpl.Funcs(sprig.TxtFuncMap())
+	tmpl, err := tmpl.Parse(gohtml.Format(templateContent))
+
+	if err != nil {
+		_lineIndex, intParseError := strconv.ParseInt(strings.Split(err.Error(), ":")[2], 10, 64)
+		lineIndex := int(_lineIndex)
+		if intParseError == nil {
+			fmt.Printf("While parsing template %s:%d: %s\n", templateName, lineIndex, strings.Split(err.Error(), ":")[3])
+			lineIndex -= 1 // Lines start at 1, arrays of line are indexed from 0
+			lines := strings.Split(gohtml.FormatWithLineNo(templateContent), "\n")
+			var lineIndexOffset int
+			if len(lines) >= lineIndex+5+1 && lineIndex > 0 {
+				lines = lines[lineIndex-5 : lineIndex+5]
+				lineIndexOffset = lineIndex - 5
+			}
+			for i, line := range lines {
+				if i+lineIndexOffset == lineIndex {
+					fmt.Print("→ ")
+				} else {
+					fmt.Print("  ")
+				}
+				fmt.Println(line)
+			}
+		}
+		return "", err
+	}
+
 	var buf bytes.Buffer
-	err := tmpl.Execute(&buf, TemplateData{
+
+	err = tmpl.Execute(&buf, TemplateData{
 		KnownTags:         KnownTags,
 		KnownTechnologies: KnownTechnologies,
 		Works:             GetOneLang(language, db.Works...),
@@ -162,33 +260,55 @@ func ExecuteTemplate(db Database, language string, templateName string, template
 		CurrentTech:       currentlyHydrated.tech,
 		CurrentWork:       currentlyHydrated.work,
 	})
+
 	if err != nil {
+		_lineIndex, intParseError := strconv.ParseInt(strings.Split(err.Error(), ":")[2], 10, 64)
+		lineIndex := int(_lineIndex)
+		if intParseError == nil {
+			fmt.Printf("While executing template %s:%d: %s\n", templateName, lineIndex, strings.TrimPrefix(strings.SplitN(err.Error(), ":", 5)[4], fmt.Sprintf(` executing "%s" `, templateName)))
+			lineIndex -= 1 // Lines start at 1, arrays of line are indexed from 0
+			lines := strings.Split(gohtml.FormatWithLineNo(templateContent), "\n")
+			var lineIndexOffset int
+			if len(lines) >= lineIndex+5+1 && lineIndex > 0 {
+				lines = lines[lineIndex-5 : lineIndex+5]
+				lineIndexOffset = lineIndex - 5
+			}
+			for i, line := range lines {
+				if i+lineIndexOffset == lineIndex {
+					fmt.Print("→ ")
+				} else {
+					fmt.Print("  ")
+				}
+				fmt.Println(line)
+			}
+		}
 		return "", err
+	} else {
+		fmt.Printf("\r\033[KHydrated %s", templateName)
 	}
 	return buf.String(), nil
 }
 
-func WriteHydratedContent(language string, templateName string, replacedString string) {
-	file, err := os.Create("../artifacts/phase_1/" + language + "/" + strings.TrimSuffix(templateName, ".pug") + ".pug")
+func TranslateHydrated(content string, language string, messages *gettext.Catalog) string {
+	parsedContent, err := html.Parse(strings.NewReader(content))
 	if err != nil {
-		panic(err)
+		printerr("An error occured while parsing the hydrated HTML for translation", err)
+		return ""
 	}
-	_, err = file.WriteString(replacedString)
-	if err != nil {
-		panic(err)
-	}
+	return TranslateToLanguage(language == "fr", parsedContent, messages)
 }
 
-func MakeDirs(languages []string) {
-	for _, lang := range languages {
-		os.MkdirAll("../artifacts/phase_1/"+lang+"/using", 0777) // TODO: 0777 is evil
+func WriteDistFile(fileName string, content string, language string, messages *gettext.Catalog) {
+	distFilePath := fmt.Sprintf("dist/%s/%s", language, strings.TrimSuffix(fileName, ".pug")+".html")
+	distFile, err := os.Create(distFilePath)
+	if err != nil {
+		printerr("Could not create the destination file "+distFilePath, err)
+		return
 	}
-}
-
-func LogHydrating(filename string, identifier string) {
-	if identifier != "" {
-		VerboseLog("[hydrator]     hydrating: '%s' @ %s\n", filename, identifier)
-	} else {
-		VerboseLog("[hydrator]     hydrating: '%s'\n", filename)
+	_, err = distFile.WriteString(content)
+	if err != nil {
+		printerr("Could not write to the destination file "+distFilePath, err)
+		return
 	}
+	fmt.Printf("\r\033[KWritten %s", distFilePath)
 }

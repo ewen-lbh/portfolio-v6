@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/hex"
 	"errors"
+	"fmt"
 	"io/ioutil"
 	"os"
 	"strings"
@@ -89,4 +90,12 @@ func StringsLooselyMatch(s1 string, sn ...string) bool {
 		}
 	}
 	return false
+}
+
+func printfln(text string, a ...interface{}) {
+	fmt.Printf(text+"\n", a)
+}
+
+func printerr(explanation string, err error) {
+	printfln(explanation+": %s", err)
 }

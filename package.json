@@ -9,7 +9,7 @@
 		"database:build": "portfoliodb database build database/database.json --config database/.portfoliodb.yaml -m",
 		"database:upload": "rclone ",
 		"database:clean": "mv -t ./ database/.portfoliodb.yaml database/sites.json && rm -r database/ && mkdir database && mv -t database/ sites.json .portfoliodb.yaml",
-		"pug:hydrate": "cd hydrator && ./hydrate",
+		"pug:hydrate": "hydrator/hydrate",
 		"messages:extract": "mv messages/fr.po messages/fr.old.po; cd artifacts/phase_1/en && gettext-extract --output ../../../messages/fr.new.po --startDelimiter '[#' --endDelimiter '#]' *.pug using/*.pug 1> /dev/null",
 		"messages:build": "msgfmt messages/fr.po -o messages/fr.mo",
 		"messages:combine": "msgcat --no-location messages/fr.old.po messages/fr.new.po -o messages/fr.po && rm messages/fr.new.po messages/fr.old.po",

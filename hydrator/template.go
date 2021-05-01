@@ -11,13 +11,16 @@ import (
 	"github.com/Masterminds/sprig"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/jaytaylor/html2text"
+	"github.com/snapcore/go-gettext"
 )
 
 // GetTemplateFuncMap returns the funcmap used to hydrate files
-func GetTemplateFuncMap() template.FuncMap {
+func GetTemplateFuncMap(language string, catalog *gettext.Catalog) template.FuncMap {
 	return template.FuncMap{
+		// translate translates the given string into `language`
+		"translate": translateFunc(language, catalog),
 		// "into" transforms to HTML structures
-		"intoGallery":   intoGallery,
+		"intoGallery":   intoGalleryFunc(language, catalog),
 		"intoLayout":    intoLayout,
 		"intoColorsCSS": intoColorsCSS,
 		// "get" gets a Go value (string, map[string]string, etc.)
@@ -74,29 +77,43 @@ func GetAge() uint8 {
 	return 17
 }
 
-func intoGallery(customClasses string, ws []WorkOneLang) string {
+// translateFunc returns _a function_ that calls gettext to translate a string to the given language
+func translateFunc(language string, catalog *gettext.Catalog) func(string) string {
+	if language == "fr" {
+		return func(text string) string { return catalog.Gettext(text) }
+	} else {
+		return func(text string) string { return text }
+	}
+}
+
+// intoGalleryFunc returns _a function_ intoGallery that can be used to generate a gallery.
+// We need this because the gallery comes from a template herself, that might call `translate`
+// So we need a function that returns a function.
+func intoGalleryFunc(language string, catalog *gettext.Catalog) func(string, []WorkOneLang) string {
 	templateContent, err := ReadFile("../src/.gallery.pug")
 
-	// Hydrate .gallery.pug with ws
-	tmpl := template.Must(
-		template.New(".gallery.pug").Funcs(GetTemplateFuncMap()).Funcs(sprig.TxtFuncMap()).Funcs(template.FuncMap{
-			"tindent":  IndentWithTabs,
-			"tnindent": IndentWithTabsNewline,
-		}).Parse(string(templateContent)))
-	var buf bytes.Buffer
-	err = tmpl.Execute(&buf, struct {
-		GivenWorks    []WorkOneLang
-		KnownTags     [len(KnownTags)]Tag
-		CustomClasses string
-	}{
-		GivenWorks:    ws,
-		KnownTags:     KnownTags,
-		CustomClasses: customClasses,
-	})
-	if err != nil {
-		panic(err)
+	return func(customClasses string, ws []WorkOneLang) string {
+		tmpl := template.New(".gallery.pug")
+		tmpl = tmpl.Funcs(GetTemplateFuncMap(language, catalog))
+		tmpl = tmpl.Funcs(sprig.TxtFuncMap())
+		tmpl = template.Must(tmpl.Parse(string(templateContent)))
+
+		// Hydrate .gallery.pug with ws
+		var buf bytes.Buffer
+		err = tmpl.Execute(&buf, struct {
+			GivenWorks    []WorkOneLang
+			KnownTags     [len(KnownTags)]Tag
+			CustomClasses string
+		}{
+			GivenWorks:    ws,
+			KnownTags:     KnownTags,
+			CustomClasses: customClasses,
+		})
+		if err != nil {
+			panic(err)
+		}
+		return buf.String()
 	}
-	return buf.String()
 }
 
 func intoLayout(w WorkOneLang) string {
