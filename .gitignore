@@ -166,6 +166,3 @@ database/**
 assets/*.js
 assets/*.css
 assets/*.css.map
-
-# portfoliodb lastbuild meta file
-.lastbuild.yaml
