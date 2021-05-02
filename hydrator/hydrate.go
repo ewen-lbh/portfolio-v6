@@ -99,62 +99,71 @@ func main() {
 	// Processing works
 	//
 	workTemplate := BuildTemplate(getAbsPath("_work.pug"))
-	for _, work := range db.Works {
-		for _, language := range []string{"fr", "en"} {
-			content, err := ExecuteTemplate(
-				db, &messages, language,
-				"_work<"+work.ID+">",
-				workTemplate,
-				CurrentlyHydrated{work: work.InLanguage(language)},
-			)
-			if err != nil {
-				continue
+	if workTemplate != "" {
+
+		for _, work := range db.Works {
+			for _, language := range []string{"fr", "en"} {
+				content, err := ExecuteTemplate(
+					db, &messages, language,
+					"_work<"+work.ID+">",
+					workTemplate,
+					CurrentlyHydrated{work: work.InLanguage(language)},
+				)
+				if err != nil {
+					continue
+				}
+				content = TranslateHydrated(content, language, &messages)
+				fmt.Printf("\r\033[KTranslated %s into %s", work.ID, language)
+				WriteDistFile(work.ID, content, language, &messages)
 			}
-			content = TranslateHydrated(content, language, &messages)
-			fmt.Printf("\r\033[KTranslated %s into %s", work.ID, language)
-			WriteDistFile(work.ID, content, language, &messages)
 		}
 	}
 	//
 	// Processing tags
 	//
 	tagTemplate := BuildTemplate(getAbsPath("_tag.pug"))
-	for _, tag := range KnownTags {
-		for _, language := range []string{"fr", "en"} {
-			content, err := ExecuteTemplate(
-				db, &messages, language,
-				"_tag<"+tag.URLName()+">",
-				tagTemplate,
-				CurrentlyHydrated{tag: tag},
-			)
-			if err != nil {
-				continue
+	if tagTemplate != "" {
+		for _, tag := range KnownTags {
+			for _, language := range []string{"fr", "en"} {
+				content, err := ExecuteTemplate(
+					db, &messages, language,
+					"_tag<"+tag.URLName()+">",
+					tagTemplate,
+					CurrentlyHydrated{tag: tag},
+				)
+				if err != nil {
+					continue
+				}
+				content = TranslateHydrated(content, language, &messages)
+				fmt.Printf("\r\033[KTranslated %s into %s", tag.URLName(), language)
+				WriteDistFile(tag.URLName(), content, language, &messages)
 			}
-			content = TranslateHydrated(content, language, &messages)
-			fmt.Printf("\r\033[KTranslated %s into %s", tag.URLName(), language)
-			WriteDistFile(tag.URLName(), content, language, &messages)
 		}
 	}
 	//
 	// Processing technologies
 	//
 	techTemplate := BuildTemplate(getAbsPath("using/_technology.pug"))
-	for _, tech := range KnownTechnologies {
-		for _, language := range []string{"fr", "en"} {
-			content, err := ExecuteTemplate(
-				db, &messages, language,
-				"using/_technology<"+tech.URLName+">",
-				techTemplate,
-				CurrentlyHydrated{tech: tech},
-			)
-			if err != nil {
-				continue
+	if techTemplate != "" {
+		for _, tech := range KnownTechnologies {
+			for _, language := range []string{"fr", "en"} {
+				content, err := ExecuteTemplate(
+					db, &messages, language,
+					"using/_technology<"+tech.URLName+">",
+					techTemplate,
+					CurrentlyHydrated{tech: tech},
+				)
+				if err != nil {
+					continue
+				}
+				content = TranslateHydrated(content, language, &messages)
+				fmt.Printf("\r\033[KTranslated using/%s into %s", tech.URLName, language)
+				WriteDistFile("using/"+tech.URLName, content, language, &messages)
 			}
-			content = TranslateHydrated(content, language, &messages)
-			fmt.Printf("\r\033[KTranslated using/%s into %s", tech.URLName, language)
-			WriteDistFile("using/" + tech.URLName, content, language, &messages)
 		}
 	}
+	// Final newline
+	println("")
 }
 
 type CurrentlyHydrated struct {
@@ -194,29 +203,40 @@ func BuildTemplate(absFilepath string) string {
 
 	template, err := jade.Parse(absFilepath, raw)
 	if err != nil {
-		_lineIndex, intParseError := strconv.ParseInt(strings.Split(err.Error(), ":")[1], 10, 64)
-		lineIndex := int(_lineIndex) // Stoopid strconv using int64's
-		if intParseError == nil {
-			fmt.Printf("While parsing %s:%d: %s\n", absFilepath, lineIndex, strings.SplitN(err.Error(), ":", 3)[2])
-			lineIndex -= 1 // Lines start at 1, arrays of line are indexed from 0
-			lines := strings.Split(gohtml.FormatWithLineNo(string(raw)), "\n")
-			var lineIndexOffset int
-			if len(lines) >= lineIndex+5+1 && lineIndex > 0 {
-				lines = lines[lineIndex-5 : lineIndex+5]
-				lineIndexOffset = lineIndex - 5
-			}
-			for i, line := range lines {
-				if i+lineIndexOffset == lineIndex {
-					fmt.Print("→ ")
-				} else {
-					fmt.Print("  ")
-				}
-				fmt.Println(line)
-			}
-		}
+		PrintTemplateErrorMessage("converting template to HTML", absFilepath, string(raw), err, 1)
+		return ""
 	}
 
 	return template
+}
+
+func PrintTemplateErrorMessage(whileDoing string, templateName string, templateContent string, err error, lineNumberSliceIndex int) {
+	_lineIndex, intParseError := strconv.ParseInt(strings.Split(err.Error(), ":")[lineNumberSliceIndex], 10, 64)
+	if intParseError != nil {
+		fmt.Printf("While %s %s: %s", whileDoing, templateName, err.Error())
+		return
+	}
+	lineIndex := int(_lineIndex)
+	fmt.Printf("While %s %s:%d: %s\n", whileDoing, templateName, lineIndex, strings.SplitN(err.Error(), ":", lineNumberSliceIndex+1+1)[lineNumberSliceIndex+1])
+	lineIndex -= 1 // Lines start at 1, arrays of line are indexed from 0
+	lines := strings.Split(gohtml.FormatWithLineNo(templateContent), "\n")
+	var lineIndexOffset int
+	if len(lines) >= lineIndex+5+1 {
+		if lineIndex >= 5 {
+			lines = lines[lineIndex-5 : lineIndex+5]
+			lineIndexOffset = lineIndex - 5
+		} else {
+			lines = lines[0 : lineIndex+5]
+		}
+	}
+	for i, line := range lines {
+		if i+lineIndexOffset == lineIndex {
+			fmt.Print("→ ")
+		} else {
+			fmt.Print("  ")
+		}
+		fmt.Println(line)
+	}
 }
 
 func ExecuteTemplate(db Database, catalog *gettext.Catalog, language string, templateName string, templateContent string, currentlyHydrated CurrentlyHydrated) (string, error) {
@@ -226,26 +246,7 @@ func ExecuteTemplate(db Database, catalog *gettext.Catalog, language string, tem
 	tmpl, err := tmpl.Parse(gohtml.Format(templateContent))
 
 	if err != nil {
-		_lineIndex, intParseError := strconv.ParseInt(strings.Split(err.Error(), ":")[2], 10, 64)
-		lineIndex := int(_lineIndex)
-		if intParseError == nil {
-			fmt.Printf("While parsing template %s:%d: %s\n", templateName, lineIndex, strings.Split(err.Error(), ":")[3])
-			lineIndex -= 1 // Lines start at 1, arrays of line are indexed from 0
-			lines := strings.Split(gohtml.FormatWithLineNo(templateContent), "\n")
-			var lineIndexOffset int
-			if len(lines) >= lineIndex+5+1 && lineIndex > 0 {
-				lines = lines[lineIndex-5 : lineIndex+5]
-				lineIndexOffset = lineIndex - 5
-			}
-			for i, line := range lines {
-				if i+lineIndexOffset == lineIndex {
-					fmt.Print("→ ")
-				} else {
-					fmt.Print("  ")
-				}
-				fmt.Println(line)
-			}
-		}
+		PrintTemplateErrorMessage("parsing template", templateName, templateContent, err, 2)
 		return "", err
 	}
 
@@ -262,26 +263,7 @@ func ExecuteTemplate(db Database, catalog *gettext.Catalog, language string, tem
 	})
 
 	if err != nil {
-		_lineIndex, intParseError := strconv.ParseInt(strings.Split(err.Error(), ":")[2], 10, 64)
-		lineIndex := int(_lineIndex)
-		if intParseError == nil {
-			fmt.Printf("While executing template %s:%d: %s\n", templateName, lineIndex, strings.TrimPrefix(strings.SplitN(err.Error(), ":", 5)[4], fmt.Sprintf(` executing "%s" `, templateName)))
-			lineIndex -= 1 // Lines start at 1, arrays of line are indexed from 0
-			lines := strings.Split(gohtml.FormatWithLineNo(templateContent), "\n")
-			var lineIndexOffset int
-			if len(lines) >= lineIndex+5+1 && lineIndex > 0 {
-				lines = lines[lineIndex-5 : lineIndex+5]
-				lineIndexOffset = lineIndex - 5
-			}
-			for i, line := range lines {
-				if i+lineIndexOffset == lineIndex {
-					fmt.Print("→ ")
-				} else {
-					fmt.Print("  ")
-				}
-				fmt.Println(line)
-			}
-		}
+		PrintTemplateErrorMessage("executing template", templateName, templateContent, err, 2)
 		return "", err
 	} else {
 		fmt.Printf("\r\033[KHydrated %s", templateName)
