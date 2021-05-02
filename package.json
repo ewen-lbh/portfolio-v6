@@ -25,7 +25,12 @@
 		"assets:build": "cp -r assets/* dist/ && svgo --recursive --quiet -f assets/ -o dist/",
 		"build": "concurrently npm:pug:build npm:livescript:build npm:stylus:build npm:assets:build",
 
-		"pug:watch": "hydrator/hydrate watch",
+		"pug:watch": "hydrator/hydrate watch && pnpm messages:update",
+		"livescript:watch": "lsc   --watch -c --output assets/ src/*.ls",
+		"stylus:watch": "stylus    --watch --compress --sourcemap src/style.styl -o assets/style.css",
+		"assets:watch": "nodemon   --watch assets        --exec 'pnpm assets:build'",
+		"messages:watch": "nodemon --watch i18n --ext po --exec 'pnpm messages:build && pnpm pug:build'",
+		"dev": "pnpm configure:dev && concurrently npm:pug:watch npm:livescript:watch npm:assets:watch npm:stylus:watch npm:messages:watch",
 
 		"database:clean": "mv -t ./ database/.portfoliodb.yaml database/.lastbuild.yaml database/sites.json database/database.json && rm -r database/ && mkdir database && mv -t database/ sites.json .portfoliodb.yaml database.json .lastbuild.yaml",
 		"messages:clean": "i18n/clean i18n/fr.po i18n/fr.po",
@@ -35,7 +40,7 @@
 		"concurrently": "^5.3.0",
 		"gettext-extractor": "^3.5.3",
 		"livescript": "^1.6.0",
-		"nodemon": "^2.0.6",
+		"nodemon": "^2.0.7",
 		"pug-cli": "^1.0.0-alpha6",
 		"stylus": "^0.54.8",
 		"svgo": "^2.3.0"

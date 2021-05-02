@@ -46,7 +46,7 @@ src/...    html -> hydration -> translation -> dist/
 1. Configure environment variables: `pnpm configure:(dev/prod)`
 1. Build assets, livescript files, stylus files and pages 1.oncurrently: `pnpm build`
 
-## Watchers (WIP)
+## Watchers
 
 ### HTML
 
