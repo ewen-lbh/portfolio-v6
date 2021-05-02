@@ -1,80 +1,92 @@
-# Compilation process
+# What it does
 
-## Compile
+## Compilation
 
 ```
-   +------------------------------+
-   | ~/projects/*/.portfoliodb/** |
-   +---------------+--------------+
-                   |
-                   |   pnpm database:crawl
-                   v
-+------------------+----------------+
-|  ~/projects/portfolio/database/** |
-+------------------+----------------+
-                   |
-                   |   pnpm database:build
-                   v
-     +-------------+----------+     +-----------+                             +----------+          +-----------+         +-----------+
-     | database/database.json |     | src/*.pug |                             | src/*.ls |          | src/*.css |         | assets/** |
-     +-------------+----------+     +-----+-----+                             +----+-----+          +-----+-----+         +-----+-----+
-                   |                      |                                        |                      |                     |
-                   +--------------------->+   pnpm pug:hydrate                     |                      |                     |
-                                          v                                        |                      |                     |
-                         +----------------+---------------+                        |                      |                     |
-                         | artifacts/phase_1/{lang}/*.pug |                        |                      |                     |
-                         +----------------+---------------+                        |                      |                     |
-                                          |                                        |                      |                     |
-                                          |                                        |                      |                     |
-                                          v                                        |                      |                     |
-                              +-----------+-----------------+                      |                      |                     |
-      pnpm messages:extract   |                             |                      |                      |                     |
-      pnpm messages:combine   |                             |   pnpm pug:build     |                      |                     |
-                              v                             v                      |                      |                     |
-                  +-----------+--------+  +-----------------+---------------+      |                      |                     |
-                  | messages/{lang}.po |  | artifacts/phase_2/{lang}/*.html |      |                      |                     |
-                  +-----------+--------+  +-----------------+---------------+      |                      |                     |
-                              |                             |                      |                      |                     |
-        pnpm messages:build   |                             |                      |                      |                     |
-                              v                             |                      |                      |                     |
-                  +-----------+--------+                    |                      |                      |                     |
-                  | messages/{lang}.mo |                    |                      |                      |                     |
-                  +-----------+--------+                    |                      |                      |                     |
-                              |                             |                      |                      |                     |
-                              |                             |                      |                      |                     |
-                              +-----------+-----------------+                      |                      |                     |
-                                          |                                        |                      |                     |
-                                          |   pnpm html:translate                  |                      |                     |
-                                          v                                        |   pnpm ls:build      |   pnpm stylus:build |   pnpm assets:build
-                               +----------+---------+                              |                      |                     |
-                               | dist/{lang}/*.html +<-----------------------------+----------------------+---------------------+
-                               +--------------------+
+src/...    html -> hydration -> translation -> dist/
+             ↓                      ↑
+          gettext                   |
+         extraction                 |
+             ↓                      |
+          combine                   |
+             ↓                      |
+           build -------------------|
+
+
+       svg,png,jpeg -> image processing     -> assets/
+       styl         -> stylus compiler      -> assets/
+       ls           -> livescript compiler  -> assets/
+
 ```
 
-## Macro-commands
+### Regular pages
 
-<dl>
-  <dt><code>database:update</code></dt>
-  <dd><code>database:crawl</code> then <code>database:build</code></dd>
-  <dt><code>prepare:i18n</code></dt>
-  <dd>from <code>pug:hydrate</code> to <code>messages:combine</code></dd>
-  <dt><code>make</code></dt>
-  <dd><code>*:build</code> and <code>html:translate</code></dd>
-</dl>
+1. Execute template with regular data
+1. For both languages:
+    1. Translate
+    1. Write to source path with `src/` → `dist/`
 
-## Cleanup
+### Dynamic pages (`_{work,tag}.html,using/_technology.html`)
 
+1. For every resource, for both languages:
+    1. Execute template with regular data _and the language's resource's_,
+    1. Translate
+    1. Write to appropriate path in `dist/`
 
 ## Workflow
 
-1. Edit `{src,}/**` files
-2. Update database if needed: `pnpm database:update` (i.e. if you changed some description.md files and/or added a new project)
-3. Run `pnpm prepare:i18n`
-4. Add missing translations to `messages/*.po`
-5. Run `pnpm make`
-6. (Optionally) Run `pnpm clean`
+### Development
 
-Or:
+1. Start the watchers: `pnpm dev`
 
-1. Edit source files
-2. Run `./imake`
+### Manual
+
+1. If needed, pull changes to projects' description files: `pnpm database:update`
+1. If needed, build the translation file: `pnpm messages:build`
+1. Configure environment variables: `pnpm configure:(dev/prod)`
+1. Build assets, livescript files, stylus files and pages 1.oncurrently: `pnpm build`
+
+## Watchers (WIP)
+
+### HTML
+
+#### Content changes (new file or content modified)
+
+- `{components,layouts}/FILE`:
+    1. update the modified file
+    1. update files containing `{{ template "FILE" }}`
+- others:
+    1. update the modified file
+
+#### Suppressions
+
+1. Warn when some linked to that page
+
+#### Moves
+
+1. Change links referencing the file (triggers _Content changes_)
+
+### Scripting & styling
+
+Just plain-old watch-and-compile for: `*.{ls,styl}`
+
+### Metadata database changes
+
+(database that keeps valid tags & technologies)
+
+#### Addition
+
+1. Build a new page from `_tag.html` or `using/_technology.html`
+1. (technologies only) process the tech's logo
+
+### Database changes
+
+#### Project addition
+
+1. Crawl & build a database containing only that project
+1. Merge it with `database.json`
+1. Build a new page from `_work.html`
+
+### Messages (translations) changes
+
+1. Re-do everything
