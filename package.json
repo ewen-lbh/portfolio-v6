@@ -5,27 +5,25 @@
 	"license": "CC-BY-NC-ND-4.0",
 	"version": "0.1.0",
 	"scripts": {
+		"hydrator:build": "cd hydrator && go build",
+
 		"database:crawl": "cd /home/ewen/projects/portfoliodb-crawler && python3.9 crawler.py /home/ewen/projects/portfolio/database",
 		"database:build": "portfoliodb database build database/database.json --config database/.portfoliodb.yaml -m",
-		"database:upload": "rclone ",
-		"database:clean": "mv -t ./ database/.portfoliodb.yaml database/sites.json && rm -r database/ && mkdir database && mv -t database/ sites.json .portfoliodb.yaml",
-		"pug:hydrate": "hydrator/hydrate",
-		"messages:extract": "mv messages/fr.po messages/fr.old.po; cd artifacts/phase_1/en && gettext-extract --output ../../../messages/fr.new.po --startDelimiter '[#' --endDelimiter '#]' *.pug using/*.pug 1> /dev/null",
-		"messages:build": "msgfmt messages/fr.po -o messages/fr.mo",
-		"messages:combine": "msgcat --no-location messages/fr.old.po messages/fr.new.po -o messages/fr.po && rm messages/fr.new.po messages/fr.old.po",
-		"pug:build": "cd artifacts/phase_1 && cd fr && cp .layout.pug using/.layout.pug && pug . -o ../../phase_2/fr && cd ../en && cp .layout.pug using/.layout.pug && pug . -o ../../phase_2/en",
-		"html:translate": "cd translator && poetry run python translate.py && cd ..",
-		"ls:build": "lsc -c --output assets/ src/*.ls",
-		"stylus:build": "stylus --compress --sourcemap src/style.styl -o assets/style.css",
-		"assets:build": "echo 'TODO @ assets:build  compress images & others'; cp -r assets/* dist/",
-		"hydrator:build": "cd hydrator && go build",
-		"dev": "nodemon --watch src --ext ls,pug,styl --exec ./imake",
 		"database:update": "pnpm database:clean && pnpm database:crawl && pnpm database:build",
-		"prepare:i18n": "pnpm pug:hydrate && pnpm messages:extract && pnpm messages:combine",
-		"make": "concurrently 'pnpm messages:build' 'pnpm pug:build' && mkdir -p dist/fr dist/en && concurrently 'pnpm html:translate' 'pnpm stylus:build' 'pnpm ls:build' 'pnpm assets:build'",
+
+		"messages:extract": "mv messages/fr.po messages/fr.old.po; cd artifacts/phase_1/en && gettext-extract --output ../../../messages/fr.new.po --startDelimiter '[#' --endDelimiter '#]' *.pug using/*.pug 1> /dev/null",
+		"messages:combine": "msgcat --no-location messages/fr.old.po messages/fr.new.po -o messages/fr.po && rm messages/fr.new.po messages/fr.old.po",
+		"messages:build": "msgfmt messages/fr.po -o messages/fr.mo",
+
+		"pug:build": "hydrator/hydrate",
+		"livescript:build": "lsc -c --output assets/ src/*.ls",
+		"stylus:build": "stylus --compress --sourcemap src/style.styl -o assets/style.css",
+		"assets:build": "cp -r assets/* dist/ && svgo --recursive --quiet -f assets/ -o dist/",
+		"build": "concurrently 'pug:build' 'livescript:build' 'stylus:build' 'assets:build'",
+
+		"database:clean": "mv -t ./ database/.portfoliodb.yaml database/sites.json database/database.json && rm -r database/ && mkdir database && mv -t database/ sites.json .portfoliodb.yaml database.json",
 		"messages:clean": "./merged_po_file_cleaner/merged_po_file_cleaner messages/fr.po messages/fr.po",
-		"clean": "concurrently 'rm -r artifacts messages/*.mo; exit 0' 'pnpm messages:clean' 'pnpm database:clean'",
-		"makedirs": "mkdir --mode=666 --parents artifacts/phase_{1,2}/{fr,en}"
+		"clean": "concurrently 'pnpm messages:clean' 'pnpm database:clean'"
 	},
 	"devDependencies": {
 		"concurrently": "^5.3.0",
