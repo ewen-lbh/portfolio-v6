@@ -13,6 +13,7 @@ insert_final_newline = true
 
 [*.pug]
 indent_style = tab
+indent_size = 3
 trim_trailing_whitespace = false
 
 [*.yaml]
