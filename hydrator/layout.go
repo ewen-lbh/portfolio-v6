@@ -150,7 +150,7 @@ func (work *WorkOneLang) BuildLayout() string {
 				if data.Title != "" {
 					element += fmt.Sprintf("<figcaption>%s</figcaption>", data.Title)
 				}
-				element = fmt.Sprintf(`<figure data-enable-media-closeup="%s">%s</figure>`, data.ContentType, element)
+				element = fmt.Sprintf(`<figure data-content-type="%s">%s</figure>`, data.ContentType, element)
 			} else if layoutElement.IsParagraph {
 				if len(work.Paragraphs) <= usedCounts.p {
 					panic(buildLayoutErrorMessage("paragraphs", work, usedCounts.p, layout))
