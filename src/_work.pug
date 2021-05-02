@@ -7,26 +7,26 @@ block content
 	ul.tags
 		each _ in .CurrentWork.Metadata.Tags
 			= $tag := . | lookupTag
-			li: a(i18n href=`/${ $tag.URLName }`)=$tag.Singular
+			li: a(i18n href=`/{{ $tag.URLName }}`)=$tag.Singular
 
 	if .CurrentWork.IsWIP
 		a.work-in-progress(i18n href="/#wip") work in progress
 
 	section.contents
-		h1(data-style="{{ .CurrentWork.Metadata.Title }}")=.CurrentWork.Title
+		h1(data-style=.CurrentWork.Metadata.Title)=.CurrentWork.Title
 
-		= .CurrentWork | intoLayout
+		!= .CurrentWork | intoLayout
 
 	if len .CurrentWork.Footnotes
 		section.footnotes
 			h2.footnotes__title(i18n) footnotes
 			dl.footnotes__list
 				each _ in .CurrentWork.Footnotes
-					dt(id=`fn:${ .Name }`)
-						a(href=`#fn:${ .Name }`)= .Name
+					dt(id=`fn:{{ .Name }}`)
+						a(href=`#fn:{{ .Name }}`)= .Name
 					dd
 						p= .Content
-						a.footnotes__list__item__reference-link(i18n href=`#fnref:${ .Name }`)
+						a.footnotes__list__item__reference-link(i18n href=`#fnref:{{ .Name }}`)
 							| ↖ Back to the text
 						//- TODO: handle multiple references (needs change in portfoliodb to add footnotes[].references)
 						//- { if ge (len .References) 2 }
@@ -44,10 +44,10 @@ block content
 				each _ in .CurrentWork.Metadata.MadeWith
 					= $tech := . | lookupTech 
 					li.made-with__item
-						a(href=`/using/${ $tech.URLName }` title=(translate "See all works made with this technology"))
+						a(href=`/using/{{ $tech.URLName }}` title=(translate "See all works made with this technology"))
 							img.made-with__item__logo(
 								src=(asset (printf "logos/%s.svg" $tech.URLName))
-								alt=(translate `${ $tech.DisplayName }’s logo`)
+								alt=(translate (printf `%s’s logo` $tech.DisplayName))
 							)
 							if $tech.Author
 								span.made-with__item__subline= $tech.Author
@@ -55,7 +55,7 @@ block content
 						if $tech.LearnMoreURL
 							ul.made-with__item__links
 								li: a.made-with__item__links__works(
-									href=`/using/${ $tech.URLName }`
+									href=`/using/{{ $tech.URLName }}`
 									title=(translate "See all works made with this technology")
 								) →
 								li: a.made-with__item__links__learn-more(

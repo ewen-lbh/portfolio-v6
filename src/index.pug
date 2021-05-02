@@ -17,7 +17,7 @@ block content
 		h2(i18n) most recent one
 
 		a.work-card.work-card--large(
-			href="/{{ $latest.ID }}"
+			href=`/{{ $latest.ID }}`
 			style!=`
 				background-image:url('{{ $latest | getThumbnailSource 700 }}');
 				{{ $latest | intoColorsCSS }}

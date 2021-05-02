@@ -5,8 +5,8 @@ block content
 	h1.made-with-page__header
 		i18n works made with
 		br
-		i18n {{ .CurrentTech.DisplayName }}
-	p.made-with-page__tech-description(translate) {{ .CurrentTech.Description }}
+		i18n= .CurrentTech.DisplayName
+	p.made-with-page__tech-description(translate)= .CurrentTech.Description
 
 	section.made-with-page__gallery
 		= .Works | madeWith .CurrentTech | intoGallery (printf "tech-%s" .CurrentTech.URLName)
