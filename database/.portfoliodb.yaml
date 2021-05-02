@@ -10,6 +10,6 @@ extract colors:
 make thumbnails:
   enabled: true
   sizes: [400, 700, 1200]
-  file name template: <parent>/<media id>@<size>.<extension>
+  file name template: <parent>/<media id>@<size>.webp
 
 build metadata file: .lastbuild.yaml
