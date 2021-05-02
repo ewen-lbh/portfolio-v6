@@ -23,7 +23,7 @@
 
 		"database:clean": "mv -t ./ database/.portfoliodb.yaml database/sites.json database/database.json && rm -r database/ && mkdir database && mv -t database/ sites.json .portfoliodb.yaml database.json",
 		"messages:clean": "./merged_po_file_cleaner/merged_po_file_cleaner messages/fr.po messages/fr.po",
-		"clean": "concurrently 'pnpm messages:clean' 'pnpm database:clean'"
+		"clean": "pnpm messages:clean && pnpm database:clean"
 	},
 	"devDependencies": {
 		"concurrently": "^5.3.0",
