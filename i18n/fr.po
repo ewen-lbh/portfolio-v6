@@ -986,7 +986,7 @@ msgid ""
 msgstr ""
 
 msgid "Made with <3 by Ewen Le Bihan"
-msgstr ""
+msgstr "Fait avec <3 par Ewen Le Bihan"
 
 msgid ""
 "Proudly\n"
