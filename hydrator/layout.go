@@ -124,11 +124,17 @@ func (work *WorkOneLang) BuildLayout() string {
 					)
 				case "image":
 					element = fmt.Sprintf(
-						`<img src="%v" id="%v" title="%v" alt="%v" />`,
+						`<a href="%v" class="progressive replace">
+							<img data-full-src="%v" src="%v" id="%v" title="%v" alt="%v" intrinsicsize="%v x %v" />
+						</a>`,
 						media(data.Source),
+						media(data.Source),
+						getThumbnailSource(400, *work),
 						data.ID,
 						data.Title,
 						data.Alt,
+						data.Dimensions.Width,
+						data.Dimensions.Height,
 					)
 				case "pdf":
 					element = fmt.Sprintf(

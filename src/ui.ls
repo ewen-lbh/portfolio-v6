@@ -2,6 +2,7 @@ open-media-closeup =  ->
 	it.prevent-default!
 	media-element = it.target.clone-node true
 	media-element.class-list.add \media
+	media-element.set-attribute \src (media-element.dataset.full-src)
 	popup = document.get-element-by-id \media-closeup
 	target = popup.first-child
 	target.replace-with media-element
