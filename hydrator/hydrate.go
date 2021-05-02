@@ -34,6 +34,9 @@ func VerboseLog(s string, fmtArgs ...interface{}) {
 // getAbsPath returns the absolute path of basename,
 // joining the absolute path of src/ and the given basename
 func getAbsPath(basename string) string {
+	if strings.HasPrefix(basename, "/") {
+		return basename
+	}
 	absdir, err := filepath.Abs("src")
 	if err != nil {
 		panic(err)
@@ -86,18 +89,16 @@ func main() {
 		}
 
 		for _, file := range files {
-			BuildRegularPage(&messages, db, file)
+			if file.IsDir() || strings.HasPrefix(file.Name(), "_") || !strings.HasSuffix(file.Name(), ".pug") || file.Name() == "gallery.pug" {
+				continue
+			}
+			BuildRegularPage(&messages, db, file.Name())
 		}
 
 		// Process the technologies index file
 		// FIXME: I have to dot it separately since it's in src/using/
 		// and not just src/
-		indexPage, err := os.Stat(getAbsPath("using/index.pug"))
-		if err != nil {
-			printerr("While building technologies index page: could not stat file", err)
-			return
-		}
-		BuildRegularPage(&messages, db, indexPage)
+		BuildRegularPage(&messages, db, "using/index.pug")
 
 		BuildWorkPages(db, &messages)
 		BuildTechPages(db, &messages)
@@ -173,11 +174,8 @@ func BuildWorkPages(db Database, messages *gettext.Catalog) {
 	}
 }
 
-func BuildRegularPage(messages *gettext.Catalog, db Database, file os.FileInfo) {
-	if file.IsDir() || strings.HasPrefix(file.Name(), "_") || !strings.HasSuffix(file.Name(), ".pug") || file.Name() == "gallery.pug" {
-		return
-	}
-	absFilepath := getAbsPath(file.Name())
+func BuildRegularPage(messages *gettext.Catalog, db Database, filepath string) {
+	absFilepath := getAbsPath(filepath)
 	//
 	// Build the template
 	//
@@ -191,8 +189,8 @@ func BuildRegularPage(messages *gettext.Catalog, db Database, file os.FileInfo) 
 			continue
 		}
 		content = TranslateHydrated(content, language, messages)
-		fmt.Printf("\r\033[KTranslated %s into %s", file.Name(), language)
-		WriteDistFile(file.Name(), content, language, messages)
+		fmt.Printf("\r\033[KTranslated %s into %s", GetPathRelativeToSrcDir(absFilepath), language)
+		WriteDistFile(GetPathRelativeToSrcDir(absFilepath), content, language, messages)
 	}
 }
 

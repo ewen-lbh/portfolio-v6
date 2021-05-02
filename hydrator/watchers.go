@@ -15,6 +15,7 @@ import (
 )
 
 func StartHTMLWatcher(messages *gettext.Catalog, db Database) {
+	// TODO: reload MO file when it changes
 	pugFilePattern := regexp.MustCompile(`^.+\.pug`)
 	//
 	// Content changes (new files or contents modified)
@@ -36,11 +37,7 @@ func StartHTMLWatcher(messages *gettext.Catalog, db Database) {
 					for _, filePath := range append(dependents, event.Path) {
 						// Regular pages: no _ prefix
 						if !strings.HasPrefix(path.Base(filePath), "_") {
-							file, err := os.Stat(filePath)
-							if err != nil {
-								printerr("Could not stat "+filePath, err)
-							}
-							BuildRegularPage(messages, db, file)
+							BuildRegularPage(messages, db, filePath)
 						}
 						if GetPathRelativeToSrcDir(filePath) == "_work.pug" {
 							BuildWorkPages(db, messages)
@@ -48,7 +45,7 @@ func StartHTMLWatcher(messages *gettext.Catalog, db Database) {
 						if GetPathRelativeToSrcDir(filePath) == "_tag.pug" {
 							BuildTagPages(db, messages)
 						}
-						if GetPathRelativeToSrcDir(filePath) == "using/_tech.pug" {
+						if GetPathRelativeToSrcDir(filePath) == "using/_technology.pug" {
 							BuildTechPages(db, messages)
 						}
 					}
