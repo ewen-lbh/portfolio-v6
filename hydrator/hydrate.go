@@ -60,6 +60,7 @@ func main() {
 	}
 	if err != nil {
 		printerr("Could not read src/", err)
+		return
 	}
 	//
 	// Preparing dist directory
@@ -143,6 +144,20 @@ func main() {
 	//
 	// Processing technologies
 	//
+	// Process the index file
+	absFilepath := getAbsPath("using/index.pug")
+	templateContent := BuildTemplate(absFilepath)
+	for _, language := range []string{"fr", "en"} {
+		// Execute the template
+		content, err := ExecuteTemplate(db, &messages, language, absFilepath, templateContent, CurrentlyHydrated{})
+		if err != nil {
+			continue
+		}
+		content = TranslateHydrated(content, language, &messages)
+		fmt.Printf("\r\033[KTranslated using/index.pug into %s", language)
+		WriteDistFile("using/index.pug", content, language, &messages)
+	}
+	// Process all the technologies
 	techTemplate := BuildTemplate(getAbsPath("using/_technology.pug"))
 	if techTemplate != "" {
 		for _, tech := range KnownTechnologies {
