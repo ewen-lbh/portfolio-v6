@@ -44,7 +44,7 @@ block content
 				each _ in .CurrentWork.Metadata.MadeWith
 					= $tech := . | lookupTech 
 					li.made-with__item
-						a(href=`/using/{{ $tech.URLName }}` title=(translate "See all works made with this technology"))
+						a(href=`/using/{{ $tech.URLName }}` title=(translate "More..."))
 							img.made-with__item__logo(
 								src=(asset (printf "logos/%s.svg" $tech.URLName))
 								alt=(translate (printf `%s’s logo` $tech.DisplayName))
@@ -52,16 +52,6 @@ block content
 							if $tech.Author
 								span.made-with__item__subline= $tech.Author
 							span.made-with__item__name(i18n)= $tech.DisplayName
-						if $tech.LearnMoreURL
-							ul.made-with__item__links
-								li: a.made-with__item__links__works(
-									href=`/using/{{ $tech.URLName }}`
-									title=(translate "See all works made with this technology")
-								) →
-								li: a.made-with__item__links__learn-more(
-									href=$tech.LearnMoreURL
-									title=(translate "Learn more")
-								) ?
 
 	dialog#media-closeup(onclick="this.close()")
 		.media.empty

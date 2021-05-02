@@ -998,3 +998,6 @@ msgstr "Fièrement <strong>non</strong> propulsé par Wordpress"
 
 msgid "Unknown error"
 msgstr "Erreur inconnue"
+
+msgid "More..."
+msgstr "Plus..."

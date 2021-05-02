@@ -3,27 +3,17 @@ extends layout
 
 block content
 	= $works := .Works
-	h1(translate) technologies i use
+	h1(i18n) technologies i use
 
 	ul.made-with__list.made-with__list--fullwidth
 		each _ in .KnownTechnologies
 			if len ($works | madeWith .)
 				li.made-with__item
-					a(href=`/using/${ .URLName }` title=(translate "See all works made with this technology"))
+					a(href=`/using/{{ .URLName }}` title=(translate "More..."))
 						img.made-with__item__logo(
 							src=(asset (printf "logos/%s.svg" .URLName))
-							alt=(translate `${ .DisplayName }’s logo`)
+							alt=(translate `{{ .DisplayName }}’s logo`)
 						)
 						if .Author
 							span.made-with__item__subline= .Author
-						span.made-with__item__name(translate)= .DisplayName
-					if .LearnMoreURL
-						ul.made-with__item__links
-							li: a.made-with__item__links__works(
-								href=`/using/${ .URLName }`
-								title=(translate "See all works made with this technology")
-							) →
-							li: a.made-with__item__links__learn-more(
-								href= .LearnMoreURL
-								title=(translate "Learn more")
-							) ?
+						span.made-with__item__name(i18n)= .DisplayName
