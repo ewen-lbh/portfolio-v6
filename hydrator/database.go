@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
@@ -36,7 +35,7 @@ func (work *WorkOneLang) Created() time.Time {
 	}
 	parsedDate, err := ParseCreationDate(creationDate)
 	if err != nil {
-		fmt.Printf("Error while parsing creation date of %v:\n", work.ID)
+		printfln("Error while parsing creation date of %v:", work.ID)
 		panic(err)
 	}
 	return parsedDate

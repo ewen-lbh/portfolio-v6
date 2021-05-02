@@ -27,7 +27,7 @@ func IsVerbose() bool {
 
 func VerboseLog(s string, fmtArgs ...interface{}) {
 	if IsVerbose() {
-		fmt.Printf(s+"\n", fmtArgs...)
+		printfln(s, fmtArgs...)
 	}
 }
 
@@ -74,9 +74,9 @@ func main() {
 	//
 	if len(os.Args) >= 2 && os.Args[1] == "watch" {
 		StartHTMLWatcher(&messages, db)
-	//
-	// Build everything
-	//
+		//
+		// Build everything
+		//
 	} else {
 
 		files, err := ioutil.ReadDir("src")
@@ -247,7 +247,7 @@ func PrintTemplateErrorMessage(whileDoing string, templateName string, templateC
 		return
 	}
 	lineIndex := int(_lineIndex)
-	fmt.Printf("While %s %s:%d: %s\n", whileDoing, templateName, lineIndex, strings.SplitN(err.Error(), ":", lineNumberSliceIndex+1+1)[lineNumberSliceIndex+1])
+	printfln("While %s %s:%d: %s", whileDoing, templateName, lineIndex, strings.SplitN(err.Error(), ":", lineNumberSliceIndex+1+1)[lineNumberSliceIndex+1])
 	lineIndex -= 1 // Lines start at 1, arrays of line are indexed from 0
 	lines := strings.Split(gohtml.FormatWithLineNo(templateContent), "\n")
 	var lineIndexOffset int

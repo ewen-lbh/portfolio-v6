@@ -32,7 +32,7 @@ func StartHTMLWatcher(messages *gettext.Catalog, db Database) {
 				case watcher.Create:
 					fallthrough
 				case watcher.Write:
-					fmt.Printf("Building file %s and its dependents %v\n", GetPathRelativeToSrcDir(event.Path), dependents)
+					printfln("Building file %s and its dependents %v", GetPathRelativeToSrcDir(event.Path), dependents)
 					for _, filePath := range append(dependents, event.Path) {
 						// Regular pages: no _ prefix
 						if !strings.HasPrefix(path.Base(filePath), "_") {

@@ -3,11 +3,12 @@ package main
 import (
 	"bytes"
 	"fmt"
-	"github.com/yosssi/gohtml"
 	"os"
 	"sort"
 	"strings"
 	"text/template"
+
+	"github.com/yosssi/gohtml"
 
 	"github.com/Masterminds/sprig"
 	"github.com/davecgh/go-spew/spew"
@@ -212,7 +213,7 @@ func withTag(tag Tag, ws []WorkOneLang) []WorkOneLang {
 		for _, work := range ws {
 			wsIDs = append(wsIDs, work.ID)
 		}
-		fmt.Printf("WARNING: No works from %v have the %s tag\n", wsIDs, tag.URLName())
+		printfln("WARNING: No works from %v have the %s tag", wsIDs, tag.URLName())
 	}
 	return filtered
 }
