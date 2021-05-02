@@ -18,7 +18,7 @@ require (
 	github.com/metal3d/go-slugify v0.0.0-20160607203414-7ac2014b2f23
 	github.com/mitchellh/copystructure v1.0.0 // indirect
 	github.com/olekukonko/tablewriter v0.0.4 // indirect
-	github.com/radovskyb/watcher v1.0.7 // indirect
+	github.com/radovskyb/watcher v1.0.7
 	github.com/relvacode/iso8601 v1.1.0
 	github.com/snapcore/go-gettext v0.0.0-20201130093759-38740d1bd3d2
 	github.com/ssor/bom v0.0.0-20170718123548-6386211fdfcf // indirect
