@@ -16,6 +16,9 @@
 		"messages:build": "msgfmt i18n/fr.po -o i18n/fr.mo",
 		"messages:update": "pnpm messages:extract && pnpm messages:combine && pnpm messages:clean",
 
+		"configure:dev": "cp hydrator/dev.env .env",
+		"configure:prod": "cp hydrator/prod.env .env",
+
 		"pug:build": "hydrator/hydrate",
 		"livescript:build": "lsc -c --output assets/ src/*.ls",
 		"stylus:build": "stylus --compress --sourcemap src/style.styl -o assets/style.css",
@@ -24,7 +27,7 @@
 
 		"database:clean": "mv -t ./ database/.portfoliodb.yaml database/.lastbuild.yaml database/sites.json database/database.json && rm -r database/ && mkdir database && mv -t database/ sites.json .portfoliodb.yaml database.json .lastbuild.yaml",
 		"messages:clean": "i18n/clean i18n/fr.po i18n/fr.po",
-		"clean": "pnpm messages:clean && pnpm database:clean"
+		"clean": "pnpm messages:clean && pnpm database:clean && rm -r dist"
 	},
 	"devDependencies": {
 		"concurrently": "^5.3.0",
