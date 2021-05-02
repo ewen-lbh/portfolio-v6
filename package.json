@@ -33,6 +33,7 @@
 		"livescript": "^1.6.0",
 		"nodemon": "^2.0.6",
 		"pug-cli": "^1.0.0-alpha6",
-		"stylus": "^0.54.8"
+		"stylus": "^0.54.8",
+		"svgo": "^2.3.0"
 	}
 }
