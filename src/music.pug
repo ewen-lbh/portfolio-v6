@@ -20,7 +20,7 @@ block content
 		h2(i18n) latest release
 
 		a.work-card.work-card--large(
-			href=`/${ $latestRelease.ID }`
+			href=`/{{ $latestRelease.ID }}`
 			style!=`background-image:url('{{ $latestRelease | getThumbnailSource 700 }}');{{ $latestRelease | intoColorsCSS }}`
 		)
 			h3=$latestRelease.Title

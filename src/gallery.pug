@@ -1,7 +1,7 @@
 = $ws := .GivenWorks
 
 if len $ws
-	ul(class=`gallery__works ${ .CustomClasses }`)
+	ul(class=`gallery__works {{ .CustomClasses }}`)
 		each _ in $year := $ws | getYears
 			li.gallery__works__year
 				if ne $year -1
