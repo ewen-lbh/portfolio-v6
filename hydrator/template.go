@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"github.com/yosssi/gohtml"
 	"os"
 	"sort"
 	"strings"
@@ -90,17 +91,24 @@ func translateFunc(language string, catalog *gettext.Catalog) func(string) strin
 // We need this because the gallery comes from a template herself, that might call `translate`
 // So we need a function that returns a function.
 func intoGalleryFunc(language string, catalog *gettext.Catalog) func(string, []WorkOneLang) string {
-	templateContent, err := ReadFile("../src/.gallery.pug")
+	templateContent := BuildTemplate("src/gallery.pug")
+	if templateContent == "" {
+		println("Building gallery template file resulted in the empty string")
+		return func(_ string, _ []WorkOneLang) string {
+			return "[ERR: Building gallery template file resulted in the empty string"
+		}
+	}
+	templateContent = gohtml.Format(templateContent)
 
 	return func(customClasses string, ws []WorkOneLang) string {
-		tmpl := template.New(".gallery.pug")
+		tmpl := template.New("gallery.pug")
 		tmpl = tmpl.Funcs(GetTemplateFuncMap(language, catalog))
 		tmpl = tmpl.Funcs(sprig.TxtFuncMap())
-		tmpl = template.Must(tmpl.Parse(string(templateContent)))
+		tmpl = template.Must(tmpl.Parse(templateContent))
 
 		// Hydrate .gallery.pug with ws
 		var buf bytes.Buffer
-		err = tmpl.Execute(&buf, struct {
+		err := tmpl.Execute(&buf, struct {
 			GivenWorks    []WorkOneLang
 			KnownTags     [len(KnownTags)]Tag
 			CustomClasses string
@@ -110,7 +118,8 @@ func intoGalleryFunc(language string, catalog *gettext.Catalog) func(string, []W
 			CustomClasses: customClasses,
 		})
 		if err != nil {
-			panic(err)
+			PrintTemplateErrorMessage("executing template", "gallery.pug", templateContent, err, 2)
+			return ""
 		}
 		return buf.String()
 	}
