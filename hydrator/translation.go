@@ -21,11 +21,15 @@ func TranslateToLanguage(french bool, root *html.Node, catalog *gettext.Catalog)
 	// Open files
 	doc := goquery.NewDocumentFromNode(root)
 	doc.Find("i18n, [i18n], [i18n-context]").Each(func(_ int, element *goquery.Selection) {
-		element.RemoveAttr("translate")
-		element.RemoveAttr("translate-context")
+		element.RemoveAttr("i18n")
+		element.RemoveAttr("i18n-context")
 		if french {
 			innerHTML, _ := element.Html()
+			innerHTML = strings.TrimSpace(innerHTML)
 			element.SetHtml(catalog.Gettext(innerHTML))
+			// if innerHTML == catalog.Gettext(innerHTML) {
+			// 	printfln("WARN: %v has no translations!", innerHTML)
+			// }
 		}
 	})
 	htmlString, _ := doc.Html()
