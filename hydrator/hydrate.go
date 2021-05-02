@@ -31,7 +31,26 @@ func VerboseLog(s string, fmtArgs ...interface{}) {
 	}
 }
 
+// getAbsPath returns the absolute path of basename,
+// joining the absolute path of src/ and the given basename
+func getAbsPath(basename string) string {
+	absdir, err := filepath.Abs("src")
+	if err != nil {
+		panic(err)
+	}
+	return path.Join(absdir, basename)
+}
+
 func main() {
+	//
+	// Preparing dist directory
+	//
+	err := os.MkdirAll("dist/fr/using", 0777)
+	if err != nil {
+		printerr("Couldn't create directories for writing", err)
+		return
+	}
+	os.MkdirAll("dist/en/using", 0777)
 	//
 	// Loading files
 	//
@@ -50,120 +69,51 @@ func main() {
 		printerr("Could not parse the .mo file", err)
 		return
 	}
-	files, err := ioutil.ReadDir("src")
-	getAbsPath := func(basename string) string {
-		absdir, err := filepath.Abs("src")
-		if err != nil {
-			panic(err)
-		}
-		return path.Join(absdir, basename)
-	}
-	if err != nil {
-		printerr("Could not read src/", err)
-		return
-	}
 	//
-	// Preparing dist directory
+	// Watch mode
 	//
-	err = os.MkdirAll("dist/fr/using", 0777)
-	if err != nil {
-		printerr("Couldn't create directories for writing", err)
-		return
-	}
-	os.MkdirAll("dist/en/using", 0777)
+	if len(os.Args) >= 2 && os.Args[1] == "watch" {
+		StartHTMLWatcher(&messages, db)
 	//
-	// Processing regular pages
+	// Build everything
 	//
-	for _, file := range files {
-		if file.IsDir() || strings.HasPrefix(file.Name(), "_") || !strings.HasSuffix(file.Name(), ".pug") || file.Name() == "gallery.pug" {
-			continue
-		}
-		absFilepath := getAbsPath(file.Name())
-		//
-		// Build the template
-		//
-		templateContent := BuildTemplate(absFilepath)
-		for _, language := range []string{"fr", "en"} {
-			//
-			// Execute the template
-			//
-			content, err := ExecuteTemplate(db, &messages, language, absFilepath, templateContent, CurrentlyHydrated{})
-			if err != nil {
-				continue
-			}
-			content = TranslateHydrated(content, language, &messages)
-			fmt.Printf("\r\033[KTranslated %s into %s", file.Name(), language)
-			WriteDistFile(file.Name(), content, language, &messages)
-		}
-	}
-	//
-	// Processing works
-	//
-	workTemplate := BuildTemplate(getAbsPath("_work.pug"))
-	if workTemplate != "" {
+	} else {
 
-		for _, work := range db.Works {
-			for _, language := range []string{"fr", "en"} {
-				content, err := ExecuteTemplate(
-					db, &messages, language,
-					"_work<"+work.ID+">",
-					workTemplate,
-					CurrentlyHydrated{work: work.InLanguage(language)},
-				)
-				if err != nil {
-					continue
-				}
-				content = TranslateHydrated(content, language, &messages)
-				fmt.Printf("\r\033[KTranslated %s into %s", work.ID, language)
-				WriteDistFile(work.ID, content, language, &messages)
-			}
-		}
-	}
-	//
-	// Processing tags
-	//
-	tagTemplate := BuildTemplate(getAbsPath("_tag.pug"))
-	if tagTemplate != "" {
-		for _, tag := range KnownTags {
-			for _, language := range []string{"fr", "en"} {
-				content, err := ExecuteTemplate(
-					db, &messages, language,
-					"_tag<"+tag.URLName()+">",
-					tagTemplate,
-					CurrentlyHydrated{tag: tag},
-				)
-				if err != nil {
-					continue
-				}
-				content = TranslateHydrated(content, language, &messages)
-				fmt.Printf("\r\033[KTranslated %s into %s", tag.URLName(), language)
-				WriteDistFile(tag.URLName(), content, language, &messages)
-			}
-		}
-	}
-	//
-	// Processing technologies
-	//
-	// Process the index file
-	absFilepath := getAbsPath("using/index.pug")
-	templateContent := BuildTemplate(absFilepath)
-	for _, language := range []string{"fr", "en"} {
-		// Execute the template
-		content, err := ExecuteTemplate(db, &messages, language, absFilepath, templateContent, CurrentlyHydrated{})
+		files, err := ioutil.ReadDir("src")
 		if err != nil {
-			continue
+			printerr("Could not read src/", err)
+			return
 		}
-		content = TranslateHydrated(content, language, &messages)
-		fmt.Printf("\r\033[KTranslated using/index.pug into %s", language)
-		WriteDistFile("using/index.pug", content, language, &messages)
+
+		for _, file := range files {
+			BuildRegularPage(&messages, db, file)
+		}
+
+		// Process the technologies index file
+		// FIXME: I have to dot it separately since it's in src/using/
+		// and not just src/
+		indexPage, err := os.Stat(getAbsPath("using/index.pug"))
+		if err != nil {
+			printerr("While building technologies index page: could not stat file", err)
+			return
+		}
+		BuildRegularPage(&messages, db, indexPage)
+
+		BuildWorkPages(db, &messages)
+		BuildTechPages(db, &messages)
+
+		// Final newline
+		println("")
 	}
-	// Process all the technologies
+}
+
+func BuildTechPages(db Database, messages *gettext.Catalog) {
 	techTemplate := BuildTemplate(getAbsPath("using/_technology.pug"))
 	if techTemplate != "" {
 		for _, tech := range KnownTechnologies {
 			for _, language := range []string{"fr", "en"} {
 				content, err := ExecuteTemplate(
-					db, &messages, language,
+					db, messages, language,
 					"using/_technology<"+tech.URLName+">",
 					techTemplate,
 					CurrentlyHydrated{tech: tech},
@@ -171,14 +121,79 @@ func main() {
 				if err != nil {
 					continue
 				}
-				content = TranslateHydrated(content, language, &messages)
+				content = TranslateHydrated(content, language, messages)
 				fmt.Printf("\r\033[KTranslated using/%s into %s", tech.URLName, language)
-				WriteDistFile("using/"+tech.URLName, content, language, &messages)
+				WriteDistFile("using/"+tech.URLName, content, language, messages)
 			}
 		}
 	}
-	// Final newline
-	println("")
+}
+
+func BuildTagPages(db Database, messages *gettext.Catalog) {
+	tagTemplate := BuildTemplate(getAbsPath("_tag.pug"))
+	if tagTemplate != "" {
+		for _, tag := range KnownTags {
+			for _, language := range []string{"fr", "en"} {
+				content, err := ExecuteTemplate(
+					db, messages, language,
+					"_tag<"+tag.URLName()+">",
+					tagTemplate,
+					CurrentlyHydrated{tag: tag},
+				)
+				if err != nil {
+					continue
+				}
+				content = TranslateHydrated(content, language, messages)
+				fmt.Printf("\r\033[KTranslated %s into %s", tag.URLName(), language)
+				WriteDistFile(tag.URLName(), content, language, messages)
+			}
+		}
+	}
+}
+
+func BuildWorkPages(db Database, messages *gettext.Catalog) {
+	workTemplate := BuildTemplate(getAbsPath("_work.pug"))
+	if workTemplate != "" {
+		for _, work := range db.Works {
+			for _, language := range []string{"fr", "en"} {
+				content, err := ExecuteTemplate(
+					db, messages, language,
+					"_work<"+work.ID+">",
+					workTemplate,
+					CurrentlyHydrated{work: work.InLanguage(language)},
+				)
+				if err != nil {
+					continue
+				}
+				content = TranslateHydrated(content, language, messages)
+				fmt.Printf("\r\033[KTranslated %s into %s", work.ID, language)
+				WriteDistFile(work.ID, content, language, messages)
+			}
+		}
+	}
+}
+
+func BuildRegularPage(messages *gettext.Catalog, db Database, file os.FileInfo) {
+	if file.IsDir() || strings.HasPrefix(file.Name(), "_") || !strings.HasSuffix(file.Name(), ".pug") || file.Name() == "gallery.pug" {
+		return
+	}
+	absFilepath := getAbsPath(file.Name())
+	//
+	// Build the template
+	//
+	templateContent := BuildTemplate(absFilepath)
+	for _, language := range []string{"fr", "en"} {
+		//
+		// Execute the template
+		//
+		content, err := ExecuteTemplate(db, messages, language, absFilepath, templateContent, CurrentlyHydrated{})
+		if err != nil {
+			continue
+		}
+		content = TranslateHydrated(content, language, messages)
+		fmt.Printf("\r\033[KTranslated %s into %s", file.Name(), language)
+		WriteDistFile(file.Name(), content, language, messages)
+	}
 }
 
 type CurrentlyHydrated struct {
