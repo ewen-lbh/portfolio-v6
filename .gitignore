@@ -158,7 +158,7 @@ temp/
 *.env
 
 # Compiled files
-messages/*.mo
+i18n/*.mo
 dist/
 database/**
 !database/database.json

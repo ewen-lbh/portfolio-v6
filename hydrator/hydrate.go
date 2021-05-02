@@ -40,7 +40,7 @@ func main() {
 		printerr("Could not load the database", err)
 		return
 	}
-	messagesFile, err := os.Open("messages/fr.mo")
+	messagesFile, err := os.Open("i18n/fr.mo")
 	if err != nil {
 		printerr("Could not open the .mo file", err)
 		return

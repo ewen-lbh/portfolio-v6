@@ -8,26 +8,27 @@
 		"hydrator:build": "cd hydrator && go build",
 
 		"database:crawl": "cd /home/ewen/projects/portfoliodb-crawler && python3.9 crawler.py /home/ewen/projects/portfolio/database",
-		"database:build": "portfoliodb database build database/database.json --config database/.portfoliodb.yaml -m",
+		"database:build": "cd database && portfoliodb . build database.json --config .portfoliodb.yaml -m",
 		"database:update": "pnpm database:clean && pnpm database:crawl && pnpm database:build",
 
-		"messages:extract": "mv messages/fr.po messages/fr.old.po; cd artifacts/phase_1/en && gettext-extract --output ../../../messages/fr.new.po --startDelimiter '[#' --endDelimiter '#]' *.pug using/*.pug 1> /dev/null",
-		"messages:combine": "msgcat --no-location messages/fr.old.po messages/fr.new.po -o messages/fr.po && rm messages/fr.new.po messages/fr.old.po",
-		"messages:build": "msgfmt messages/fr.po -o messages/fr.mo",
+		"messages:extract": "mv i18n/fr.po i18n/fr.old.po && i18n/extract.js",
+		"messages:combine": "msgcat --no-location i18n/fr.{old,new}.po -o i18n/fr.po && rm i18n/fr.{new,old}.po",
+		"messages:build": "msgfmt i18n/fr.po -o i18n/fr.mo",
+		"messages:update": "pnpm messages:extract && pnpm messages:combine && pnpm messages:clean",
 
 		"pug:build": "hydrator/hydrate",
 		"livescript:build": "lsc -c --output assets/ src/*.ls",
 		"stylus:build": "stylus --compress --sourcemap src/style.styl -o assets/style.css",
 		"assets:build": "cp -r assets/* dist/ && svgo --recursive --quiet -f assets/ -o dist/",
-		"build": "concurrently 'pug:build' 'livescript:build' 'stylus:build' 'assets:build'",
+		"build": "concurrently npm:pug:build npm:livescript:build npm:stylus:build npm:assets:build",
 
-		"database:clean": "mv -t ./ database/.portfoliodb.yaml database/sites.json database/database.json && rm -r database/ && mkdir database && mv -t database/ sites.json .portfoliodb.yaml database.json",
-		"messages:clean": "./merged_po_file_cleaner/merged_po_file_cleaner messages/fr.po messages/fr.po",
+		"database:clean": "mv -t ./ database/.portfoliodb.yaml database/.lastbuild.yaml database/sites.json database/database.json && rm -r database/ && mkdir database && mv -t database/ sites.json .portfoliodb.yaml database.json .lastbuild.yaml",
+		"messages:clean": "i18n/clean i18n/fr.po i18n/fr.po",
 		"clean": "pnpm messages:clean && pnpm database:clean"
 	},
 	"devDependencies": {
 		"concurrently": "^5.3.0",
-		"easygettext": "^2.15.0",
+		"gettext-extractor": "^3.5.3",
 		"livescript": "^1.6.0",
 		"nodemon": "^2.0.6",
 		"pug-cli": "^1.0.0-alpha6",
