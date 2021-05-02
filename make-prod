@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-cp hydrator/prod.env hydrator/.env
+cp hydrator/prod.env .env
 
-pnpm database:update &&\
-pnpm prepare:i18n &&\
-pnpm make &&\
-pnpm clean &&\
+[[ $(read -p "Update database?") = "y" ]] && pnpm database:update
+pnpm messages:build
+pnpm build
 cp dist/*.{png,xml,json,ico,css,js} dist/fr
 mv dist/*.{png,xml,json,ico,css,js} dist/en
+sed -i "s|</body>|<!-- Build date: $(date --iso-8601=seconds) --></body>|" dist/{fr,en}/index.html
 # TODO: use rclone sync instead to prevent copying uselessly identical files
 # rsync -r --progress dist/en/  ubuntu@ewen.works:/home/user-data/www/ewen.works/ # only turn this on when ready to first deploy.
 rsync -r --progress dist/en/  ubuntu@ewen.works:/home/user-data/www/en.ewen.works/
@@ -16,4 +16,4 @@ rsync -r --progress database/ ubuntu@ewen.works:/home/user-data/www/media.ewen.w
 # Fix permissions
 ssh ubuntu@ewen.works 'sudo chmod -R a+rx www/{fr,en,media}.ewen.works/'
 
-rm hydrator/.env
+rm .env

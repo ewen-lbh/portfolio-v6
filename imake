@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-cd hydrator && go build; cd ..
-cp hydrator/dev.env hydrator/.env
-#pnpm database:update && \
-pnpm prepare:i18n && \
-read -p 'Press Enter when messages/*.po are filled' && \
-pnpm make
