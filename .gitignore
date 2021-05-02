@@ -19,8 +19,10 @@
 # Dependency directories (remove the comment below to include it)
 # vendor/
 
-# Go vscode extension
 pkg/
+
+# Go vscode extension
+bin/
 
 ### Go Patch ###
 /vendor/
