@@ -22,7 +22,7 @@ block content
 				background-image:url('{{ $latest | getThumbnailSource 700 }}');
 				{{ $latest | intoColorsCSS }}
 			`
-			class=(or ($latest | getThumbnailSource 700) "work-card--no-image")
+			class=(ternary "" "work-card--no-image" (ne (len $latest.Media) 0))
 		)
 			h3= $latest.Title
 			if len $latest.Paragraphs
