@@ -14,6 +14,7 @@ import (
 
 	"github.com/Joker/jade"
 	"github.com/Masterminds/sprig"
+	"github.com/chai2010/gettext-go/po"
 	"github.com/joho/godotenv"
 	"github.com/snapcore/go-gettext"
 	"github.com/yosssi/gohtml"
@@ -72,11 +73,15 @@ func main() {
 		printerr("Could not parse the .mo file", err)
 		return
 	}
+	poFile, err := po.LoadFile("i18n/fr.po")
+	if err != nil {
+		printerr("Could not load the .po file", err)
+	}
 	//
 	// Watch mode
 	//
 	if len(os.Args) >= 2 && os.Args[1] == "watch" {
-		StartHTMLWatcher(&messages, db)
+		StartHTMLWatcher(&messages, poFile, db)
 		//
 		// Build everything
 		//
@@ -92,23 +97,26 @@ func main() {
 			if file.IsDir() || strings.HasPrefix(file.Name(), "_") || !strings.HasSuffix(file.Name(), ".pug") || file.Name() == "gallery.pug" {
 				continue
 			}
-			BuildRegularPage(&messages, db, file.Name())
+			BuildRegularPage(&messages, poFile, db, file.Name())
 		}
 
 		// Process the technologies index file
 		// FIXME: I have to dot it separately since it's in src/using/
 		// and not just src/
-		BuildRegularPage(&messages, db, "using/index.pug")
+		BuildRegularPage(&messages, poFile, db, "using/index.pug")
 
-		BuildWorkPages(db, &messages)
-		BuildTechPages(db, &messages)
+		BuildWorkPages(db, &messages, poFile)
+		BuildTechPages(db, &messages, poFile)
+
+		// Save the updated .po file
+		poFile.Save("i18n/fr.po")
 
 		// Final newline
 		println("")
 	}
 }
 
-func BuildTechPages(db Database, messages *gettext.Catalog) {
+func BuildTechPages(db Database, messages *gettext.Catalog, poFile *po.File) {
 	techTemplate := BuildTemplate(getAbsPath("using/_technology.pug"))
 	if techTemplate != "" {
 		for _, tech := range KnownTechnologies {
@@ -122,7 +130,7 @@ func BuildTechPages(db Database, messages *gettext.Catalog) {
 				if err != nil {
 					continue
 				}
-				content = TranslateHydrated(content, language, messages)
+				content = TranslateHydrated(content, language, messages, poFile)
 				fmt.Printf("\r\033[KTranslated using/%s into %s", tech.URLName, language)
 				WriteDistFile("using/"+tech.URLName, content, language, messages)
 			}
@@ -130,7 +138,7 @@ func BuildTechPages(db Database, messages *gettext.Catalog) {
 	}
 }
 
-func BuildTagPages(db Database, messages *gettext.Catalog) {
+func BuildTagPages(db Database, messages *gettext.Catalog, poFile *po.File) {
 	tagTemplate := BuildTemplate(getAbsPath("_tag.pug"))
 	if tagTemplate != "" {
 		for _, tag := range KnownTags {
@@ -144,7 +152,7 @@ func BuildTagPages(db Database, messages *gettext.Catalog) {
 				if err != nil {
 					continue
 				}
-				content = TranslateHydrated(content, language, messages)
+				content = TranslateHydrated(content, language, messages, poFile)
 				fmt.Printf("\r\033[KTranslated %s into %s", tag.URLName(), language)
 				WriteDistFile(tag.URLName(), content, language, messages)
 			}
@@ -152,7 +160,7 @@ func BuildTagPages(db Database, messages *gettext.Catalog) {
 	}
 }
 
-func BuildWorkPages(db Database, messages *gettext.Catalog) {
+func BuildWorkPages(db Database, messages *gettext.Catalog, poFile *po.File) {
 	workTemplate := BuildTemplate(getAbsPath("_work.pug"))
 	if workTemplate != "" {
 		for _, work := range db.Works {
@@ -166,7 +174,7 @@ func BuildWorkPages(db Database, messages *gettext.Catalog) {
 				if err != nil {
 					continue
 				}
-				content = TranslateHydrated(content, language, messages)
+				content = TranslateHydrated(content, language, messages, poFile)
 				fmt.Printf("\r\033[KTranslated %s into %s", work.ID, language)
 				WriteDistFile(work.ID, content, language, messages)
 			}
@@ -174,7 +182,7 @@ func BuildWorkPages(db Database, messages *gettext.Catalog) {
 	}
 }
 
-func BuildRegularPage(messages *gettext.Catalog, db Database, filepath string) {
+func BuildRegularPage(messages *gettext.Catalog, poFile *po.File, db Database, filepath string) {
 	absFilepath := getAbsPath(filepath)
 	//
 	// Build the template
@@ -188,7 +196,7 @@ func BuildRegularPage(messages *gettext.Catalog, db Database, filepath string) {
 		if err != nil {
 			continue
 		}
-		content = TranslateHydrated(content, language, messages)
+		content = TranslateHydrated(content, language, messages, poFile)
 		fmt.Printf("\r\033[KTranslated %s into %s", GetPathRelativeToSrcDir(absFilepath), language)
 		WriteDistFile(GetPathRelativeToSrcDir(absFilepath), content, language, messages)
 	}
@@ -299,13 +307,13 @@ func ExecuteTemplate(db Database, catalog *gettext.Catalog, language string, tem
 	return buf.String(), nil
 }
 
-func TranslateHydrated(content string, language string, messages *gettext.Catalog) string {
+func TranslateHydrated(content string, language string, messages *gettext.Catalog, poFile *po.File) string {
 	parsedContent, err := html.Parse(strings.NewReader(content))
 	if err != nil {
 		printerr("An error occured while parsing the hydrated HTML for translation", err)
 		return ""
 	}
-	return TranslateToLanguage(language == "fr", parsedContent, messages)
+	return TranslateToLanguage(language == "fr", parsedContent, messages, poFile)
 }
 
 func WriteDistFile(fileName string, content string, language string, messages *gettext.Catalog) {

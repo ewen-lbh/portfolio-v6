@@ -10,11 +10,12 @@ import (
 	"strings"
 	"time"
 
+	"github.com/chai2010/gettext-go/po"
 	"github.com/radovskyb/watcher"
 	"github.com/snapcore/go-gettext"
 )
 
-func StartHTMLWatcher(messages *gettext.Catalog, db Database) {
+func StartHTMLWatcher(messages *gettext.Catalog, poFile *po.File, db Database) {
 	// TODO: reload MO file when it changes
 	pugFilePattern := regexp.MustCompile(`^.+\.pug`)
 	//
@@ -37,18 +38,19 @@ func StartHTMLWatcher(messages *gettext.Catalog, db Database) {
 					for _, filePath := range append(dependents, event.Path) {
 						// Regular pages: no _ prefix
 						if !strings.HasPrefix(path.Base(filePath), "_") {
-							BuildRegularPage(messages, db, filePath)
+							BuildRegularPage(messages, poFile, db, filePath)
 						}
 						if GetPathRelativeToSrcDir(filePath) == "_work.pug" {
-							BuildWorkPages(db, messages)
+							BuildWorkPages(db, messages, poFile)
 						}
 						if GetPathRelativeToSrcDir(filePath) == "_tag.pug" {
-							BuildTagPages(db, messages)
+							BuildTagPages(db, messages, poFile)
 						}
 						if GetPathRelativeToSrcDir(filePath) == "using/_technology.pug" {
-							BuildTechPages(db, messages)
+							BuildTechPages(db, messages, poFile)
 						}
 					}
+					poFile.Save("i18n/fr.po")
 				case watcher.Remove:
 					if len(dependents) > 0 {
 						printfln("WARN: Files %s depended on %s, which was removed", strings.Join(dependents, ", "), event.Path)
