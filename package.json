@@ -11,11 +11,6 @@
 		"database:build": "cd database && portfoliodb . build database.json --config .portfoliodb.yaml -m",
 		"database:update": "pnpm database:clean && pnpm database:crawl && pnpm database:build",
 
-		"messages:extract": "mv i18n/fr.po i18n/fr.old.po && i18n/extract.js",
-		"messages:combine": "msgcat --no-location i18n/fr.{old,new}.po -o i18n/fr.po && rm i18n/fr.{new,old}.po",
-		"messages:build": "msgfmt i18n/fr.po -o i18n/fr.mo",
-		"messages:update": "pnpm messages:extract && pnpm messages:combine && pnpm messages:clean",
-
 		"configure:dev": "cp hydrator/dev.env .env",
 		"configure:prod": "cp hydrator/prod.env .env",
 
@@ -23,15 +18,15 @@
 		"livescript:build": "lsc -c --output assets/ src/*.ls",
 		"stylus:build": "stylus --compress --sourcemap src/style.styl -o assets/style.css",
 		"assets:build": "cp -r assets/* dist/ && svgo --recursive --quiet -f assets/ -o dist/",
+		"messages:build": "msgfmt i18n/fr.po -o i18n/fr.mo",
 		"build": "concurrently npm:pug:build npm:livescript:build npm:stylus:build npm:assets:build",
 
-		"pug:watch": "hydrator/hydrate watch && pnpm messages:update",
+		"pug:watch": "hydrator/hydrate watch",
 		"livescript:watch": "lsc   --watch -c --output assets/ src/*.ls",
 		"stylus:watch": "stylus    --watch --compress --sourcemap src/style.styl -o assets/style.css",
 		"assets:watch": "nodemon   --watch assets        --exec 'pnpm assets:build'",
-		"messages:watch": "nodemon --watch i18n --ext po --exec 'pnpm messages:build && pnpm pug:build'",
-		"watch": "concurrently npm:pug:watch npm:livescript:watch npm:assets:watch npm:stylus:watch npm:messages:watch'",
-		"dev": "pnpm configure:dev && nodemon --watch hydrator --ext go --exec 'pnpm hydrator:build && pnpm watch",
+		"watch": "concurrently npm:pug:watch npm:livescript:watch npm:assets:watch npm:stylus:watch",
+		"dev": "pnpm configure:dev && nodemon --watch hydrator --ext go --exec 'pnpm hydrator:build && pnpm watch'",
 
 		"database:clean": "mv -t ./ database/.portfoliodb.yaml database/.lastbuild.yaml database/sites.json database/database.json && rm -r database/ && mkdir database && mv -t database/ sites.json .portfoliodb.yaml database.json .lastbuild.yaml",
 		"messages:clean": "i18n/clean i18n/fr.po i18n/fr.po",
