@@ -28,6 +28,7 @@ type Link struct {
 	URL   string
 }
 
+// WorkMetadata represents metadata from the metadata field in the database file
 type WorkMetadata struct {
 	Created  string
 	Started  string
@@ -57,6 +58,8 @@ type Work struct {
 	Footnotes  map[string][]Footnote
 }
 
+// WorkOneLang represents a work in a single language: language-dependent items
+// have been replaced with their corresponding values in a language, there is no "language" map anymore.
 type WorkOneLang struct {
 	ID         string
 	Metadata   WorkMetadata
@@ -68,6 +71,7 @@ type WorkOneLang struct {
 	Language   string
 }
 
+// MediaAttributes represents attributes
 type MediaAttributes struct {
 	Playsinline bool
 	Loop        bool
