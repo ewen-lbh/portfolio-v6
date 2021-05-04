@@ -22,6 +22,7 @@ func (t *Tag) ReferredToBy(name string) bool {
 }
 
 // KnownTags defines which tags are valid. Each Tag will get its correspoding page generated from _tag.pug.
+// TODO: Read this from a yaml file
 var KnownTags = [...]Tag{
 	{
 		// TODO: deprecate

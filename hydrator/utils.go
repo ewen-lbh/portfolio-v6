@@ -4,14 +4,13 @@ import (
 	"encoding/hex"
 	"errors"
 	"fmt"
-	"io/ioutil"
-	"os"
 	"strings"
 	"time"
 
 	"github.com/relvacode/iso8601"
 )
 
+// FindInArrayLax checks if needle is in haystack, ignoring case and whitespace around values
 func FindInArrayLax(haystack []string, needle string) (string, error) {
 	for _, element := range haystack {
 		if strings.TrimSpace(strings.ToLower(element)) == needle {
@@ -61,27 +60,6 @@ func ParseCreationDate(datestring string) (time.Time, error) {
 	return parsedDate, err
 }
 
-func ReadFile(filename string) ([]byte, error) {
-	file, err := os.Open(filename)
-	if err != nil {
-		return []byte{}, err
-	}
-	content, err := ioutil.ReadAll(file)
-	if err != nil {
-		return []byte{}, err
-	}
-	return content, nil
-}
-
-func WriteToFile(filename string, content []byte) error {
-	file, err := os.Open(filename)
-	if err != nil {
-		return err
-	}
-	_, err = file.Write(content)
-	return err
-}
-
 // StringsLooselyMatch checks if s1 is equal to any of sn, but case-insensitively.
 func StringsLooselyMatch(s1 string, sn ...string) bool {
 	for _, s2 := range sn {
@@ -98,4 +76,14 @@ func printfln(text string, a ...interface{}) {
 
 func printerr(explanation string, err error) {
 	printfln(explanation+": %s", err)
+}
+
+// firstNonEmpty returns the first non-empty string or the empty string if they are all empty
+func firstNonEmpty(l ...string) string {
+	for _, i := range l {
+		if i != "" {
+			return i
+		}
+	}
+	return ""
 }

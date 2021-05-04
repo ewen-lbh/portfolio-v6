@@ -14,9 +14,7 @@ import (
 
 	"github.com/Joker/jade"
 	"github.com/Masterminds/sprig"
-	"github.com/chai2010/gettext-go/po"
 	"github.com/joho/godotenv"
-	"github.com/snapcore/go-gettext"
 	"github.com/yosssi/gohtml"
 	"golang.org/x/net/html"
 )
@@ -63,145 +61,185 @@ func main() {
 		printerr("Could not load the database", err)
 		return
 	}
-	messagesFile, err := os.Open("i18n/fr.mo")
+	translations, err := LoadTranslations()
 	if err != nil {
-		printerr("Could not open the .mo file", err)
-		return
+		printerr("Couldn't load the translation files", err)
 	}
-	messages, err := gettext.ParseMO(messagesFile)
-	if err != nil {
-		printerr("Could not parse the .mo file", err)
-		return
-	}
-	poFile, err := po.LoadFile("i18n/fr.po")
-	if err != nil {
-		printerr("Could not load the .po file", err)
-	}
+	data := GlobalData{translations, db}
 	//
 	// Watch mode
 	//
 	if len(os.Args) >= 2 && os.Args[1] == "watch" {
-		StartHTMLWatcher(&messages, poFile, db)
-		//
-		// Build everything
-		//
+		StartWatcher(db)
 	} else {
-
-		files, err := ioutil.ReadDir("src")
-		if err != nil {
-			printerr("Could not read src/", err)
-			return
-		}
-
-		for _, file := range files {
-			if file.IsDir() || strings.HasPrefix(file.Name(), "_") || !strings.HasSuffix(file.Name(), ".pug") || file.Name() == "gallery.pug" {
-				continue
-			}
-			BuildRegularPage(&messages, poFile, db, file.Name())
-		}
-
-		// Process the technologies index file
-		// FIXME: I have to dot it separately since it's in src/using/
-		// and not just src/
-		BuildRegularPage(&messages, poFile, db, "using/index.pug")
-
-		BuildWorkPages(db, &messages, poFile)
-		BuildTechPages(db, &messages, poFile)
+		data.BuildAll()
 
 		// Save the updated .po file
-		poFile.Save("i18n/fr.po")
+		translations.SavePO("i18n/fr.po")
 
 		// Final newline
 		println("")
 	}
 }
 
-func BuildTechPages(db Database, messages *gettext.Catalog, poFile *po.File) {
+// GlobalData holds data that is used throughout the whole build process
+type GlobalData struct {
+	Translations
+	Database
+}
+
+// BuildAll builds every page
+func (data *GlobalData) BuildAll() (built []string) {
+	files, err := ioutil.ReadDir("src")
+	if err != nil {
+		printerr("Could not read src/", err)
+		return
+	}
+
+	for _, file := range files {
+		if file.IsDir() || strings.HasPrefix(file.Name(), "_") || !strings.HasSuffix(file.Name(), ".pug") || file.Name() == "gallery.pug" {
+			continue
+		}
+		built = append(built, data.BuildRegularPage(file.Name())...)
+	}
+
+	// Process the technologies index file
+	// FIXME: I have to dot it separately since it's in src/using/
+	// and not just src/
+	built = append(built, data.BuildRegularPage("using/index.pug")...)
+	built = append(built, data.BuildWorkPages()...)
+	built = append(built, data.BuildTechPages()...)
+	return
+}
+
+// BuildTechPages builds all technology pages using using/_technology.pug
+func (data *GlobalData) BuildTechPages() (built []string) {
 	techTemplate := BuildTemplate(getAbsPath("using/_technology.pug"))
-	if techTemplate != "" {
-		for _, tech := range KnownTechnologies {
-			for _, language := range []string{"fr", "en"} {
-				content, err := ExecuteTemplate(
-					db, messages, language,
-					"using/_technology<"+tech.URLName+">",
-					techTemplate,
-					CurrentlyHydrated{tech: tech},
-				)
-				if err != nil {
-					continue
-				}
-				content = TranslateHydrated(content, language, messages, poFile)
-				fmt.Printf("\r\033[KTranslated using/%s into %s", tech.URLName, language)
-				WriteDistFile("using/"+tech.URLName, content, language, messages)
+	if techTemplate == "" {
+		return
+	}
+	templ, err := data.ParseTemplate(
+		"using/_technology.pug",
+		techTemplate,
+	)
+	if err != nil {
+		PrintTemplateErrorMessage("parsing template", "using/_technology.pug", techTemplate, err, 2)
+		return
+	}
+	for _, tech := range KnownTechnologies {
+		for _, language := range []string{"fr", "en"} {
+			content, err := data.ExecuteTemplate(
+				templ,
+				language,
+				CurrentlyHydrated{tech: tech},
+			)
+			if err != nil {
+				PrintTemplateErrorMessage("executing template", "using/_technology<"+tech.URLName+">", techTemplate, err, 2)
+				continue
 			}
+			content = data.TranslateHydrated(content, language)
+			fmt.Printf("\r\033[KTranslated using/%s into %s", tech.URLName, language)
+			built = append(built, WriteDistFile("using/"+tech.URLName, content, language))
 		}
 	}
+	return
 }
 
-func BuildTagPages(db Database, messages *gettext.Catalog, poFile *po.File) {
+// BuildTagPages builds all tag pages using _tag.py
+func (data *GlobalData) BuildTagPages() (built []string) {
 	tagTemplate := BuildTemplate(getAbsPath("_tag.pug"))
-	if tagTemplate != "" {
-		for _, tag := range KnownTags {
-			for _, language := range []string{"fr", "en"} {
-				content, err := ExecuteTemplate(
-					db, messages, language,
-					"_tag<"+tag.URLName()+">",
-					tagTemplate,
-					CurrentlyHydrated{tag: tag},
-				)
-				if err != nil {
-					continue
-				}
-				content = TranslateHydrated(content, language, messages, poFile)
-				fmt.Printf("\r\033[KTranslated %s into %s", tag.URLName(), language)
-				WriteDistFile(tag.URLName(), content, language, messages)
+	if tagTemplate == "" {
+		return
+	}
+	templ, err := data.ParseTemplate(
+		"_tag.pug",
+		tagTemplate,
+	)
+	if err != nil {
+		PrintTemplateErrorMessage("parsing template", "_tag.pug", tagTemplate, err, 2)
+		return
+	}
+
+	for _, tag := range KnownTags {
+		for _, language := range []string{"fr", "en"} {
+			content, err := data.ExecuteTemplate(
+				templ,
+				language,
+				CurrentlyHydrated{tag: tag},
+			)
+			if err != nil {
+				PrintTemplateErrorMessage("executing template", NameOfDynamicTemplate(templ, CurrentlyHydrated{tag: tag}), tagTemplate, err, 2)
+				continue
 			}
+			content = data.TranslateHydrated(content, language)
+			fmt.Printf("\r\033[KTranslated %s into %s", tag.URLName(), language)
+			built = append(built, WriteDistFile(tag.URLName(), content, language))
 		}
 	}
+	return
 }
 
-func BuildWorkPages(db Database, messages *gettext.Catalog, poFile *po.File) {
+// BuildWorkPages builds all work pages using _work.pug
+func (data *GlobalData) BuildWorkPages() (built []string) {
 	workTemplate := BuildTemplate(getAbsPath("_work.pug"))
-	if workTemplate != "" {
-		for _, work := range db.Works {
-			for _, language := range []string{"fr", "en"} {
-				content, err := ExecuteTemplate(
-					db, messages, language,
-					"_work<"+work.ID+">",
-					workTemplate,
-					CurrentlyHydrated{work: work.InLanguage(language)},
-				)
-				if err != nil {
-					continue
-				}
-				content = TranslateHydrated(content, language, messages, poFile)
-				fmt.Printf("\r\033[KTranslated %s into %s", work.ID, language)
-				WriteDistFile(work.ID, content, language, messages)
+	if workTemplate == "" {
+		return
+	}
+	templ, err := data.ParseTemplate("_work.pug", workTemplate)
+	if err != nil {
+		PrintTemplateErrorMessage("parsing template", "_work.pug", workTemplate, err, 2)
+		return
+	}
+	for _, work := range data.Works {
+		for _, language := range []string{"fr", "en"} {
+			content, err := data.ExecuteTemplate(
+				templ,
+				language,
+				CurrentlyHydrated{work: work.InLanguage(language)},
+			)
+			if err != nil {
+				PrintTemplateErrorMessage("executing template", NameOfDynamicTemplate(templ, CurrentlyHydrated{work: work.InLanguage(language)}), workTemplate, err, 2)
+				continue
 			}
+			content = data.TranslateHydrated(content, language)
+			fmt.Printf("\r\033[KTranslated %s into %s", work.ID, language)
+			built = append(built, WriteDistFile(work.ID, content, language))
 		}
 	}
+	return
 }
 
-func BuildRegularPage(messages *gettext.Catalog, poFile *po.File, db Database, filepath string) {
+// BuildRegularPage builds a given page that isn't dynamic (i.e. does not require object data,
+// as opposed to work, tag and tech pages)
+func (data *GlobalData) BuildRegularPage(filepath string) (built []string) {
 	absFilepath := getAbsPath(filepath)
-	//
-	// Build the template
-	//
 	templateContent := BuildTemplate(absFilepath)
+	if templateContent == "" {
+		return
+	}
+	templ, err := data.ParseTemplate(absFilepath, templateContent)
+	if err != nil {
+		PrintTemplateErrorMessage("parsing template", absFilepath, templateContent, err, 2)
+		return
+	}
 	for _, language := range []string{"fr", "en"} {
 		//
 		// Execute the template
 		//
-		content, err := ExecuteTemplate(db, messages, language, absFilepath, templateContent, CurrentlyHydrated{})
+		content, err := data.ExecuteTemplate(templ, language, CurrentlyHydrated{})
+		fmt.Printf("\r\033[KHydrated %s", absFilepath)
 		if err != nil {
+			PrintTemplateErrorMessage("executing template", absFilepath, templateContent, err, 2)
 			continue
 		}
-		content = TranslateHydrated(content, language, messages, poFile)
+		content = data.TranslateHydrated(content, language)
 		fmt.Printf("\r\033[KTranslated %s into %s", GetPathRelativeToSrcDir(absFilepath), language)
-		WriteDistFile(GetPathRelativeToSrcDir(absFilepath), content, language, messages)
+		built = append(built, WriteDistFile(GetPathRelativeToSrcDir(absFilepath), content, language))
 	}
+	return
 }
 
+// CurrentlyHydrated represents a Tag, Technology or WorkOneLang
 type CurrentlyHydrated struct {
 	tag  Tag
 	tech Technology
@@ -216,6 +254,7 @@ func BuildingForProduction() bool {
 	return os.Getenv("ENVIRONMENT") != "dev"
 }
 
+// BuildTemplate converts a .pug template to an HTML one
 func BuildTemplate(absFilepath string) string {
 	raw, err := ioutil.ReadFile(absFilepath)
 	if err != nil {
@@ -246,6 +285,7 @@ func BuildTemplate(absFilepath string) string {
 	return template
 }
 
+// PrintTemplateErrorMessage prints a nice error message with a preview of the code where the error occured
 func PrintTemplateErrorMessage(whileDoing string, templateName string, templateContent string, err error, lineNumberSliceIndex int) {
 	_lineIndex, intParseError := strconv.ParseInt(strings.Split(err.Error(), ":")[lineNumberSliceIndex], 10, 64)
 	if intParseError != nil {
@@ -275,23 +315,38 @@ func PrintTemplateErrorMessage(whileDoing string, templateName string, templateC
 	}
 }
 
-func ExecuteTemplate(db Database, catalog *gettext.Catalog, language string, templateName string, templateContent string, currentlyHydrated CurrentlyHydrated) (string, error) {
+// ParseTemplate parses a given (HTML) template.
+func (data *GlobalData) ParseTemplate(templateName string, templateContent string) (*template.Template, error) {
 	tmpl := template.New(templateName)
-	tmpl = tmpl.Funcs(GetTemplateFuncMap(language, catalog))
 	tmpl = tmpl.Funcs(sprig.TxtFuncMap())
 	tmpl, err := tmpl.Parse(gohtml.Format(templateContent))
 
 	if err != nil {
-		PrintTemplateErrorMessage("parsing template", templateName, templateContent, err, 2)
-		return "", err
+		return nil, err
 	}
+	return tmpl, nil
+}
+
+// NameOfDynamicTemplate returns the name given to a template that is applied to multiple objects, e.g. _work.pug<portfolio>
+func NameOfDynamicTemplate(tmpl *template.Template, currentlyHydrated CurrentlyHydrated) string {
+	currentlyHydratedName := firstNonEmpty(currentlyHydrated.work.ID, currentlyHydrated.tag.URLName(), currentlyHydrated.tech.URLName)
+	if currentlyHydratedName != "" {
+		return fmt.Sprintf("%s<%s>", tmpl.Name(), currentlyHydratedName)
+	}
+	return tmpl.Name()
+}
+
+// ExecuteTemplate executes a parsed HTML template to hydrate it with data, potentially with a tag, tech or work.
+func (data *GlobalData) ExecuteTemplate(tmpl *template.Template, language string, currentlyHydrated CurrentlyHydrated) (string, error) {
+	// Inject Funcs now, since they depend on language
+	tmpl = tmpl.Funcs(GetTemplateFuncMap(language, &data.moFile))
 
 	var buf bytes.Buffer
 
-	err = tmpl.Execute(&buf, TemplateData{
+	err := tmpl.Execute(&buf, TemplateData{
 		KnownTags:         KnownTags,
 		KnownTechnologies: KnownTechnologies,
-		Works:             GetOneLang(language, db.Works...),
+		Works:             GetOneLang(language, data.Works...),
 		Age:               GetAge(),
 		CurrentTag:        currentlyHydrated.tag,
 		CurrentTech:       currentlyHydrated.tech,
@@ -299,34 +354,36 @@ func ExecuteTemplate(db Database, catalog *gettext.Catalog, language string, tem
 	})
 
 	if err != nil {
-		PrintTemplateErrorMessage("executing template", templateName, templateContent, err, 2)
 		return "", err
 	} else {
-		fmt.Printf("\r\033[KHydrated %s", templateName)
 	}
 	return buf.String(), nil
 }
 
-func TranslateHydrated(content string, language string, messages *gettext.Catalog, poFile *po.File) string {
+// TranslateHydrated translates an hydrated HTML page, removing i18n tags and attributes
+// and replacing translatable content with their translations
+func (data *Translations) TranslateHydrated(content string, language string) string {
 	parsedContent, err := html.Parse(strings.NewReader(content))
 	if err != nil {
 		printerr("An error occured while parsing the hydrated HTML for translation", err)
 		return ""
 	}
-	return TranslateToLanguage(language == "fr", parsedContent, messages, poFile)
+	return data.TranslateToLanguage(language == "fr", parsedContent)
 }
 
-func WriteDistFile(fileName string, content string, language string, messages *gettext.Catalog) {
+// WriteDistFile writes the given content to the dist/ equivalent of the given fileName and returns that equivalent's path
+func WriteDistFile(fileName string, content string, language string) string {
 	distFilePath := fmt.Sprintf("dist/%s/%s", language, strings.TrimSuffix(fileName, ".pug")+".html")
 	distFile, err := os.Create(distFilePath)
 	if err != nil {
 		printerr("Could not create the destination file "+distFilePath, err)
-		return
+		return ""
 	}
 	_, err = distFile.WriteString(content)
 	if err != nil {
 		printerr("Could not write to the destination file "+distFilePath, err)
-		return
+		return ""
 	}
 	fmt.Printf("\r\033[KWritten %s", distFilePath)
+	return distFilePath
 }

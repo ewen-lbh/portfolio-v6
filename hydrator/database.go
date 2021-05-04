@@ -1,21 +1,24 @@
 package main
 
 import (
+	"io/ioutil"
 	"time"
 
 	"github.com/davecgh/go-spew/spew"
 	jsoniter "github.com/json-iterator/go"
 )
 
+// Database holds works & other metadata
 type Database struct {
 	Works []Work
 }
 
+// LoadDatabase reads the database file at filename into a Database
 func LoadDatabase(filename string) (Database, error) {
 	var works []Work
 	json := jsoniter.ConfigFastest
 	SetJSONNamingStrategy(LowerCaseWithUnderscores)
-	content, err := ReadFile(filename)
+	content, err := ioutil.ReadFile(filename)
 	if err != nil {
 		return Database{}, err
 	}
@@ -26,6 +29,7 @@ func LoadDatabase(filename string) (Database, error) {
 	return Database{Works: works}, nil
 }
 
+// Created returns the creation date of a work
 func (work *WorkOneLang) Created() time.Time {
 	var creationDate string
 	if work.Metadata.Created != "" {
@@ -41,10 +45,12 @@ func (work *WorkOneLang) Created() time.Time {
 	return parsedDate
 }
 
+// IsWIP returns true if the work is a work in progress or has no starting date nor creation or finish date
 func (work WorkOneLang) IsWIP() bool {
 	return work.Metadata.WIP || (work.Metadata.Started != "" && (work.Metadata.Created != "" || work.Metadata.Finished != ""))
 }
 
+// InLanguage returns a Work object with data from only the selected language (or the default if not found)
 func (work Work) InLanguage(lang string) WorkOneLang {
 	var title string
 	paragraphs := make([]Paragraph, 0)
@@ -88,6 +94,7 @@ func (work Work) InLanguage(lang string) WorkOneLang {
 	}
 }
 
+// GetOneLang returns an array of works with .InLanguage applied to each
 func GetOneLang(lang string, works ...Work) []WorkOneLang {
 	result := make([]WorkOneLang, 0, len(works))
 	for _, work := range works {

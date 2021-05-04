@@ -1,6 +1,6 @@
 package main
 
-// Represents something that a work was made with
+// Technology represents something that a work was made with
 // used for the /using/_technology path
 type Technology struct {
 	URLName      string   // (unique) identifier used in the URL
@@ -16,6 +16,8 @@ func (t *Technology) ReferredToBy(name string) bool {
 	return StringsLooselyMatch(name, t.URLName, t.DisplayName) || StringsLooselyMatch(name, t.Aliases...)
 }
 
+// KnownTechnologies holds all known Technology objects
+// TODO: Read this from a yaml file
 var KnownTechnologies = [...]Technology{
 	{
 		URLName:      "aftereffects",

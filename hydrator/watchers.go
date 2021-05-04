@@ -10,47 +10,66 @@ import (
 	"strings"
 	"time"
 
-	"github.com/chai2010/gettext-go/po"
 	"github.com/radovskyb/watcher"
-	"github.com/snapcore/go-gettext"
 )
 
-func StartHTMLWatcher(messages *gettext.Catalog, poFile *po.File, db Database) {
-	// TODO: reload MO file when it changes
-	pugFilePattern := regexp.MustCompile(`^.+\.pug`)
+// StartWatcher starts a watcher that listents for file changes in src/*.pug and i18n/*.mo
+// - Re-build only the necessary files when content changes,
+// - Stops when gallery.pug is moved
+// - Updates references to a file when it is moved
+// - Warns when deleting a file that is depended upon
+func StartWatcher(db Database) {
+	watchPattern := regexp.MustCompile(`^.+\.(pug|mo)`)
 	//
 	// Content changes (new files or contents modified)
 	//
 	w := watcher.New()
 	w.FilterOps(watcher.Create, watcher.Write, watcher.Move)
-	w.AddFilterHook(watcher.RegexFilterHook(pugFilePattern, false))
+	w.AddFilterHook(watcher.RegexFilterHook(watchPattern, false))
 
+	translations, err := LoadTranslations()
+	data := GlobalData{translations, db}
+	if err != nil {
+		printerr("Couldn't load the translation files", err)
+	}
 	go func() {
 		for {
 			select {
 			case event := <-w.Event:
-				dependents := DependentsOf(event.Path, 10)
+				dependents := make([]string, 0)
+				if strings.HasSuffix(event.Path, ".pug") {
+					dependents = DependentsOf(event.Path, 10)
+				}
 				switch event.Op {
 				case watcher.Create:
 					fallthrough
 				case watcher.Write:
-					printfln("Building file %s and its dependents %v", GetPathRelativeToSrcDir(event.Path), dependents)
-					for _, filePath := range append(dependents, event.Path) {
-						// Regular pages: no _ prefix
-						if !strings.HasPrefix(path.Base(filePath), "_") {
-							BuildRegularPage(messages, poFile, db, filePath)
+					if strings.HasSuffix(event.Path, ".mo") {
+						printfln("Compiled translations changed: re-building everything")
+						translations, err = LoadTranslations()
+						if err != nil {
+							printerr("Couldn't load the translation files", err)
 						}
-						if GetPathRelativeToSrcDir(filePath) == "_work.pug" {
-							BuildWorkPages(db, messages, poFile)
+						data.BuildAll()
+					} else if strings.HasSuffix(event.Path, ".pug") {
+						printfln("Building file %s and its dependents %v", GetPathRelativeToSrcDir(event.Path), dependents)
+						for _, filePath := range append(dependents, event.Path) {
+							// Regular pages: no _ prefix
+							if !strings.HasPrefix(path.Base(filePath), "_") {
+								data.BuildRegularPage(filePath)
+							}
+							if GetPathRelativeToSrcDir(filePath) == "_work.pug" {
+								data.BuildWorkPages()
+							}
+							if GetPathRelativeToSrcDir(filePath) == "_tag.pug" {
+								data.BuildTagPages()
+							}
+							if GetPathRelativeToSrcDir(filePath) == "using/_technology.pug" {
+								data.BuildTechPages()
+							}
 						}
-						if GetPathRelativeToSrcDir(filePath) == "_tag.pug" {
-							BuildTagPages(db, messages, poFile)
-						}
-						if GetPathRelativeToSrcDir(filePath) == "using/_technology.pug" {
-							BuildTechPages(db, messages, poFile)
-						}
+						data.SavePO("i18n/fr.po")
 					}
-					poFile.Save("i18n/fr.po")
 				case watcher.Remove:
 					if len(dependents) > 0 {
 						printfln("WARN: Files %s depended on %s, which was removed", strings.Join(dependents, ", "), event.Path)
@@ -60,14 +79,16 @@ func StartHTMLWatcher(messages *gettext.Catalog, poFile *po.File, db Database) {
 						printfln("WARN: gallery.pug was renamed, exiting: you'll need to update references to the filename in Go files.")
 						w.Close()
 					}
-					fmt.Printf("%s was renamed to %s: Updating references in %s", GetPathRelativeToSrcDir(event.OldPath), GetPathRelativeToSrcDir(event.Path), strings.Join(dependents, ", "))
-					for _, filePath := range dependents {
-						UpdateExtendsStatement(filePath, event.OldPath, event.Path)
+					if len(dependents) > 0 {
+						fmt.Printf("%s was renamed to %s: Updating references in %s", GetPathRelativeToSrcDir(event.OldPath), GetPathRelativeToSrcDir(event.Path), strings.Join(dependents, ", "))
+						for _, filePath := range dependents {
+							UpdateExtendsStatement(filePath, event.OldPath, event.Path)
+						}
 					}
 				}
 				fmt.Println("\r\033[K")
 			case err := <-w.Error:
-				printerr("An errror occured while watching for content changes on *.pug files", err)
+				printerr("An errror occured while watching changes in src/", err)
 			case <-w.Closed:
 				return
 			}
@@ -75,11 +96,15 @@ func StartHTMLWatcher(messages *gettext.Catalog, poFile *po.File, db Database) {
 	}()
 
 	if err := w.AddRecursive("src"); err != nil {
-		printerr("Couldn't add src/ to *.pug content changes watcher", err)
+		printerr("Couldn't add src/ to watcher", err)
+	}
+
+	if err := w.AddRecursive("i18n"); err != nil {
+		printerr("Couldn't add i18n/ to watcher", err)
 	}
 
 	if err := w.Start(100 * time.Millisecond); err != nil {
-		printerr("Couldn't start the *.pug content changes watcher", err)
+		printerr("Couldn't start the watcher", err)
 	}
 
 }
@@ -103,6 +128,8 @@ func UpdateExtendsStatement(in string, from string, to string) {
 	}
 }
 
+// GetPathRelativeToSrcDir takes an _absolute_ path and returns the part after (not containing) src/
+// Currently not compatible with Windows-style paths
 func GetPathRelativeToSrcDir(absPath string) string {
 	return strings.SplitN(absPath, "src/", 2)[1]
 }

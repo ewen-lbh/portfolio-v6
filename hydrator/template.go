@@ -62,6 +62,7 @@ func GetTemplateFuncMap(language string, catalog *gettext.Catalog) template.Func
 	}
 }
 
+// TemplateData holds all of the data used to hydrate web pages
 type TemplateData struct {
 	Age               uint8
 	KnownTags         [len(KnownTags)]Tag
