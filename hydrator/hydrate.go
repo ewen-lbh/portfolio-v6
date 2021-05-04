@@ -284,7 +284,7 @@ func PrintTemplateErrorMessage(whileDoing string, templateName string, templateC
 	}
 	lineIndex := int(_lineIndex)
 	printfln("While %s %s:%d: %s", whileDoing, templateName, lineIndex, strings.SplitN(err.Error(), ":", lineNumberSliceIndex+1+1)[lineNumberSliceIndex+1])
-	lineIndex -= 1 // Lines start at 1, arrays of line are indexed from 0
+	lineIndex-- // Lines start at 1, arrays of line are indexed from 0
 	lines := strings.Split(gohtml.FormatWithLineNo(templateContent), "\n")
 	var lineIndexOffset int
 	if len(lines) >= lineIndex+5+1 {
