@@ -75,6 +75,7 @@ type TemplateData struct {
 	CurrentWork WorkOneLang
 }
 
+// GetAge returns my age
 func GetAge() uint8 {
 	// TODO Do it dynamically
 	return 17
@@ -84,9 +85,8 @@ func GetAge() uint8 {
 func translateFunc(language string, catalog *gettext.Catalog) func(string) string {
 	if language == "fr" {
 		return func(text string) string { return catalog.Gettext(text) }
-	} else {
-		return func(text string) string { return text }
 	}
+	return func(text string) string { return text }
 }
 
 // intoGalleryFunc returns _a function_ intoGallery that can be used to generate a gallery.
@@ -209,7 +209,7 @@ func withTag(tag Tag, ws []WorkOneLang) []WorkOneLang {
 			}
 		}
 	}
-	if len(filtered) == 0 && IsVerbose() {
+	if len(filtered) == 0 {
 		wsIDs := make([]string, len(ws))
 		for _, work := range ws {
 			wsIDs = append(wsIDs, work.ID)

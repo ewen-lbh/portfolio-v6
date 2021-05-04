@@ -4,7 +4,6 @@ import (
 	"io/ioutil"
 	"time"
 
-	"github.com/davecgh/go-spew/spew"
 	jsoniter "github.com/json-iterator/go"
 )
 
@@ -23,9 +22,6 @@ func LoadDatabase(filename string) (Database, error) {
 		return Database{}, err
 	}
 	err = json.Unmarshal(content, &works)
-	if IsVerbose() {
-		spew.Dump(works)
-	}
 	return Database{Works: works}, nil
 }
 

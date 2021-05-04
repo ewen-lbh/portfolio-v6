@@ -19,17 +19,6 @@ import (
 	"golang.org/x/net/html"
 )
 
-func IsVerbose() bool {
-	// return len(os.Args) > 1 && os.Args[1] == "--verbose"
-	return false // TODO
-}
-
-func VerboseLog(s string, fmtArgs ...interface{}) {
-	if IsVerbose() {
-		printfln(s, fmtArgs...)
-	}
-}
-
 // getAbsPath returns the absolute path of basename,
 // joining the absolute path of src/ and the given basename
 func getAbsPath(basename string) string {
@@ -246,6 +235,7 @@ type CurrentlyHydrated struct {
 	work WorkOneLang
 }
 
+// BuildingForProduction returns true if the environment file declares ENVIRONMENT to not "dev"
 func BuildingForProduction() bool {
 	err := godotenv.Load(".env")
 	if err != nil {
@@ -355,7 +345,6 @@ func (data *GlobalData) ExecuteTemplate(tmpl *template.Template, language string
 
 	if err != nil {
 		return "", err
-	} else {
 	}
 	return buf.String(), nil
 }
