@@ -45,7 +45,7 @@ func main() {
 	//
 	// Loading files
 	//
-	db, err := LoadDatabase("database/database.json")
+	db, err := LoadDatabase("database")
 	if err != nil {
 		printerr("Could not load the database", err)
 		return
@@ -115,7 +115,7 @@ func (data *GlobalData) BuildTechPages() (built []string) {
 		PrintTemplateErrorMessage("parsing template", "using/_technology.pug", techTemplate, err, 2)
 		return
 	}
-	for _, tech := range KnownTechnologies {
+	for _, tech := range data.Technologies {
 		for _, language := range []string{"fr", "en"} {
 			content, err := data.ExecuteTemplate(
 				templ,
@@ -149,7 +149,7 @@ func (data *GlobalData) BuildTagPages() (built []string) {
 		return
 	}
 
-	for _, tag := range KnownTags {
+	for _, tag := range data.Tags {
 		for _, language := range []string{"fr", "en"} {
 			content, err := data.ExecuteTemplate(
 				templ,
@@ -329,13 +329,13 @@ func NameOfDynamicTemplate(tmpl *template.Template, currentlyHydrated CurrentlyH
 // ExecuteTemplate executes a parsed HTML template to hydrate it with data, potentially with a tag, tech or work.
 func (data *GlobalData) ExecuteTemplate(tmpl *template.Template, language string, currentlyHydrated CurrentlyHydrated) (string, error) {
 	// Inject Funcs now, since they depend on language
-	tmpl = tmpl.Funcs(GetTemplateFuncMap(language, &data.moFile))
+	tmpl = tmpl.Funcs(GetTemplateFuncMap(language, data))
 
 	var buf bytes.Buffer
 
 	err := tmpl.Execute(&buf, TemplateData{
-		KnownTags:         KnownTags,
-		KnownTechnologies: KnownTechnologies,
+		KnownTags:         data.Tags,
+		KnownTechnologies: data.Technologies,
 		Works:             GetOneLang(language, data.Works...),
 		Age:               GetAge(),
 		CurrentTag:        currentlyHydrated.tag,

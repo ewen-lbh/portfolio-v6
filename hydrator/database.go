@@ -2,6 +2,7 @@ package main
 
 import (
 	"io/ioutil"
+	"path"
 	"time"
 
 	jsoniter "github.com/json-iterator/go"
@@ -9,20 +10,46 @@ import (
 
 // Database holds works & other metadata
 type Database struct {
-	Works []Work
+	Works        []Work
+	Technologies []Technology
+	Tags         []Tag
 }
 
-// LoadDatabase reads the database file at filename into a Database
-func LoadDatabase(filename string) (Database, error) {
-	var works []Work
+// LoadWorks reads the database file at filename into a []Work
+func LoadWorks(filename string) (works []Work, err error) {
 	json := jsoniter.ConfigFastest
 	SetJSONNamingStrategy(LowerCaseWithUnderscores)
 	content, err := ioutil.ReadFile(filename)
 	if err != nil {
-		return Database{}, err
+		return
 	}
 	err = json.Unmarshal(content, &works)
-	return Database{Works: works}, nil
+	return
+}
+
+// LoadDatabase loads works, technologies and tags into a Database
+// Standard filepaths relative to databaseDir are assumed:
+// - database.json for the works
+// - tags.yaml for the tags
+// - technologies.yaml for the technologies
+func LoadDatabase(databaseDir string) (Database, error) {
+	works, err := LoadWorks(path.Join(databaseDir, "database.json"))
+	if err != nil {
+		return Database{}, err
+	}
+	tags, err := LoadTags(path.Join(databaseDir, "tags.yaml"))
+	if err != nil {
+		return Database{}, err
+	}
+	techs, err := LoadTechnologies(path.Join(databaseDir, "technologies.yaml"))
+	if err != nil {
+		return Database{}, err
+	}
+	return Database{
+		Works:        works,
+		Tags:         tags,
+		Technologies: techs,
+	}, nil
 }
 
 // Created returns the creation date of a work

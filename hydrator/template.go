@@ -17,12 +17,12 @@ import (
 )
 
 // GetTemplateFuncMap returns the funcmap used to hydrate files
-func GetTemplateFuncMap(language string, catalog *gettext.Catalog) template.FuncMap {
+func GetTemplateFuncMap(language string, data *GlobalData) template.FuncMap {
 	return template.FuncMap{
 		// translate translates the given string into `language`
-		"translate": translateFunc(language, catalog),
+		"translate": translateFunc(language, &data.moFile),
 		// "into" transforms to HTML structures
-		"intoGallery":   intoGalleryFunc(language, catalog),
+		"intoGallery":   intoGalleryFunc(language, data),
 		"intoLayout":    intoLayout,
 		"intoColorsCSS": intoColorsCSS,
 		// "get" gets a Go value (string, map[string]string, etc.)
@@ -52,8 +52,8 @@ func GetTemplateFuncMap(language string, catalog *gettext.Catalog) template.Func
 		"asset": asset,
 		"media": media,
 		// lookups for tags & technologies
-		"lookupTag":  lookupTag,
-		"lookupTech": lookupTech,
+		"lookupTag":  func(name string) Tag { return lookupTag(data.Tags, name) },
+		"lookupTech": func(name string) Technology { return lookupTech(data.Technologies, name) },
 		// debugging
 		"log": log,
 		// various
@@ -65,8 +65,8 @@ func GetTemplateFuncMap(language string, catalog *gettext.Catalog) template.Func
 // TemplateData holds all of the data used to hydrate web pages
 type TemplateData struct {
 	Age               uint8
-	KnownTags         [len(KnownTags)]Tag
-	KnownTechnologies [len(KnownTechnologies)]Technology
+	KnownTags         []Tag
+	KnownTechnologies []Technology
 	Works             []WorkOneLang
 	MusicTag          Tag
 	// Template data for _-prefixed .pug files: relevant struct instance of what's being hydrated
@@ -92,7 +92,7 @@ func translateFunc(language string, catalog *gettext.Catalog) func(string) strin
 // intoGalleryFunc returns _a function_ intoGallery that can be used to generate a gallery.
 // We need this because the gallery comes from a template herself, that might call `translate`
 // So we need a function that returns a function.
-func intoGalleryFunc(language string, catalog *gettext.Catalog) func(string, []WorkOneLang) string {
+func intoGalleryFunc(language string, data *GlobalData) func(string, []WorkOneLang) string {
 	templateContent := BuildTemplate("src/gallery.pug")
 	if templateContent == "" {
 		println("Building gallery template file resulted in the empty string")
@@ -104,7 +104,7 @@ func intoGalleryFunc(language string, catalog *gettext.Catalog) func(string, []W
 
 	return func(customClasses string, ws []WorkOneLang) string {
 		tmpl := template.New("gallery.pug")
-		tmpl = tmpl.Funcs(GetTemplateFuncMap(language, catalog))
+		tmpl = tmpl.Funcs(GetTemplateFuncMap(language, data))
 		tmpl = tmpl.Funcs(sprig.TxtFuncMap())
 		tmpl = template.Must(tmpl.Parse(templateContent))
 
@@ -112,11 +112,11 @@ func intoGalleryFunc(language string, catalog *gettext.Catalog) func(string, []W
 		var buf bytes.Buffer
 		err := tmpl.Execute(&buf, struct {
 			GivenWorks    []WorkOneLang
-			KnownTags     [len(KnownTags)]Tag
+			KnownTags     []Tag
 			CustomClasses string
 		}{
 			GivenWorks:    ws,
-			KnownTags:     KnownTags,
+			KnownTags:     data.Tags,
 			CustomClasses: customClasses,
 		})
 		if err != nil {
@@ -321,8 +321,8 @@ func media(mediaPath string) string {
 }
 
 // lookupTag returns the tag referred to by name
-func lookupTag(name string) Tag {
-	for _, tag := range KnownTags {
+func lookupTag(tags []Tag, name string) Tag {
+	for _, tag := range tags {
 		if tag.ReferredToBy(name) {
 			return tag
 		}
@@ -331,8 +331,8 @@ func lookupTag(name string) Tag {
 }
 
 // lookupTech returns the tech referred to by name
-func lookupTech(name string) Technology {
-	for _, tech := range KnownTechnologies {
+func lookupTech(techs []Technology, name string) Technology {
+	for _, tech := range techs {
 		if tech.ReferredToBy(name) {
 			return tech
 		}
