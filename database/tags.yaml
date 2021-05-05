@@ -1,0 +1,81 @@
+# todo: deprecate
+- singular: school
+  plural:   school
+
+- singular: science
+  plural:   science
+
+- singular: card
+  plural:   cards
+
+# todo: deprecate
+- singular: cover art
+  plural:   cover arts
+
+- singular: game
+  plural:   games
+
+- singular: graphism
+  plural:   graphism
+
+- singular: poster
+  plural:   posters
+
+- singular: automation
+  plural:   automation
+
+- singular: web
+  plural:   web
+
+- singular: intro
+  plural:   intros
+
+- singular: music
+  plural:   music
+
+- singular: app
+  plural:   apps
+
+- singular: book
+  plural:   books
+
+- singular: api
+  plural:   apis
+
+- singular: program
+  plural:   programs
+
+- singular: cli
+  plural:   clis
+
+- singular: motion design
+  plural:   motion design
+
+- singular: compositing
+  plural:   compositing
+
+- singular: visual identity
+  plural:   visual identities
+  aliases:  [logo, logos, banner, banners]
+
+- singular: illustration
+  plural:   illustrations
+
+- singular: typography
+  plural:   typography
+
+- singular: drawing
+  plural:   drawings
+
+- singular: icons
+  plural:   icons
+
+- singular: site
+  plural:   sites
+
+- singular: language
+  plural:   languages
+
+- singular: math
+  plural:   math
+  aliases:  [maths, mathematics]

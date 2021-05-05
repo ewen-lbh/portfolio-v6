@@ -166,6 +166,8 @@ dist/
 database/**
 !database/database.json
 !database/.portfoliodb.yaml
+!database/tags.yaml
+!database/technologies.yaml
 assets/*.js
 assets/*.css
 assets/*.css.map
