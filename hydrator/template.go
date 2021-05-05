@@ -97,7 +97,7 @@ func intoGalleryFunc(language string, data *GlobalData) func(string, []WorkOneLa
 	if templateContent == "" {
 		println("Building gallery template file resulted in the empty string")
 		return func(_ string, _ []WorkOneLang) string {
-			return "[ERR: Building gallery template file resulted in the empty string"
+			return "ERROR: Building gallery template file resulted in the empty string"
 		}
 	}
 	templateContent = gohtml.Format(templateContent)
