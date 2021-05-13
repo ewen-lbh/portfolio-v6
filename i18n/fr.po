@@ -13,17 +13,149 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.4.1\n"
 
+msgid "A <a href=\"https://svelte.dev\">Svelte</a>-powered framework for building web applications of all sizes, with a beautiful development experience and flexible filesystem-based routing"
+msgstr "Un framework basé sur <a href=\"https://svelte.dev\">Svelte</a> pour la construction d'applications web de toutes tailles, avec une belle expérience de développement et un routage flexible basé sur le système de fichiers"
+
+msgid "A bundler for javascript and friends. Packs many modules into a few bundled assets."
+msgstr "Un bundler pour javascript et autres. Regroupe de nombreux modules en quelques fichiers groupés."
+
+msgid "A collaborative web-based vector editor, UX design and prototyping tool"
+msgstr "Un éditeur vectoriel, outil de conception et de prototypage UX collaboratif basé sur le web"
+
+msgid "A community-maintained Python library for creating mathematical animations"
+msgstr "Une bibliothèque Python permettant la création d'animations mathématiques"
+
+msgid "A desktop publishing and typesetting software application used to create works such as posters, flyers, brochures, magazines, newspapers, presentations, books and ebooks"
+msgstr "Un logiciel de publication assistée par ordinateur et de composition utilisé pour créer des œuvres telles que des affiches, des prospectus, des brochures, des magazines, des journaux, des présentations, des livres et des livres électroniques"
+
+msgid "A digital audio workstation (DAW)"
+msgstr "Un logiciel de création musicale"
+
+msgid "A digital visual effects, motion graphics, and compositing application"
+msgstr "Une application d'effets visuels numériques, de motion graphics et de compositing"
+
 msgid "A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write."
 msgstr "Un langage de programmation open source dynamique, axé sur la simplicité et la productivité. Il possède une syntaxe élégante, naturelle et facile à écrire."
+
+msgid "A high-level Python Web framework that encourages rapid development and clean, pragmatic design"
+msgstr "Un framework Web Python de haut niveau qui encourage un développement rapide et une conception propre et pragmatique"
+
+msgid "A high-level programming language that enables interactive web pages"
+msgstr "Un langage de programmation de haut niveau qui permet l'intéractivité de pages web"
+
+msgid "A high-performance template engine heavily influenced by &lt;a href='https://haml.info/'&gt;Haml&lt;/a&gt; and implemented with JavaScript for Node.js and browsers."
+msgstr ""
+
+msgid "A high-performance template engine heavily influenced by <a href=\"https://haml.info/\">Haml</a> and implemented with JavaScript for Node.js and browsers."
+msgstr "Un moteur de template haute performance fortement influencé par <a href=\"https://haml.info\"/>Haml</a> et implémenté avec JavaScript pour Node.js et les navigateurs."
+
+msgid "A high-quality typesetting & document preparation system"
+msgstr "Un système de composition et de préparation des documents de haute qualité"
+
+msgid "A high-quality typesetting &amp; document preparation system"
+msgstr ""
+
+msgid "A human friendly data serialization standard for all programming languages"
+msgstr "Une norme de sérialisation des données pour tous les langages de programmation"
+
+msgid "A language empowering everyone to build reliable and efficient software"
+msgstr "Un langage permettant à chacun de construire des logiciels fiables et efficaces"
+
+msgid "A language for generating UML diagrams from textual descriptions"
+msgstr "Un langage permettant de générer des diagrammes UML à partir de descriptions textuelles"
 
 msgid "A language which compiles to JavaScript that adds many features to assist in functional style programming. LiveScript is an indirect descendant of CoffeeScript, with which it has much compatibility."
 msgstr "Un langage qui se compile en JavaScript et qui ajoute de nombreuses fonctionnalités pour aider à la programmation de style fonctionnel. LiveScript est un descendant indirect de CoffeeScript, avec lequel il a une grande compatibilité."
 
+msgid "A library that parses command-line arguments based on a help message. “Don't write parser code: a good help message already has all the necessary information in it”"
+msgstr "Une bibliothèque qui analyse les arguments de la ligne de commande sur la base d'un message d'aide. \"N'écrivez pas de code pour parser vos arguments : un bon message d'aide contient déjà toutes les informations nécessaires\"."
+
+msgid "A lightweight data-interchange format"
+msgstr "Un format léger d'échange de données"
+
+msgid "A minimal configuration file format that's easy to read due to obvious semantics. Designed to map unambiguously to a hash table."
+msgstr "Un format de fichier de configuration minimal et facile à lire grâce à une sémantique évidente."
+
+msgid "A minimal language to describe interactive, terminal-based text adventure games"
+msgstr "Un langage minimal pour écrire des jeux d'aventure textuelles"
+
+msgid "A modern parsing library for Python capable of parsing any context-free grammar"
+msgstr "Une bibliothèque d'analyse moderne pour Python capable d'analyser toute grammaire non contextuelle"
+
+msgid "A modern parsing library for Python. Lark can parse any context-free grammar"
+msgstr ""
+
+msgid "A popular general-purpose scripting language that is especially suited to web development"
+msgstr "Un langage de script polyvalent et populaire, particulièrement adapté au développement web"
+
+msgid "A powerful and flexible toolkit for building Web APIs with Django"
+msgstr "Un toolkit puissant et flexibl pour construire des API Web avec Django"
+
+msgid "A powerful, efficient, lightweight, embeddable scripting language"
+msgstr "Un langage de script puissant, efficace, léger et utilisable sur de l'embarqué"
+
+msgid "A programming language that compiles to JavaScript. It adds syntactic sugar inspired by Ruby, Python and Haskell in an effort to enhance JavaScript's brevity and readability. Specific additional features include list comprehension and destructuring assignment"
+msgstr "Un langage de programmation qui se compile en JavaScript. Il ajoute du sucre syntactique inspiré de Ruby, Python et Haskell dans le but d'améliorer la brièveté et la lisibilité de JavaScript. Les caractéristiques supplémentaires spécifiques comprennent la définition de listes en compréhension et l'affectation par déstructuration"
+
+msgid "A programming language that lets you work quickly and integrate systems more effectively"
+msgstr "Un langage de programmation permettant de travailler rapidement et d'intégrer des systèmes plus efficacement"
+
+msgid "A progressive Node.js framework for building efficient, reliable and scalable server-side applications"
+msgstr "Un framework Node.js progressif pour construire des applications côté serveur efficaces, fiables et évolutives"
+
+msgid "A radical new approach to building user interfaces. Whereas traditional frameworks like React and Vue do the bulk of their work in the browser, Svelte shifts that work into a compile step that happens when the app is built"
+msgstr "Une approche radicalement nouvelle de la construction d'interfaces utilisateurs. Alors que les frameworks traditionnels comme React et Vue font l'essentiel de leur travail dans le navigateur, Svelte transforme ce travail en une étape de compilation qui se produit lors de la création de l'application."
+
+msgid "A raster graphics editor"
+msgstr "Un éditeur d'images raster"
+
+msgid "A smart and user-friendly command line shell for Linux, macOS, and the rest of the family"
+msgstr "Un shell en ligne de commande intelligent et convivial pour Linux, macOS et le reste de la famille"
+
+msgid "A statically typed compiled systems programming language. It combines successful concepts from mature languages like Python, Ada and Modula."
+msgstr "Langage de programmation de systèmes compilés, typés statiquement. Il combine des concepts à succès de langages matures comme Python, Ada et Modula."
+
+msgid "A stylesheet language used to describe the presentation of a document written in HTML or XML"
+msgstr "Un langage de feuille de style utilisé pour décrire la présentation d'un document écrit en HTML ou XML"
+
+msgid "A text document format for writing notes, documentation, articles, books, ebooks, slideshows, web pages, man pages and blogs. AsciiDoc files can be translated to many formats including HTML, PDF, EPUB, man page."
+msgstr "Un format de document texte pour écrire des notes, de la documentation, des articles, des livres, des ebooks, des diaporamas, des pages web, des pages de manuel et des blogs. Les fichiers AsciiDoc peuvent être traduits dans de nombreux formats, notamment HTML, PDF, EPUB ou man page."
+
+msgid "A text-to-HTML conversion tool and language for web writers. The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible: a Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions."
+msgstr "Un outil de conversion du texte en HTML et un langage pour les rédacteurs web. L'objectif principal de la syntaxe de formatage de Markdown est de rendre le document aussi lisible que possible : un document formaté par Markdown doit pouvoir être publié tel quel, en texte brut, sans avoir l'air d'avoir été marqué par des balises ou des instructions de formatage."
+
+msgid "A timeline-based video editing software application"
+msgstr "Un logiciel de montage vidéo"
+
+msgid "A vector graphics editor and design program"
+msgstr "Un éditeur de graphiques vectoriels et un programme de design"
+
 msgid "A web-application framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC) pattern"
 msgstr ""
 
+msgid "APIs"
+msgstr "APIs"
+
 msgid "After Effects"
 msgstr "After Effects"
+
+msgid "After Effects’s logo"
+msgstr "logo d'After Effects"
+
+msgid "An intuitive vector graphics editor for iOS"
+msgstr ""
+
+msgid "C"
+msgstr "C"
+
+msgid "C#"
+msgstr "C#"
+
+msgid "An open source image editor"
+msgstr ""
+
+msgid "An straightforward low-level open source programming language supported by Google featuring built-in concurrency and a robust standard library"
+msgstr ""
 
 msgid "Assembly"
 msgstr "Assembly"
@@ -34,20 +166,8 @@ msgstr "logo d'Assembly"
 msgid "Back home"
 msgstr "Retour à l'accueil"
 
-msgid "C"
-msgstr "C"
-
-msgid "After Effects’s logo"
-msgstr "logo d'After Effects"
-
-msgid "A programming language that lets you work quickly and integrate systems more effectively"
-msgstr "Un langage de programmation permettant de travailler rapidement et d'intégrer des systèmes plus efficacement"
-
-msgid "APIs"
-msgstr "APIs"
-
-msgid "C#"
-msgstr "C#"
+msgid "C#’s logo"
+msgstr "logo de C#"
 
 msgid "C++"
 msgstr "C++"
@@ -61,14 +181,20 @@ msgstr "CLIs"
 msgid "CSS"
 msgstr "CSS"
 
-msgid "C#’s logo"
-msgstr "logo de C#"
+msgid "CSS’s logo"
+msgstr "logo de CSS"
+
+msgid "Close"
+msgstr "Fermer"
 
 msgid "CoffeeScript"
 msgstr "CoffeeScript"
 
-msgid "A collaborative web-based vector editor, UX design and prototyping tool"
-msgstr "Un éditeur vectoriel, outil de conception et de prototypage UX collaboratif basé sur le web"
+msgid "CoffeeScript’s logo"
+msgstr "logo de CoffeeScript"
+
+msgid "C’s logo"
+msgstr "logo de C"
 
 msgid "Design and coded by hand"
 msgstr "Site web fait maison"
@@ -82,15 +208,6 @@ msgstr ""
 msgid "Django"
 msgstr "Django"
 
-msgid "A bundler for javascript and friends. Packs many modules into a few bundled assets."
-msgstr "Un bundler pour javascript et autres. Regroupe de nombreux modules en quelques fichiers groupés."
-
-msgid "A community-maintained Python library for creating mathematical animations"
-msgstr "Une bibliothèque Python permettant la création d'animations mathématiques"
-
-msgid "CSS’s logo"
-msgstr "logo de CSS"
-
 msgid "Django REST Framework"
 msgstr "Django REST Framework"
 
@@ -103,71 +220,44 @@ msgstr "logo de Django"
 msgid "Docopt"
 msgstr "Docopt"
 
-msgid "FL Studio"
-msgstr "FL Studio"
-
-msgid "Figma"
-msgstr "Figma"
-
-msgid "Fish Shell"
-msgstr "Shell Fish"
-
-msgid "GIMP"
-msgstr "GIMP"
-
-msgid "Go"
-msgstr "Go"
-
-msgid "HTML"
-msgstr "HTML"
-
-msgid "A <a href=\"https://svelte.dev\">Svelte</a>-powered framework for building web applications of all sizes, with a beautiful development experience and flexible filesystem-based routing"
-msgstr "Un framework basé sur <a href=\"https://svelte.dev\">Svelte</a> pour la construction d'applications web de toutes tailles, avec une belle expérience de développement et un routage flexible basé sur le système de fichiers"
-
-msgid "A desktop publishing and typesetting software application used to create works such as posters, flyers, brochures, magazines, newspapers, presentations, books and ebooks"
-msgstr "Un logiciel de publication assistée par ordinateur et de composition utilisé pour créer des œuvres telles que des affiches, des prospectus, des brochures, des magazines, des journaux, des présentations, des livres et des livres électroniques"
-
-msgid "A high-level Python Web framework that encourages rapid development and clean, pragmatic design"
-msgstr "Un framework Web Python de haut niveau qui encourage un développement rapide et une conception propre et pragmatique"
-
-msgid "A high-level programming language that enables interactive web pages"
-msgstr "Un langage de programmation de haut niveau qui permet l'intéractivité de pages web"
-
-msgid "A lightweight data-interchange format"
-msgstr "Un format léger d'échange de données"
-
-msgid "A modern parsing library for Python. Lark can parse any context-free grammar"
-msgstr ""
-
-msgid "Close"
-msgstr "Fermer"
-
 msgid "Docopt’s logo"
 msgstr "logo de Docopt"
 
-msgid "GIMP’s logo"
-msgstr "logo de GIMP"
+msgid "Expressive, robust, feature-rich CSS language built for nodejs"
+msgstr ""
 
-msgid "CoffeeScript’s logo"
-msgstr "logo de CoffeeScript"
-
-msgid "A digital audio workstation (DAW)"
-msgstr "Un logiciel de création musicale"
-
-msgid "A powerful, efficient, lightweight, embeddable scripting language"
-msgstr "Un langage de script puissant, efficace, léger et utilisable sur de l'embarqué"
-
-msgid "C’s logo"
-msgstr "logo de C"
+msgid "FL Studio"
+msgstr "FL Studio"
 
 msgid "FL Studio’s logo"
 msgstr "logo de FL Studio"
 
+msgid "Figma"
+msgstr "Figma"
+
 msgid "Figma’s logo"
 msgstr "logo de Figma"
 
+msgid "Fish Shell"
+msgstr "Shell Fish"
+
 msgid "Fish Shell’s logo"
 msgstr "logo de Fish Shell"
+
+msgid "GIMP"
+msgstr "GIMP"
+
+msgid "GIMP’s logo"
+msgstr "logo de GIMP"
+
+msgid "Go"
+msgstr "Go"
+
+msgid "Go’s logo"
+msgstr ""
+
+msgid "HTML"
+msgstr "HTML"
 
 msgid "HTML’s logo"
 msgstr "logo de HTML"
@@ -190,8 +280,17 @@ msgstr "Je crée aussi de la musique."
 msgid "Illustrator"
 msgstr "Illustrator"
 
+msgid "Illustrator’s logo"
+msgstr "logo d'Illustrator"
+
 msgid "InDesign"
 msgstr "InDesign"
+
+msgid "InDesign’s logo"
+msgstr "logo d'InDesign"
+
+msgid "I’ve been experimenting with sounds, their textures and their musicality since I was 7 years old."
+msgstr "J'expérimente les sons, leurs textures et leur musicalité depuis que j'ai 7 ans."
 
 msgid "J&#39;ai appris à programmer dans différents langages informatiques: HTML, Python et JavaScript, ce qui m&#39;a permis de créer mon site et, actuellement, une application web pour étudiants. J&#39;ai aussi pour projet la création de plusieurs langages de programmation."
 msgstr ""
@@ -202,44 +301,38 @@ msgstr ""
 msgid "JSON"
 msgstr "JSON"
 
+msgid "JSON’s logo"
+msgstr "logo de JSON"
+
 msgid "JavaScript"
 msgstr "JavaScript"
-
-msgid "LaTeX"
-msgstr "LaTeX"
-
-msgid "L&#39;anglais étant indispensable à la lecture de documentations, j&#39;ai approfondi cette langue (TOEIC Bridge: 176/180), conversé par mail avec un américain pour réaliser un logo. Je suis aussi fasciné depuis l&#39;enfance par l&#39;écriture: le cyrillique (d&#39;où mon choix de LV3, le russe), le grec (cours particuliers) et les hiraganas et katakanas (japonais en autodidacte)."
-msgstr ""
-
-msgid "Lua"
-msgstr "Lua"
-
-msgid "ManimCE"
-msgstr "ManimCE"
-
-msgid "I’ve been experimenting with sounds, their textures and their musicality since I was 7 years old."
-msgstr "J'expérimente les sons, leurs textures et leur musicalité depuis que j'ai 7 ans."
-
-msgid "L'anglais étant indispensable à la lecture de documentations, j'ai approfondi cette langue (TOEIC Bridge: 176/180), conversé par mail avec un américain pour réaliser un logo. Je suis aussi fasciné depuis l'enfance par l'écriture: le cyrillique (d'où mon choix de LV3, le russe), le grec (cours particuliers) et les hiraganas et katakanas (japonais en autodidacte)."
-msgstr ""
 
 msgid "JavaScript’s logo"
 msgstr "logo de JavaScript"
 
-msgid "JSON’s logo"
-msgstr "logo de JSON"
-
-msgid "Le langage mathématique m&#39;intéresse tout autant: il m&#39;arrive d&#39;appréhender des concepts complexes mathématiques en naviguant sur wikipédia anglais ou en regardant des vidéos de chaînes YouTube telles que &#34;3Blue1Brown&#34; ou &#34;Numerphile&#34;"
+msgid "L&#39;anglais étant indispensable à la lecture de documentations, j&#39;ai approfondi cette langue (TOEIC Bridge: 176/180), conversé par mail avec un américain pour réaliser un logo. Je suis aussi fasciné depuis l&#39;enfance par l&#39;écriture: le cyrillique (d&#39;où mon choix de LV3, le russe), le grec (cours particuliers) et les hiraganas et katakanas (japonais en autodidacte)."
 msgstr ""
 
-msgid "Le langage mathématique m'intéresse tout autant: il m'arrive d'appréhender des concepts complexes mathématiques en naviguant sur wikipédia anglais ou en regardant des vidéos de chaînes YouTube telles que \"3Blue1Brown\" ou \"Numerphile\""
+msgid "L'anglais étant indispensable à la lecture de documentations, j'ai approfondi cette langue (TOEIC Bridge: 176/180), conversé par mail avec un américain pour réaliser un logo. Je suis aussi fasciné depuis l'enfance par l'écriture: le cyrillique (d'où mon choix de LV3, le russe), le grec (cours particuliers) et les hiraganas et katakanas (japonais en autodidacte)."
 msgstr ""
+
+msgid "LaTeX"
+msgstr "LaTeX"
 
 msgid "LaTeX’s logo"
 msgstr "logo de LaTeX"
 
 msgid "Lark"
 msgstr "Lark"
+
+msgid "Lark’s logo"
+msgstr "logo de Lark"
+
+msgid "Le langage mathématique m&#39;intéresse tout autant: il m&#39;arrive d&#39;appréhender des concepts complexes mathématiques en naviguant sur wikipédia anglais ou en regardant des vidéos de chaînes YouTube telles que &#34;3Blue1Brown&#34; ou &#34;Numerphile&#34;"
+msgstr ""
+
+msgid "Le langage mathématique m'intéresse tout autant: il m'arrive d'appréhender des concepts complexes mathématiques en naviguant sur wikipédia anglais ou en regardant des vidéos de chaînes YouTube telles que \"3Blue1Brown\" ou \"Numerphile\""
+msgstr ""
 
 msgid "Learn more"
 msgstr "En savoir plus"
@@ -250,26 +343,23 @@ msgstr "LiveScript"
 msgid "LiveScript’s logo"
 msgstr "logo de LiveScript"
 
+msgid "Lua"
+msgstr "Lua"
+
 msgid "Lua’s logo"
 msgstr "logo de Lua"
 
-msgid "A digital visual effects, motion graphics, and compositing application"
-msgstr "Une application d'effets visuels numériques, de motion graphics et de compositing"
-
-msgid "Hi, I&#39;m Ewen Le Bihan."
+msgid "An advanced open source relational database"
 msgstr ""
-
-msgid "Illustrator’s logo"
-msgstr "logo d'Illustrator"
-
-msgid "InDesign’s logo"
-msgstr "logo d'InDesign"
 
 msgid "Made with &lt;3 by Ewen Le Bihan"
 msgstr "Fait avec &lt;3 par Ewen Le Bihan"
 
 msgid "Manim"
 msgstr "Manim"
+
+msgid "ManimCE"
+msgstr "ManimCE"
 
 msgid "Manim’s logo"
 msgstr "logo de Manim"
@@ -280,8 +370,26 @@ msgstr "Markdown"
 msgid "Markdown’s logo"
 msgstr "logo de Markdown"
 
+msgid "More..."
+msgstr "Plus..."
+
 msgid "NestJS"
 msgstr "NestJS"
+
+msgid "An open Node.js CLI framework"
+msgstr ""
+
+msgid "An open-source language which builds on JavaScript by adding static type definitions"
+msgstr ""
+
+msgid "Hi, I&#39;m Ewen Le Bihan."
+msgstr ""
+
+msgid "If you aren't redirected, click on this big button:"
+msgstr ""
+
+msgid "Made with <3 by Ewen Le Bihan"
+msgstr "Fait avec <3 par Ewen Le Bihan"
 
 msgid "Nim"
 msgstr "Nim"
@@ -292,18 +400,6 @@ msgstr "Nuxt"
 msgid "Oclif"
 msgstr "Oclif"
 
-msgid "about"
-msgstr "à propos"
-
-msgid "api"
-msgstr "api"
-
-msgid "automation"
-msgstr "automatisation"
-
-msgid "banner"
-msgstr "bannière"
-
 msgid "PHP"
 msgstr "PHP"
 
@@ -313,239 +409,44 @@ msgstr "Photoshop"
 msgid "PlantUML"
 msgstr "PlantUML"
 
+msgid "PostGreSQL"
+msgstr "PostGreSQL"
+
 msgid "Premiere Pro"
 msgstr "Premiere Pro"
-
-msgid "compositing"
-msgstr "compositing"
-
-msgid "contact"
-msgstr "contact"
-
-msgid "cover art"
-msgstr "pochette"
-
-msgid "game"
-msgstr "jeu"
-
-msgid "graphism"
-msgstr "graphisme"
 
 msgid "Proudly <strong>not</strong> powered by Wordpress"
 msgstr "Fièrement <strong>non</strong> propulsé par Wordpress"
 
-msgid "PostGreSQL"
-msgstr "PostGreSQL"
-
 msgid "Pug"
 msgstr "Pug"
-
-msgid "all of 'em"
-msgstr "toutes"
-
-msgid "app"
-msgstr "application"
-
-msgid "also my music"
-msgstr "ma musique également"
-
-msgid "efficient and comfortable programming language"
-msgstr "langage de programmation efficient et confortable"
-
-msgid "PyChemin"
-msgstr "PyChemin"
-
-msgid "Python"
-msgstr "Python"
 
 msgid "Ruby"
 msgstr "Ruby"
 
-msgid "artistique"
-msgstr ""
-
-msgid "Ruby On Rails"
-msgstr "Ruby On Rails"
-
-msgid "A human friendly data serialization standard for all programming languages"
-msgstr "Une norme de sérialisation des données pour tous les langages de programmation"
-
-msgid "Rust"
-msgstr "Rust"
-
-msgid "SASS"
-msgstr "SASS"
-
-msgid "Sapper"
-msgstr "Sapper"
-
-msgid "Shell"
-msgstr "Shell"
-
-msgid "Stylus"
-msgstr "Stylus"
-
-msgid "Svelte"
-msgstr "Svelte"
-
-msgid "These are my creations."
-msgstr "Voici mes créations."
-
-msgid "Tout mes projets de programmation sont visibles par tous sur mon profil GitHub: tout mes projets sont dits \"Open Source\"."
-msgstr ""
-
-msgid "YAML"
-msgstr "YAML"
-
-msgid "A statically typed compiled systems programming language. It combines successful concepts from mature languages like Python, Ada and Modula."
-msgstr "Langage de programmation de systèmes compilés, typés statiquement. Il combine des concepts à succès de langages matures comme Python, Ada et Modula."
-
-msgid "Shell’s logo"
-msgstr "logo de Shell"
-
-msgid "asciidoc"
-msgstr "asciidoc"
-
-msgid "book"
-msgstr "livre"
-
-msgid "beautiful OFL typeface"
-msgstr "magnifique fonte sous OFL"
-
-msgid "by"
-msgstr "par"
-
-msgid "card"
-msgstr "carte"
-
-msgid "Vue"
-msgstr "Vue"
-
-msgid "A high-performance template engine heavily influenced by <a href=\"https://haml.info/\">Haml</a> and implemented with JavaScript for Node.js and browsers."
-msgstr "Un moteur de template haute performance fortement influencé par <a href=\"https://haml.info\"/>Haml</a> et implémenté avec JavaScript pour Node.js et les navigateurs."
-
-msgid "A language empowering everyone to build reliable and efficient software"
-msgstr "Un langage permettant à chacun de construire des logiciels fiables et efficaces"
-
-msgid "blog"
-msgstr "blogue"
-
-msgid "intro"
-msgstr "intro"
-
-msgid "A library that parses command-line arguments based on a help message. “Don't write parser code: a good help message already has all the necessary information in it”"
-msgstr "Une bibliothèque qui analyse les arguments de la ligne de commande sur la base d'un message d'aide. \"N'écrivez pas de code pour parser vos arguments : un bon message d'aide contient déjà toutes les informations nécessaires\"."
-
-msgid "A modern parsing library for Python capable of parsing any context-free grammar"
-msgstr "Une bibliothèque d'analyse moderne pour Python capable d'analyser toute grammaire non contextuelle"
-
-msgid "en français"
-msgstr "in english"
-
-msgid "Photoshop’s logo"
-msgstr "logo de Photoshop"
-
-msgid "A radical new approach to building user interfaces. Whereas traditional frameworks like React and Vue do the bulk of their work in the browser, Svelte shifts that work into a compile step that happens when the app is built"
-msgstr "Une approche radicalement nouvelle de la construction d'interfaces utilisateurs. Alors que les frameworks traditionnels comme React et Vue font l'essentiel de leur travail dans le navigateur, Svelte transforme ce travail en une étape de compilation qui se produit lors de la création de l'application."
-
-msgid "A high-quality typesetting & document preparation system"
-msgstr "Un système de composition et de préparation des documents de haute qualité"
-
-msgid "A language for generating UML diagrams from textual descriptions"
-msgstr "Un langage permettant de générer des diagrammes UML à partir de descriptions textuelles"
-
-msgid "A minimal configuration file format that's easy to read due to obvious semantics. Designed to map unambiguously to a hash table."
-msgstr "Un format de fichier de configuration minimal et facile à lire grâce à une sémantique évidente."
-
-msgid "Lark’s logo"
-msgstr "logo de Lark"
-
-msgid "PyChemin’s logo"
-msgstr "logo de PyChemin"
-
-msgid "latest release"
-msgstr "dernière sortie"
-
-msgid "A popular general-purpose scripting language that is especially suited to web development"
-msgstr "Un langage de script polyvalent et populaire, particulièrement adapté au développement web"
-
-msgid "A programming language that compiles to JavaScript. It adds syntactic sugar inspired by Ruby, Python and Haskell in an effort to enhance JavaScript's brevity and readability. Specific additional features include list comprehension and destructuring assignment"
-msgstr "Un langage de programmation qui se compile en JavaScript. Il ajoute du sucre syntactique inspiré de Ruby, Python et Haskell dans le but d'améliorer la brièveté et la lisibilité de JavaScript. Les caractéristiques supplémentaires spécifiques comprennent la définition de listes en compréhension et l'affectation par déstructuration"
-
-msgid "A progressive Node.js framework for building efficient, reliable and scalable server-side applications"
-msgstr "Un framework Node.js progressif pour construire des applications côté serveur efficaces, fiables et évolutives"
-
-msgid "A raster graphics editor"
-msgstr "Un éditeur d'images raster"
-
-msgid "Pug’s logo"
-msgstr "logo de Pug"
-
-msgid "A high-quality typesetting &amp; document preparation system"
-msgstr ""
-
-msgid "A minimal language to describe interactive, terminal-based text adventure games"
-msgstr "Un langage minimal pour écrire des jeux d'aventure textuelles"
-
-msgid "A powerful and flexible toolkit for building Web APIs with Django"
-msgstr "Un toolkit puissant et flexibl pour construire des API Web avec Django"
-
-msgid "Python’s logo"
-msgstr "logo de Python"
-
-msgid "iconography"
-msgstr "icônes"
-
-msgid "Stylus’s logo"
-msgstr "logo de Stylus"
-
-msgid "drawing"
-msgstr "dessin"
-
-msgid "A smart and user-friendly command line shell for Linux, macOS, and the rest of the family"
-msgstr "Un shell en ligne de commande intelligent et convivial pour Linux, macOS et le reste de la famille"
-
-msgid "Tout mes projets de programmation sont visibles par tous sur mon profil GitHub: tout mes projets sont dits &#34;Open Source&#34;."
-msgstr ""
-
-msgid "logo"
-msgstr "logo"
-
-msgid "TOML"
-msgstr "TOML"
-
-msgid "most recent one"
-msgstr "la plus récente"
-
-msgid "An advanced open source relational database"
-msgstr ""
+msgid "NestJS’s logo"
+msgstr "logo de NestJS"
 
 msgid "Nim’s logo"
 msgstr "logo de Nim"
 
-msgid "music+visual"
-msgstr "musique+vidéo"
-
-msgid "numérique"
-msgstr ""
-
-msgid "past releases"
-msgstr "autres sorties"
-
-msgid "A high-performance template engine heavily influenced by &lt;a href='https://haml.info/'&gt;Haml&lt;/a&gt; and implemented with JavaScript for Node.js and browsers."
-msgstr ""
-
-msgid "An open Node.js CLI framework"
-msgstr ""
-
 msgid "Nuxt’s logo"
 msgstr "logo de Nuxt"
 
-msgid "science"
-msgstr "science"
+msgid "Oclif’s logo"
+msgstr "logo d'Oclif"
 
 msgid "PHP’s logo"
 msgstr "logo de PHP"
+
+msgid "Photoshop’s logo"
+msgstr "logo de Photoshop"
+
+msgid "PlantUML’s logo"
+msgstr "logo de PlantUML"
+
+msgid "PostGreSQL’s logo"
+msgstr "logo de PostGreSQL"
 
 msgid "Premiere Pro’s logo"
 msgstr "logo de Premiere Pro"
@@ -557,87 +458,6 @@ msgid "Proudly\n"
 "          powered by Wordpress"
 msgstr ""
 
-msgid "A stylesheet language used to describe the presentation of a document written in HTML or XML"
-msgstr "Un langage de feuille de style utilisé pour décrire la présentation d'un document écrit en HTML ou XML"
-
-msgid "asciidoc’s logo"
-msgstr "logo d'asciidoc"
-
-msgid "cards"
-msgstr "cartes"
-
-msgid "drawings"
-msgstr "dessins"
-
-msgid "A text-to-HTML conversion tool and language for web writers. The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible: a Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions."
-msgstr "Un outil de conversion du texte en HTML et un langage pour les rédacteurs web. L'objectif principal de la syntaxe de formatage de Markdown est de rendre le document aussi lisible que possible : un document formaté par Markdown doit pouvoir être publié tel quel, en texte brut, sans avoir l'air d'avoir été marqué par des balises ou des instructions de formatage."
-
-msgid "games"
-msgstr "jeux"
-
-msgid "illustration"
-msgstr "illustration"
-
-msgid "A text document format for writing notes, documentation, articles, books, ebooks, slideshows, web pages, man pages and blogs. AsciiDoc files can be translated to many formats including HTML, PDF, EPUB, man page."
-msgstr "Un format de document texte pour écrire des notes, de la documentation, des articles, des livres, des ebooks, des diaporamas, des pages web, des pages de manuel et des blogs. Les fichiers AsciiDoc peuvent être traduits dans de nombreux formats, notamment HTML, PDF, EPUB ou man page."
-
-msgid "school"
-msgstr "scolaire"
-
-msgid "A timeline-based video editing software application"
-msgstr "Un logiciel de montage vidéo"
-
-msgid "math"
-msgstr "maths"
-
-msgid "others"
-msgstr "autres"
-
-msgid "A vector graphics editor and design program"
-msgstr "Un éditeur de graphiques vectoriels et un programme de design"
-
-msgid "music"
-msgstr "musique"
-
-msgid "An straightforward low-level open source programming language supported by Google featuring built-in concurrency and a robust standard library"
-msgstr ""
-
-msgid "PostGreSQL’s logo"
-msgstr "logo de PostGreSQL"
-
-msgid "Go’s logo"
-msgstr ""
-
-msgid "An intuitive vector graphics editor for iOS"
-msgstr ""
-
-msgid "An open source image editor"
-msgstr ""
-
-msgid "An open-source language which builds on JavaScript by adding static type definitions"
-msgstr ""
-
-msgid "Expressive, robust, feature-rich CSS language built for nodejs"
-msgstr ""
-
-msgid "If you aren't redirected, click on this big button:"
-msgstr ""
-
-msgid "Made with <3 by Ewen Le Bihan"
-msgstr "Fait avec <3 par Ewen Le Bihan"
-
-msgid "More..."
-msgstr "Plus..."
-
-msgid "NestJS’s logo"
-msgstr "logo de NestJS"
-
-msgid "Oclif’s logo"
-msgstr "logo d'Oclif"
-
-msgid "PlantUML’s logo"
-msgstr "logo de PlantUML"
-
 msgid "Proudly\n"
 "<strong>\n"
 "not\n"
@@ -645,8 +465,26 @@ msgid "Proudly\n"
 "powered by Wordpress"
 msgstr "Fièrement <strong>non</strong> propulsé par Wordpress"
 
+msgid "Pug’s logo"
+msgstr "logo de Pug"
+
+msgid "PyChemin"
+msgstr "PyChemin"
+
+msgid "PyChemin’s logo"
+msgstr "logo de PyChemin"
+
+msgid "Python"
+msgstr "Python"
+
+msgid "Python’s logo"
+msgstr "logo de Python"
+
 msgid "Redirecting you to"
 msgstr ""
+
+msgid "Ruby On Rails"
+msgstr "Ruby On Rails"
 
 msgid "Ruby On Rails’s logo"
 msgstr "logo de Ruby On Rails"
@@ -654,20 +492,44 @@ msgstr "logo de Ruby On Rails"
 msgid "Ruby’s logo"
 msgstr "logo de Ruby"
 
+msgid "Rust"
+msgstr "Rust"
+
 msgid "Rust’s logo"
 msgstr "logo de Rust"
+
+msgid "SASS"
+msgstr "SASS"
 
 msgid "SASS’s logo"
 msgstr "logo de SASS"
 
-msgid "Webpack"
-msgstr "Webpack"
+msgid "Sapper"
+msgstr "Sapper"
 
 msgid "Sapper’s logo"
 msgstr "logo de Sapper"
 
+msgid "See all works made with this technology"
+msgstr "Voir toutes les œuvres utilisant cette technologie"
+
 msgid "Server error. I f*cked up somewhere."
 msgstr "Erreur serveur. J'ai foiré quelque part."
+
+msgid "Shell"
+msgstr "Shell"
+
+msgid "Shell’s logo"
+msgstr "logo de Shell"
+
+msgid "Stylus"
+msgstr "Stylus"
+
+msgid "Stylus’s logo"
+msgstr "logo de Stylus"
+
+msgid "Svelte"
+msgstr "Svelte"
 
 msgid "Svelte shifts that work into a compile step that happens when you build your app."
 msgstr ""
@@ -675,8 +537,8 @@ msgstr ""
 msgid "Svelte’s logo"
 msgstr "logo de Svelte"
 
-msgid "See all works made with this technology"
-msgstr "Voir toutes les œuvres utilisant cette technologie"
+msgid "TOML"
+msgstr "TOML"
 
 msgid "TOML’s logo"
 msgstr "logo de TOML"
@@ -687,122 +549,242 @@ msgstr ""
 msgid "The progressive JavaScript framework"
 msgstr ""
 
-msgid "language"
-msgstr "langage"
+msgid "The standard markup language for documents designed to be displayed in a web browser"
+msgstr ""
 
-msgid "made with"
-msgstr "réalisé avec"
+msgid "These are my creations."
+msgstr "Voici mes créations."
+
+msgid "about"
+msgstr "à propos"
+
+msgid "all of 'em"
+msgstr "toutes"
+
+msgid "banner"
+msgstr "bannière"
 
 msgid "This page does not exist (anymore)"
 msgstr "Cette page n'existe pas"
 
-msgid "TypeScript"
-msgstr "TypeScript"
-
-msgid "scientifique"
+msgid "Tout mes projets de programmation sont visibles par tous sur mon profil GitHub: tout mes projets sont dits \"Open Source\"."
 msgstr ""
 
-msgid "web"
-msgstr "web"
+msgid "Tout mes projets de programmation sont visibles par tous sur mon profil GitHub: tout mes projets sont dits &#34;Open Source&#34;."
+msgstr ""
 
-msgid "works"
-msgstr "œuvres"
-
-msgid "my music"
-msgstr "ma musique"
-
-msgid "random thoughts"
-msgstr "pensées diverses"
-
-msgid "send a mail at"
-msgstr "envoyer un mail à"
-
-msgid "thanks"
-msgstr "merci à"
-
-msgid "the software, frameworks, libraries, materials and services I used to make this"
-msgstr "les logiciels, frameworks, bibliothèques, matériaux et services utilisés pour cette création"
+msgid "TypeScript"
+msgstr "TypeScript"
 
 msgid "TypeScript’s logo"
 msgstr "logo de TypeScript"
 
-msgid "apps"
-msgstr "applications"
-
-msgid "cli"
-msgstr "cli"
-
-msgid "cover arts"
-msgstr "pochettes"
-
-msgid "The standard markup language for documents designed to be displayed in a web browser"
-msgstr ""
-
-msgid "illustrations"
-msgstr "illustrations"
-
 msgid "Unknown error"
 msgstr "Erreur inconnue"
-
-msgid "linguistique"
-msgstr ""
 
 msgid "Unknown year"
 msgstr "Année inconnue"
 
+msgid "Vue"
+msgstr "Vue"
+
 msgid "Vue’s logo"
 msgstr "logo de Vue"
 
-msgid "YAML’s logo"
-msgstr "logo de YAML"
-
-msgid "books"
-msgstr "livres"
-
-msgid "intros"
-msgstr "intros"
-
-msgid "open-source code"
-msgstr "code open-source"
-
-msgid "poster"
-msgstr "affiche"
+msgid "Webpack"
+msgstr "Webpack"
 
 msgid "Webpack’s logo"
 msgstr "logo de Webpack"
 
-msgid "languages"
-msgstr "langages"
+msgid "YAML"
+msgstr "YAML"
+
+msgid "YAML’s logo"
+msgstr "logo de YAML"
+
+msgid "also my music"
+msgstr "ma musique également"
+
+msgid "api"
+msgstr "api"
+
+msgid "app"
+msgstr "application"
+
+msgid "apps"
+msgstr "applications"
+
+msgid "artistique"
+msgstr ""
+
+msgid "asciidoc"
+msgstr "asciidoc"
+
+msgid "asciidoc’s logo"
+msgstr "logo d'asciidoc"
+
+msgid "automation"
+msgstr "automatisation"
+
+msgid "beautiful OFL typeface"
+msgstr "magnifique fonte sous OFL"
+
+msgid "blog"
+msgstr "blogue"
+
+msgid "book"
+msgstr "livre"
+
+msgid "compositing"
+msgstr "compositing"
+
+msgid "cover art"
+msgstr "pochette"
+
+msgid "books"
+msgstr "livres"
+
+msgid "by"
+msgstr "par"
+
+msgid "card"
+msgstr "carte"
+
+msgid "cards"
+msgstr "cartes"
+
+msgid "cli"
+msgstr "cli"
+
+msgid "contact"
+msgstr "contact"
+
+msgid "cover arts"
+msgstr "pochettes"
+
+msgid "drawing"
+msgstr "dessin"
+
+msgid "drawings"
+msgstr "dessins"
+
+msgid "efficient and comfortable programming language"
+msgstr "langage de programmation efficient et confortable"
+
+msgid "en français"
+msgstr "in english"
 
 msgid "footnotes"
 msgstr "notes de bas de page"
 
+msgid "games"
+msgstr "jeux"
+
+msgid "intro"
+msgstr "intro"
+
+msgid "latest release"
+msgstr "dernière sortie"
+
+msgid "logo"
+msgstr "logo"
+
+msgid "game"
+msgstr "jeu"
+
+msgid "graphism"
+msgstr "graphisme"
+
+msgid "iconography"
+msgstr "icônes"
+
 msgid "icons"
 msgstr "icônes"
+
+msgid "illustration"
+msgstr "illustration"
+
+msgid "illustrations"
+msgstr "illustrations"
+
+msgid "intros"
+msgstr "intros"
+
+msgid "language"
+msgstr "langage"
+
+msgid "languages"
+msgstr "langages"
+
+msgid "linguistique"
+msgstr ""
+
+msgid "made with"
+msgstr "réalisé avec"
+
+msgid "math"
+msgstr "maths"
+
+msgid "most recent one"
+msgstr "la plus récente"
 
 msgid "motion design"
 msgstr "motion design"
 
+msgid "music"
+msgstr "musique"
+
+msgid "music+visual"
+msgstr "musique+vidéo"
+
+msgid "my music"
+msgstr "ma musique"
+
+msgid "numérique"
+msgstr ""
+
+msgid "open-source code"
+msgstr "code open-source"
+
+msgid "others"
+msgstr "autres"
+
+msgid "past releases"
+msgstr "autres sorties"
+
+msgid "poster"
+msgstr "affiche"
+
 msgid "posters"
 msgstr "affiches"
-
-msgid "typography"
-msgstr "typographie"
 
 msgid "program"
 msgstr "programme"
 
-msgid "site"
-msgstr "site"
-
 msgid "programs"
 msgstr "programmes"
 
-msgid "visual identity"
-msgstr "identité visuelle"
+msgid "random thoughts"
+msgstr "pensées diverses"
 
 msgid "redirect me"
 msgstr ""
+
+msgid "school"
+msgstr "scolaire"
+
+msgid "science"
+msgstr "science"
+
+msgid "scientifique"
+msgstr ""
+
+msgid "send a mail at"
+msgstr "envoyer un mail à"
+
+msgid "site"
+msgstr "site"
 
 msgid "sites"
 msgstr "sites"
@@ -819,11 +801,29 @@ msgstr "catégories"
 msgid "technologies i use"
 msgstr "les technologies que j'utilise"
 
+msgid "thanks"
+msgstr "merci à"
+
+msgid "the software, frameworks, libraries, materials and services I used to make this"
+msgstr "les logiciels, frameworks, bibliothèques, matériaux et services utilisés pour cette création"
+
+msgid "typography"
+msgstr "typographie"
+
 msgid "visual identities"
 msgstr "identités visuelles"
 
+msgid "visual identity"
+msgstr "identité visuelle"
+
+msgid "web"
+msgstr "web"
+
 msgid "work in progress"
 msgstr ""
+
+msgid "works"
+msgstr "œuvres"
 
 msgid "works by tag"
 msgstr "œuvres par catégories"
