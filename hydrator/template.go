@@ -1,16 +1,12 @@
 package main
 
 import (
-	"bytes"
 	"fmt"
 	"os"
 	"sort"
 	"strings"
 	"text/template"
 
-	"github.com/yosssi/gohtml"
-
-	"github.com/Masterminds/sprig"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/jaytaylor/html2text"
 	"github.com/snapcore/go-gettext"
@@ -22,14 +18,11 @@ func GetTemplateFuncMap(language string, data *GlobalData) template.FuncMap {
 		// translate translates the given string into `language`
 		"translate": translateFunc(language, &data.moFile),
 		// "into" transforms to HTML structures
-		"intoGallery":   intoGalleryFunc(language, data),
-		"intoLayout":    intoLayout,
 		"intoColorsCSS": intoColorsCSS,
 		// "get" gets a Go value (string, map[string]string, etc.)
-		"getColorsMap":       getColorsMap,
-		"getSummary":         getSummary,
-		"getThumbnailSource": getThumbnailSource,
-		"getYears":           getYears,
+		"getColorsMap": getColorsMap,
+		"getSummary":   getSummary,
+		"getYears":     getYears,
 		// "with" filters a []WorkOneLang
 		"withTag":       withTag,
 		"withTech":      withTech,
@@ -89,48 +82,6 @@ func translateFunc(language string, catalog *gettext.Catalog) func(string) strin
 	return func(text string) string { return text }
 }
 
-// intoGalleryFunc returns _a function_ intoGallery that can be used to generate a gallery.
-// We need this because the gallery comes from a template herself, that might call `translate`
-// So we need a function that returns a function.
-func intoGalleryFunc(language string, data *GlobalData) func(string, []WorkOneLang) string {
-	templateContent := BuildTemplate("src/gallery.pug")
-	if templateContent == "" {
-		println("Building gallery template file resulted in the empty string")
-		return func(_ string, _ []WorkOneLang) string {
-			return "ERROR: Building gallery template file resulted in the empty string"
-		}
-	}
-	templateContent = gohtml.Format(templateContent)
-
-	return func(customClasses string, ws []WorkOneLang) string {
-		tmpl := template.New("gallery.pug")
-		tmpl = tmpl.Funcs(GetTemplateFuncMap(language, data))
-		tmpl = tmpl.Funcs(sprig.TxtFuncMap())
-		tmpl = template.Must(tmpl.Parse(templateContent))
-
-		// Hydrate .gallery.pug with ws
-		var buf bytes.Buffer
-		err := tmpl.Execute(&buf, struct {
-			GivenWorks    []WorkOneLang
-			KnownTags     []Tag
-			CustomClasses string
-		}{
-			GivenWorks:    ws,
-			KnownTags:     data.Tags,
-			CustomClasses: customClasses,
-		})
-		if err != nil {
-			PrintTemplateErrorMessage("executing template", "gallery.pug", templateContent, err, 2)
-			return ""
-		}
-		return buf.String()
-	}
-}
-
-func intoLayout(w WorkOneLang) string {
-	return w.BuildLayout()
-}
-
 func intoColorsCSS(w WorkOneLang) string {
 	var cssDeclaration string
 	for key, value := range getColorsMap(w) {
@@ -167,8 +118,7 @@ func getSummary(w WorkOneLang) string {
 	return SummarizeString(plainText, 150)
 }
 
-// getThumbnailSource gets the source URL of the work's first media
-func getThumbnailSource(resolution uint16, w WorkOneLang) string {
+func (w WorkOneLang) ThumbnailSource(resolution uint16) string {
 	if len(w.Media) == 0 {
 		return ""
 	}
@@ -179,6 +129,16 @@ func getThumbnailSource(resolution uint16, w WorkOneLang) string {
 		}
 	}
 	return media(w.Media[0].Source)
+}
+
+func (c LayedOutCell) ThumbnailSource(resolution uint16) string {
+	if resolution > 0 {
+		if thumbSource, ok := c.Metadata.Thumbnails[c.Source][resolution]; ok {
+			thumbSource = strings.TrimPrefix(thumbSource, "database/")
+			return media(thumbSource)
+		}
+	}
+	return media(c.Source)
 }
 
 func getYears(ws []WorkOneLang) []int {
@@ -214,7 +174,7 @@ func withTag(tag Tag, ws []WorkOneLang) []WorkOneLang {
 		for _, work := range ws {
 			wsIDs = append(wsIDs, work.ID)
 		}
-		printfln("WARNING: No works from %v have the %s tag", wsIDs, tag.URLName())
+		// printfln("WARNING: No works from %v have the %s tag", wsIDs, tag.URLName())
 	}
 	return filtered
 }

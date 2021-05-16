@@ -6,7 +6,6 @@ import (
 	"io/ioutil"
 	"os"
 	"path"
-	"path/filepath"
 	"regexp"
 	"strconv"
 	"strings"
@@ -19,220 +18,53 @@ import (
 	"golang.org/x/net/html"
 )
 
-// getAbsPath returns the absolute path of basename,
-// joining the absolute path of src/ and the given basename
-func getAbsPath(basename string) string {
-	if strings.HasPrefix(basename, "/") {
-		return basename
-	}
-	absdir, err := filepath.Abs("src")
-	if err != nil {
-		panic(err)
-	}
-	return path.Join(absdir, basename)
+// Hydration represents a Tag, Technology or Work
+type Hydration struct {
+	language string
+	tag      Tag
+	tech     Technology
+	work     Work
 }
 
-func main() {
-	//
-	// Preparing dist directory
-	//
-	err := os.MkdirAll("dist/fr/using", 0777)
-	if err != nil {
-		printerr("Couldn't create directories for writing", err)
-		return
-	}
-	os.MkdirAll("dist/en/using", 0777)
-	//
-	// Loading files
-	//
-	db, err := LoadDatabase("database")
-	if err != nil {
-		printerr("Could not load the database", err)
-		return
-	}
-	translations, err := LoadTranslations()
-	if err != nil {
-		printerr("Couldn't load the translation files", err)
-	}
-	data := GlobalData{translations, db}
-	//
-	// Watch mode
-	//
-	if len(os.Args) >= 2 && os.Args[1] == "watch" {
-		StartWatcher(db)
-	} else {
-		data.BuildAll()
-
-		// Save the updated .po file
-		translations.SavePO("i18n/fr.po")
-
-		// Final newline
-		println("")
-	}
+// IsWork returns true if the current hydration contains a Work
+func (h *Hydration) IsWork() bool {
+	return h.work.ID != ""
 }
 
-// GlobalData holds data that is used throughout the whole build process
-type GlobalData struct {
-	Translations
-	Database
+// IsTag returns true if the current hydration contains a Tag
+func (h *Hydration) IsTag() bool {
+	return h.tag.URLName() != ""
 }
 
-// BuildAll builds every page
-func (data *GlobalData) BuildAll() (built []string) {
-	files, err := ioutil.ReadDir("src")
-	if err != nil {
-		printerr("Could not read src/", err)
-		return
-	}
+// IsTech returns true if the current hydration contains a Tech
+func (h *Hydration) IsTech() bool {
+	return h.tech.URLName != ""
+}
 
-	for _, file := range files {
-		if file.IsDir() || strings.HasPrefix(file.Name(), "_") || !strings.HasSuffix(file.Name(), ".pug") || file.Name() == "gallery.pug" {
-			continue
-		}
-		built = append(built, data.BuildRegularPage(file.Name())...)
+// Name returns the identifier of the object in the hydration,
+// and defaults to the empty string if the current hydration is empty
+func (h *Hydration) Name() string {
+	if h.IsWork() {
+		return h.work.ID
 	}
+	if h.IsTag() {
+		return h.tag.URLName()
+	}
+	if h.IsTech() {
+		return h.tech.URLName
+	}
+	return ""
+}
 
-	// Process the technologies index file
-	// FIXME: I have to dot it separately since it's in src/using/
-	// and not just src/
-	built = append(built, data.BuildRegularPage("using/index.pug")...)
-	built = append(built, data.BuildWorkPages()...)
-	built = append(built, data.BuildTechPages()...)
+// ConvertTemplateIfNeeded checks if the given filename ends with .pug, and converts the template to HTML
+// Otherwise, it leaves it as it is and simply reads it.
+func ConvertTemplateIfNeeded(filename string) (content string, err error) {
+	if strings.HasSuffix(filename, ".pug") {
+		return ConvertTemplate(filename)
+	}
+	contentBytes, err := ioutil.ReadFile(filename)
+	content = string(contentBytes)
 	return
-}
-
-// BuildTechPages builds all technology pages using using/_technology.pug
-func (data *GlobalData) BuildTechPages() (built []string) {
-	techTemplate := BuildTemplate(getAbsPath("using/_technology.pug"))
-	if techTemplate == "" {
-		return
-	}
-	templ, err := data.ParseTemplate(
-		"using/_technology.pug",
-		techTemplate,
-	)
-	if err != nil {
-		PrintTemplateErrorMessage("parsing template", "using/_technology.pug", techTemplate, err, 2)
-		return
-	}
-	for _, tech := range data.Technologies {
-		for _, language := range []string{"fr", "en"} {
-			content, err := data.ExecuteTemplate(
-				templ,
-				language,
-				CurrentlyHydrated{tech: tech},
-			)
-			if err != nil {
-				PrintTemplateErrorMessage("executing template", "using/_technology<"+tech.URLName+">", techTemplate, err, 2)
-				continue
-			}
-			content = data.TranslateHydrated(content, language)
-			fmt.Printf("\r\033[KTranslated using/%s into %s", tech.URLName, language)
-			built = append(built, WriteDistFile("using/"+tech.URLName, content, language))
-		}
-	}
-	return
-}
-
-// BuildTagPages builds all tag pages using _tag.py
-func (data *GlobalData) BuildTagPages() (built []string) {
-	tagTemplate := BuildTemplate(getAbsPath("_tag.pug"))
-	if tagTemplate == "" {
-		return
-	}
-	templ, err := data.ParseTemplate(
-		"_tag.pug",
-		tagTemplate,
-	)
-	if err != nil {
-		PrintTemplateErrorMessage("parsing template", "_tag.pug", tagTemplate, err, 2)
-		return
-	}
-
-	for _, tag := range data.Tags {
-		for _, language := range []string{"fr", "en"} {
-			content, err := data.ExecuteTemplate(
-				templ,
-				language,
-				CurrentlyHydrated{tag: tag},
-			)
-			if err != nil {
-				PrintTemplateErrorMessage("executing template", NameOfDynamicTemplate(templ, CurrentlyHydrated{tag: tag}), tagTemplate, err, 2)
-				continue
-			}
-			content = data.TranslateHydrated(content, language)
-			fmt.Printf("\r\033[KTranslated %s into %s", tag.URLName(), language)
-			built = append(built, WriteDistFile(tag.URLName(), content, language))
-		}
-	}
-	return
-}
-
-// BuildWorkPages builds all work pages using _work.pug
-func (data *GlobalData) BuildWorkPages() (built []string) {
-	workTemplate := BuildTemplate(getAbsPath("_work.pug"))
-	if workTemplate == "" {
-		return
-	}
-	templ, err := data.ParseTemplate("_work.pug", workTemplate)
-	if err != nil {
-		PrintTemplateErrorMessage("parsing template", "_work.pug", workTemplate, err, 2)
-		return
-	}
-	for _, work := range data.Works {
-		for _, language := range []string{"fr", "en"} {
-			content, err := data.ExecuteTemplate(
-				templ,
-				language,
-				CurrentlyHydrated{work: work.InLanguage(language)},
-			)
-			if err != nil {
-				PrintTemplateErrorMessage("executing template", NameOfDynamicTemplate(templ, CurrentlyHydrated{work: work.InLanguage(language)}), workTemplate, err, 2)
-				continue
-			}
-			content = data.TranslateHydrated(content, language)
-			fmt.Printf("\r\033[KTranslated %s into %s", work.ID, language)
-			built = append(built, WriteDistFile(work.ID, content, language))
-		}
-	}
-	return
-}
-
-// BuildRegularPage builds a given page that isn't dynamic (i.e. does not require object data,
-// as opposed to work, tag and tech pages)
-func (data *GlobalData) BuildRegularPage(filepath string) (built []string) {
-	absFilepath := getAbsPath(filepath)
-	templateContent := BuildTemplate(absFilepath)
-	if templateContent == "" {
-		return
-	}
-	templ, err := data.ParseTemplate(absFilepath, templateContent)
-	if err != nil {
-		PrintTemplateErrorMessage("parsing template", absFilepath, templateContent, err, 2)
-		return
-	}
-	for _, language := range []string{"fr", "en"} {
-		//
-		// Execute the template
-		//
-		content, err := data.ExecuteTemplate(templ, language, CurrentlyHydrated{})
-		fmt.Printf("\r\033[KHydrated %s", absFilepath)
-		if err != nil {
-			PrintTemplateErrorMessage("executing template", absFilepath, templateContent, err, 2)
-			continue
-		}
-		content = data.TranslateHydrated(content, language)
-		fmt.Printf("\r\033[KTranslated %s into %s", GetPathRelativeToSrcDir(absFilepath), language)
-		built = append(built, WriteDistFile(GetPathRelativeToSrcDir(absFilepath), content, language))
-	}
-	return
-}
-
-// CurrentlyHydrated represents a Tag, Technology or WorkOneLang
-type CurrentlyHydrated struct {
-	tag  Tag
-	tech Technology
-	work WorkOneLang
 }
 
 // BuildingForProduction returns true if the environment file declares ENVIRONMENT to not "dev"
@@ -244,46 +76,53 @@ func BuildingForProduction() bool {
 	return os.Getenv("ENVIRONMENT") != "dev"
 }
 
-// BuildTemplate converts a .pug template to an HTML one
-func BuildTemplate(absFilepath string) string {
+// ConvertTemplate converts a .pug template to an HTML one
+func ConvertTemplate(absFilepath string) (string, error) {
 	raw, err := ioutil.ReadFile(absFilepath)
 	if err != nil {
-		printerr("Could not read file "+absFilepath, err)
+		return "", err
 	}
 
-	// Fix `extends` statement
-	// From joker/jade's point of view, the current work dir is just the project's root,
-	// thus (project root)/layout.pug does not exist.
-	// Fix that by adding src/ in front
-	// Joker/jade also requires the .pug extension
-	extendsPattern := regexp.MustCompile(`(?m)^extends (.+)$`)
-	raw = extendsPattern.ReplaceAllFunc(raw, func(line []byte) []byte {
-		// printfln("transforming %s", line)
-		extendsArgument := strings.TrimPrefix(string(line), "extends ")
-		if strings.HasPrefix(extendsArgument, "src/") {
-			return line
-		}
-		return []byte(fmt.Sprintf("extends src/%s.pug", extendsArgument))
-	})
+	raw = FixExtendsIncludeStatements(raw, absFilepath)
 
 	template, err := jade.Parse(absFilepath, raw)
 	if err != nil {
 		PrintTemplateErrorMessage("converting template to HTML", absFilepath, string(raw), err, 1)
-		return ""
+		return "", fmt.Errorf("error while converting to HTML")
 	}
 
-	return template
+	return template, nil
+}
+
+// FixExtendsIncludeStatements fixes `extends` statement (and `include` statements).
+// From joker/jade's point of view, the current work dir is just the project's root,
+// thus (project root)/layout.pug does not exist.
+// Fix that by adding src/ in front.
+// Joker/jade also requires the .pug extension, add it if it's missing.
+// filepath needs to be absolute.
+func FixExtendsIncludeStatements(raw []byte, filepath string) []byte {
+	extendsPattern := regexp.MustCompile(`(?m)^(extends|include) (.+)$`)
+	return extendsPattern.ReplaceAllFunc(raw, func(line []byte) []byte {
+		// printfln("transforming %s", line)
+		keyword, argument := strings.SplitN(string(line), " ", 2)[0], strings.SplitN(string(line), " ", 2)[1]
+		if strings.HasPrefix(argument, "src/") {
+			return line
+		}
+		return []byte(fmt.Sprintf("%s %s/%s.pug", keyword, path.Clean(path.Dir(filepath)), argument))
+	})
 }
 
 // PrintTemplateErrorMessage prints a nice error message with a preview of the code where the error occured
 func PrintTemplateErrorMessage(whileDoing string, templateName string, templateContent string, err error, lineNumberSliceIndex int) {
-	_lineIndex, intParseError := strconv.ParseInt(strings.Split(err.Error(), ":")[lineNumberSliceIndex], 10, 64)
-	if intParseError != nil {
-		fmt.Printf("While %s %s: %s", whileDoing, templateName, err.Error())
+	lineIndexPattern := regexp.MustCompile(`:(\d+)`)
+	listIndices := lineIndexPattern.FindStringSubmatch(err.Error())
+	if listIndices == nil {
+		fmt.Printf("While %s %s: %s\n", whileDoing, templateName, err.Error())
 		return
 	}
-	lineIndex := int(_lineIndex)
-	printfln("While %s %s:%d: %s", whileDoing, templateName, lineIndex, strings.SplitN(err.Error(), ":", lineNumberSliceIndex+1+1)[lineNumberSliceIndex+1])
+	lineIndex64, _ := strconv.ParseInt(listIndices[1], 10, 64)
+	lineIndex := int(lineIndex64)
+	printfln("While %s %s:%d: %s", whileDoing, templateName, lineIndex, strings.SplitN(err.Error(), listIndices[1], 2)[1])
 	lineIndex-- // Lines start at 1, arrays of line are indexed from 0
 	lines := strings.Split(gohtml.FormatWithLineNo(templateContent), "\n")
 	var lineIndexOffset int
@@ -306,9 +145,10 @@ func PrintTemplateErrorMessage(whileDoing string, templateName string, templateC
 }
 
 // ParseTemplate parses a given (HTML) template.
-func (data *GlobalData) ParseTemplate(templateName string, templateContent string) (*template.Template, error) {
+func (data *GlobalData) ParseTemplate(language string, templateName string, templateContent string) (*template.Template, error) {
 	tmpl := template.New(templateName)
 	tmpl = tmpl.Funcs(sprig.TxtFuncMap())
+	tmpl = tmpl.Funcs(GetTemplateFuncMap(language, data))
 	tmpl, err := tmpl.Parse(gohtml.Format(templateContent))
 
 	if err != nil {
@@ -317,17 +157,8 @@ func (data *GlobalData) ParseTemplate(templateName string, templateContent strin
 	return tmpl, nil
 }
 
-// NameOfDynamicTemplate returns the name given to a template that is applied to multiple objects, e.g. _work.pug<portfolio>
-func NameOfDynamicTemplate(tmpl *template.Template, currentlyHydrated CurrentlyHydrated) string {
-	currentlyHydratedName := firstNonEmpty(currentlyHydrated.work.ID, currentlyHydrated.tag.URLName(), currentlyHydrated.tech.URLName)
-	if currentlyHydratedName != "" {
-		return fmt.Sprintf("%s<%s>", tmpl.Name(), currentlyHydratedName)
-	}
-	return tmpl.Name()
-}
-
 // ExecuteTemplate executes a parsed HTML template to hydrate it with data, potentially with a tag, tech or work.
-func (data *GlobalData) ExecuteTemplate(tmpl *template.Template, language string, currentlyHydrated CurrentlyHydrated) (string, error) {
+func (data *GlobalData) ExecuteTemplate(tmpl *template.Template, language string, currentlyHydrated Hydration) (string, error) {
 	// Inject Funcs now, since they depend on language
 	tmpl = tmpl.Funcs(GetTemplateFuncMap(language, data))
 
@@ -340,7 +171,7 @@ func (data *GlobalData) ExecuteTemplate(tmpl *template.Template, language string
 		Age:               GetAge(),
 		CurrentTag:        currentlyHydrated.tag,
 		CurrentTech:       currentlyHydrated.tech,
-		CurrentWork:       currentlyHydrated.work,
+		CurrentWork:       currentlyHydrated.work.InLanguage(language),
 	})
 
 	if err != nil {
@@ -360,9 +191,18 @@ func (data *Translations) TranslateHydrated(content string, language string) str
 	return data.TranslateToLanguage(language == "fr", parsedContent)
 }
 
+// NameOfTemplate returns the name given to a template that is applied to multiple objects, e.g. :work.pug<portfolio>.
+// Falls back to template.Name() if hydration is empty
+func NameOfTemplate(tmpl *template.Template, hydration Hydration) string {
+	if hydration.Name() != "" {
+		return fmt.Sprintf("%s<%s>", tmpl.Name(), hydration.Name())
+	}
+	return tmpl.Name()
+}
+
 // WriteDistFile writes the given content to the dist/ equivalent of the given fileName and returns that equivalent's path
-func WriteDistFile(fileName string, content string, language string) string {
-	distFilePath := fmt.Sprintf("dist/%s/%s", language, strings.TrimSuffix(fileName, ".pug")+".html")
+func (h *Hydration) WriteDistFile(fileName string, content string, language string) string {
+	distFilePath := h.GetDistFilepath(fileName)
 	distFile, err := os.Create(distFilePath)
 	if err != nil {
 		printerr("Could not create the destination file "+distFilePath, err)

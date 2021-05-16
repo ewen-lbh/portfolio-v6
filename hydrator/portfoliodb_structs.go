@@ -1,6 +1,9 @@
 package main
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 // Abbreviation represents an abbreviation declaration in a description.md file
 type Abbreviation struct {
@@ -98,6 +101,16 @@ func (a *MediaAttributes) String() string {
 		attributes = append(attributes, "playsinline")
 	}
 	return strings.Join(attributes, " ")
+}
+
+func (a *MediaAttributes) JSObject() string {
+	return fmt.Sprintf(`{
+		autoplay: %v,
+		controls: %v,
+		loop: %v,
+		muted: %v,
+		playsinline: %v
+	}`, a.Autoplay, a.Controls, a.Loop, a.Muted, a.Playsinline)
 }
 
 // MediaEmbedDeclaration represents media embeds. (abusing the ![]() syntax to extend it to any file)

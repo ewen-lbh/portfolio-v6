@@ -148,9 +148,6 @@ msgstr ""
 msgid "C"
 msgstr "C"
 
-msgid "C#"
-msgstr "C#"
-
 msgid "An open source image editor"
 msgstr ""
 
@@ -162,6 +159,9 @@ msgstr "Assembly"
 
 msgid "Assembly’s logo"
 msgstr "logo d'Assembly"
+
+msgid "C#"
+msgstr "C#"
 
 msgid "Back home"
 msgstr "Retour à l'accueil"

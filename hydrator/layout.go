@@ -14,10 +14,20 @@ type LayoutElement struct {
 	IsSpacer    bool
 }
 
-type usedCounts struct {
-	p int
-	m int
-	l int
+// LayedOutCell represents a cell of a built layout
+// Is it essentially the hydrated equivalent of LayoutElement.
+type LayedOutCell struct {
+	// The cell's type: spacer, paragraph, media or link
+	Type string
+	// Convenience content type, first part of content type except
+	// for application/, where application/pdf becomes pdf and (maybe) others
+	GeneralContentType string
+	// The three possible cells
+	Media
+	Paragraph
+	Link
+	// Metadata from the work
+	Metadata *WorkMetadata
 }
 
 // Layout is a 2d array of layout elements (rows and columns)
@@ -61,32 +71,46 @@ func buildLayoutErrorMessage(whatsMissing string, work *WorkOneLang, usedCount i
 	`, whatsMissing, layoutRepr(layout), usedCount, whatsMissing)
 }
 
-// BuildLayout builds an pug layout filled with content, ready to inject in a .pug file.
-func (work *WorkOneLang) BuildLayout() string {
+type usedCounts struct {
+	p int
+	m int
+	l int
+}
+
+// LayedOut returns an matrix of dimension 2 of LayedOutCells
+// arranaged following the work's 'layout' metadata field
+func (work WorkOneLang) LayedOut() [][]LayedOutCell {
 	var layout Layout
 	if len(work.Metadata.Layout) >= 1 {
 		layout = loadLayout(work.Metadata.Layout)
 	} else {
-		layout = autoLayout(work)
+		layout = autoLayout(&work)
 	}
+	cells := make([][]LayedOutCell, len(layout))
 	usedCounts := usedCounts{}
-	var built string
 	for _, layoutRow := range layout {
-		var row string
+		row := make([]LayedOutCell, len(layoutRow))
 		for _, layoutElement := range layoutRow {
-			var element string
+			var cell LayedOutCell
 			if layoutElement.IsSpacer {
-				element = `<div class="spacer">`
+				cell = LayedOutCell{
+					Type:     "spacer",
+					Metadata: &work.Metadata,
+				}
 			} else if layoutElement.IsLink {
 				if len(work.Links) <= usedCounts.l {
-					panic(buildLayoutErrorMessage("links", work, usedCounts.l, layout))
+					panic(buildLayoutErrorMessage("links", &work, usedCounts.l, layout))
 				}
 				data := work.Links[usedCounts.l]
 				usedCounts.l++
-				element = fmt.Sprintf(`<a href="%v" id="%v" title="%v">%v</a>`, data.URL, data.ID, data.Title, data.Name)
+				cell = LayedOutCell{
+					Type:     "link",
+					Link:     data,
+					Metadata: &work.Metadata,
+				}
 			} else if layoutElement.IsMedia {
 				if len(work.Media) <= usedCounts.m {
-					panic(buildLayoutErrorMessage("media", work, usedCounts.m, layout))
+					panic(buildLayoutErrorMessage("media", &work, usedCounts.m, layout))
 				}
 				data := work.Media[usedCounts.m]
 				usedCounts.m++
@@ -103,74 +127,29 @@ func (work *WorkOneLang) BuildLayout() string {
 						Controls:    false,
 					}
 				}
-				switch mediaGeneralContentType {
-				case "video":
-					element = fmt.Sprintf(
-						`<video src="%v" id="%v" title="%v" %v>%v</video>`,
-						media(data.Source),
-						data.ID,
-						data.Title,
-						data.Attributes.String(),
-						data.Alt,
-					)
-				case "audio":
-					element = fmt.Sprintf(
-						`<audio src="%v" id="%v" title="%v" %v>%v</audio>`,
-						media(data.Source),
-						data.ID,
-						data.Title,
-						data.Attributes.String(),
-						data.Alt,
-					)
-				case "image":
-					element = fmt.Sprintf(
-						`<a href="%v" class="progressive replace">
-							<img data-full-src="%v" src="%v" id="%v" title="%v" alt="%v" intrinsicsize="%v x %v" />
-						</a>`,
-						media(data.Source),
-						media(data.Source),
-						getThumbnailSource(400, *work),
-						data.ID,
-						data.Title,
-						data.Alt,
-						data.Dimensions.Width,
-						data.Dimensions.Height,
-					)
-				case "pdf":
-					element = fmt.Sprintf(
-						`<div class"pdf-frame-container"><iframe class="pdf-frame" src="%v" id="%v" title="%v" width="100%%" height="100%%">%v</iframe></div>`,
-						media(data.Source),
-						data.ID,
-						data.Title,
-						data.Alt,
-					)
-				default:
-					element = fmt.Sprintf(
-						`<a href="%v" id="%v" title="%v">%v</a>`,
-						media(data.Source),
-						data.ID,
-						data.Title,
-						data.Alt,
-					)
+				cell = LayedOutCell{
+					Type:               "media",
+					Media:              data,
+					GeneralContentType: mediaGeneralContentType,
+					Metadata:           &work.Metadata,
 				}
-				if data.Title != "" {
-					element += fmt.Sprintf("<figcaption>%s</figcaption>", data.Title)
-				}
-				element = fmt.Sprintf(`<figure data-content-type="%s">%s</figure>`, data.ContentType, element)
 			} else if layoutElement.IsParagraph {
 				if len(work.Paragraphs) <= usedCounts.p {
-					panic(buildLayoutErrorMessage("paragraphs", work, usedCounts.p, layout))
+					panic(buildLayoutErrorMessage("paragraphs", &work, usedCounts.p, layout))
 				}
 				data := work.Paragraphs[usedCounts.p]
 				usedCounts.p++
-				// element = fmt.Sprintf(`<p id="%v">%v</p>`, data.ID, data.Content)
-				element = "<p id=\"" + data.ID + "\">" + data.Content + "</p>"
+				cell = LayedOutCell{
+					Type:      "paragraph",
+					Paragraph: data,
+					Metadata:  &work.Metadata,
+				}
 			}
-			row += "\t" + element + "\n"
+			row = append(row, cell)
 		}
-		built += fmt.Sprintf(`<div class="row" data-columns="%d">%s</div>`, len(layoutRow), row)
+		cells = append(cells, row)
 	}
-	return built
+	return cells
 }
 
 func autoLayout(work *WorkOneLang) Layout {

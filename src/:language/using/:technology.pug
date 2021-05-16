@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+	img.made-with-page__logo(src=(asset (printf "logos/%s.svg" .CurrentTech.URLName)))
+	h1.made-with-page__header
+		i18n works made with
+		br
+		i18n=.CurrentTech.DisplayName
+	p.made-with-page__tech-description(translate)= .CurrentTech.Description
+	if .CurrentTech.LearnMoreURL
+		a.made-with-page__tech-learn-more(href=.CurrentTech.LearnMoreURL) 
+			img.icon(src=(asset "icons/arrow-right.svg"))
+			i18n Learn more
+
+	section.made-with-page__gallery
+		+gallery(works=.Works | madeWith .CurrentTech)(class=`tech-{{ .CurrentTech.URLName }}`)

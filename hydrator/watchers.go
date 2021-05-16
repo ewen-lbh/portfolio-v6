@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"io/fs"
 	"os"
-	"path"
 	"path/filepath"
 	"regexp"
 	"strings"
@@ -50,22 +49,18 @@ func StartWatcher(db Database) {
 						if err != nil {
 							printerr("Couldn't load the translation files", err)
 						}
-						data.BuildAll()
+						data.BuildAll(event.Path)
 					} else if strings.HasSuffix(event.Path, ".pug") {
 						printfln("Building file %s and its dependents %v", GetPathRelativeToSrcDir(event.Path), dependents)
 						for _, filePath := range append(dependents, event.Path) {
-							// Regular pages: no _ prefix
-							if !strings.HasPrefix(path.Base(filePath), "_") {
+							if strings.Contains(filePath, ":work") {
+								data.BuildWorkPages(filePath)
+							} else if strings.Contains(filePath, ":tag") {
+								data.BuildTagPages(filePath)
+							} else if strings.Contains(filePath, ":technology") {
+								data.BuildTechPages(filePath)
+							} else {
 								data.BuildRegularPage(filePath)
-							}
-							if GetPathRelativeToSrcDir(filePath) == "_work.pug" {
-								data.BuildWorkPages()
-							}
-							if GetPathRelativeToSrcDir(filePath) == "_tag.pug" {
-								data.BuildTagPages()
-							}
-							if GetPathRelativeToSrcDir(filePath) == "using/_technology.pug" {
-								data.BuildTechPages()
 							}
 						}
 						data.SavePO("i18n/fr.po")
@@ -140,7 +135,7 @@ func GetPathRelativeToSrcDir(absPath string) string {
 // The returned array is has the same order as the build order required to correctly update dependencies before their dependents
 // maxDepth is used to specify how deeply it should recurse (i.e. how many times it should call itself)
 func DependentsOf(pageFilepath string, maxDepth uint) (dependents []string) {
-	extendsPattern := regexp.MustCompile(fmt.Sprintf(`(?m)^extends (?:src/)?%s(?:\.pug)?$`, strings.TrimSuffix(GetPathRelativeToSrcDir(pageFilepath), ".pug")))
+	extendsPattern := regexp.MustCompile(fmt.Sprintf(`(?m)^(?:extends|include) %s$`, pageFilepath))
 
 	err := filepath.WalkDir("src", func(path string, dirEntry fs.DirEntry, err error) error {
 		if err != nil {
@@ -150,14 +145,16 @@ func DependentsOf(pageFilepath string, maxDepth uint) (dependents []string) {
 			content, err := os.ReadFile(path)
 
 			if err != nil {
-				printerr("Not checking for dependence on "+GetPathRelativeToSrcDir(pageFilepath)+": could not read file "+path, err)
+				printerr("Not checking for dependence on "+pageFilepath+": could not read file "+path, err)
 				return nil
 			}
+
+			content = FixExtendsIncludeStatements(content, pageFilepath)
 
 			// If this file extends the given file,
 			// or if the given file is src/gallery.pug and it uses | intoGallery (and therefore depends on src/gallery.pug)
 			// add this file to the dependents
-			if extendsPattern.Match(content) || (GetPathRelativeToSrcDir(pageFilepath) == "gallery.pug" && strings.Contains(string(content), "| intoGallery")) {
+			if extendsPattern.Match(content) {
 				dependents = append(dependents, path)
 				// Add dependents of dependent after (they need to be built _after_ the dependent because they themselves depend on the former)
 				if maxDepth > 1 {
@@ -165,6 +162,8 @@ func DependentsOf(pageFilepath string, maxDepth uint) (dependents []string) {
 				} else {
 					printfln("WARN: While looking for dependents for %s: Maximum recursion depth reached, not recursing any further. You might have a circular depency.", GetPathRelativeToSrcDir(pageFilepath))
 				}
+			} else {
+				
 			}
 		}
 		return nil
