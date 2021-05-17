@@ -5,7 +5,6 @@ import (
 	"html/template"
 	"regexp"
 	"strings"
-
 )
 
 // GetDistFilepath replaces :placeholders in srcFilepath and replaces src/ with dist/
@@ -31,7 +30,7 @@ func (h *Hydration) GetDistFilepath(srcFilepath string) string {
 	}
 	outPath = strings.ReplaceAll(outPath, ":language", h.language)
 	if strings.HasSuffix(outPath, ".pug") {
-		outPath = strings.TrimSuffix(outPath, ".pug")+".html"
+		outPath = strings.TrimSuffix(outPath, ".pug") + ".html"
 	}
 	return outPath
 }

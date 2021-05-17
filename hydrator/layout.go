@@ -33,7 +33,7 @@ type LayedOutCell struct {
 // ID Returns a layed out cell's ID, removing ambiguity
 // (since a cell cannot be two things at the same time, .ID will be .Paragraph.ID for a paragraph, etc.)
 func (l LayedOutCell) ID() string {
-	if l.Type ==  "paragraph" {
+	if l.Type == "paragraph" {
 		return l.Paragraph.ID
 	}
 	if l.Type == "media" {
@@ -48,7 +48,7 @@ func (l LayedOutCell) ID() string {
 // Title Returns a layed out cell's Title, removing ambiguity
 // (since a cell cannot be two things at the same time, .Title will be .Media.Title for a media, etc.)
 func (l LayedOutCell) Title() string {
-	if l.Type ==  "paragraph" {
+	if l.Type == "paragraph" {
 		return ""
 	}
 	if l.Type == "media" {
