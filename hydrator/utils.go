@@ -63,7 +63,7 @@ func ParseCreationDate(datestring string) (time.Time, error) {
 // StringsLooselyMatch checks if s1 is equal to any of sn, but case-insensitively.
 func StringsLooselyMatch(s1 string, sn ...string) bool {
 	for _, s2 := range sn {
-		if strings.ToLower(s1) == strings.ToLower(s2) {
+		if strings.EqualFold(s1, s2) {
 			return true
 		}
 	}
