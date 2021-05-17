@@ -34,7 +34,7 @@ type LayedOutCell struct {
 type Layout = [][]LayoutElement
 
 // LayoutElementRepr returns the strings representation of a Layout
-func layoutElementRepr(layoutElement LayoutElement) string {
+func (layoutElement LayoutElement) String() string {
 	if layoutElement.IsLink {
 		return "l"
 	}
@@ -54,7 +54,7 @@ func layoutRepr(layout Layout) string {
 	repr := ""
 	for _, row := range layout {
 		for _, element := range row {
-			repr += layoutElementRepr(element)
+			repr += element.String()
 		}
 		repr += "\n"
 	}
