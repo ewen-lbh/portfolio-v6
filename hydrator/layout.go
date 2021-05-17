@@ -30,6 +30,40 @@ type LayedOutCell struct {
 	Metadata *WorkMetadata
 }
 
+// ID Returns a layed out cell's ID, removing ambiguity
+// (since a cell cannot be two things at the same time, .ID will be .Paragraph.ID for a paragraph, etc.)
+func (l LayedOutCell) ID() string {
+	if l.Type ==  "paragraph" {
+		return l.Paragraph.ID
+	}
+	if l.Type == "media" {
+		return l.Media.ID
+	}
+	if l.Type == "link" {
+		return l.Link.ID
+	}
+	return ""
+}
+
+// Title Returns a layed out cell's Title, removing ambiguity
+// (since a cell cannot be two things at the same time, .Title will be .Media.Title for a media, etc.)
+func (l LayedOutCell) Title() string {
+	if l.Type ==  "paragraph" {
+		return ""
+	}
+	if l.Type == "media" {
+		return l.Media.Title
+	}
+	if l.Type == "link" {
+		return l.Link.Title
+	}
+	return ""
+}
+
+func (l LayedOutCell) String() string {
+	return fmt.Sprintf("<%s id=%s>", l.Type, l.ID())
+}
+
 // Layout is a 2d array of layout elements (rows and columns)
 type Layout = [][]LayoutElement
 

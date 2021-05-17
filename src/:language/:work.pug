@@ -21,32 +21,32 @@ block content
 					if eq .Type "spacer"
 						.spacer
 					if eq .Type "paragraph"
-						p(id=.Paragraph.ID)!=.Paragraph.Content
+						p(id=.ID)!=.Content
 					if eq .Type "media"
 						figure(data-content-type=.ContentType)
 							if eq .GeneralContentType "pdf"
 								.pdf-frame-container
 									iframe.pdf-frame(
-										src=(media .Media.Source)
-										id=.Media.ID
-										title=.Media.Title
+										src=(media .Source)
+										id=.ID
+										title=.Title
 										width="100%"
 										height="100%"
-									)&attributes(.Media.Attributes.JSObject)=.Media.Alt
+									)&attributes(.Attributes.JSObject)=.Alt
 							
 							if eq .GeneralContentType "audio"
 								audio(
-									src=(media .Media.Source)
-									id=.Media.ID
-									title=.Media.Title
-								)&attributes(.Media.Attributes.JSObject)=.Media.Alt
+									src=(media .Source)
+									id=.ID
+									title=.Title
+								)&attributes(.Attributes.JSObject)=.Alt
 
 							if eq .GeneralContentType "image"
 								img(
-									data-full-src=(media .Media.Source)
+									data-full-src=(media .Source)
 									src=(.ThumbnailSource 400)
-									id=.Media.ID
-									title=.Media.Title
+									id=.ID
+									title=.Title
 									intrinsicsize="{{ .Dimensions.Width }}x{{ .Dimensions.Height }}"
 									data-aspect-ratio=.Dimensions.AspectRatio
 								)&attributes(.Attributes.JSObject)=.Alt
@@ -54,18 +54,18 @@ block content
 							if eq .GeneralContentType "video"
 								video(
 									src=(media .Source)
-									id=.Media.ID
-									title=.Media.Title
-								)&attributes(.Attributes.JSObject)=.Media.Alt
+									id=.ID
+									title=.Title
+								)&attributes(.Attributes.JSObject)=.Alt
 							
 							else
 								a(
 									src=(media .Source)
-									id=.Media.ID
-								)=(or .Media.Title .Media.Alt)
+									id=.ID
+								)=(or .Title .Alt)
 
-							if .Media.Title
-								figcaption=.Media.Title
+							if .Title
+								figcaption=.Title
 
 	if len .CurrentWork.Footnotes
 		section.footnotes
