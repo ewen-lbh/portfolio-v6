@@ -1,5 +1,7 @@
 extends layout
 
+block append head
+	+title(music)
 
 block content
 	= $releases := .Works | withTag ("music" | lookupTag)

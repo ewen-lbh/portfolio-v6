@@ -1,5 +1,8 @@
 extends layout
 
+block append head
+	+title()
+
 block content
 	= $latest := .Works | finished | latest
 	p.pre-h1(i18n) Hi, I'm Ewen Le Bihan.

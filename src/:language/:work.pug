@@ -2,6 +2,7 @@ extends layout
 
 block append head
 	link(rel="stylesheet" href=(asset "vendor/dialog-polyfill.css"))
+	+title(title=.CurrentWork.Title)
 
 block content
 	ul.tags

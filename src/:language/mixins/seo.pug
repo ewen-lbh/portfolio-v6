@@ -1,0 +1,7 @@
+mixin title(title="")
+	if ne $title ""
+		title ewen.works: #{ translate $title }
+		meta(property="og:title", content="ewen.works: {{ translate $title }}")
+	else
+		title ewen.works
+		meta(property="og:title", content="ewen.works")

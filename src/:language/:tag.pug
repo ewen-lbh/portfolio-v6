@@ -1,5 +1,8 @@
 extends layout
 
+block append head
+	+title(title=.CurrentTag.Plural)
+
 block content
 	h1(i18n)=.CurrentTag.Plural
 
