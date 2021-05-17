@@ -26,7 +26,7 @@
 		"stylus:watch": "stylus    --watch --compress --sourcemap src/style.styl -o assets/style.css",
 		"assets:watch": "nodemon   --watch assets        --exec 'pnpm assets:build'",
 		"watch": "concurrently npm:pug:watch npm:livescript:watch npm:assets:watch npm:stylus:watch",
-		"dev": "pnpm configure:dev && nodemon --watch hydrator --ext go --exec 'pnpm hydrator:build && pnpm watch'",
+		"dev": "pnpm configure:dev && nodemon --watch hydrator --ext go --exec 'pnpm hydrator:build && pnpm pug:build && pnpm watch'",
 
 		"database:clean": "mv -t ./ database/.portfoliodb.yaml database/.lastbuild.yaml database/sites.json database/database.json && rm -r database/ && mkdir database && mv -t database/ sites.json .portfoliodb.yaml database.json .lastbuild.yaml",
 		"messages:clean": "i18n/clean i18n/fr.po i18n/fr.po",
