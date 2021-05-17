@@ -162,8 +162,6 @@ func DependentsOf(pageFilepath string, maxDepth uint) (dependents []string) {
 				} else {
 					printfln("WARN: While looking for dependents for %s: Maximum recursion depth reached, not recursing any further. You might have a circular depency.", GetPathRelativeToSrcDir(pageFilepath))
 				}
-			} else {
-				
 			}
 		}
 		return nil

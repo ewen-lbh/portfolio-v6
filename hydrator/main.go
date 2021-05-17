@@ -77,7 +77,7 @@ func (data *GlobalData) BuildAll(in string) (built []string, err error) {
 		} else if strings.HasPrefix(entry.Name(), ":technology") {
 			built = append(built, data.BuildTechPages(path)...)
 		} else if strings.HasPrefix(entry.Name(), ":") {
-			return fmt.Errorf("Dynamic path %s uses unknown variable %s", path, strings.TrimPrefix(entry.Name(), ":"))
+			return fmt.Errorf("dynamic path %s uses unknown variable %s", path, strings.TrimPrefix(entry.Name(), ":"))
 		} else {
 			built = append(built, data.BuildRegularPage(path)...)
 		}

@@ -76,10 +76,10 @@ func (work WorkOneLang) IsWIP() bool {
 // InLanguage returns a Work object with data from only the selected language (or the default if not found)
 func (work Work) InLanguage(lang string) WorkOneLang {
 	var title string
-	paragraphs := make([]Paragraph, 0)
-	media := make([]Media, 0)
-	links := make([]Link, 0)
-	footnotes := make([]Footnote, 0)
+	var paragraphs []Paragraph
+	var media []Media
+	var links []Link
+	var footnotes []Footnote
 	if len(work.Title[lang]) > 0 {
 		title = work.Title[lang]
 	} else {
