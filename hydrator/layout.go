@@ -86,10 +86,10 @@ func (work WorkOneLang) LayedOut() [][]LayedOutCell {
 	} else {
 		layout = autoLayout(&work)
 	}
-	cells := make([][]LayedOutCell, len(layout))
+	cells := make([][]LayedOutCell, 0, len(layout))
 	usedCounts := usedCounts{}
 	for _, layoutRow := range layout {
-		row := make([]LayedOutCell, len(layoutRow))
+		row := make([]LayedOutCell, 0, len(layoutRow))
 		for _, layoutElement := range layoutRow {
 			var cell LayedOutCell
 			if layoutElement.IsSpacer {
@@ -144,6 +144,8 @@ func (work WorkOneLang) LayedOut() [][]LayedOutCell {
 					Paragraph: data,
 					Metadata:  &work.Metadata,
 				}
+			} else {
+				printfln("\nWARN: While layouting %s: element %s has no Type", work.ID, layoutElement)
 			}
 			row = append(row, cell)
 		}
