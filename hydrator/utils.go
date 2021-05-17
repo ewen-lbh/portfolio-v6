@@ -77,13 +77,3 @@ func printfln(text string, a ...interface{}) {
 func printerr(explanation string, err error) {
 	printfln(explanation+": %s", err)
 }
-
-// firstNonEmpty returns the first non-empty string or the empty string if they are all empty
-func firstNonEmpty(l ...string) string {
-	for _, i := range l {
-		if i != "" {
-			return i
-		}
-	}
-	return ""
-}
