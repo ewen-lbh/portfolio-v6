@@ -6,7 +6,7 @@ block content
 		i18n works made with
 		br
 		i18n=.CurrentTech.DisplayName
-	p.made-with-page__tech-description(translate)= .CurrentTech.Description
+	p.made-with-page__tech-description(i18n)= .CurrentTech.Description
 	if .CurrentTech.LearnMoreURL
 		a.made-with-page__tech-learn-more(href=.CurrentTech.LearnMoreURL) 
 			img.icon(src=(asset "icons/arrow-right.svg"))
