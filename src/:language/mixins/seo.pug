@@ -1,3 +1,16 @@
+mixin seo-tags(image="android-chrome-512x512.png", type="website")
+	//- commented out to prevent robots from thinking the site is live
+		meta(name="description" 		content="Hi! I'm Ewen Le Bihan, interested in almost anything that is both creative and digital: music, graphism, website design, software, motion design… This is my portfolio.")
+		meta(name="keywords" 			content="portfolio,music,graphism,motion design,software,programming,website,design,logo,animation,intro")
+		meta(name="robots" 				content="index, follow")
+		meta(name="language" 			content="[# LANGUAGE NAME #]")
+		meta(name="author" 				content="Ewen Le Bihan")
+		meta(name="twitter:card"		content="summary")
+		meta(name="twitter:site"		content="@ewen_lbh")
+		meta(name="twitter:creator"	content="@ewen_lbh")
+		meta(property="og:image"		content=(asset $image))
+		meta(property="og:type"			content=$type)
+
 mixin title(title="")
 	if ne $title ""
 		title ewen.works: #{ translate $title }
