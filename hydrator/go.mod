@@ -10,6 +10,7 @@ require (
 	github.com/PuerkitoBio/goquery v1.6.1
 	github.com/chai2010/gettext-go v1.0.2
 	github.com/davecgh/go-spew v1.1.1
+	github.com/deckarep/golang-set v1.7.1
 	github.com/google/uuid v1.1.2 // indirect
 	github.com/huandu/xstrings v1.3.2 // indirect
 	github.com/imdario/mergo v0.3.11 // indirect
