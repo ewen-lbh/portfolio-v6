@@ -22,6 +22,8 @@ block content
 						.spacer
 					if eq .Type "paragraph"
 						p(id=.ID)!=.Content
+					if eq .Type "link"
+						a(href=.URL, id=.ID, title=.Title)=.Name
 					if eq .Type "media"
 						figure(data-content-type=.ContentType)
 							if eq .GeneralContentType "pdf"
