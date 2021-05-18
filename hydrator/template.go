@@ -286,7 +286,7 @@ func lookupTag(tags []Tag, name string) Tag {
 			return tag
 		}
 	}
-	panic("cannot find tag with display name " + name + ", look at /home/ewen/projects/portfolio/hydrator/tags.go")
+	panic("cannot find tag with display name " + name)
 }
 
 // lookupTech returns the tech referred to by name
@@ -296,7 +296,7 @@ func lookupTech(techs []Technology, name string) Technology {
 			return tech
 		}
 	}
-	panic("cannot find tech with display name " + name + ", look at /home/ewen/projects/portfolio/hydrator/technologies.go")
+	panic("cannot find tech with display name " + name)
 }
 
 func makeWorkSlice() []WorkOneLang {
