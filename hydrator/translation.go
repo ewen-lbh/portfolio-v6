@@ -47,6 +47,13 @@ func getLanguageCode(french bool) string {
 	return "en"
 }
 
+func getLanguageName(french bool) string {
+	if french {
+		return "Français"
+	}
+	return "English"
+}
+
 // TranslateToLanguage translates the given html node to french or english, removing translation-related attributes
 func (t *Translations) TranslateToLanguage(french bool, root *html.Node) string {
 	// Open files
@@ -71,7 +78,9 @@ func (t *Translations) TranslateToLanguage(french bool, root *html.Node) string 
 	htmlString = strings.ReplaceAll(htmlString, "<i18n>", "")
 	htmlString = strings.ReplaceAll(htmlString, "</i18n>", "")
 	htmlString = strings.ReplaceAll(htmlString, "[# LANGUAGE CODE #]", getLanguageCode(french))
+	htmlString = strings.ReplaceAll(htmlString, "[# LANGUAGE NAME #]", getLanguageName(french))
 	htmlString = strings.ReplaceAll(htmlString, "[# OTHER LANGUAGE CODE #]", getLanguageCode(!french))
+	htmlString = strings.ReplaceAll(htmlString, "[# OTHER LANGUAGE NAME #]", getLanguageName(!french))
 	return gohtml.Format(htmlString)
 }
 
