@@ -9,14 +9,13 @@ import (
 
 	"github.com/davecgh/go-spew/spew"
 	"github.com/jaytaylor/html2text"
-	"github.com/snapcore/go-gettext"
 )
 
 // GetTemplateFuncMap returns the funcmap used to hydrate files
 func GetTemplateFuncMap(language string, data *GlobalData) template.FuncMap {
 	return template.FuncMap{
 		// translate translates the given string into `language`
-		"translate": translateFunc(language, &data.moFile),
+		"translate": data.TranslateFunction(language),
 		// "into" transforms to HTML structures
 		"intoColorsCSS": intoColorsCSS,
 		// "get" gets a Go value (string, map[string]string, etc.)
@@ -74,10 +73,10 @@ func GetAge() uint8 {
 	return 17
 }
 
-// translateFunc returns _a function_ that calls gettext to translate a string to the given language
-func translateFunc(language string, catalog *gettext.Catalog) func(string) string {
+// TranslateFunction returns a function that calls gettext to translate a string to the given language
+func (t *Translations) TranslateFunction(language string) func(string) string {
 	if language == "fr" {
-		return func(text string) string { return catalog.Gettext(text) }
+		return func(text string) string { return t.GetTranslation(text) }
 	}
 	return func(text string) string { return text }
 }
