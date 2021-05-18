@@ -1,11 +1,15 @@
 package main
 
 import (
+	"fmt"
+	"io/ioutil"
 	"os"
 	"strings"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 	po "github.com/chai2010/gettext-go/po"
+	mapset "github.com/deckarep/golang-set"
 	"github.com/snapcore/go-gettext"
 	"github.com/yosssi/gohtml"
 	"golang.org/x/net/html"
@@ -14,8 +18,26 @@ import (
 // Translations holds both the gettext catalog from the .mo file
 // and a po file object used to update the .po file (e.g. when discovering new translatable strings)
 type Translations struct {
-	poFile po.File
-	moFile gettext.Catalog
+	poFile     po.File
+	moFile     gettext.Catalog
+	seenMsgIds mapset.Set
+}
+
+func (t *Translations) WriteUnusedMsgIds(to string) error {
+	ioutil.WriteFile(to, []byte("# Generated at "+time.Now().String()+"\n"), 0644)
+	file, err := os.OpenFile(to, os.O_APPEND|os.O_WRONLY, 0644)
+	if err != nil {
+		return err
+	}
+	for _, message := range t.poFile.Messages {
+		if !t.seenMsgIds.Contains(message.MsgId) {
+			_, err = file.WriteString(fmt.Sprintf("- %#v\n", message.MsgId))
+			if err != nil {
+				return err
+			}
+		}
+	}
+	return nil
 }
 
 func getLanguageCode(french bool) string {
@@ -69,17 +91,21 @@ func LoadTranslations() (Translations, error) {
 	if err != nil {
 		return Translations{}, err
 	}
+
 	moFile, err := gettext.ParseMO(messagesFile)
 	if err != nil {
 		return Translations{}, err
 	}
+
 	poFile, err := po.LoadFile("i18n/fr.po")
 	if err != nil {
 		return Translations{}, err
 	}
+
 	return Translations{
-		moFile: moFile,
-		poFile: *poFile,
+		moFile:     moFile,
+		poFile:     *poFile,
+		seenMsgIds: mapset.NewSet(),
 	}, nil
 }
 
@@ -91,6 +117,7 @@ func (t *Translations) SavePO(path string) {
 // GetTranslation returns the msgstr corresponding to msgid from the .mo file
 // If not found, it returns the given msgid
 func (t *Translations) GetTranslation(msgid string) string {
+	t.seenMsgIds.Add(msgid)
 	return t.moFile.Gettext(msgid)
 }
 
