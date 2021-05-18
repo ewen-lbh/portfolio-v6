@@ -49,7 +49,7 @@ func StartWatcher(db Database) {
 						if err != nil {
 							printerr("Couldn't load the translation files", err)
 						}
-						data.BuildAll(event.Path)
+						data.BuildAll("src")
 					} else if strings.HasSuffix(event.Path, ".pug") {
 						printfln("Building file %s and its dependents %v", GetPathRelativeToSrcDir(event.Path), dependents)
 						for _, filePath := range append(dependents, event.Path) {
