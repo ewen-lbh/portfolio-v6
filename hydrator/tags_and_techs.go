@@ -11,7 +11,7 @@ import (
 type Tag struct {
 	Singular string   `yaml:"singular"` // Plural form display name
 	Plural   string   `yaml:"plural"`   // Singular form display name
-	Aliases  []string `yaml:"name"`     // Works with a tag name in this array will be considered as tagged by the Tag
+	Aliases  []string `yaml:"aliases"`  // Works with a tag name in this array will be considered as tagged by the Tag
 }
 
 // Technology represents something that a work was made with
