@@ -5,10 +5,9 @@ block append head
 	+title(title=.CurrentWork.Title)
 
 block content
-	ul.tags
-		each _ in .CurrentWork.Metadata.Tags
-			= $tag := . | lookupTag
-			li: a(i18n href=`/{{ $tag.URLName }}`)=$tag.Singular
+	ul.tags: each _ in .CurrentWork.Metadata.Tags
+		= $tag := . | lookupTag
+		li: a(i18n href=`/{{ $tag.URLName }}`)=$tag.Singular
 
 	if .CurrentWork.IsWIP
 		a.work-in-progress(i18n href="/#wip") work in progress

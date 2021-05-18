@@ -145,9 +145,6 @@ msgstr "logo d'After Effects"
 msgid "An intuitive vector graphics editor for iOS"
 msgstr ""
 
-msgid "C"
-msgstr "C"
-
 msgid "An open source image editor"
 msgstr ""
 
@@ -160,11 +157,14 @@ msgstr "Assembly"
 msgid "Assembly’s logo"
 msgstr "logo d'Assembly"
 
-msgid "C#"
-msgstr "C#"
-
 msgid "Back home"
 msgstr "Retour à l'accueil"
+
+msgid "C"
+msgstr "C"
+
+msgid "C#"
+msgstr "C#"
 
 msgid "C#’s logo"
 msgstr "logo de C#"
@@ -352,6 +352,18 @@ msgstr "logo de Lua"
 msgid "An advanced open source relational database"
 msgstr ""
 
+msgid "An open Node.js CLI framework"
+msgstr ""
+
+msgid "An open-source language which builds on JavaScript by adding static type definitions"
+msgstr ""
+
+msgid "Hi, I&#39;m Ewen Le Bihan."
+msgstr ""
+
+msgid "If you aren't redirected, click on this big button:"
+msgstr ""
+
 msgid "Made with &lt;3 by Ewen Le Bihan"
 msgstr "Fait avec &lt;3 par Ewen Le Bihan"
 
@@ -370,32 +382,29 @@ msgstr "Markdown"
 msgid "Markdown’s logo"
 msgstr "logo de Markdown"
 
+msgid "Made with <3 by Ewen Le Bihan"
+msgstr "Fait avec <3 par Ewen Le Bihan"
+
 msgid "More..."
 msgstr "Plus..."
 
 msgid "NestJS"
 msgstr "NestJS"
 
-msgid "An open Node.js CLI framework"
-msgstr ""
-
-msgid "An open-source language which builds on JavaScript by adding static type definitions"
-msgstr ""
-
-msgid "Hi, I&#39;m Ewen Le Bihan."
-msgstr ""
-
-msgid "If you aren't redirected, click on this big button:"
-msgstr ""
-
-msgid "Made with <3 by Ewen Le Bihan"
-msgstr "Fait avec <3 par Ewen Le Bihan"
-
 msgid "Nim"
 msgstr "Nim"
 
 msgid "Nuxt"
 msgstr "Nuxt"
+
+msgid "contact me"
+msgstr ""
+
+msgid "NestJS’s logo"
+msgstr "logo de NestJS"
+
+msgid "Nim’s logo"
+msgstr "logo de Nim"
 
 msgid "Oclif"
 msgstr "Oclif"
@@ -415,20 +424,8 @@ msgstr "PostGreSQL"
 msgid "Premiere Pro"
 msgstr "Premiere Pro"
 
-msgid "Proudly <strong>not</strong> powered by Wordpress"
-msgstr "Fièrement <strong>non</strong> propulsé par Wordpress"
-
-msgid "Pug"
-msgstr "Pug"
-
 msgid "Ruby"
 msgstr "Ruby"
-
-msgid "NestJS’s logo"
-msgstr "logo de NestJS"
-
-msgid "Nim’s logo"
-msgstr "logo de Nim"
 
 msgid "Nuxt’s logo"
 msgstr "logo de Nuxt"
@@ -436,8 +433,14 @@ msgstr "logo de Nuxt"
 msgid "Oclif’s logo"
 msgstr "logo d'Oclif"
 
+msgid "Proudly <strong>not</strong> powered by Wordpress"
+msgstr "Fièrement <strong>non</strong> propulsé par Wordpress"
+
 msgid "PHP’s logo"
 msgstr "logo de PHP"
+
+msgid "Pug"
+msgstr "Pug"
 
 msgid "Photoshop’s logo"
 msgstr "logo de Photoshop"
@@ -555,15 +558,6 @@ msgstr ""
 msgid "These are my creations."
 msgstr "Voici mes créations."
 
-msgid "about"
-msgstr "à propos"
-
-msgid "all of 'em"
-msgstr "toutes"
-
-msgid "banner"
-msgstr "bannière"
-
 msgid "This page does not exist (anymore)"
 msgstr "Cette page n'existe pas"
 
@@ -591,6 +585,9 @@ msgstr "Vue"
 msgid "Vue’s logo"
 msgstr "logo de Vue"
 
+msgid "about"
+msgstr "à propos"
+
 msgid "Webpack"
 msgstr "Webpack"
 
@@ -608,6 +605,15 @@ msgstr "ma musique également"
 
 msgid "api"
 msgstr "api"
+
+msgid "apis"
+msgstr ""
+
+msgid "all of 'em"
+msgstr "toutes"
+
+msgid "banner"
+msgstr "bannière"
 
 msgid "app"
 msgstr "application"
@@ -636,20 +642,8 @@ msgstr "blogue"
 msgid "book"
 msgstr "livre"
 
-msgid "compositing"
-msgstr "compositing"
-
-msgid "cover art"
-msgstr "pochette"
-
 msgid "books"
 msgstr "livres"
-
-msgid "by"
-msgstr "par"
-
-msgid "card"
-msgstr "carte"
 
 msgid "cards"
 msgstr "cartes"
@@ -657,8 +651,26 @@ msgstr "cartes"
 msgid "cli"
 msgstr "cli"
 
+msgid "command-line program"
+msgstr ""
+
+msgid "command-line programs"
+msgstr ""
+
+msgid "compositing"
+msgstr "compositing"
+
 msgid "contact"
 msgstr "contact"
+
+msgid "cover art"
+msgstr "pochette"
+
+msgid "by"
+msgstr "par"
+
+msgid "card"
+msgstr "carte"
 
 msgid "cover arts"
 msgstr "pochettes"
@@ -678,20 +690,11 @@ msgstr "in english"
 msgid "footnotes"
 msgstr "notes de bas de page"
 
-msgid "games"
-msgstr "jeux"
-
-msgid "intro"
-msgstr "intro"
-
-msgid "latest release"
-msgstr "dernière sortie"
-
-msgid "logo"
-msgstr "logo"
-
 msgid "game"
 msgstr "jeu"
+
+msgid "games"
+msgstr "jeux"
 
 msgid "graphism"
 msgstr "graphisme"
@@ -708,8 +711,17 @@ msgstr "illustration"
 msgid "illustrations"
 msgstr "illustrations"
 
+msgid "intro"
+msgstr "intro"
+
+msgid "latest release"
+msgstr "dernière sortie"
+
 msgid "intros"
 msgstr "intros"
+
+msgid "logo"
+msgstr "logo"
 
 msgid "language"
 msgstr "langage"
