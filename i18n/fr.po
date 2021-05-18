@@ -142,13 +142,16 @@ msgstr "After Effects"
 msgid "After Effects’s logo"
 msgstr "logo d'After Effects"
 
+msgid "An advanced open source relational database"
+msgstr ""
+
 msgid "An intuitive vector graphics editor for iOS"
 msgstr ""
 
-msgid "An open source image editor"
+msgid "An straightforward low-level open source programming language supported by Google featuring built-in concurrency and a robust standard library"
 msgstr ""
 
-msgid "An straightforward low-level open source programming language supported by Google featuring built-in concurrency and a robust standard library"
+msgid "An open Node.js CLI framework"
 msgstr ""
 
 msgid "Assembly"
@@ -162,6 +165,9 @@ msgstr "Retour à l'accueil"
 
 msgid "C"
 msgstr "C"
+
+msgid "An open source image editor"
+msgstr ""
 
 msgid "C#"
 msgstr "C#"
@@ -268,7 +274,7 @@ msgstr ""
 msgid "Hi! I'm Ewen Le Bihan, I'm 17 years old and I'm interested in almost anything that is both creative and digital."
 msgstr "Hey! Je suis Ewen Le Bihan, j'ai 17 ans et je suis intéressé par presque tout ce qui est à la fois créatif et digital."
 
-msgid "Hi, I&#39;m Ewen Le Bihannnnnn."
+msgid "Hi, I&#39;m Ewen Le Bihan."
 msgstr ""
 
 msgid "Hi, I'm Ewen Le Bihan."
@@ -288,6 +294,9 @@ msgstr "InDesign"
 
 msgid "InDesign’s logo"
 msgstr "logo d'InDesign"
+
+msgid "An open-source language which builds on JavaScript by adding static type definitions"
+msgstr ""
 
 msgid "I’ve been experimenting with sounds, their textures and their musicality since I was 7 years old."
 msgstr "J'expérimente les sons, leurs textures et leur musicalité depuis que j'ai 7 ans."
@@ -349,23 +358,11 @@ msgstr "Lua"
 msgid "Lua’s logo"
 msgstr "logo de Lua"
 
-msgid "An advanced open source relational database"
-msgstr ""
-
-msgid "An open Node.js CLI framework"
-msgstr ""
-
-msgid "An open-source language which builds on JavaScript by adding static type definitions"
-msgstr ""
-
-msgid "Hi, I&#39;m Ewen Le Bihan."
-msgstr ""
-
-msgid "If you aren't redirected, click on this big button:"
-msgstr ""
-
 msgid "Made with &lt;3 by Ewen Le Bihan"
 msgstr "Fait avec &lt;3 par Ewen Le Bihan"
+
+msgid "Made with <3 by Ewen Le Bihan"
+msgstr "Fait avec <3 par Ewen Le Bihan"
 
 msgid "Manim"
 msgstr "Manim"
@@ -382,74 +379,62 @@ msgstr "Markdown"
 msgid "Markdown’s logo"
 msgstr "logo de Markdown"
 
-msgid "Made with <3 by Ewen Le Bihan"
-msgstr "Fait avec <3 par Ewen Le Bihan"
-
 msgid "More..."
 msgstr "Plus..."
 
 msgid "NestJS"
 msgstr "NestJS"
 
-msgid "Nim"
-msgstr "Nim"
-
-msgid "Nuxt"
-msgstr "Nuxt"
-
-msgid "contact me"
-msgstr ""
-
 msgid "NestJS’s logo"
 msgstr "logo de NestJS"
+
+msgid "Nim"
+msgstr "Nim"
 
 msgid "Nim’s logo"
 msgstr "logo de Nim"
 
+msgid "Nuxt"
+msgstr "Nuxt"
+
+msgid "Nuxt’s logo"
+msgstr "logo de Nuxt"
+
 msgid "Oclif"
 msgstr "Oclif"
+
+msgid "Oclif’s logo"
+msgstr "logo d'Oclif"
 
 msgid "PHP"
 msgstr "PHP"
 
+msgid "PHP’s logo"
+msgstr "logo de PHP"
+
 msgid "Photoshop"
 msgstr "Photoshop"
+
+msgid "Photoshop’s logo"
+msgstr "logo de Photoshop"
 
 msgid "PlantUML"
 msgstr "PlantUML"
 
+msgid "PlantUML’s logo"
+msgstr "logo de PlantUML"
+
 msgid "PostGreSQL"
 msgstr "PostGreSQL"
+
+msgid "PostGreSQL’s logo"
+msgstr "logo de PostGreSQL"
 
 msgid "Premiere Pro"
 msgstr "Premiere Pro"
 
 msgid "Ruby"
 msgstr "Ruby"
-
-msgid "Nuxt’s logo"
-msgstr "logo de Nuxt"
-
-msgid "Oclif’s logo"
-msgstr "logo d'Oclif"
-
-msgid "Proudly <strong>not</strong> powered by Wordpress"
-msgstr "Fièrement <strong>non</strong> propulsé par Wordpress"
-
-msgid "PHP’s logo"
-msgstr "logo de PHP"
-
-msgid "Pug"
-msgstr "Pug"
-
-msgid "Photoshop’s logo"
-msgstr "logo de Photoshop"
-
-msgid "PlantUML’s logo"
-msgstr "logo de PlantUML"
-
-msgid "PostGreSQL’s logo"
-msgstr "logo de PostGreSQL"
 
 msgid "Premiere Pro’s logo"
 msgstr "logo de Premiere Pro"
@@ -467,6 +452,15 @@ msgid "Proudly\n"
 "</strong>\n"
 "powered by Wordpress"
 msgstr "Fièrement <strong>non</strong> propulsé par Wordpress"
+
+msgid "Proudly <strong>not</strong> powered by Wordpress"
+msgstr "Fièrement <strong>non</strong> propulsé par Wordpress"
+
+msgid "contact me"
+msgstr ""
+
+msgid "Pug"
+msgstr "Pug"
 
 msgid "Pug’s logo"
 msgstr "logo de Pug"
@@ -585,9 +579,6 @@ msgstr "Vue"
 msgid "Vue’s logo"
 msgstr "logo de Vue"
 
-msgid "about"
-msgstr "à propos"
-
 msgid "Webpack"
 msgstr "Webpack"
 
@@ -600,20 +591,20 @@ msgstr "YAML"
 msgid "YAML’s logo"
 msgstr "logo de YAML"
 
+msgid "about"
+msgstr "à propos"
+
 msgid "also my music"
 msgstr "ma musique également"
+
+msgid "all of 'em"
+msgstr "toutes"
 
 msgid "api"
 msgstr "api"
 
 msgid "apis"
 msgstr ""
-
-msgid "all of 'em"
-msgstr "toutes"
-
-msgid "banner"
-msgstr "bannière"
 
 msgid "app"
 msgstr "application"
@@ -633,6 +624,9 @@ msgstr "logo d'asciidoc"
 msgid "automation"
 msgstr "automatisation"
 
+msgid "banner"
+msgstr "bannière"
+
 msgid "beautiful OFL typeface"
 msgstr "magnifique fonte sous OFL"
 
@@ -645,8 +639,14 @@ msgstr "livre"
 msgid "books"
 msgstr "livres"
 
+msgid "by"
+msgstr "par"
+
 msgid "cards"
 msgstr "cartes"
+
+msgid "card"
+msgstr "carte"
 
 msgid "cli"
 msgstr "cli"
@@ -665,12 +665,6 @@ msgstr "contact"
 
 msgid "cover art"
 msgstr "pochette"
-
-msgid "by"
-msgstr "par"
-
-msgid "card"
-msgstr "carte"
 
 msgid "cover arts"
 msgstr "pochettes"
@@ -714,14 +708,8 @@ msgstr "illustrations"
 msgid "intro"
 msgstr "intro"
 
-msgid "latest release"
-msgstr "dernière sortie"
-
 msgid "intros"
 msgstr "intros"
-
-msgid "logo"
-msgstr "logo"
 
 msgid "language"
 msgstr "langage"
@@ -729,8 +717,14 @@ msgstr "langage"
 msgid "languages"
 msgstr "langages"
 
+msgid "latest release"
+msgstr "dernière sortie"
+
 msgid "linguistique"
 msgstr ""
+
+msgid "logo"
+msgstr "logo"
 
 msgid "made with"
 msgstr "réalisé avec"
@@ -844,7 +838,7 @@ msgid "works made with"
 msgstr "œuvres réalisées avec"
 
 msgid "“Syntactically Awesome Style Sheets”—A mature, stable, and powerful professional grade CSS extension language."
-msgstr "“Syntactically Awesome Style Sheets”—Une puissance, stable et professionelle extension du langage CSS"
+msgstr "“Syntactically Awesome Style Sheets”—Une extension puissante, stable et professionelle du langage CSS"
 
 msgid "↖ Back to the text"
 msgstr "↖ Retour au texte"
