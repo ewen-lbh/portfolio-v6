@@ -45,8 +45,9 @@
 - singular: program
   plural:   programs
 
-- singular: cli
-  plural:   clis
+- singular: command-line program
+  plural:   command-line programs
+  aliases:  [cli]
 
 - singular: motion design
   plural:   motion design
