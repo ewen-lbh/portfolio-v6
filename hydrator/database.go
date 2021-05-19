@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"io/ioutil"
 	"path"
 	"time"
@@ -35,15 +36,15 @@ func LoadWorks(filename string) (works []Work, err error) {
 func LoadDatabase(databaseDir string) (Database, error) {
 	works, err := LoadWorks(path.Join(databaseDir, "database.json"))
 	if err != nil {
-		return Database{}, err
+		return Database{}, errors.New("While loading database.json: " + err.Error())
 	}
 	tags, err := LoadTags(path.Join(databaseDir, "tags.yaml"))
 	if err != nil {
-		return Database{}, err
+		return Database{}, errors.New("While loading tags.yaml: " + err.Error())
 	}
 	techs, err := LoadTechnologies(path.Join(databaseDir, "technologies.yaml"))
 	if err != nil {
-		return Database{}, err
+		return Database{}, errors.New("While loading technologies.yaml: " + err.Error())
 	}
 	return Database{
 		Works:        works,
