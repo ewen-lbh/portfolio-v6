@@ -9,9 +9,11 @@ import (
 
 // Tag represents a tag
 type Tag struct {
-	Singular string   `yaml:"singular"` // Plural form display name
-	Plural   string   `yaml:"plural"`   // Singular form display name
-	Aliases  []string `yaml:"aliases"`  // Works with a tag name in this array will be considered as tagged by the Tag
+	Singular     string   `yaml:"singular"`      // Plural form display name
+	Plural       string   `yaml:"plural"`        // Singular form display name
+	Aliases      []string `yaml:"aliases"`       // Works with a tag name in this array will be considered as tagged by the Tag
+	Description  string   `yaml:"description"`   // A description of what works that have this tag are.
+	LearnMoreURL string   `yaml:"learn more at"` // A URL to a page where more about that tag can be learnt
 }
 
 // Technology represents something that a work was made with
