@@ -508,7 +508,7 @@ msgid "Sapper’s logo"
 msgstr "logo de Sapper"
 
 msgid "See all works made with this technology"
-msgstr "Voir toutes les œuvres utilisant cette technologie"
+msgstr "Voir toutes les projets utilisant cette technologie"
 
 msgid "Server error. I f*cked up somewhere."
 msgstr "Erreur serveur. J'ai foiré quelque part."
@@ -829,13 +829,13 @@ msgid "work in progress"
 msgstr ""
 
 msgid "works"
-msgstr "œuvres"
+msgstr "projets"
 
 msgid "works by tag"
-msgstr "œuvres par catégories"
+msgstr "projets par catégories"
 
 msgid "works made with"
-msgstr "œuvres réalisées avec"
+msgstr "projets réalisées avec"
 
 msgid "“Syntactically Awesome Style Sheets”—A mature, stable, and powerful professional grade CSS extension language."
 msgstr "“Syntactically Awesome Style Sheets”—Une extension puissante, stable et professionelle du langage CSS"
@@ -849,5 +849,5 @@ msgstr "technologies utilisées"
 
 msgctxt "On homepage, as a section header for indexes"
 msgid "browse works by..."
-msgstr "œuvres par..."
+msgstr "projets par..."
 
