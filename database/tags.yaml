@@ -29,7 +29,7 @@
 
 - singular: web
   plural:   web
-  description: Web site, web apps and web-related libraries
+  description: Web sites, web apps and web-related libraries
 
 - singular: intro
   plural:   intros
@@ -52,8 +52,8 @@
 - singular: program
   plural:   programs
 
-- singular: command-line program
-  plural:   command-line programs
+- singular: command-line
+  plural:   command-line
   aliases:  [cli]
   description: Programs that run in the terminal, a text-based interface for computers.
   learn more at: https://www.hostinger.com/tutorials/what-is-cli
