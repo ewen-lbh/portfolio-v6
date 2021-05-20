@@ -21,7 +21,7 @@ block content
 					if eq .Type "spacer"
 						.spacer
 					if eq .Type "paragraph"
-						p(id=.ID)!=.Content
+						!= .Content
 					if eq .Type "link"
 						a(href=.URL, id=.ID, title=.Title)=.Name
 					if eq .Type "media"
@@ -36,24 +36,25 @@ block content
 										height="100%"
 									)&attributes(.Attributes.JSObject)=.Alt
 							
-							if eq .GeneralContentType "audio"
+							else if eq .GeneralContentType "audio"
 								audio(
 									src=(media .Source)
 									id=.ID
 									title=.Title
 								)&attributes(.Attributes.JSObject)=.Alt
 
-							if eq .GeneralContentType "image"
+							else if eq .GeneralContentType "image"
 								img(
 									data-full-src=(media .Source)
 									src=(.ThumbnailSource 400)
 									id=.ID
 									title=.Title
+									alt=.Alt
 									intrinsicsize="{{ .Dimensions.Width }}x{{ .Dimensions.Height }}"
 									data-aspect-ratio=.Dimensions.AspectRatio
-								)&attributes(.Attributes.JSObject)=.Alt
+								)&attributes(.Attributes.JSObject)
 
-							if eq .GeneralContentType "video"
+							else if eq .GeneralContentType "video"
 								video(
 									src=(media .Source)
 									id=.ID
