@@ -151,7 +151,7 @@ func (data *GlobalData) BuildPage(using string, templateHTML string, hydration *
 			templateHTML,
 		)
 		if err != nil {
-			PrintTemplateErrorMessage("parsing template", using, templateHTML, err, 2)
+			PrintTemplateErrorMessage("parsing template", using, templateHTML, err, "html")
 			return
 		}
 		content, err := data.ExecuteTemplate(
@@ -160,7 +160,7 @@ func (data *GlobalData) BuildPage(using string, templateHTML string, hydration *
 			*hydration,
 		)
 		if err != nil {
-			PrintTemplateErrorMessage("executing template", NameOfTemplate(templ, *hydration), templateHTML, err, 2)
+			PrintTemplateErrorMessage("executing template", NameOfTemplate(templ, *hydration), templateHTML, err, "html")
 			continue
 		}
 		content = data.TranslateHydrated(content, language)

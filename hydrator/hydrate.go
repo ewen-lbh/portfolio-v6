@@ -16,6 +16,7 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/yosssi/gohtml"
 	"golang.org/x/net/html"
+	chromaQuick "github.com/alecthomas/chroma/quick"
 )
 
 // Hydration represents a Tag, Technology or Work
@@ -87,7 +88,7 @@ func ConvertTemplate(absFilepath string) (string, error) {
 
 	template, err := jade.Parse(absFilepath, raw)
 	if err != nil {
-		PrintTemplateErrorMessage("converting template to HTML", absFilepath, string(raw), err, 1)
+		PrintTemplateErrorMessage("converting template to HTML", absFilepath, string(raw), err, "pug")
 		return "", fmt.Errorf("error while converting to HTML")
 	}
 
@@ -113,7 +114,7 @@ func FixExtendsIncludeStatements(raw []byte, filepath string) []byte {
 }
 
 // PrintTemplateErrorMessage prints a nice error message with a preview of the code where the error occured
-func PrintTemplateErrorMessage(whileDoing string, templateName string, templateContent string, err error, lineNumberSliceIndex int) {
+func PrintTemplateErrorMessage(whileDoing string, templateName string, templateContent string, err error, templateLanguage string) {
 	lineIndexPattern := regexp.MustCompile(`:(\d+)`)
 	listIndices := lineIndexPattern.FindStringSubmatch(err.Error())
 	if listIndices == nil {
@@ -124,7 +125,9 @@ func PrintTemplateErrorMessage(whileDoing string, templateName string, templateC
 	lineIndex := int(lineIndex64)
 	printfln("While %s %s:%d: %s", whileDoing, templateName, lineIndex, strings.SplitN(err.Error(), listIndices[1], 2)[1])
 	lineIndex-- // Lines start at 1, arrays of line are indexed from 0
-	lines := strings.Split(gohtml.FormatWithLineNo(templateContent), "\n")
+	highlightedWriter := bytes.NewBufferString("")
+	chromaQuick.Highlight(highlightedWriter, gohtml.Format(templateContent), templateLanguage, "terminal16m", "pygments")
+	lines := strings.Split(highlightedWriter.String(), "\n")
 	var lineIndexOffset int
 	if len(lines) >= lineIndex+5+1 {
 		if lineIndex >= 5 {
@@ -140,6 +143,7 @@ func PrintTemplateErrorMessage(whileDoing string, templateName string, templateC
 		} else {
 			fmt.Print("  ")
 		}
+		fmt.Printf("%d", i+1)
 		fmt.Println(line)
 	}
 }
