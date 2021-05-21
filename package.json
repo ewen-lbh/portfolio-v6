@@ -25,7 +25,7 @@
 		"watch": "concurrently npm:pug:watch npm:livescript:watch npm:assets:watch npm:stylus:watch",
 		"dev": "pnpm configure:dev && nodemon --watch hydrator --ext go --exec 'pnpm hydrator:build && pnpm pug:build && pnpm watch'",
 
-		"database:clean": "mkdir database_tmp && mv -t database_tmp database/*.{yaml,json} database/.*.yaml && rm -r database/ && mkdir database && mv -t database/ database_tmp/* database_tmp/.*.yaml && rmdir database_tmp",
+		"database:clean": "rm -r media",
 		"messages:clean": "i18n/clean i18n/fr.po i18n/fr.po",
 		"clean": "pnpm messages:clean && pnpm database:clean && rm -r dist"
 	},
