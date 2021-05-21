@@ -123,7 +123,10 @@ func (w WorkOneLang) ThumbnailSource(resolution uint16) string {
 	}
 	if resolution > 0 {
 		if thumbSource, ok := w.Metadata.Thumbnails[w.Media[0].Source][resolution]; ok {
-			thumbSource = strings.TrimPrefix(thumbSource, "database/")
+			// FIXME: media/ shouldn't be hardcoded
+			// Could be implemented by reading .portfoliodb.yaml
+			// Therefore there should be a config file common to ortfo{db,mk}, just put .ortfo.yaml in the portfolio's root.
+			thumbSource = strings.TrimPrefix(thumbSource, "media/")
 			return media(thumbSource)
 		}
 	}
@@ -133,7 +136,8 @@ func (w WorkOneLang) ThumbnailSource(resolution uint16) string {
 func (c LayedOutCell) ThumbnailSource(resolution uint16) string {
 	if resolution > 0 {
 		if thumbSource, ok := c.Metadata.Thumbnails[c.Source][resolution]; ok {
-			thumbSource = strings.TrimPrefix(thumbSource, "database/")
+			// FIXME: media/ shouldn't be hardcoded
+			thumbSource = strings.TrimPrefix(thumbSource, "media/")
 			return media(thumbSource)
 		}
 	}
@@ -269,7 +273,8 @@ func media(mediaPath string) string {
 	mediaPath = strings.ReplaceAll(mediaPath, "#", "sharp")
 	var urlScheme string
 	if !BuildingForProduction() {
-		urlScheme = "file://" + os.Getenv("LOCAL_PROJECTS_DIR") + "/portfolio/database/%s"
+		// FIXME: /media/ shouldn't be hardcoded.
+		urlScheme = "file://" + os.Getenv("LOCAL_PROJECTS_DIR") + "/portfolio/media/%s"
 	} else {
 		urlScheme = "https://media.ewen.works/%s"
 	}

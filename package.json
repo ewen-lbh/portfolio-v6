@@ -7,19 +7,16 @@
 	"scripts": {
 		"hydrator:build": "cd hydrator && go build",
 
-		"database:crawl": "cd /home/ewen/projects/portfoliodb-crawler && python3.9 crawler.py /home/ewen/projects/portfolio/database",
-		"database:build": "cd database && portfoliodb . build database.json --config .portfoliodb.yaml -m",
-		"database:update": "pnpm database:clean && pnpm database:crawl && pnpm database:build",
-
 		"configure:dev": "cp hydrator/dev.env .env",
 		"configure:prod": "cp hydrator/prod.env .env",
 
+		"database:build": "portfoliodb ~/projects build --scattered --minified database/database.json --config database/.portfoliodb.yaml",
 		"pug:build": "hydrator/hydrate",
 		"livescript:build": "lsc -c --output assets/ src/*.ls",
 		"stylus:build": "stylus --compress --sourcemap src/style.styl -o assets/style.css",
 		"assets:build": "cp -r assets/* dist/ && svgo --recursive --quiet -f assets/ -o dist/",
 		"messages:build": "msgfmt i18n/fr.po -o i18n/fr.mo",
-		"build": "concurrently npm:pug:build npm:livescript:build npm:stylus:build npm:assets:build",
+		"build": "pnpm database:build && concurrently npm:pug:build npm:livescript:build npm:stylus:build npm:assets:build",
 
 		"pug:watch": "hydrator/hydrate watch",
 		"livescript:watch": "lsc   --watch -c --output assets/ src/*.ls",

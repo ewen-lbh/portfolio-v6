@@ -11,6 +11,6 @@ sed -i "s|</body>|<!-- Build date: $(date --iso-8601=seconds) --></body>|" dist/
 rsync -r --progress dist/en/  ubuntu@ewen.works:/home/user-data/www/en.ewen.works/
 rsync -r --progress dist/fr/  ubuntu@ewen.works:/home/user-data/www/fr.ewen.works/
 rsync -r --progress assets/   ubuntu@ewen.works:/home/user-data/www/assets.ewen.works/
-rsync -r --progress database/ ubuntu@ewen.works:/home/user-data/www/media.ewen.works/
+rsync -r --progress media/ ubuntu@ewen.works:/home/user-data/www/media.ewen.works/
 # Fix permissions
 ssh ubuntu@ewen.works 'sudo chmod -R a+rx www/{fr,en,media}.ewen.works/'

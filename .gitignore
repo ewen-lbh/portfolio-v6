@@ -1,4 +1,3 @@
-
 # Created by https://www.toptal.com/developers/gitignore/api/node,go
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,go
 
@@ -163,11 +162,8 @@ temp/
 # Compiled files
 i18n/*.mo
 dist/
-database/**
-!database/database.json
-!database/.portfoliodb.yaml
-!database/tags.yaml
-!database/technologies.yaml
+database/.lastbuild.yaml
 assets/*.js
 assets/*.css
 assets/*.css.map
+media/

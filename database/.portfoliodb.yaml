@@ -1,7 +1,7 @@
 replace media sources:
-  - replace: /mnt/datacore/projects/portfolio/database/
+  - replace: /mnt/datacore/projects/
     with: ''
-  - replace: /home/ewen/projects/portfolio/database/
+  - replace: /home/ewen/projects/
     with: ''
 
 extract colors:
@@ -10,6 +10,6 @@ extract colors:
 make thumbnails:
   enabled: true
   sizes: [400, 700, 1200]
-  file name template: <parent>/<media id>@<size>.webp
+  file name template: portfolio/media/<parent>/<media id>@<size>.webp
 
-build metadata file: .lastbuild.yaml
+build metadata file: database/.lastbuild.yaml
