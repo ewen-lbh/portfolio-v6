@@ -20,5 +20,5 @@ block content
 				//- Add the selected work to the 'seen' slice
 				= $seen = $seen | appendWS $selected
 				//- Override --primary and --secondary
-				li(style=($selected | intoColorsCSS))
-					a(i18n style=($selected | intoColorsCSS) href=.URLName)=.Plural
+				li(style=($selected.ColorsCSS))
+					a(i18n style=($selected.ColorsCSS) href=.URLName)=.Plural

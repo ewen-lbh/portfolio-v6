@@ -16,12 +16,6 @@ func GetTemplateFuncMap(language string, data *GlobalData) template.FuncMap {
 	return template.FuncMap{
 		// translate translates the given string into `language`
 		"translate": data.TranslateFunction(language),
-		// "into" transforms to HTML structures
-		"intoColorsCSS": intoColorsCSS,
-		// "get" gets a Go value (string, map[string]string, etc.)
-		"getColorsMap": getColorsMap,
-		"getSummary":   getSummary,
-		"getYears":     getYears,
 		// "with" filters a []WorkOneLang
 		"withTag":       withTag,
 		"withTech":      withTech,
@@ -49,8 +43,9 @@ func GetTemplateFuncMap(language string, data *GlobalData) template.FuncMap {
 		// debugging
 		"log": log,
 		// various
-		"makeWS":   makeWorkSlice,
-		"appendWS": appendWorkSlice,
+		"makeWS":       makeWorkSlice,
+		"appendWS":     appendWorkSlice,
+		"yearsOfWorks": yearsOfWorks,
 	}
 }
 
@@ -86,9 +81,9 @@ func (t *Translations) TranslateFunction(language string) func(string) string {
 	return func(text string) string { return text }
 }
 
-func intoColorsCSS(w WorkOneLang) string {
+func (w WorkOneLang) ColorsCSS() string {
 	var cssDeclaration string
-	for key, value := range getColorsMap(w) {
+	for key, value := range w.ColorsMap() {
 		cssDeclaration += fmt.Sprintf("--%s:%s;", key, value)
 	}
 	return cssDeclaration
@@ -96,7 +91,7 @@ func intoColorsCSS(w WorkOneLang) string {
 
 // getColorsMap returns a mapping of "primary", "secondary", etc to the color values,
 // with an added "#" prefix if needed
-func getColorsMap(w WorkOneLang) map[string]string {
+func (w WorkOneLang) ColorsMap() map[string]string {
 	colorsMap := make(map[string]string, 3)
 	if w.Metadata.Colors.Primary != "" {
 		colorsMap["primary"] = AddOctothorpeIfNeeded(w.Metadata.Colors.Primary)
@@ -111,7 +106,7 @@ func getColorsMap(w WorkOneLang) map[string]string {
 }
 
 // getSummary summarizes the given work's first description paragraph
-func getSummary(w WorkOneLang) string {
+func (w WorkOneLang) Summary() string {
 	if len(w.Paragraphs) == 0 {
 		return ""
 	}
@@ -127,15 +122,15 @@ func (w WorkOneLang) ThumbnailSource(resolution uint16) string {
 		return ""
 	}
 	if resolution > 0 {
-		if thumbSource, ok := w.Metadata.Thumbnails[w.Media[0].Source][resolution]; ok {
+		if thumbSource, ok := w.Metadata.Thumbnails[w.Media[0].Path][resolution]; ok {
 			// FIXME: media/ shouldn't be hardcoded
-			// Could be implemented by reading .portfoliodb.yaml
+			// Could be implemented by reading .portfolioortfodb.yaml
 			// Therefore there should be a config file common to ortfo{db,mk}, just put .ortfo.yaml in the portfolio's root.
 			thumbSource = strings.TrimPrefix(thumbSource, "media/")
 			return media(thumbSource)
 		}
 	}
-	return media(w.Media[0].Source)
+	return media(w.Media[0].Path)
 }
 
 func (c LayedOutCell) ThumbnailSource(resolution uint16) string {
@@ -146,10 +141,10 @@ func (c LayedOutCell) ThumbnailSource(resolution uint16) string {
 			return media(thumbSource)
 		}
 	}
-	return media(c.Source)
+	return media(c.Path)
 }
 
-func getYears(ws []WorkOneLang) []int {
+func yearsOfWorks(ws []WorkOneLang) []int {
 	years := make([]int, 0)
 	for _, work := range ws {
 		var isDuplicate bool

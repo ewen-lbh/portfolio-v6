@@ -23,13 +23,13 @@ block content
 			href=`/{{ $latest.ID }}`
 			style!=`
 				background-image:url('{{ $latest.ThumbnailSource 700 }}');
-				{{ $latest | intoColorsCSS }}
+				{{ $latest.ColorsCSS }}
 			`
 			class=(ternary "" "work-card--no-image" (ne (len $latest.Media) 0))
 		)
 			h3= $latest.Title
 			if len $latest.Paragraphs
-				p= $latest | getSummary 
+				p= $latest.Summary 
 
 	section#finished
 

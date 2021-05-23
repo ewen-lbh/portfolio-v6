@@ -112,7 +112,7 @@ block content
 
 	style.
 		:root {
-			{{ range $key, $value := .CurrentWork | getColorsMap }}
+			{{ range $key, $value := .CurrentWork.ColorsMap }}
 			--{{$key}}: {{$value}};
 			{{- end -}}
 		}
