@@ -76,7 +76,12 @@ func GetAge() uint8 {
 // TranslateFunction returns a function that calls gettext to translate a string to the given language
 func (t *Translations) TranslateFunction(language string) func(string) string {
 	if language == "fr" {
-		return func(text string) string { return t.GetTranslation(text) }
+		return func(text string) string {
+			if translated := t.GetTranslation(text); translated != "" {
+				return translated
+			}
+			return text
+		}
 	}
 	return func(text string) string { return text }
 }

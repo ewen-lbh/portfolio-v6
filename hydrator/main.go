@@ -45,9 +45,9 @@ func main() {
 		}
 
 		// Save the updated .po file
-		translations.SavePO("i18n/fr.po")
+		data.SavePO("i18n/fr.po")
 		// Save list of unused msgids
-		err = translations.WriteUnusedMsgIds("i18n/unused-msgids.yaml")
+		err = data.WriteUnusedMsgIds("i18n/unused-msgids.yaml")
 		if err != nil {
 			printerr("While writing unused msgids file", err)
 		}

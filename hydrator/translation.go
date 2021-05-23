@@ -10,7 +10,6 @@ import (
 	"github.com/PuerkitoBio/goquery"
 	po "github.com/chai2010/gettext-go/po"
 	mapset "github.com/deckarep/golang-set"
-	"github.com/snapcore/go-gettext"
 	"github.com/yosssi/gohtml"
 	"golang.org/x/net/html"
 )
@@ -18,9 +17,9 @@ import (
 // Translations holds both the gettext catalog from the .mo file
 // and a po file object used to update the .po file (e.g. when discovering new translatable strings)
 type Translations struct {
-	poFile     po.File
-	moFile     gettext.Catalog
-	seenMsgIds mapset.Set
+	poFile          po.File
+	seenMsgIds      mapset.Set
+	missingMessages []po.Message
 }
 
 func (t *Translations) WriteUnusedMsgIds(to string) error {
@@ -58,16 +57,21 @@ func getLanguageName(french bool) string {
 func (t *Translations) TranslateToLanguage(french bool, root *html.Node) string {
 	// Open files
 	doc := goquery.NewDocumentFromNode(root)
-	doc.Find("i18n, [i18n], [i18n-context]").Each(func(_ int, element *goquery.Selection) {
+	doc.Find("i18n, [i18n]").Each(func(_ int, element *goquery.Selection) {
 		element.RemoveAttr("i18n")
 		msgContext, _ := element.Attr("i18n-context")
 		element.RemoveAttr("i18n-context")
 		if french {
 			innerHTML, _ := element.Html()
+			innerHTML = html.UnescapeString(innerHTML)
 			innerHTML = strings.TrimSpace(innerHTML)
-			element.SetHtml(t.GetTranslation(innerHTML))
-			if !t.IsInPOFile(innerHTML) {
-				t.AppendTranslation(po.Message{
+			if innerHTML == "" {
+				return
+			}
+			if translated := t.GetTranslation(innerHTML); translated != "" {
+				element.SetHtml(translated)
+			} else {
+				t.missingMessages = append(t.missingMessages, po.Message{
 					MsgId:      innerHTML,
 					MsgContext: msgContext,
 				})
@@ -84,54 +88,50 @@ func (t *Translations) TranslateToLanguage(french bool, root *html.Node) string 
 	return gohtml.Format(htmlString)
 }
 
-// IsInPOFile checks whether the given msgid is in the PO file
-func (t *Translations) IsInPOFile(msgid string) bool {
-	for _, message := range t.poFile.Messages {
-		if message.MsgId == msgid {
-			return true
-		}
-	}
-	return false
-}
-
-// LoadTranslations reads from i18n/fr.{m,p}o to load both translation files
+// LoadTranslations reads from i18n/fr.po to load translations
 func LoadTranslations() (Translations, error) {
-	messagesFile, err := os.Open("i18n/fr.mo")
-	if err != nil {
-		return Translations{}, err
-	}
-
-	moFile, err := gettext.ParseMO(messagesFile)
-	if err != nil {
-		return Translations{}, err
-	}
-
 	poFile, err := po.LoadFile("i18n/fr.po")
 	if err != nil {
 		return Translations{}, err
 	}
 
 	return Translations{
-		moFile:     moFile,
-		poFile:     *poFile,
-		seenMsgIds: mapset.NewSet(),
+		poFile:          *poFile,
+		seenMsgIds:      mapset.NewSet(),
+		missingMessages: make([]po.Message, 0),
 	}, nil
 }
 
 // SavePO writes the .po file to the disk, with its potential modifications
+// It removes duplicate msgids beforehand
 func (t *Translations) SavePO(path string) {
+	// TODO: sort file after saving, (po.File).Save is not stable... (creates unecessary diffs in git)
+	t.poFile.Messages = append(t.poFile.Messages, t.missingMessages...)
+	dedupedMessages := make([]po.Message, 0)
+	for _, msg := range t.poFile.Messages {
+		var isDupe bool
+		for _, msg2 := range dedupedMessages {
+			if msg.MsgId == msg2.MsgId {
+				isDupe = true
+			}
+		}
+		if !isDupe {
+			dedupedMessages = append(dedupedMessages, msg)
+		}
+	}
+	t.poFile.Messages = dedupedMessages
+	// TODO: remove unused messages with empty msgstrs
 	t.poFile.Save(path)
 }
 
-// GetTranslation returns the msgstr corresponding to msgid from the .mo file
-// If not found, it returns the given msgid
+// GetTranslation returns the msgstr corresponding to msgid from the .po file
+// If not found, it returns the empty string
 func (t *Translations) GetTranslation(msgid string) string {
-	t.seenMsgIds.Add(msgid)
-	return t.moFile.Gettext(msgid)
-}
-
-// AppendTranslation adds a new message to the .po file
-// use SavePO to write the changes
-func (t *Translations) AppendTranslation(msg po.Message) {
-	t.poFile.Messages = append(t.poFile.Messages, msg)
+	// t.seenMsgIds.Add(msgid)
+	for _, message := range t.poFile.Messages {
+		if message.MsgId == msgid && message.MsgStr != "" {
+			return message.MsgStr
+		}
+	}
+	return ""
 }
