@@ -21,12 +21,13 @@ require (
 	github.com/metal3d/go-slugify v0.0.0-20160607203414-7ac2014b2f23
 	github.com/mitchellh/copystructure v1.0.0 // indirect
 	github.com/olekukonko/tablewriter v0.0.4 // indirect
+	github.com/ortfo/db v0.0.0-20210522232621-1a3ece21c9ac
 	github.com/radovskyb/watcher v1.0.7
 	github.com/relvacode/iso8601 v1.1.0
 	github.com/snapcore/go-gettext v0.0.0-20201130093759-38740d1bd3d2
 	github.com/ssor/bom v0.0.0-20170718123548-6386211fdfcf // indirect
 	github.com/yosssi/gohtml v0.0.0-20201013000340-ee4748c638f4
 	golang.org/x/crypto v0.0.0-20201016220609-9e8e0b390897 // indirect
-	golang.org/x/net v0.0.0-20200202094626-16171245cfb2
+	golang.org/x/net v0.0.0-20210405180319-a5a99cb37ef4
 	gopkg.in/yaml.v2 v2.4.0
 )

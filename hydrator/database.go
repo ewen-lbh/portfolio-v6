@@ -7,7 +7,45 @@ import (
 	"time"
 
 	jsoniter "github.com/json-iterator/go"
+	db "github.com/ortfo/db"
 )
+
+// WorkOneLang represents a work in a single language: language-dependent items
+// have been replaced with their corresponding values in a language, there is no "language" map anymore.
+type WorkOneLang struct {
+	ID         string
+	Metadata   WorkMetadata
+	Title      string
+	Paragraphs []db.Paragraph
+	Media      []db.Media
+	Links      []db.Link
+	Footnotes  []db.Footnote
+	Language   string
+}
+
+type Work struct {
+	db.Work
+	Metadata WorkMetadata
+}
+
+// WorkMetadata represents metadata from the metadata field in the database file
+type WorkMetadata struct {
+	Created  string
+	Started  string
+	Finished string
+	Tags     []string
+	Layout   []interface{}
+	MadeWith []string `json:"made with"`
+	Colors   struct {
+		Primary   string
+		Secondary string
+		Tertiary  string
+	}
+	PageBackground string `json:"page background"`
+	Title          string
+	WIP            bool `json:"wip"`
+	Thumbnails     map[string]map[uint16]string
+}
 
 // Database holds works & other metadata
 type Database struct {
@@ -77,10 +115,10 @@ func (work WorkOneLang) IsWIP() bool {
 // InLanguage returns a Work object with data from only the selected language (or the default if not found)
 func (work Work) InLanguage(lang string) WorkOneLang {
 	var title string
-	var paragraphs []Paragraph
-	var media []Media
-	var links []Link
-	var footnotes []Footnote
+	var paragraphs []db.Paragraph
+	var media []db.Media
+	var links []db.Link
+	var footnotes []db.Footnote
 	if len(work.Title[lang]) > 0 {
 		title = work.Title[lang]
 	} else {

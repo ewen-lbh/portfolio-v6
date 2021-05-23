@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+
+	"github.com/ortfo/db"
 )
 
 // LayoutElement represents a work layout element: paragraph, media, link or spacer.
@@ -23,9 +25,9 @@ type LayedOutCell struct {
 	// for application/, where application/pdf becomes pdf and (maybe) others
 	GeneralContentType string
 	// The three possible cells
-	Media
-	Paragraph
-	Link
+	ortfodb.Media
+	ortfodb.Paragraph
+	ortfodb.Link
 	// Metadata from the work
 	Metadata *WorkMetadata
 }
@@ -152,10 +154,10 @@ func (work WorkOneLang) LayedOut() [][]LayedOutCell {
 				if data.ContentType == "application/pdf" {
 					mediaGeneralContentType = "pdf"
 				}
-				if data.Duration <= 5 && !data.HasAudio && data.Duration > 0 {
-					data.Attributes = MediaAttributes{
+				if data.Duration <= 5 && !data.HasSound && data.Duration > 0 {
+					data.Attributes = ortfodb.MediaAttributes{
 						Playsinline: true,
-						Loop:        true,
+						Looped:      true,
 						Autoplay:    true,
 						Muted:       true,
 						Controls:    false,
