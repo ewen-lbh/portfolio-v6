@@ -29,7 +29,7 @@ block content
 							if eq .GeneralContentType "pdf"
 								.pdf-frame-container
 									iframe.pdf-frame(
-										src=(media .Source)
+										src=(media .Path)
 										id=.ID
 										title=.Title
 										width="100%"
@@ -38,14 +38,14 @@ block content
 							
 							else if eq .GeneralContentType "audio"
 								audio(
-									src=(media .Source)
+									src=(media .Path)
 									id=.ID
 									title=.Title
 								)&attributes(.Attributes.JSObject)=.Alt
 
 							else if eq .GeneralContentType "image"
 								img(
-									data-full-src=(media .Source)
+									data-full-src=(media .Path)
 									src=(.ThumbnailSource 400)
 									id=.ID
 									title=.Title
@@ -56,14 +56,14 @@ block content
 
 							else if eq .GeneralContentType "video"
 								video(
-									src=(media .Source)
+									src=(media .Path)
 									id=.ID
 									title=.Title
 								)&attributes(.Attributes.JSObject)=.Alt
 							
 							else
 								a(
-									src=(media .Source)
+									src=(media .Path)
 									id=.ID
 								)=(or .Title .Alt)
 

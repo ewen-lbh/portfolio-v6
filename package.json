@@ -10,7 +10,7 @@
 		"configure:dev": "cp hydrator/dev.env .env",
 		"configure:prod": "cp hydrator/prod.env .env",
 
-		"database:build": "portfoliodb ~/projects build --scattered --minified database/database.json --config database/.portfoliodb.yaml",
+		"database:build": "ortfodb ~/projects build --scattered --minified database/database.json --config database/.portfoliodb.yaml",
 		"pug:build": "hydrator/hydrate",
 		"livescript:build": "lsc -c --output assets/ src/*.ls",
 		"stylus:build": "stylus --compress --sourcemap src/style.styl -o assets/style.css",
