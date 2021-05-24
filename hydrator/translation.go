@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"sort"
 	"strings"
 	"time"
 
@@ -130,7 +131,24 @@ func (t *Translations) SavePO(path string) {
 		uselessRemoved = append(uselessRemoved, msg)
 	}
 	t.poFile.Messages = uselessRemoved
+	// Sort them to guarantee a stable write
+	sort.Sort(ByMsgId(t.poFile.Messages))
 	t.poFile.Save(path)
+}
+
+// ByMsgId implement sorting gettext messages by their msgid
+type ByMsgId []po.Message
+
+func (b ByMsgId) Len() int {
+	return len(b)
+}
+
+func (b ByMsgId) Less(i, j int) bool {
+	return b[i].MsgId < b[j].MsgId
+}
+
+func (b ByMsgId) Swap(i, j int) {
+	b[i], b[j] = b[j], b[i]
 }
 
 // GetTranslation returns the msgstr corresponding to msgid from the .po file
