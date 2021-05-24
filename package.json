@@ -5,13 +5,11 @@
 	"license": "CC-BY-NC-ND-4.0",
 	"version": "0.1.0",
 	"scripts": {
-		"hydrator:build": "cd hydrator && go build",
-
 		"configure:dev": "cp hydrator/dev.env .env",
 		"configure:prod": "cp hydrator/prod.env .env",
 
 		"database:build": "ortfodb ~/projects build --scattered --minified database/database.json --config database/.portfoliodb.yaml",
-		"pug:build": "hydrator/hydrate",
+		"pug:build": "ortfomk",
 		"livescript:build": "lsc -c --output assets/ src/*.ls",
 		"stylus:build": "stylus --compress --sourcemap src/style.styl -o assets/style.css",
 		"assets:build": "cp -r assets/* dist/ && svgo --recursive --quiet -f assets/ -o dist/",
