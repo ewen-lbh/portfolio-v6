@@ -58,7 +58,7 @@
   name: Docopt
   learn more at: https://github.com/docopt
   description: |
-    "A library that parses command-line arguments based on a help message. “Don't write parser code: a good help message already has all the necessary information in it”"
+    A library that parses command-line arguments based on a help message. “Don't write parser code: a good help message already has all the necessary information in it”
 
 - slug: figma
   name: Figma
@@ -152,7 +152,7 @@
   name: Markdown
   learn more at: https://daringfireball.net/projects/markdown/
   description: |
-    "A text-to-HTML conversion tool and language for web writers. The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible: a Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions."
+    A text-to-HTML conversion tool and language for web writers. The overriding design goal for Markdown’s formatting syntax is to make it as readable as possible: a Markdown-formatted document should be publishable as-is, as plain text, without looking like it’s been marked up with tags or formatting instructions.
 
 - slug: nestjs
   name: NestJS
