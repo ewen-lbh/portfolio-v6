@@ -34,14 +34,14 @@ block content
 										title=.Title
 										width="100%"
 										height="100%"
-									)&attributes(.Attributes.JSObject)=.Alt
+									)=.Alt
 							
 							else if eq .GeneralContentType "audio"
 								audio(
 									src=(media .Path)
 									id=.ID
 									title=.Title
-								)&attributes(.Attributes.JSObject)=.Alt
+								)=.Alt
 
 							else if eq .GeneralContentType "image"
 								img(
@@ -52,14 +52,14 @@ block content
 									alt=.Alt
 									intrinsicsize="{{ .Dimensions.Width }}x{{ .Dimensions.Height }}"
 									data-aspect-ratio=.Dimensions.AspectRatio
-								)&attributes(.Attributes.JSObject)
+								)
 
 							else if eq .GeneralContentType "video"
 								video(
 									src=(media .Path)
 									id=.ID
 									title=.Title
-								)&attributes(.Attributes.JSObject)=.Alt
+								)=.Alt
 							
 							else
 								a(
