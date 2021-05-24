@@ -7,6 +7,7 @@ import (
 	"strings"
 	"text/template"
 
+	"github.com/chai2010/gettext-go/po"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/jaytaylor/html2text"
 )
@@ -75,6 +76,9 @@ func (t *Translations) TranslateFunction(language string) func(string) string {
 			if translated := t.GetTranslation(text); translated != "" {
 				return translated
 			}
+			t.missingMessages = append(t.missingMessages, po.Message{
+				MsgId: text,
+			})
 			return text
 		}
 	}
