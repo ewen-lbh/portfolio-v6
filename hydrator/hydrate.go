@@ -13,10 +13,10 @@ import (
 
 	"github.com/Joker/jade"
 	"github.com/Masterminds/sprig"
+	chromaQuick "github.com/alecthomas/chroma/quick"
 	"github.com/joho/godotenv"
 	"github.com/yosssi/gohtml"
 	"golang.org/x/net/html"
-	chromaQuick "github.com/alecthomas/chroma/quick"
 )
 
 // Hydration represents a Tag, Technology or Work
