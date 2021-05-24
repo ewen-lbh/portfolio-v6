@@ -120,7 +120,16 @@ func (t *Translations) SavePO(path string) {
 		}
 	}
 	t.poFile.Messages = dedupedMessages
-	// TODO: remove unused messages with empty msgstrs
+	// Remove unused messages with empty msgstrs
+	uselessRemoved := make([]po.Message, 0)
+	for _, msg := range t.poFile.Messages {
+		if !t.seenMsgIds.Contains(msg.MsgId) && msg.MsgStr == "" {
+			t.seenMsgIds.Remove(msg.MsgId)
+			continue
+		}
+		uselessRemoved = append(uselessRemoved, msg)
+	}
+	t.poFile.Messages = uselessRemoved
 	t.poFile.Save(path)
 }
 
