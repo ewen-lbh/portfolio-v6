@@ -154,7 +154,7 @@ func (b ByMsgId) Swap(i, j int) {
 // GetTranslation returns the msgstr corresponding to msgid from the .po file
 // If not found, it returns the empty string
 func (t *Translations) GetTranslation(msgid string) string {
-	// t.seenMsgIds.Add(msgid)
+	t.seenMsgIds.Add(msgid)
 	for _, message := range t.poFile.Messages {
 		if message.MsgId == msgid && message.MsgStr != "" {
 			return message.MsgStr
