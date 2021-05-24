@@ -111,7 +111,7 @@ func (t *Translations) SavePO(path string) {
 	for _, msg := range t.poFile.Messages {
 		var isDupe bool
 		for _, msg2 := range dedupedMessages {
-			if msg.MsgId == msg2.MsgId {
+			if msg.MsgId == msg2.MsgId && msg.MsgContext == msg2.MsgContext {
 				isDupe = true
 			}
 		}
