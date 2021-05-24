@@ -13,8 +13,8 @@ mixin seo-tags(image="android-chrome-512x512.png", type="website")
 
 mixin title(title="")
 	if ne $title ""
-		title ewen.works: #{ translate $title }
-		meta(property="og:title", content="ewen.works: {{ translate $title }}")
+		title ewen.works: #{ $title }
+		meta(property="og:title", content="ewen.works: {{ $title }}")
 	else
 		title ewen.works
 		meta(property="og:title", content="ewen.works")

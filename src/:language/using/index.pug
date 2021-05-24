@@ -1,5 +1,7 @@
 extends ../layout
 
+block append head
+	+title(title=translate "technologies i use")
 
 block content
 	= $works := .Works
@@ -12,8 +14,8 @@ block content
 					a(href=`/using/{{ .URLName }}` title=(translate "More..."))
 						img.made-with__item__logo(
 							src=(asset (printf "logos/%s.svg" .URLName))
-							alt=(translate (printf "%s’s logo" .DisplayName))
+							alt=(printf (translate "%s’s logo") .DisplayName)
 						)
 						if .Author
 							span.made-with__item__subline= .Author
-						span.made-with__item__name(i18n)= .DisplayName
+						span.made-with__item__name= .DisplayName

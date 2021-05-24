@@ -1,11 +1,14 @@
 extends ../layout
 
+block append head
+	+title(title=printf (translate "works made with %s") .CurrentTech.DisplayName)
+
 block content
 	img.made-with-page__logo(src=(asset (printf "logos/%s.svg" .CurrentTech.URLName)))
 	h1.made-with-page__header
 		i18n works made with
 		br
-		i18n=.CurrentTech.DisplayName
+		| #{.CurrentTech.DisplayName}
 	p.description(i18n)= .CurrentTech.Description
 	if .CurrentTech.LearnMoreURL
 		a.description__learn-more(href=.CurrentTech.LearnMoreURL) 

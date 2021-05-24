@@ -100,11 +100,11 @@ block content
 						a(href=`/using/{{ $tech.URLName }}` title=(translate "More..."))
 							img.made-with__item__logo(
 								src=(asset (printf "logos/%s.svg" $tech.URLName))
-								alt=(translate (printf `%s’s logo` $tech.DisplayName))
+								alt=(printf (translate "%s’s logo") $tech.DisplayName)
 							)
 							if $tech.Author
 								span.made-with__item__subline= $tech.Author
-							span.made-with__item__name(i18n)= $tech.DisplayName
+							span.made-with__item__name= $tech.DisplayName
 
 	dialog#media-closeup(onclick="this.close()")
 		.media.empty
