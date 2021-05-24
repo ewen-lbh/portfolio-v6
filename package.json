@@ -15,7 +15,7 @@
 		"assets:build": "cp -r assets/* dist/ && svgo --recursive --quiet -f assets/ -o dist/",
 		"build": "pnpm database:build && concurrently npm:pug:build npm:livescript:build npm:stylus:build npm:assets:build",
 
-		"pug:watch": "hydrator/hydrate watch",
+		"pug:watch": "ortfomk watch",
 		"livescript:watch": "lsc   --watch -c --output assets/ src/*.ls",
 		"stylus:watch": "stylus    --watch --compress --sourcemap src/style.styl -o assets/style.css",
 		"assets:watch": "nodemon   --watch assets        --exec 'pnpm assets:build'",
