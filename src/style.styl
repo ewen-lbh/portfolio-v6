@@ -170,16 +170,11 @@ section.contents
 	margin 0 auto
 	padding 0 1rem
 	max-width 1000px
+	display grid
 
 	.row[data-columns='1']
 		@media (min-width 1000px)
 			max-height 85vh
-
-	.row
-		display flex
-		flex-direction row
-		justify-content center
-		margin 3rem 0.5rem
 
 	.cell > a
 		shape-link()
@@ -215,7 +210,6 @@ section.contents
 		opacity 0.5
 
 	&__list
-		// == layout
 		display flex
 		flex-wrap wrap
 		justify-content center

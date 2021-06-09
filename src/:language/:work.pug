@@ -123,8 +123,7 @@ block content
 		{{ end }}
 
 		.contents {
-			grid-template-areas: 'h1'
-				{{ .CurrentWork.CSSGridTemplateAreas | tnindent 4 }}
+			grid-template-areas: {{ .CurrentWork.CSSGridTemplateAreas }};
 		}
 
 	script(src=(asset "vendor/dialog-polyfill.js"))
