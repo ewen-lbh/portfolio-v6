@@ -123,10 +123,6 @@ block content
 		}
 		{{ end }}
 
-		.contents {
-			grid-template-areas: {{ .CurrentWork.CSSGridTemplateAreas }};
-		}
-
 	script(src=(asset "vendor/dialog-polyfill.js"))
 	script.
 		document.querySelectorAll('dialog').forEach(el => {
