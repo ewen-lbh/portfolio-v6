@@ -14,12 +14,10 @@ block content
 
 	h1(data-style=.CurrentWork.Metadata.Title)=.CurrentWork.Title
 
-	section.contents(style="display:grid")
+	section.contents
 
 		each _ in .CurrentWork.LayedOut
 			div.element(style=.CSS data-element-type=.Type)
-				if eq .Type "spacer"
-					.spacer
 				if eq .Type "paragraph"
 					!= .Content
 				if eq .Type "link"
