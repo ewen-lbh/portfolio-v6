@@ -94,3 +94,6 @@
 - singular: math
   plural:   math
   aliases:  [maths, mathematics]
+
+- singular: hardware
+  plural: hardware
