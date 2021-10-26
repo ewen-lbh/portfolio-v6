@@ -1,0 +1,54 @@
+extends layout
+
+block append head
+	+title(title="Ewen Le Bihan: Resume")
+
+block content
+	h1 Ewen Le Bihan 
+	p.subline Resume
+
+
+	h2 Languages
+
+	dl
+		dt English
+		dd: dl
+			dt TOEIC Score
+			dd(title="out of 990") 950
+		dt French
+		dd Native
+	
+	h2 Programming skills
+
+	dl
+		dt Languages & Frameworks
+		dd: dl
+			dt Go
+			dt Rust
+			hr
+			dt Python
+			dt Ruby
+			dt TypeScript
+			hr
+			dt Shell (sh, Bash and Fish)
+			hr
+			dt HTML & preprocessors (Pug, Slim, Mustache, etc.)
+			dt CSS & preprocessors (Stylus, SASS/SCSS)
+			dt JavaScript & preprocessors (CoffeeScript, LiveScript)
+			hr
+			dt Svelte
+			dt Vue & Nuxt
+			dt Django
+			hr
+			dt JSON
+			dt YAML
+			dt TOML
+		dt Types of projects
+		dd: dl
+			dt Command-line interfaces
+			dd: ul
+				= $works := .Works | withTag ("cli" | lookupTag)
+				each _ in $works
+					li
+						a(href=(.Links | first).URL)=.Title
+						!= (.Paragraphs | first).Content
