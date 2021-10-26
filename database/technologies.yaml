@@ -324,3 +324,15 @@
   learn more at: https://lark-parser.readthedocs.io/
   description: |
     A modern parsing library for Python. Lark can parse any context-free grammar
+
+- slug: penpot
+  name: Penpot
+  learn more at: https://penpot.app
+  description: |
+    Open Source design and prototyping platform meant for cross-domain teams. Non dependent on operating systems, Penpot is web based and works with open web standards (SVG).
+
+- slug: raspberry-pi
+  name: Raspberry Pi
+  learn more at: https://www.raspberrypi.org/
+  description: |
+    A series of small single-board computers
