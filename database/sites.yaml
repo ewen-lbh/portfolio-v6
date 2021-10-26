@@ -1,5 +1,5 @@
 - name: "spotify"
-  url: "https://"
+  url: "https://open.spotify.com/artist/6tUc6r8aNeiiT1mElcnMx9?si=yCM83yThR4WVCkC4Kd5p7Q"
   purpose: "my music"
   username: "Ewen-lbh"
 
@@ -19,7 +19,7 @@
   username: "ewen-lbh"
 
 - name: "deezer"
-  url: ""
+  url: "https://deezer.page.link/keZbR1mRNyp5ba6W9"
   purpose: "my music"
   username: "Ewen-lbh"
 
