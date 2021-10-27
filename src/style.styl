@@ -172,32 +172,34 @@ section.contents
 	margin 0 auto
 	padding 0 1rem
 	max-width 1000px
+	display grid
+	grid-auto-columns 1fr
+	gap 1em
 
-	.row[data-columns='1']
-		@media (min-width 1000px)
-			max-height 85vh
-
-	.row
+	@media (max-width: 1000px)
 		display flex
-		flex-direction row
-		justify-content center
-		margin 3rem 0.5rem
+		flex-direction column
 
-	.row > a
+	.element
+		display flex
+		flex-direction element
+		justify-content center
+
+	.element > a
 		shape-link()
 		justify-content center
 		align-self center
 
-	.row > p
+	.element > p
 		font-size 1.15rem
 
 		.footnote-ref a
 			highlighter-link()
 
-	.row > figure
+	.element > figure
 		overflow hidden
 
-	.row > figure > *
+	.element > figure > *
 		width 100%
 		height 100%
 		object-fit contain
@@ -217,7 +219,6 @@ section.contents
 		opacity 0.5
 
 	&__list
-		// == layout
 		display flex
 		flex-wrap wrap
 		justify-content center
