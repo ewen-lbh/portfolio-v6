@@ -1,0 +1,9 @@
+head
+	meta(http-equiv="refresh", content="1; url={{ .CurrentSite.URL }}")
+
+	script.
+		window.location = "#{.CurrentSite.URL}"
+
+body
+	h1(i18n) Redirecting you to #{ .CurrentSite.Name }...
+	p(i18n) If this doesn't work, you can #[a(href=.CurrentSite.URL) go to #{ .CurrentSite.Name } by clicking here]

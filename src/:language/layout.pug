@@ -29,23 +29,9 @@ html(lang="[# LANGUAGE CODE #]")
 			.links
 				span.links__hint ewen.works/to/
 				dl
-					dt: a(href="https://ewen.works/to/twitter") twitter
-					dd(i18n) random thoughts
-
-					dt: a(href="https://ewen.works/to/github") github
-					dd(i18n) open-source code
-
-					dt: a(href="https://ewen.works/to/spotify") spotify
-					dd(i18n) my music
-
-					dt: a(href="https://ewen.works/to/deezer") deezer
-					dd(i18n) also my music
-
-					dt: a(href="https://ewen.works/to/youtube") youtube
-					dd(i18n) music+visual
-
-					dt: a(href="https://ewen.works/to/mail") mail
-					dd(i18n) contact
+					each site in .KnownSites
+						dt: a(href="https://ewen.works/to/{{.Name}}")=.Name
+						dd(i18n)=.Purpose
 
 			.credits(role="contentinfo")
 				p(i18n) Made with &lt;3 by Ewen Le Bihan
