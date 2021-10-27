@@ -176,9 +176,9 @@ section.contents
 	grid-auto-columns 1fr
 	gap 1em
 
-	.element[data-columns='1']
-		@media (min-width 1000px)
-			max-height 85vh
+	@media (max-width: 1000px)
+		display flex
+		flex-direction column
 
 	.element
 		display flex
