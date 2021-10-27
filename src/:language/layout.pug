@@ -30,7 +30,7 @@ html(lang="[# LANGUAGE CODE #]")
 				span.links__hint ewen.works/to/
 				dl
 					each site in .KnownSites
-						dt: a(href="https://ewen.works/to/{{.Name}}")=.Name
+						dt: a(href="https://[# LANGUAGE CODE #].ewen.works/to/{{.Name}}")=.Name
 						dd(i18n)=.Purpose
 
 			.credits(role="contentinfo")
