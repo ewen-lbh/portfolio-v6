@@ -23,7 +23,7 @@ block content
 
 		a.work-card.work-card--large(
 			href=`/{{ $latestRelease.ID }}`
-			style!=`background-image:url('{{ $latestRelease.ThumbnailSource 700 }}');{{ $latestRelease.ColorsCSS }}`
+			style!=`background-image:url('{{ $latestRelease.ThumbnailSource 600 }}');{{ $latestRelease.ColorsCSS }}`
 		)
 			h3=$latestRelease.Title
 			if len $latestRelease.Paragraphs

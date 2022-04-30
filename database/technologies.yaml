@@ -336,3 +336,9 @@
   learn more at: https://www.raspberrypi.org/
   description: |
     A series of small single-board computers
+
+- slug: fyne
+  name: Fyne
+  learn more at: https://www.fyne.io
+  description: |
+    A simple cross-platform library to create graphical user interfaces in [Go](/using/go) that work on Android, iOS, Linux, MacOS and Windows.

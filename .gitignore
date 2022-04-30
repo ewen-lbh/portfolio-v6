@@ -167,3 +167,8 @@ assets/*.js
 assets/*.css
 assets/*.css.map
 media/
+dist.bak/
+
+progress.json
+.lastbuild.yaml
+ideas

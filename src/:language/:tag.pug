@@ -10,7 +10,7 @@ block content
 		p.description(i18n)= .CurrentTag.Description
 		if .CurrentTag.LearnMoreURL
 			a.description__learn-more(href=.CurrentTag.LearnMoreURL)
-				+icon(arrow-right)
+				+icon("arrow-right")
 				i18n Learn more
 
 	+gallery(works=.Works | tagged .CurrentTag)(class=`tag-{{.CurrentTag.URLName}}`)

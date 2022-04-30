@@ -13,8 +13,8 @@ block content
 				li.made-with__item
 					a(href=`/using/{{ .URLName }}` title=(translate "More..."))
 						img.made-with__item__logo(
-							src=(asset (printf "logos/%s.svg" .URLName))
-							alt=(printf (translate "%s’s logo") .DisplayName)
+							src=`{{ asset (printf "logos/%s.svg" .URLName) }}`
+							alt=`{{ printf (translate "%s’s logo") .DisplayName }}`
 						)
 						if .Author
 							span.made-with__item__subline= .Author

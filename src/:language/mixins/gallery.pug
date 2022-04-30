@@ -13,10 +13,10 @@ mixin gallery
 							li.gallery__works__year__works__work(style=.ColorsCSS)
 								a.work-card.work-card--medium(
 									href=`/{{ .ID }}`
-									class=(ternary "" "work-card--no-image" (ne (len .Media) 0))
+									class=`{{ ternary "" "work-card--no-image" (ne (len .Media) 0) }}`
 								)
 									if len .Media
-										img.work-card--medium__image(src=(.ThumbnailSource 700))
+										img.work-card--medium__image(src=(.ThumbnailSource 600))
 										
 									.work-card--medium__text
 										h4= .Title

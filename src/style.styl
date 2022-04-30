@@ -204,6 +204,9 @@ section.contents
 		height 100%
 		object-fit contain
 
+	.element img
+		cursor zoom-in
+
 .made-with
 	padding 5rem 0
 	background-color white
@@ -493,34 +496,6 @@ main
 	display flex
 	flex-direction column
 	justify-content center
-
-for num in 2 3 4 5
-	selector = 'section.contents .row[data-columns="' + num + '"]'
-	numpercent = (1 / num) * 100%
-
-	{selector}
-		@media (max-width 500px)
-			display flex
-			flex-direction column
-
-		@media (min-width 500px) and (max-width 1000px)
-			display flex
-			flex-direction row
-			flex-wrap wrap
-
-		@media (min-width 500px)
-			~ img,
-			~ p,
-			~ a
-				max-width numpercent
-
-		@media (min-width 1000px)
-			display grid
-			grid-template-columns repeat(num, 'calc(%s - 1rem)' % numpercent)
-			grid-gap 2rem
-
-section.contents .row[data-columns='1'] > p
-	text-align center
 
 body
 	background-position center

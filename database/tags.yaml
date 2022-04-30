@@ -24,6 +24,9 @@
 - singular: poster
   plural:   posters
 
+- singular: flyer
+  plural:   flyers
+
 - singular: automation
   plural:   automation
 
@@ -97,3 +100,11 @@
 
 - singular: hardware
   plural: hardware
+- singular: gui
+  plural: guis
+  learn more at: https://en.wikipedia.org/wiki/Graphical_user_interface
+  description: |
+    User interfaces that utilize graphical elements such as icons, and images.
+
+- singular: abstract
+  plural: abstract

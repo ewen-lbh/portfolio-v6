@@ -8,8 +8,8 @@
 		"configure:dev": "cp hydrator/dev.env .env",
 		"configure:prod": "cp hydrator/prod.env .env",
 
-		"database:build": "ortfodb ~/projects build --scattered --minified database/database.json --config database/.portfoliodb.yaml",
-		"pug:build": "ortfomk",
+		"database:build": "ortfodb ~/projects --scattered build database/database.json --config database/.portfoliodb.yaml",
+		"pug:build": "ortfomk src/ build with database/database.json to dist/ --write-progress progress.json",
 		"livescript:build": "lsc -c --output assets/ src/*.ls",
 		"stylus:build": "stylus --compress --sourcemap src/style.styl -o assets/style.css",
 		"assets:build": "cp -r assets/* dist/ && svgo --recursive --quiet -f assets/ -o dist/",
@@ -24,11 +24,10 @@
 
 		"pages:upload": "concurrently 'rsync -r --progress dist/en/  ubuntu@ewen.works:/home/user-data/www/en.ewen.works/' 'rsync -r --progress dist/fr/  ubuntu@ewen.works:/home/user-data/www/fr.ewen.works/'",
 		"assets:upload": "rsync -r --progress assets/ ubuntu@ewen.works:/home/user-data/www/assets.ewen.works/",
-		"media:upload": "rsync -r --progress media/ ubuntu@ewen.works:/home/user-data/www/media.ewen.works/",
+		"media:upload": "rsync -r --progress dist/media/ ubuntu@ewen.works:/home/user-data/www/media.ewen.works/",
 		"upload": "concurrently npm:pages:upload npm:assets:upload npm:media:upload",
 
-		"database:clean": "rm -r media",
-		"clean": "pnpm database:clean && rm -r dist",
+		"clean": "rm -r dist",
 
 		"make:prod": "pnpm configure:prod && pnpm build && pnpm upload"
 	},

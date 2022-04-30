@@ -5,6 +5,9 @@ block append head
 	+title(title=.CurrentWork.Title)
 
 block content
+
+	= $work := .CurrentWork
+
 	ul.tags: each _ in .CurrentWork.Metadata.Tags
 		= $tag := . | lookupTag
 		li: a(i18n href=`/{{ $tag.URLName }}`)=$tag.Singular
@@ -43,7 +46,7 @@ block content
 
 						else if eq .GeneralContentType "image"
 							img(
-								data-full-src=(media .Path)
+								data-full-src=`{{ media (printf "%s/%s" $work.ID .Path) }}`
 								src=(.ThumbnailSource 400)
 								id=.ID
 								title=.Title
@@ -72,12 +75,12 @@ block content
 		section.footnotes
 			h2.footnotes__title(i18n) footnotes
 			dl.footnotes__list
-				each _ in .CurrentWork.Footnotes
-					dt(id=`fn:{{ .Name }}`)
-						a(href=`#fn:{{ .Name }}`)=.Name
+				each _ in .CurrentWork.Footnotes | entriesStringString
+					dt(id=`fn:{{ .Key }}`)
+						a(href=`#fn:{{ .Key }}`)=.Key
 					dd
-						p= .Content
-						a.footnotes__list__item__reference-link(i18n href=`#fnref:{{ .Name }}`)
+						p= .Value
+						a.footnotes__list__item__reference-link(i18n href=`#fnref:{{ .Key }}`)
 							| ↖ Back to the text
 						//- TODO: handle multiple references (needs change in portfoliodb to add footnotes[].references)
 						//- { if ge (len .References) 2 }
@@ -97,8 +100,8 @@ block content
 					li.made-with__item
 						a(href=`/using/{{ $tech.URLName }}` title=(translate "More..."))
 							img.made-with__item__logo(
-								src=(asset (printf "logos/%s.svg" $tech.URLName))
-								alt=(printf (translate "%s’s logo") $tech.DisplayName)
+								src=`{{ asset (printf "logos/%s.svg" $tech.URLName) }}`
+								alt=`{{ printf (translate "%s’s logo") $tech.DisplayName }}`
 							)
 							if $tech.Author
 								span.made-with__item__subline= $tech.Author
@@ -106,7 +109,7 @@ block content
 
 	dialog#media-closeup(onclick="this.close()")
 		.media.empty
-		button.close(onclick="this.parentElement.close()" title=(translate "Close")) ×
+		button.close(onclick="this.parentElement.close()" title="close") ×
 
 	style.
 		:root {
