@@ -15,4 +15,4 @@ block content
 			li: a(i18n href="/about") about
 			//- li: a(i18n href="https://blog.ewen.works") blog
 			li: a(i18n href="/contact") contact
-			li: a(i18n onclick="window.location.hostname = '[# OTHER LANGUAGE CODE #].ewen.works';") en français
+			li: a(i18n onclick=`window.location.hostname = '${ current_language == "fr" ? "en" : "fr" }.ewen.works';`) en français

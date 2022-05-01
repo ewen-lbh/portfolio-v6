@@ -1,21 +1,20 @@
 extends ../layout
 
 block append head
-	+title(title=translate "technologies i use")
+	+title(title=translate("technologies i use"))
 
 block content
-	= $works := .Works
 	h1(i18n) technologies i use
 
 	ul.made-with__list.made-with__list--fullwidth
-		each _ in .KnownTechnologies
-			if len ($works | madeWith .)
+		each tech in all_technologies
+			if madeWith(all_works, tech)
 				li.made-with__item
-					a(href=`/using/{{ .URLName }}` title=(translate "More..."))
+					a(href=`/using/${ tech.URLName }` title=translate("More..."))
 						img.made-with__item__logo(
-							src=`{{ asset (printf "logos/%s.svg" .URLName) }}`
-							alt=`{{ printf (translate "%s’s logo") .DisplayName }}`
+							src=asset(`logos/${tech.URLName}.svg`)
+							alt=printf(translate("%s’s logo"), tech.DisplayName)
 						)
-						if .Author
-							span.made-with__item__subline= .Author
-						span.made-with__item__name= .DisplayName
+						if tech.Author
+							span.made-with__item__subline=tech.Author
+						span.made-with__item__name=tech.DisplayName

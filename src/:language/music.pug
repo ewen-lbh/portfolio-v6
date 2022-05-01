@@ -4,8 +4,8 @@ block append head
 	+title(title=translate "music")
 
 block content
-	= $releases := .Works | withTag ("music" | lookupTag)
-	= $latestRelease := $releases | latest
+	- const releases = withTag(all_works, "music")
+	- const latestRelease = latestWork(releases)
 
 	p.pre-h1(i18n) Hi, I'm Ewen Le Bihan.
 	h1(i18n) I also make electronic music.
@@ -13,7 +13,7 @@ block content
 		i18n I’ve been experimenting with sounds, their textures and their musicality since I was 7 years old.
 		br
 		a(href="/")
-			img.icon(src=(asset "icons/arrow-left.svg"))
+			img.icon(src=asset("icons/arrow-left.svg"))
 			i18n Back home
 
 
@@ -22,15 +22,15 @@ block content
 		h2(i18n) latest release
 
 		a.work-card.work-card--large(
-			href=`/{{ $latestRelease.ID }}`
-			style!=`background-image:url('{{ $latestRelease.ThumbnailSource 600 }}');{{ $latestRelease.ColorsCSS }}`
+			href=`/${ latestRelease.ID }`
+			style!=`background-image:url('${ ThumbnailSource(latestRelease, 600) }');${ latestRelease.ColorsCSS }`
 		)
-			h3=$latestRelease.Title
-			if len $latestRelease.Paragraphs
-				p=$latestRelease.Summary
+			h3=latestRelease.Title
+			if latestRelease.Paragraphs.length
+				p=Summary(latestRelease)
 
 	section#all
 
 		h2(i18n) past releases
 
-		+gallery(works=$releases)
+		+gallery(releases)

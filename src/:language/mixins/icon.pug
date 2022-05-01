@@ -1,2 +1,2 @@
 mixin icon(name)
-	img.icon(src=`{{ asset (printf "icons/%s.svg" $name) }}`)
+	img.icon(src=`${ asset(`icons/${name}.svg`) }`)

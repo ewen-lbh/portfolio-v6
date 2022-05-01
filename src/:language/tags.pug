@@ -4,21 +4,19 @@ block append head
 	+title(title=translate "works by tag")
 
 block content
-	= $works := .Works
-
 	h1(i18n) works by tag
 
 	ul.tags-index
 		//- For each tag, a work is selected to use as the tag link's colors.
 		//- Store already-selected works there to avoid seeing the same color multiple times
-		= $seen := makeWS
-		//- Don't show tags with no associated works
-		each _ in $tag := .KnownTags
-			if $works | tagged $tag | len
+		- let seen = new Set()
+		each tag in all_tags
+			//- Don't show tags with no associated works
+			if tagged(all_works, tag)
 				//- Select a work: latest of works tagged with the current tag, not already selected
-				= $selected := $works | tagged $tag | excluding $seen | latest
-				//- Add the selected work to the 'seen' slice
-				= $seen = $seen | appendWS $selected
+				- const selected = tagged(all_works, tag).filter(w => !seen.has(ColorsCSS(w)))?.[0]
+				- const colors = selected ? ColorsCSS(selected) : ""
+				- seen.add(colors)
 				//- Override --primary and --secondary
-				li(style=($selected.ColorsCSS))
-					a(i18n style=($selected.ColorsCSS) href=.URLName)=.Plural
+				li(style=colors)
+					a(i18n style=colors href=tag.URLName)=tag.Plural

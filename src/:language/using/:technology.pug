@@ -1,19 +1,19 @@
 extends ../layout
 
 block append head
-	+title(title=printf (translate "works made with %s") .CurrentTech.DisplayName)
+	+title(title=printf(translate("works made with %s"), CurrentTech.DisplayName))
 
 block content
-	img.made-with-page__logo(src=`{{ asset (printf "logos/%s.svg" .CurrentTech.URLName) }}`)
+	img.made-with-page__logo(src=`${ asset(`logos/${CurrentTech.URLName}.svg`) }`)
 	h1.made-with-page__header
 		i18n works made with
 		br
-		| #{.CurrentTech.DisplayName}
-	p.description(i18n)= .CurrentTech.Description
-	if .CurrentTech.LearnMoreURL
-		a.description__learn-more(href=.CurrentTech.LearnMoreURL) 
+		| #{CurrentTech.DisplayName}
+	p.description(i18n)= CurrentTech.Description
+	if CurrentTech.LearnMoreURL
+		a.description__learn-more(href=CurrentTech.LearnMoreURL) 
 			+icon("arrow-right")
 			i18n Learn more
 
 	section.made-with-page__gallery
-		+gallery(works=.Works | madeWith .CurrentTech)(class=`tech-{{ .CurrentTech.URLName }}`)
+		+gallery(madeWith(all_works, CurrentTech), classes=`tech-${ CurrentTech.URLName }`)

@@ -1,16 +1,16 @@
 extends layout
 
 block append head
-	+title(title=translate .CurrentTag.Plural)
+	+title(title=translate(CurrentTag.Plural))
 
 block content
-	h1(i18n)= .CurrentTag.Plural
+	h1(i18n)= CurrentTag.Plural
 
-	if .CurrentTag.Description
-		p.description(i18n)= .CurrentTag.Description
-		if .CurrentTag.LearnMoreURL
-			a.description__learn-more(href=.CurrentTag.LearnMoreURL)
+	if CurrentTag.Description
+		p.description(i18n)= CurrentTag.Description
+		if CurrentTag.LearnMoreURL
+			a.description__learn-more(href=CurrentTag.LearnMoreURL)
 				+icon("arrow-right")
 				i18n Learn more
 
-	+gallery(works=.Works | tagged .CurrentTag)(class=`tag-{{.CurrentTag.URLName}}`)
+	+gallery((withTag(all_works, CurrentTag)), classes=`tag-${CurrentTag.URLName}`)

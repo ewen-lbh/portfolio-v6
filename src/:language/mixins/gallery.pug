@@ -1,26 +1,32 @@
-mixin gallery
-	if len $works
-		ul(class=`gallery__works`)&attributes(attributes)
-			each _ in $year := $works | yearsOfWorks
+mixin gallery(works, classes="")
+	if works
+		ul(class=`gallery__works ${classes}`)&attributes(attributes)
+			each year in yearsOfWorks(works).sort().reverse()
 				li.gallery__works__year
-					if ne $year -1
-						h3=$year
+					if year != 0
+						h3=year
 					else
 						h3(i18n) Unknown year
 					
 					ul.gallery__works__year__works
-						each _ in $works | createdIn $year
-							li.gallery__works__year__works__work(style=.ColorsCSS)
+						each work in cleanedUp(createdIn(works, year))
+							li.gallery__works__year__works__work(style=ColorsCSS(work))
 								a.work-card.work-card--medium(
-									href=`/{{ .ID }}`
-									class=`{{ ternary "" "work-card--no-image" (ne (len .Media) 0) }}`
+									href=`/${ work.ID }`
+									class=(work.Media ? "" : "work-card--no-image")
+									data-primary=work.Metadata.Colors.Primary
+									data-secondary=work.Metadata.Colors.Secondary
 								)
-									if len .Media
-										img.work-card--medium__image(src=(.ThumbnailSource 600))
+									if work.Media && work.Media.length
+										img.work-card--medium__image(
+											src=ThumbnailSource(work, 600)
+											intrinsicsize=`${work.Media[0].Dimensions.Width}x${work.Media[0].Dimensions.Height}`
+											data-aspect-ratio=work.Media[0].Dimensions.AspectRatio
+										)
 										
 									.work-card--medium__text
-										h4= .Title
-										if len .Paragraphs
-											p= .Summary
+										h4= work.Title
+										if work.Paragraphs && work.Paragraphs.length
+											p=Summary(work)
 	else
-		ul.gallery__works--empty
+		.gallery__works--empty(i18n) No works there.

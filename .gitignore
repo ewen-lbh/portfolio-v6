@@ -172,3 +172,4 @@ dist.bak/
 progress.json
 .lastbuild.yaml
 ideas
+*.pug.*.js

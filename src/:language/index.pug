@@ -4,14 +4,14 @@ block append head
 	+title()
 
 block content
-	= $latest := .Works | finished | latest
+	- const latest = latestWork(finished(all_works))
 	p.pre-h1(i18n) Hi, I'm Ewen Le Bihan.
 	h1(i18n) These are my creations.
 	p.intro
 		i18n Hi! I'm Ewen Le Bihan. I'm interested in almost anything that is both creative and digital.
 		br
 		a(href="/about")
-			img.icon(src=(asset "icons/arrow-right.svg"))
+			img.icon(src=asset("icons/arrow-right.svg"))
 			span(i18n) Learn more
 
 
@@ -20,28 +20,28 @@ block content
 		h2(i18n) most recent one
 
 		a.work-card.work-card--large(
-			href=`/{{ $latest.ID }}`
+			href=`/${ latest.ID }`
 			style!=`
-				background-image:url('{{ $latest.ThumbnailSource 600 }}');
-				{{ $latest.ColorsCSS }}
+				background-image:url('${ ThumbnailSource(latest, 600) }');
+				${ latest.ColorsCSS }
 			`
-			class=`{{ ternary "" "work-card--no-image" (ne (len $latest.Media) 0) }}`
+			class=`${ latest.Media ? "" : "work-card--no-image" }`
 		)
-			h3= $latest.Title
-			if len $latest.Paragraphs
-				p= $latest.Summary 
+			h3= latest.Title
+			if latest.Paragraphs.length
+				p= Summary(latest)
 
 	section#finished
 
 		h2(i18n) others
 
-		+gallery(works=.Works | finished)
+		+gallery(finished(all_works))
 
 	section#wip
 
 		h2(i18n) work in progress
 
-		+gallery(works=.Works | unfinished)
+		+gallery(unfinished(all_works))
 
 	section#indexes-links
 

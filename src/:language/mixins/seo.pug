@@ -8,13 +8,13 @@ mixin seo-tags(image="android-chrome-512x512.png", type="website")
 		meta(name="twitter:card"		content="summary")
 		meta(name="twitter:site"		content="@ewen_lbh")
 		meta(name="twitter:creator"	content="@ewen_lbh")
-		meta(property="og:image"		content=(asset $image))
-		meta(property="og:type"			content=$type)
+		meta(property="og:image"		content=asset(image))
+		meta(property="og:type"			content=type)
 
 mixin title(title="")
-	if ne $title ""
-		title ewen.works: #{ $title }
-		meta(property="og:title", content="ewen.works: {{ $title }}")
+	if title
+		title ewen.works: #{ title }
+		meta(property="og:title", content=`ewen.works: ${ title }`)
 	else
 		title ewen.works
 		meta(property="og:title", content="ewen.works")

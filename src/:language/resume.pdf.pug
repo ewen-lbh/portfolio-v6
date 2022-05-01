@@ -14,7 +14,7 @@ block content
 		dt English
 		dd: dl
 			dt TOEIC Score
-			dd(title="out of 990") 950
+			dd 950/990
 		dt French
 		dd Native
 	
@@ -46,9 +46,4 @@ block content
 		dt Types of projects
 		dd: dl
 			dt Command-line interfaces
-			dd: ul
-				= $works := .Works | withTag ("cli" | lookupTag)
-				each _ in $works
-					li
-						a(href=(.Links | first).URL)=.Title
-						!= (.Paragraphs | first).Content
+			dd: +gallery(withTag(all_works, "cli"))
