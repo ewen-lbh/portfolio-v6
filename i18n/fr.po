@@ -177,8 +177,8 @@ msgstr ""
 msgid "Expressive, robust, feature-rich CSS language built for nodejs"
 msgstr "Langage CSS expressif, robuste, riche en fonctionnalités pour nodejs"
 
-msgid "Hi! I'm Ewen Le Bihan, I'm 17 years old and I'm interested in almost anything that is both creative and digital."
-msgstr "Hey! Je suis Ewen Le Bihan, j'ai 17 ans et je suis intéressé par presque tout ce qui est à la fois créatif et digital."
+msgid "Hi! I'm Ewen Le Bihan. I'm interested in almost anything that is both creative and digital."
+msgstr "Hey! Je suis Ewen Le Bihan. Je suis intéressé par presque tout ce qui est à la fois créatif et digital."
 
 msgid "Open Source design and prototyping platform meant for cross-domain teams. Non dependent on operating systems, Penpot is web based and works with open web standards (SVG)."
 msgstr "Plateforme de conception et prototypage open source visant des équipes multi-domaines. Non dépendante des systèmes d'exploitation, Penpot est un logiciel web et fonctionne avec les standards web ouverts (SVG)."
