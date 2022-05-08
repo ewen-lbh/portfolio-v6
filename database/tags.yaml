@@ -92,7 +92,7 @@
 
 - singular: language
   plural:   languages
-  description: Any piece of work related to both natural and programming languages
+  description: Any piece of work related to languages (programming languages or natural languages)
 
 - singular: math
   plural:   math
