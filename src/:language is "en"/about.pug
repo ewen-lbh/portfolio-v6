@@ -1,0 +1,32 @@
+extends ../layout
+
+block append head
+	+title(title="about me")
+
+block content
+	section
+		p.pre-h1 Hi, I'm Ewen Le Bihan.
+		h1 These are my creations.
+		p I'm interested in almost anything that is both creative and digital.
+
+	section
+		h2 arts
+		p Drawing at the school of fine arts in Nîmes, painting and sculpture workshops. Since I was 7 years old, I've been composing electronic music, taking piano and DJ lessons and participating in a music production masterclass. During my college years, I made many posters and logos using various software (3D, motion design, graphic design...)
+
+	section
+		h2 digital
+		p I learned to program in different computer languages: HTML, Python and JavaScript, which allowed me to create my website and, currently, a web application for students. All my programming projects are visible to everyone on my GitHub profile: all my projects are "Open Source".
+		p
+
+	section
+		h2 linguistics
+		p English being essential to read documentations, I have deepened this language (TOEIC Bridge: 176/180), conversed by mail with an American to realize a logo. I am also fascinated by writing since childhood: Cyrillic (hence my choice of #[abbr(title="Langue Vivante 3, an optional third language course available to high school students") LV3], Russian), Greek (private lessons) and hiraganas and katakanas (Japanese, self-taught).
+
+	section
+		h2 science
+		p I'm also interested in mathematic's language: I chose to continue my scientific education after high school by enrolling in a "classe préparatoire aux grandes écoles", an intensive 2-year program that prepares students for the competitive entrance exams to the top engineering schools. I sometimes learn complex mathematical concepts by browsing on wikipedia or by watching videos from YouTube channels such as "3Blue1Brown" or "Numerphile".
+
+	section.go-back
+		a.arrow-link(href="/")
+			img(src=asset("icons/arrow-left.svg"))
+			p Back home
