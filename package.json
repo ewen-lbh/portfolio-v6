@@ -6,7 +6,7 @@
 	"version": "0.1.0",
 	"scripts": {
 		"database:build": "ortfodb ~/projects --scattered build database/database.json --config database/.portfoliodb.yaml",
-		"pug:build": "ortfomk src/ build with database/database.json to dist/ --write-progress progress.json",
+		"pug:build": "ortfomk --clean build src/ with database/database.json to dist/ --write-progress progress.json",
 		"livescript:build": "lsc -c --output assets/ src/*.ls",
 		"stylus:build": "stylus --compress --sourcemap src/style.styl -o assets/style.css",
 		"assets:build": "cp -r assets/* dist/ && svgo --recursive --quiet -f assets/ -o dist/",
