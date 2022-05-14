@@ -43,7 +43,7 @@ block content
 							when "image"
 								img(
 									data-full-src=`${ media(`${CurrentWork.ID}/${cell.Path}`) }`
-									src=ThumbnailSource(cell, 400)
+									src=ThumbnailSource(cell, 1/cellWidth(cell) * 1000)
 									id=cell.ID
 									title=cell.Title
 									alt=cell.Alt
