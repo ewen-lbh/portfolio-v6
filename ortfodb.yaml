@@ -3,7 +3,7 @@ extract colors:
 
 make thumbnails:
   enabled: true
-  sizes: [100, 400, 600, 1200]
+  sizes: [166, 200, 250, 333, 500, 1000]
   file name template: <media directory>/<work id>/<media id>@<size>.webp
 
 media:

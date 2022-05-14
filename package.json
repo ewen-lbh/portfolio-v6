@@ -5,14 +5,13 @@
 	"license": "CC-BY-NC-ND-4.0",
 	"version": "0.1.0",
 	"scripts": {
-		"database:build": "ortfodb ~/projects --scattered build database/database.json --config database/.portfoliodb.yaml",
-		"pug:build": "ortfomk src/ build with database/database.json to dist/ --write-progress progress.json",
+		"database:build": "ortfodb ~/projects --scattered build database/database.json --config ortfodb.yaml",
+		"pug:build": "ortfomk build src/ with database/database.json to dist/ --write-progress progress.json",
 		"livescript:build": "lsc -c --output assets/ src/*.ls",
 		"stylus:build": "stylus --compress --sourcemap src/style.styl -o assets/style.css",
 		"assets:build": "cp -r assets/* dist/ && svgo --recursive --quiet -f assets/ -o dist/",
 		"build": "pnpm database:build && concurrently npm:pug:build npm:livescript:build npm:stylus:build npm:assets:build",
-
-		"pug:watch": "ortfomk src/ develop with database/database.json to dist/",
+		"pug:watch": "ENV=dev ortfomk develop src/ with database/database.json to dist/",
 		"livescript:watch": "lsc   --watch -c --output assets/ src/*.ls",
 		"stylus:watch": "stylus    --watch --compress --sourcemap src/style.styl -o assets/style.css",
 		"assets:watch": "nodemon   --watch assets        --exec 'pnpm assets:build'",

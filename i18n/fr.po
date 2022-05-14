@@ -102,9 +102,6 @@ msgstr "Un langage de programmation permettant de travailler rapidement et d'int
 msgid "A progressive Node.js framework for building efficient, reliable and scalable server-side applications"
 msgstr "Un framework Node.js progressif pour construire des applications côté serveur efficaces, fiables et évolutives"
 
-msgid "A radical new approach to building user interfaces. Whereas traditional frameworks like React and Vue do the bulk of their work in the browser, Svelte shifts that work into a compile step that happens when you build your app."
-msgstr "Une nouvelle approche radicale pour construire des interfaces utilisateur. Contrairement aux frameworks traditionnels comme React et Vue, Svelte effectue la majorité de leurs travaux dans le navigateur, mais se déplace vers une étape de compilation qui se produit lorsque vous construisez votre application."
-
 msgid "A radical new approach to building user interfaces. Whereas traditional frameworks like React and Vue do the bulk of their work in the browser, Svelte shifts that work into a compile step that happens when the app is built"
 msgstr "Une approche radicalement nouvelle de la construction d'interfaces utilisateurs. Alors que les frameworks traditionnels comme React et Vue font l'essentiel de leur travail dans le navigateur, Svelte transforme ce travail en une étape de compilation qui se produit lors de la création de l'application"
 
@@ -195,15 +192,6 @@ msgstr "Je crée aussi de la musique."
 msgid "I’ve been experimenting with sounds, their textures and their musicality since I was 7 years old."
 msgstr "J'expérimente les sons, leurs textures et leur musicalité depuis que j'ai 7 ans."
 
-msgid "J'ai appris à programmer dans différents langages informatiques: HTML, Python et JavaScript, ce qui m'a permis de créer mon site et, actuellement, une application web pour étudiants. J'ai aussi pour projet la création de plusieurs langages de programmation."
-msgstr ""
-
-msgid "L'anglais étant indispensable à la lecture de documentations, j'ai approfondi cette langue (TOEIC Bridge: 176/180), conversé par mail avec un américain pour réaliser un logo. Je suis aussi fasciné depuis l'enfance par l'écriture: le cyrillique (d'où mon choix de LV3, le russe), le grec (cours particuliers) et les hiraganas et katakanas (japonais en autodidacte)."
-msgstr ""
-
-msgid "Le langage mathématique m'intéresse tout autant: il m'arrive d'appréhender des concepts complexes mathématiques en naviguant sur wikipédia anglais ou en regardant des vidéos de chaînes YouTube telles que \"3Blue1Brown\" ou \"Numerphile\""
-msgstr ""
-
 msgid "Learn more"
 msgstr "En savoir plus"
 
@@ -221,6 +209,7 @@ msgstr "Programmes qui s'exécutent dans une console, une interface de texte pou
 
 msgid ""
 "Proudly\n"
+msgid "Proudly\n"
 "          <strong>\n"
 "            not\n"
 "          </strong>\n"
@@ -256,20 +245,11 @@ msgstr "Voici mes créations."
 msgid "This page does not exist (anymore)"
 msgstr "Cette page n'existe pas"
 
-msgid "Tout mes projets de programmation sont visibles par tous sur mon profil GitHub: tout mes projets sont dits \"Open Source\"."
-msgstr ""
-
 msgid "Unknown error"
 msgstr "Erreur inconnue"
 
 msgid "Unknown year"
 msgstr "Année inconnue"
-
-msgid "Web sites, web apps and web-related libraries"
-msgstr "Sites web, applications web et bibliothèques en lien avec le web"
-
-msgid "With a scientific side"
-msgstr "Avec un côté scientifique"
 
 msgid "about"
 msgstr "à propos"
@@ -288,9 +268,6 @@ msgstr "application"
 
 msgid "apps"
 msgstr "applications"
-
-msgid "artistique"
-msgstr ""
 
 msgid "automation"
 msgstr "automatisation"
@@ -394,9 +371,6 @@ msgstr "langages"
 msgid "latest release"
 msgstr "dernière sortie"
 
-msgid "linguistique"
-msgstr ""
-
 msgid "logo"
 msgstr "logo"
 
@@ -420,9 +394,6 @@ msgstr "musique+vidéo"
 
 msgid "my music"
 msgstr "ma musique"
-
-msgid "numérique"
-msgstr ""
 
 msgid "open-source code"
 msgstr "code open-source"
@@ -453,9 +424,6 @@ msgstr "scolaire"
 
 msgid "science"
 msgstr "science"
-
-msgid "scientifique"
-msgstr ""
 
 msgid "send a mail at"
 msgstr "envoyer un mail à"
@@ -495,9 +463,6 @@ msgstr "identité visuelle"
 
 msgid "web"
 msgstr "web"
-
-msgid "work in progress"
-msgstr ""
 
 msgid "works"
 msgstr "projets"
