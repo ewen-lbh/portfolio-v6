@@ -32,7 +32,7 @@ block content
 										width="100%"
 										height="100%"
 									)=cell.Alt
-							
+
 							when "audio"
 								audio(
 									src=media(cell.Path)
@@ -58,7 +58,7 @@ block content
 									id=cell.ID
 									title=cell.Title
 								)=Alt
-							
+
 							default
 								a(
 									src=media(cell.Path)
@@ -87,7 +87,7 @@ block content
 						//- 	{ end }
 						//- { end }
 
-	if CurrentWork.Metadata.MadeWith
+	if CurrentWork.Metadata.MadeWith.length
 		section.made-with
 			h2.made-with__title(i18n) made with
 			p.made-with__explainer(i18n) the software, frameworks, libraries, materials and services I used to make this
