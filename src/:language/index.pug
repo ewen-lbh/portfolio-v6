@@ -5,6 +5,7 @@ block append head
 
 block content
 	- const latest = latestWork(finished(all_works))
+	- const others = all_works.filter(w => w.ID !== latest.ID)
 	p.pre-h1(i18n) Hi, I'm Ewen Le Bihan.
 	h1(i18n) These are my creations.
 	p.intro
@@ -35,13 +36,13 @@ block content
 
 		h2(i18n) others
 
-		+gallery(finished(all_works))
+		+gallery(finished(others))
 
 	section#wip
 
 		h2(i18n) work in progress
 
-		+gallery(unfinished(all_works))
+		+gallery(unfinished(others))
 
 	section#indexes-links
 
