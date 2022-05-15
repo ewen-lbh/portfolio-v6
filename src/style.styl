@@ -1,132 +1,5 @@
-text-stroke(stroke, color)
-	shadow = ()
-	from = stroke * -1
-
-	for i in from .. stroke
-		for j in from .. stroke
-			push(shadow, '' + i * 1px + ' ' + j * 1px + ' 0 ' + color)
-
-	text-shadow unquote(join(', ', shadow))
-
-grid-gap(amount)
-	grid-gap amount
-	gap amount
-
-$(variable-name)
-	if variable-name == 'primary'
-		fallback = black
-
-	if variable-name == 'secondary'
-		fallback = white
-
-	var(unquote('--' + variable-name), fallback)
-
-primary = $(primary)
-secondary = $(secondary)
-sans-stack = Manrope Variable, Manrope, sans-serif
-monospace-stack = Inconsolata Variable, Inconsolata, monospace
-
-underline-link()
-	display inline-block
-	border-bottom 2px solid currentColor
-	text-decoration none
-
-highlighter-link()
-	padding 0.125em 0.25em
-	background primary
-	color secondary
-	text-decoration none
-
-	&:hover
-		font-weight 800
-
-	transition font-weight 0.25s ease
-
-weight-link()
-	text-decoration none
-
-	&:hover
-		font-weight 800
-		cursor pointer
-
-	transition font-weight 0.125s ease
-
-opacity-link()
-	text-decoration none
-	opacity 0.5
-
-	&:hover
-		opacity 1
-		cursor pointer
-
-	transition opacity 0.125s ease
-
-shape-link()
-	position relative
-	display flex
-	margin 5rem
-	color primary
-	text-align center
-	text-decoration none
-	font-size 1.5rem
-
-	&::before
-		position absolute
-		top -1rem
-		left 50%
-		z-index -1
-		width 4rem
-		height calc(100% + 2rem)
-		border 2px solid
-		border-color primary // Separate decl. so it's easily overwriteable
-		content ''
-		transform translateX(-50%)
-
-	&:hover::before
-		transform translateX(-50%) rotate(45deg) scale(1.1)
-
-	&:hover
-		font-weight 800
-
-	&:active::before
-		transform translateX(-50%) rotate(45deg) scale(0.75)
-
-	&,
-	&::before
-		transition all 0.25s ease
-
-strikeblink-link()
-	@keyframes blink
-		0%
-			color primary
-
-		50%
-			color transparent
-
-		100%
-			color primary
-
-	position relative
-	text-decoration none
-
-	&::before
-		position absolute
-		top calc(50% + 0.1em)
-		width 0
-		height 5%
-		background primary
-		content ''
-		transition all 0.25s ease
-		transform translateY(-50%)
-
-	&:hover::before
-		width 100%
-
-	&:hover
-		animation blink 0.5s
-		animation-timing-function step-start
-		animation-delay 0.25s - 0.125s
-		animation-iteration-count 1
+@import "mixins"
+@import "cards"
 
 ul.tags
 	display flex
@@ -163,7 +36,7 @@ h1[data-style=hidden]
 		font-size clamp(3rem, 10vw, 7rem)
 
 h2
-	margin 5rem 0
+	margin 3rem 0
 	@media (max-width 1000px)
 		margin 3rem 0
 	text-align center
@@ -370,6 +243,10 @@ nav
 	nav:not(.inline) ul li a
 		font-size 1.3em
 
+main
+	max-width calc(100vw - 2*1rem)
+	margin 0 auto
+
 footer
 	display flex
 	flex-direction column
@@ -417,89 +294,6 @@ footer
 		&__license img
 			margin-top 0.5rem
 			height 1.5rem
-
-.work-card--large
-	position relative
-	display flex
-	flex-direction column
-	justify-content flex-end
-	&.work-card--no-image
-		justify-content center
-		text-align center
-		box-sizing border-box
-	overflow hidden
-	padding 1.5rem
-	// border-radius 0.5em
-	&.work-card--no-image
-		border .25rem solid primary
-	width calc(min(40rem, calc(80vw - 2 * 1.5rem)))
-	height 20rem
-	background-color secondary
-	background-position center
-	background-size cover
-	background-repeat no-repeat
-	color primary
-	text-decoration none
-
-	// box-shadow: 0 14px 28px rgba(0,0,0,0.05), 0 10px 10px rgba(0,0,0,0.1);
-	h3
-		margin-bottom 0
-		font-weight 700
-		font-size 3rem
-		opacity 1
-
-	h3,
-	p
-		z-index 10
-
-	p
-		margin 0
-		height 3rem
-		transition all 0.25s ease
-	&:not(.work-card--no-image)
-		p
-			opacity 0
-		h3, p
-			color white
-			transform translateY(3rem)
-			mix-blend-mode difference
-	&,
-	& > *
-		transition all 0.25s ease
-
-	&:not(.work-card--no-image)::before
-		position absolute
-		bottom -@height
-		left 0
-		width 40rem + 2 * 1.5rem
-		height 7.5rem + 2 * 0.5rem
-		background-color primary
-		content ''
-		transition all 0.25s ease
-
-	&:hover::before
-		bottom 0
-
-	&:not(.work-card--no-image):hover
-		color secondary
-
-		p
-			opacity 1
-
-		h3,
-		p
-			transform translateY(0)
-
-	&.work-card--no-image:hover
-		border-width 2rem
-
-		h3, p
-			transform scale(1.05)
-			mix-blend-mode difference
-		h3
-			font-weight 900
-		p
-			font-weight 700
 
 main
 	display flex
@@ -555,19 +349,11 @@ body
 
 ul.gallery__works,
 ul.gallery__works__year__works
-	display flex
-	flex-direction column
-	align-items center
-	padding-left 0
 	list-style none
-
-	&__work
-		display flex
-		justify-content center
+	padding-left 0
 
 .gallery__works
 	margin 0 1rem
-	margin-top -3rem
 
 	&__year:first-child h3
 		margin-top 0
@@ -582,68 +368,8 @@ ul.gallery__works__year__works
 		margin 3rem 0
 		transition all 0.25s ease
 
-	&__year, &__year__works__work
-		width 100%
-
-.work-card--medium
-	display flex
-	max-width min(95vw, 80rem)
-	background-color secondary
-	color primary
-	text-decoration none
-	// border 1px solid transparent
-	transition all 0.25s ease
-	gap 3rem
-
-	&.work-card--no-image
-	&[data-secondary="white"]
-	&[data-secondary="#fff"]
-	&[data-secondary="#ffffff"]
-	&[data-secondary=""]
-		border 0.125rem solid primary
-
-	@media (max-width 600px)
-		flex-direction column
-		gap 0
-
-	&__image
-		// height 50vh
-		height 30vh
-		width 50vh
-		object-fit cover
-		object-position center
-
-	&__text
-		padding 2rem
-		display flex
-		flex-direction column
-		justify-content center
-
-		p
-			margin-top 0
-
-		@media (max-width 600px)
-			padding-top 0.25rem
-
-	h4
-		font-weight bold
-		font-size 1.6em
-
-.gallery__works__year__works__work:hover
-	transform translateY(-1rem) /* translateX(-1rem) */
-
-	.work-card--medium
-		// box-shadow 1rem 1rem 0 primary
-		box-shadow 0rem 1rem 0 primary
-		// border-color primary
-
-.gallery__works__year__works__work:active
-	transform translateY(-0.5rem) /* translateX(-0.5rem) */
-
-	.work-card--medium
-		// box-shadow 0.5rem 0.5rem 0 primary
-		box-shadow 0rem 0.5rem 0 primary
-		// border-color primary
+	// &__year, &__year__works__work
+	// 	width 100%
 
 section#latest,
 section#wip,
@@ -654,11 +380,6 @@ section.go-back
 	display flex
 	flex-direction column
 	align-items center
-
-section:not([class])
-	max-width 1000px
-	margin 0 auto
-	padding 0 1em
 
 dialog#media-closeup
 	position fixed
@@ -825,3 +546,14 @@ a.arrow-link
 	flex-direction column
 	display flex
 	align-items center
+
+.work-card
+	margin-bottom 2rem
+.year + .work-card
+	margin-top 2rem
+
+.year
+	text-align center
+	font-size 2em
+	margin 0
+	font-weight bold

@@ -1,0 +1,236 @@
+@import 'mixins'
+
+.work-card
+    position relative
+    display flex
+    flex-direction column
+    overflow hidden
+    margin 0 auto
+    max-width 800px
+    // width unquote("min(100%, 800px)")
+    width 100%
+    border-radius 0.5rem
+    background-color secondary
+    background-size cover
+    background-repeat no-repeat
+    color primary
+    text-decoration none
+
+    .thumb
+        grid-area thumb
+
+    h4
+        grid-area title
+
+    .summary
+        grid-area summary
+
+    .button-link
+        grid-area go
+    
+    h4, .summary, .button-link, .thumb
+        margin 0
+        padding 0
+
+    &[data-secondary='white'],
+    &[data-secondary='#fff'],
+    &[data-secondary='#ffffff'],
+    &[data-secondary='FFFFFF'],
+    &[data-secondary='']
+        border 2px solid primary
+
+    .thumb
+        object-fit contain
+
+    h4
+        font-weight bold
+        font-size 3em
+
+    .button-link a
+        display inline-block
+        margin-top auto
+        padding 0.25rem 0.5rem
+        border 2px solid primary
+        border-radius 0.25rem
+        text-decoration none
+
+        &:hover,
+        &:active
+            background primary
+            color secondary
+
+.work-card--display
+    justify-content center
+    align-items center
+    height min(50vh, 600px)
+
+    .thumb
+        position absolute
+        width 100%
+        height 100%
+        transition transform 0.5s ease, opacity 0.5s ease
+        transform scale(1.1)
+        pointer-events none
+        object-fit cover
+
+    h4
+        margin-top 25%
+
+        &:not([data-long])
+            font-size 5em
+
+        text-align center
+
+    .button-link
+        margin-bottom 25%
+
+    .summary
+        margin-right 25%
+        margin-left 25%
+
+    h4,
+    .button-link,
+    .summary
+        opacity 0
+        transition opacity 0.25s ease
+
+    &:hover,
+    &:active
+        .thumb
+            opacity 0.15
+            transform scale(1)
+
+        h4,
+        .button-link,
+        .summary
+            opacity 1
+
+@media (min-width 800px)
+    .work-card--no-thumb
+        justify-content center
+        align-items center
+        height min(33vh, 400px)
+
+        h4
+            margin-top 25%
+
+            &:not([data-long])
+                font-size 5em
+
+            text-align center
+
+        .button-link
+            margin-bottom 25%
+
+        .summary
+            margin-right 25%
+            margin-left 25%
+
+    .work-card--portrait
+        display grid
+        height min(33vh, 400px)
+        gap 1rem
+        grid-template-areas 'thumb title' 'thumb summary' 'thumb go'
+
+        .thumb
+            height 100%
+            @media (max-width 800px)
+                width 100%
+            pointer-events none
+            object-fit contain
+            object-position left
+
+        h4
+            margin-top 1rem
+            font-size 2em
+            &:not([data-long])
+                font-size 5em
+
+        .button-link
+            padding 1rem
+            justify-self end
+            align-items end
+            display flex
+            justify-content end
+
+        .summary
+            margin-right 1rem
+
+    .work-card--landscape
+        height min(50vh, 600px)
+        display grid
+        grid-template-rows 6fr 1fr 1fr
+        grid-template-areas "thumb thumb" "title go" "summary go"
+
+        .thumb
+            margin-top 1rem
+            width 100%
+            height 100%
+            object-fit contain
+
+        h4
+            font-size 2em
+            margin 0
+            margin-top 2rem
+            padding-left 1rem
+        
+        .button-link
+            padding 1rem
+            justify-self end
+            align-items end
+            display flex
+            justify-content end
+        
+        .summary
+            padding 1rem
+            padding-top 0
+            margin-top 0
+
+    .work-card--floating
+        height min(33vh, 400px)
+        flex-direction column
+        position relative
+
+        .thumb
+            justify-self start
+            align-self start
+            height 100%
+            pointer-events none
+
+        h4
+            position absolute
+            top 1rem
+            right 1rem
+            font-size 2em
+            writing-mode vertical-rl
+        
+        .summary
+            position absolute
+            top 25%
+            left 40%
+            width 40%
+            background primary
+            color secondary
+            padding 1rem
+            margin-top 0
+
+        .button-link 
+            position absolute
+            bottom 1rem
+            right 1rem
+
+@media (max-width 799px)
+    .work-card
+        &:not(&--display) .thumb
+            max-height 33vh
+            width 100%
+            object-fit cover
+
+        .summary, .button-link, h4
+            padding 1rem
+        
+        .button-link
+            text-align right
+        
+        h4
+            font-size 2em

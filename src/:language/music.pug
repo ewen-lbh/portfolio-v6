@@ -21,13 +21,7 @@ block content
 
 		h2(i18n) latest release
 
-		a.work-card.work-card--large(
-			href=`/${ latestRelease.ID }`
-			style!=`background-image:url('${ ThumbnailSource(latestRelease, 600) }');${ latestRelease.ColorsCSS }`
-		)
-			h3=latestRelease.Title
-			if latestRelease.Summary
-				p!=latestRelease.Summary
+		+work-card(latestRelease, "display")
 
 	section#all
 

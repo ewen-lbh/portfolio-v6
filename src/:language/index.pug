@@ -20,17 +20,7 @@ block content
 
 		h2(i18n) most recent one
 
-		a.work-card.work-card--large(
-			href=`/${ latest.ID }`
-			style!=`
-				background-image:url('${ ThumbnailSource(latest, 600) }');
-				${ latest.ColorsCSS }
-			`
-			class=`${ latest.Media ? "" : "work-card--no-image" }`
-		)
-			h3=latest.Title
-			if latest.Summary
-				p!=latest.Summary
+		+work-card(latest, "display")
 
 	section#finished
 

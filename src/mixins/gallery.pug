@@ -1,32 +1,11 @@
+include ./work-card
+
 mixin gallery(works, classes="")
-	if works
-		ul(class=`gallery__works ${classes}`)&attributes(attributes)
-			each year in yearsOfWorks(works).sort().reverse()
-				li.gallery__works__year
-					if year != 0
-						h3=year
-					else
-						h3(i18n) Unknown year
-					
-					ul.gallery__works__year__works
-						each work in cleanedUp(createdIn(works, year))
-							li.gallery__works__year__works__work(style=ColorsCSS(work))
-								a.work-card.work-card--medium(
-									href=`/${ work.ID }`
-									class=(work.Media ? "" : "work-card--no-image")
-									data-primary=work.Metadata.Colors.Primary
-									data-secondary=work.Metadata.Colors.Secondary
-								)
-									if work.Media && work.Media.length
-										img.work-card--medium__image(
-											src=ThumbnailSource(work, 600)
-											intrinsicsize=`${work.Media[0].Dimensions.Width}x${work.Media[0].Dimensions.Height}`
-											data-aspect-ratio=work.Media[0].Dimensions.AspectRatio
-										)
-										
-									.work-card--medium__text
-										h4= work.Title
-										if work.Summary
-											p!=work.Summary
-	else
-		.gallery__works--empty(i18n) No works there.
+	each year in yearsOfWorks(works).sort().reverse().filter(y => cleanedUp(createdIn(works, y)).length)
+		if year != 0
+			h3.year=year
+		else
+			h3.year(i18n) Unknown year
+			
+		each work in cleanedUp(createdIn(works, year))
+			+work-card(work)

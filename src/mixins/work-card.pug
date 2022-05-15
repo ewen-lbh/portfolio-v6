@@ -1,0 +1,21 @@
+mixin work-card(work, variant = "")
+    - const thumb = work.Media && work.Media.length > 0 ? work.Media[0] : null
+    - const aspectRatio = thumb ? thumb.Dimensions.AspectRatio : null
+    - variant = variant !== "" ? variant : aspectRatio === null ? "no-thumb" : aspectRatio <= 1.5 ? "portrait" : aspectRatio <= 1.75 ? "floating" : "landscape"
+    article.work-card(
+        class=`work-card--${variant}`
+        style=work.ColorsCSS + (work.Metadata.PageBackground ? `background-image: url(${media(work.ID+"/"+work.Metadata.PageBackground)});` : "") 
+        data-secondary=work.Metadata.Colors.Secondary
+        data-primary=work.Metadata.Colors.Primary
+    )
+        if thumb
+            img.thumb(
+                src=ThumbnailSource(work, variant === "display" ? 1000 : 500)
+                intrinsicsize=`${thumb.Dimensions.Width}x${thumb.Dimensions.Height}`
+                data-aspect-ratio=aspectRatio
+            )
+
+        h4(data-long)=work.Title
+        if work.Summary
+            p.summary=work.Summary
+        .button-link: a(href=`/${ work.ID }` i18n) read more

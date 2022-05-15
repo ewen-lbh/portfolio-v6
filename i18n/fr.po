@@ -440,6 +440,9 @@ msgstr "contactez-moi par message privé à"
 msgid "source code at"
 msgstr "code source disponible à"
 
+msgid "read more"
+msgstr "plus"
+
 msgid "tags"
 msgstr "catégories"
 

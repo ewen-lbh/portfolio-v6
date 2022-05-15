@@ -1,0 +1,129 @@
+text-stroke(stroke, color)
+	shadow = ()
+	from = stroke * -1
+
+	for i in from .. stroke
+		for j in from .. stroke
+			push(shadow, '' + i * 1px + ' ' + j * 1px + ' 0 ' + color)
+
+	text-shadow unquote(join(', ', shadow))
+
+grid-gap(amount)
+	grid-gap amount
+	gap amount
+
+$(variable-name)
+	if variable-name == 'primary'
+		fallback = black
+
+	if variable-name == 'secondary'
+		fallback = white
+
+	var(unquote('--' + variable-name), fallback)
+
+primary = var(--primary, black)
+secondary = var(--secondary, white)
+sans-stack = Manrope Variable, Manrope, sans-serif
+monospace-stack = Inconsolata Variable, Inconsolata, monospace
+
+underline-link()
+	display inline-block
+	border-bottom 2px solid currentColor
+	text-decoration none
+
+highlighter-link()
+	padding 0.125em 0.25em
+	background primary
+	color secondary
+	text-decoration none
+
+	&:hover
+		font-weight 800
+
+	transition font-weight 0.25s ease
+
+weight-link()
+	text-decoration none
+
+	&:hover
+		font-weight 800
+		cursor pointer
+
+	transition font-weight 0.125s ease
+
+opacity-link()
+	text-decoration none
+	opacity 0.5
+
+	&:hover
+		opacity 1
+		cursor pointer
+
+	transition opacity 0.125s ease
+
+shape-link()
+	position relative
+	display flex
+	margin 5rem
+	color primary
+	text-align center
+	text-decoration none
+	font-size 1.5rem
+
+	&::before
+		position absolute
+		top -1rem
+		left 50%
+		z-index -1
+		width 4rem
+		height calc(100% + 2rem)
+		border 2px solid
+		border-color primary // Separate decl. so it's easily overwriteable
+		content ''
+		transform translateX(-50%)
+
+	&:hover::before
+		transform translateX(-50%) rotate(45deg) scale(1.1)
+
+	&:hover
+		font-weight 800
+
+	&:active::before
+		transform translateX(-50%) rotate(45deg) scale(0.75)
+
+	&,
+	&::before
+		transition all 0.25s ease
+
+strikeblink-link()
+	@keyframes blink
+		0%
+			color primary
+
+		50%
+			color transparent
+
+		100%
+			color primary
+
+	position relative
+	text-decoration none
+
+	&::before
+		position absolute
+		top calc(50% + 0.1em)
+		width 0
+		height 5%
+		background primary
+		content ''
+		transition all 0.25s ease
+		transform translateY(-50%)
+
+	&:hover::before
+		width 100%
+
+	&:hover
+		animation blink 0.5s
+		animation-timing-function step-start
+		animation-delay 0.25s - 0.125s
+		animation-iteration-count 1
