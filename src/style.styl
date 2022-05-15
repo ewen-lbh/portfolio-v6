@@ -163,7 +163,9 @@ h1[data-style=hidden]
 		font-size clamp(3rem, 10vw, 7rem)
 
 h2
-	margin 7rem 0
+	margin 5rem 0
+	@media (max-width 1000px)
+		margin 3rem 0
 	text-align center
 	font-weight 800
 	font-size 3rem
@@ -572,9 +574,13 @@ ul.gallery__works__year__works
 
 .gallery__works
 	margin 0 1rem
+	margin-top -3rem
+
+	&__year:first-child h3
+		margin-top 0
 
 	&__year h3
-		margin 5rem 0
+		margin 2rem 0
 		text-align center
 		font-size 1.3em
 
