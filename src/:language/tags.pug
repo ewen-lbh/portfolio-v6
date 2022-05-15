@@ -14,7 +14,7 @@ block content
 			//- Don't show tags with no associated works
 			if tagged(all_works, tag)
 				//- Select a work: latest of works tagged with the current tag, not already selected
-				- const selected = tagged(all_works, tag).filter(w => !seen.has(ColorsCSS(w)))?.[0]
+				- const selected = tagged(all_works, tag).filter(w => !seen.has(ColorsCSS(w)))[0]
 				- const colors = selected ? ColorsCSS(selected) : ""
 				- seen.add(colors)
 				//- Override --primary and --secondary
