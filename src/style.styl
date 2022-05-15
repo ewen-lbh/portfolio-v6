@@ -443,46 +443,35 @@ p.intro
 .tags-index
 	padding 0
 	cell-size = 15rem
-	display flex
-	flex-wrap wrap
-	justify-content start
-	margin 5rem auto 0
-	max-width 1000px
-	width auto
+	display grid
+	grid-template-columns repeat(auto-fill, cell-size)
+	width unquote("min(100%, 1200px)")
+	justify-content center
+	margin 0 auto
 
 	li
-		display inline flex
+		display flex
 		flex-wrap wrap
-		justify-content center
-		align-items center
 		width cell-size
 		height cell-size
-		background primary
-		color secondary
+		background secondary
+		color primary
 		list-style none
 		text-align center
 
+		&:hover
+			background-color primary
+			color secondary
+
 	li a
-		shape-link()
-		color secondary
-
-		&::before
-			z-index 10
-			border-color secondary
-
+		color currentColor
+		weight-link()
 		font-size 1.5rem
-
-	// TODO: random slight variations in scale for each shape-link,
-	// using custom random() stylus function w/ the js API
-	li:nth-child(2n) a
-		&::before
-			border-radius 50%
-
-		&:hover::before
-			transform translateX(-50%) scale(1.3)
-
-		&:active::before
-			transform translateX(-50%) scale(0.8)
+		height 100%
+		width 100%
+		display flex
+		justify-content center
+		align-items center
 
 .big-links
 	display flex
