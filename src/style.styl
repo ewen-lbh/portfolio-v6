@@ -518,29 +518,22 @@ body
 		margin-bottom -1 * @margin-top
 
 	z-index 10
+	font-family monospace-stack
 	weight-link()
 
 	&::before
 		display inline-block
 		margin-right 0.5em
 		margin-bottom -0.3em
-		width 1.2em
+		width 1.2rem
 		height @width
 		border-radius 50%
 		background-color red
 		content ''
 		transition all 0.25s ease
 
-	&:hover::before
-		margin-bottom -0.5em
-		width @height
-		height 1.6em
+	&:hover::before, &:active::before
 		animation red-dot-blink 0.5s step-start infinite alternate
-
-	&:active::before
-		margin-bottom -0.1em
-		width @height
-		height 0.8em
 
 @keyframes red-dot-blink
 	0%
