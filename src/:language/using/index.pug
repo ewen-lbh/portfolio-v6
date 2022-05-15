@@ -8,7 +8,7 @@ block content
 
 	ul.made-with__list.made-with__list--fullwidth
 		each tech in all_technologies
-			if madeWith(all_works, tech)
+			if madeWith(all_works, tech).length
 				li.made-with__item
 					a(href=`/using/${ tech.URLName }` title=translate("More..."))
 						img.made-with__item__logo(

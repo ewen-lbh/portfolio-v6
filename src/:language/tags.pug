@@ -12,7 +12,7 @@ block content
 		- let seen = new Set()
 		each tag in all_tags
 			//- Don't show tags with no associated works
-			if tagged(all_works, tag)
+			if tagged(all_works, tag).length
 				//- Select a work: latest of works tagged with the current tag, not already selected
 				- const selected = tagged(all_works, tag).filter(w => !seen.has(ColorsCSS(w)))[0]
 				- const colors = selected ? ColorsCSS(selected) : ""
