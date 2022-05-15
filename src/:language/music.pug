@@ -26,8 +26,8 @@ block content
 			style!=`background-image:url('${ ThumbnailSource(latestRelease, 600) }');${ latestRelease.ColorsCSS }`
 		)
 			h3=latestRelease.Title
-			if latestRelease.Paragraphs.length
-				p=Summary(latestRelease)
+			if latestRelease.Summary
+				p!=latestRelease.Summary
 
 	section#all
 

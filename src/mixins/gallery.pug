@@ -26,7 +26,7 @@ mixin gallery(works, classes="")
 										
 									.work-card--medium__text
 										h4= work.Title
-										if work.Paragraphs && work.Paragraphs.length
-											p=Summary(work)
+										if work.Summary
+											p!=work.Summary
 	else
 		.gallery__works--empty(i18n) No works there.

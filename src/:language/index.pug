@@ -27,9 +27,9 @@ block content
 			`
 			class=`${ latest.Media ? "" : "work-card--no-image" }`
 		)
-			h3= latest.Title
-			if latest.Paragraphs.length
-				p= Summary(latest)
+			h3=latest.Title
+			if latest.Summary
+				p!=latest.Summary
 
 	section#finished
 
