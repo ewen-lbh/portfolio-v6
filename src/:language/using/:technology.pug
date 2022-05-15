@@ -1,7 +1,7 @@
 extends ../../layout
 
 block append head
-	+title(title=printf(translate("works made with %s"), CurrentTech.DisplayName))
+	+title(printf(translate("works made with %s"), CurrentTech.DisplayName))
 
 block content
 	img.made-with-page__logo(src=`${ asset(`logos/${CurrentTech.URLName}.svg`) }`)

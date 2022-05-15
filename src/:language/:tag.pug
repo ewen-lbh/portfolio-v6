@@ -1,7 +1,7 @@
 extends ../layout
 
 block append head
-	+title(title=translate(CurrentTag.Plural))
+	+title(translate(CurrentTag.Plural))
 
 block content
 	h1(i18n)= CurrentTag.Plural

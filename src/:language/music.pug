@@ -1,7 +1,7 @@
 extends ../layout
 
 block append head
-	+title(title=translate "music")
+	+title(translate("music"))
 
 block content
 	- const releases = withTag(all_works, "music")
