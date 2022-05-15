@@ -41,9 +41,10 @@ block content
 								)=Alt
 
 							when "image"
+								- let resolution = cellWidth(cell)/layoutWidth(CurrentWorkLayedOut) * 1000
 								img(
 									data-full-src=`${ media(`${CurrentWork.ID}/${cell.Path}`) }`
-									src=ThumbnailSource(cell, 1/cellWidth(cell) * 1000)
+									src=ThumbnailSource(cell, resolution)
 									id=cell.ID
 									title=cell.Title
 									alt=cell.Alt

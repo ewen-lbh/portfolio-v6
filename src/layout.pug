@@ -2,6 +2,7 @@
 - const cleanedUp = works => works.filter(w => w.Paragraphs && w.Paragraphs.length && w.Title)
 - const Summary = work => Summarize(work, 50)
 - const cellWidth = cell => { const [_, __, start, end] = PositionBounds(cell); return end - start }
+- const layoutWidth = cells => Math.max(...cells.map(cellWidth))
 
 include mixins/gallery.pug
 include mixins/seo.pug
