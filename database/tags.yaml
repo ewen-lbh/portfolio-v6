@@ -108,3 +108,9 @@
 
 - singular: abstract
   plural: abstract
+
+- singular: experiment
+  plural: experiments
+  aliases: [experimental]
+  description: |
+    Made with the intent to discover, not necessarily to be useful or aesthetic.
