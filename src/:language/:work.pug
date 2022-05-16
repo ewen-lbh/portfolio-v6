@@ -22,11 +22,12 @@ block content
 					a(href=cell.URL, id=cell.ID, title=cell.Title)=cell.Name
 				if cell.Type == "media"
 					figure(data-content-type=cell.ContentType)
+						- let source = media(`${CurrentWork.ID}/${cell.Path}`)
 						case cell.GeneralContentType
 							when "pdf"
 								.pdf-frame-container
 									iframe.pdf-frame(
-										src=media(cell.Path)
+										src=source
 										id=cell.ID
 										title=cell.Title
 										width="100%"
@@ -35,15 +36,21 @@ block content
 
 							when "audio"
 								audio(
-									src=media(cell.Path)
-									id=ID
-									title=Title
-								)=Alt
+									src=source
+									id=cell.ID
+									title=cell.Title
+									looped=cell.Attributes.Looped
+									autoplay=cell.Attributes.Autoplay
+									muted=cell.Attributes.Muted
+									playsinline=cell.Attributes.Playsinline
+									controls=cell.Attributes.Controls
+								)
+									a(href=source)=source
 
 							when "image"
 								- let resolution = cellWidth(cell)/layoutWidth(CurrentWorkLayedOut) * 1000
 								img(
-									data-full-src=`${ media(`${CurrentWork.ID}/${cell.Path}`) }`
+									data-full-src=source
 									src=ThumbnailSource(cell, resolution)
 									id=cell.ID
 									title=cell.Title
@@ -54,16 +61,19 @@ block content
 
 							when "video"
 								video(
-									src=media(cell.Path)
+									src=source
 									id=cell.ID
 									title=cell.Title
-								)=Alt
+									looped=cell.Attributes.Looped
+									autoplay=cell.Attributes.Autoplay
+									muted=cell.Attributes.Muted
+									playsinline=cell.Attributes.Playsinline
+									controls=cell.Attributes.Controls
+								)
+									a(href=source)=source
 
 							default
-								a(
-									src=media(cell.Path)
-									id=cell.ID
-								)=(cell.Title || cell.Alt)
+								a(src=source id=cell.ID)=source
 
 						if cell.Title
 							figcaption=cell.Title

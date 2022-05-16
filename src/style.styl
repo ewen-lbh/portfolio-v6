@@ -74,18 +74,23 @@ section.contents
 	
 	.element figure
 		margin 0
-
+	
+	.element figure[data-content-type^="audio/"]
+		width 100%
+		padding 0 2rem
+	
 	.element figcaption
 		font-family monospace-stack
 		text-align center
 
 	.element > figure > *
 		width 100%
+		max-height calc(90vh - 4rem)
 		object-fit contain
 
 	.element img
 		cursor zoom-in
-
+	
 .made-with
 	padding 5rem 0
 	background-color white
