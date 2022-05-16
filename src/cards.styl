@@ -63,6 +63,8 @@
     justify-content center
     align-items center
     height min(50vh, 600px)
+    @media (min-width 800px)
+        gap 1rem
 
     .thumb
         position absolute
@@ -85,13 +87,14 @@
         margin-bottom 25%
 
     .summary
-        margin-right 25%
-        margin-left 25%
+        margin 0 auto
+        width 75%
 
     h4,
     .button-link,
     .summary
         opacity 0
+        z-index 2
         transition opacity 0.25s ease
 
     &:hover,
@@ -144,7 +147,7 @@
             margin-top 1rem
             font-size 2em
             &:not([data-long])
-                font-size 5em
+                font-size 3em
 
         .button-link
             padding 1rem
