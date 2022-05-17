@@ -1,5 +1,5 @@
 mixin work-card(work, variant = "")
-    - const thumb = work.Media && work.Media.length > 0 ? work.Media[0] : null
+    - const thumb = work.Metadata.Thumbnail ? work.Media.find(m => m.Source === work.Metadata.Thumbnail) : (work.Media && work.Media.length > 0 ? work.Media[0] : null)
     - const aspectRatio = thumb ? thumb.Dimensions.AspectRatio : null
     - variant = variant !== "" ? variant : aspectRatio === null ? "no-thumb" : aspectRatio <= 1.5 ? "portrait" : aspectRatio <= 1.75 ? "floating" : "landscape"
     article.work-card(
