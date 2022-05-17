@@ -161,14 +161,14 @@
             margin-right 1rem
 
     .work-card--landscape
-        height min(50vh, 600px)
         display grid
-        grid-template-rows 6fr 1fr 1fr
+        grid-template-rows auto 1fr 1fr
         grid-template-areas "thumb thumb" "title go" "summary go"
 
         .thumb
             justify-self center
             object-fit contain
+            width 100%
 
         h4
             font-size 2em
