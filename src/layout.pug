@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 - const cleanedUp = works => works.filter(w => w.Paragraphs && w.Paragraphs.length && w.Title)
-- const cellWidth = cell => { const [_, __, start, end] = PositionBounds(cell); return end - start }
+- const cellWidth = cell => { const [_, __, start, end] = PositionBounds(cell); return end - start + 1 }
 - const layoutWidth = cells => Math.max(...cells.map(cellWidth))
 
 include mixins/work-card

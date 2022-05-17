@@ -10,7 +10,7 @@ mixin work-card(work, variant = "")
     )
         if thumb
             img.thumb(
-                src=ThumbnailSource(work, variant === "display" ? 1000 : 500)
+                src=ThumbnailSource(work, {display: 1000, landscape: 1000}[variant] || 500)
                 intrinsicsize=`${thumb.Dimensions.Width}x${thumb.Dimensions.Height}`
                 data-aspect-ratio=aspectRatio
             )

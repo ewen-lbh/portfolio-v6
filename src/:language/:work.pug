@@ -23,7 +23,7 @@ block content
 				if cell.Type == "media" && cell.ContentType != "directory"
 					figure(data-content-type=cell.ContentType data-general-content-type=cell.GeneralContentType)
 						- let source = media(`${CurrentWork.ID}/${cell.Path}`)
-						- let resolution = cellWidth(cell)/layoutWidth(CurrentWorkLayedOut) * 1000
+						- let resolution = cellWidth(cell)/layoutWidth(CurrentWorkLayedOut) * 1200
 						case cell.GeneralContentType
 							when "pdf"
 								a(href=source title=translate("Click to read the PDF"))
