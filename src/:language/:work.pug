@@ -18,10 +18,10 @@ block content
 			div.element(style=CellCSS(cell), data-element-type=cell.Type)
 				if cell.Type == "paragraph"
 					!= cell.Content
-				if cell.Type == "link"
-					a(href=cell.URL, id=cell.ID, title=cell.Title)=cell.Name
-				if cell.Type == "media"
-					figure(data-content-type=cell.ContentType)
+				if cell.Type == "link" || cell.ContentType == "directory"
+					a(href=cell.URL || media(`${CurrentWork.ID}/${cell.Path}`), id=cell.ID, title=cell.Title)=(cell.Name || cell.Alt)
+				if cell.Type == "media" && cell.ContentType != "directory"
+					figure(data-content-type=cell.ContentType data-general-content-type=cell.GeneralContentType)
 						- let source = media(`${CurrentWork.ID}/${cell.Path}`)
 						case cell.GeneralContentType
 							when "pdf"
