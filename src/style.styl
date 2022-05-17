@@ -116,11 +116,14 @@ section.contents
 
 	&__list
 		padding-left 0
-		display grid
-		grid-template-columns repeat(auto-fit, minmax(200px, 1fr))
 
 		&--fullwidth
-			max-width unset
+			display grid
+			grid-template-columns repeat(auto-fit, minmax(200px, 1fr))
+
+		&:not(&--fullwidth)
+			display flex
+			justify-content center
 
 	&__item
 		display flex
