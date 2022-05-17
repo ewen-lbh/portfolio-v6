@@ -173,3 +173,5 @@ progress.json
 .lastbuild.yaml
 ideas
 *.pug.*.js
+
+assets/page-styles/
