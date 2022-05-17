@@ -34,6 +34,11 @@ h1[data-style=hidden]
 	& + .row > figure
 		margin 0
 		font-size clamp(3rem, 10vw, 7rem)
+	
+h1 + p
+	margin 0 auto
+	margin-top -2rem
+	text-align center
 
 h2
 	margin 3rem 0
@@ -71,14 +76,14 @@ section.contents
 
 		.footnote-ref a
 			highlighter-link()
-	
+
 	.element figure
 		margin 0
-	
+
 	.element figure[data-content-type^="audio/"]
 		width 100%
 		padding 0 2rem
-	
+
 	.element figcaption
 		font-family monospace-stack
 		text-align center
@@ -430,9 +435,7 @@ dialog#media-closeup
 		object-position center
 
 p.intro
-	margin 0 auto
 	max-width 1000px
-	text-align center
 
 	a
 		display flex
