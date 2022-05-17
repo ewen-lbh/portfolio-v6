@@ -90,7 +90,16 @@ section.contents
 
 	.element img
 		cursor zoom-in
-	
+
+	.element figure[data-content-type="application/pdf"]
+		img
+			border 1px solid primary
+			width 100%
+			cursor pointer
+
+		a:hover img
+			filter brightness(0.8)
+
 .made-with
 	padding 5rem 0
 	background-color white

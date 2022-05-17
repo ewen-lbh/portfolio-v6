@@ -23,23 +23,21 @@ block content
 				if cell.Type == "media" && cell.ContentType != "directory"
 					figure(data-content-type=cell.ContentType data-general-content-type=cell.GeneralContentType)
 						- let source = media(`${CurrentWork.ID}/${cell.Path}`)
+						- let resolution = cellWidth(cell)/layoutWidth(CurrentWorkLayedOut) * 1000
 						case cell.GeneralContentType
 							when "pdf"
-								.pdf-frame-container
-									iframe.pdf-frame(
-										src=source
+								a(href=source title=translate("Click to read the PDF"))
+									img(
+										src=ThumbnailSource(cell, resolution)
 										id=cell.ID
-										title=cell.Title
-										width="100%"
-										height="100%"
-									)=cell.Alt
-
+										alt=cell.Alt
+									)
 							when "audio"
 								audio(
 									src=source
 									id=cell.ID
 									title=cell.Title
-									looped=cell.Attributes.Looped
+									loop=cell.Attributes.Loop
 									autoplay=cell.Attributes.Autoplay
 									muted=cell.Attributes.Muted
 									playsinline=cell.Attributes.Playsinline
@@ -48,7 +46,6 @@ block content
 									a(href=source)=source
 
 							when "image"
-								- let resolution = cellWidth(cell)/layoutWidth(CurrentWorkLayedOut) * 1000
 								img(
 									data-full-src=source
 									src=ThumbnailSource(cell, resolution)
@@ -64,7 +61,7 @@ block content
 									src=source
 									id=cell.ID
 									title=cell.Title
-									looped=cell.Attributes.Looped
+									loop=cell.Attributes.Loop
 									autoplay=cell.Attributes.Autoplay
 									muted=cell.Attributes.Muted
 									playsinline=cell.Attributes.Playsinline
