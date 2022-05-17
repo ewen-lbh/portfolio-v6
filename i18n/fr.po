@@ -159,6 +159,9 @@ msgstr "Un langage de programmation open source supporté par Google, comprenant
 msgid "Any piece of work related to languages (programming languages or natural languages)"
 msgstr "Projets liés au langage (langages de programmation ou langages naturels)"
 
+msgid "Application Programming Interfaces, mostly <em>Web</em> APIs, meaning machine-redable sites that allow data processing and interaction without going to the client-facing website"
+msgstr "Interfaces de programmation d'application, principalement des <em>Web</em> APIs, signifiant des sites lisibles par machine qui permettent le traitement et l'interaction sans avoir à visiter le site web conçu pour les utilisateurs"
+
 msgid "Back home"
 msgstr "Retour à l'accueil"
 
@@ -168,20 +171,11 @@ msgstr "Fermer"
 msgid "Design and coded by hand"
 msgstr "Site web fait maison"
 
-msgid "Dessin à l'école des beaux-arts de Nîmes, ateliers de peinture, de sculpture. Depuis mes 7 ans, je compose de la musique électronique, j'ai suivi des cours de piano et de DJ et participé à une masterclass de production musicale. Pendant mes années de collège, j'ai réalisé de nombreuses affiches et logos en utilisant divers logiciels (3D, motion design, graphisme…)"
-msgstr ""
-
 msgid "Expressive, robust, feature-rich CSS language built for nodejs"
 msgstr "Langage CSS expressif, robuste, riche en fonctionnalités pour nodejs"
 
 msgid "Hi! I'm Ewen Le Bihan. I'm interested in almost anything that is both creative and digital."
 msgstr "Hey! Je suis Ewen Le Bihan. Je suis intéressé par presque tout ce qui est à la fois créatif et digital."
-
-msgid "Open Source design and prototyping platform meant for cross-domain teams. Non dependent on operating systems, Penpot is web based and works with open web standards (SVG)."
-msgstr "Plateforme de conception et prototypage open source visant des équipes multi-domaines. Non dépendante des systèmes d'exploitation, Penpot est un logiciel web et fonctionne avec les standards web ouverts (SVG)."
-
-msgid "Application Programming Interfaces, mostly <em>Web</em> APIs, meaning machine-redable sites that allow data processing and interaction without going to the client-facing website"
-msgstr "Interfaces de programmation d'application, principalement des <em>Web</em> APIs, signifiant des sites lisibles par machine qui permettent le traitement et l'interaction sans avoir à visiter le site web conçu pour les utilisateurs"
 
 msgid "Hi, I'm Ewen Le Bihan."
 msgstr "Hey, je suis Ewen Le Bihan."
@@ -204,18 +198,18 @@ msgstr "Plus..."
 msgid "Music covers for albums, EPs and singles"
 msgstr "Pochettes pour albums, EPs et singles"
 
+msgid "Open Source design and prototyping platform meant for cross-domain teams. Non dependent on operating systems, Penpot is web based and works with open web standards (SVG)."
+msgstr "Plateforme de conception et prototypage open source visant des équipes multi-domaines. Non dépendante des systèmes d'exploitation, Penpot est un logiciel web et fonctionne avec les standards web ouverts (SVG)."
+
 msgid "Programs that run in the terminal, a text-based interface for computers."
 msgstr "Programmes qui s'exécutent dans une console, une interface de texte pour les ordinateurs."
 
-msgid ""
-"Proudly\n"
 msgid "Proudly\n"
 "          <strong>\n"
 "            not\n"
 "          </strong>\n"
 "          powered by Wordpress"
-msgstr ""
-"Fièrement\n"
+msgstr "Fièrement\n"
 "          <strong>\n"
 "            non\n"
 "          </strong>\n"
@@ -317,6 +311,9 @@ msgstr "pochette"
 msgid "cover arts"
 msgstr "pochettes"
 
+msgid "Made with the intent to discover, not necessarily to be useful or aesthetic."
+msgstr "Réalisé dans le but de découvrir sans contrainte d'utilité ou d'esthétique."
+
 msgid "drawing"
 msgstr "dessin"
 
@@ -335,6 +332,9 @@ msgstr "notes de bas de page"
 msgid "game"
 msgstr "jeu"
 
+msgid "experiment"
+msgstr "expérience"
+
 msgid "games"
 msgstr "jeux"
 
@@ -347,11 +347,14 @@ msgstr "matériel informatique"
 msgid "iconography"
 msgstr "icônes"
 
-msgid "icons"
-msgstr "icônes"
-
 msgid "illustration"
 msgstr "illustration"
+
+msgid "experiments"
+msgstr "expériences"
+
+msgid "icons"
+msgstr "icônes"
 
 msgid "illustrations"
 msgstr "illustrations"
@@ -410,6 +413,9 @@ msgstr "affiche"
 msgid "posters"
 msgstr "affiches"
 
+msgid "experimental"
+msgstr "expérimental"
+
 msgid "program"
 msgstr "programme"
 
@@ -418,6 +424,9 @@ msgstr "programmes"
 
 msgid "random thoughts"
 msgstr "pensées diverses"
+
+msgid "read more"
+msgstr "plus"
 
 msgid "school"
 msgstr "scolaire"
@@ -439,9 +448,6 @@ msgstr "contactez-moi par message privé à"
 
 msgid "source code at"
 msgstr "code source disponible à"
-
-msgid "read more"
-msgstr "plus"
 
 msgid "tags"
 msgstr "catégories"
@@ -492,3 +498,4 @@ msgstr "technologies utilisées"
 msgctxt "On homepage, as a section header for indexes"
 msgid "browse works by..."
 msgstr "projets par..."
+
