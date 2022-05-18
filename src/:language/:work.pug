@@ -23,16 +23,17 @@ block content
 				if cell.Type == "media" && cell.ContentType != "directory"
 					figure(data-content-type=cell.ContentType data-general-content-type=cell.GeneralContentType)
 						- let source = media(`${CurrentWork.ID}/${cell.Path}`)
-						- let resolution = cellWidth(cell)/layoutWidth(CurrentWorkLayedOut) * 1200
+						- let cellWidthRatio = cellWidth(cell)/layoutWidth(CurrentWorkLayedOut)
 						case cell.GeneralContentType
 							when "pdf"
 								a(href=source title=translate("Click to read the PDF"))
 									img(
-										src=ThumbnailSource(cell, resolution)
-										id=cell.ID
-										alt=cell.Alt
+										src=ThumbnailSource(cell, cellWidthRatio * 1200)
+										srcset=ThumbnailSourcesSet(cell)
+										sizes=`(max-width: 1000px) 95vw, calc(${cellWidthRatio * 1000}px`
 										width=cell.Dimensions.Width
 										height=cell.Dimensions.Height
+										data-aspect-ratio=cell.Dimensions.AspectRatio
 									)
 							when "audio"
 								audio(
@@ -50,7 +51,9 @@ block content
 							when "image"
 								img(
 									data-full-src=source
-									src=ThumbnailSource(cell, resolution)
+									src=ThumbnailSource(cell, cellWidthRatio*1200)
+									srcset=ThumbnailSourcesSet(cell)
+									sizes=`(max-width: 1000px) 95vw, calc(${cellWidthRatio * 1000}px`
 									id=cell.ID
 									title=cell.Title
 									alt=cell.Alt

@@ -11,8 +11,10 @@ mixin work-card(work, variant = "")
         if thumb
             img.thumb(
                 src=ThumbnailSource(work, {display: 1000, landscape: 1000}[variant] || 500)
-                intrinsicsize=`${thumb.Dimensions.Width}x${thumb.Dimensions.Height}`
+                srcset=ThumbnailSourcesSet(work)
+                sizes="(max-width: 800px) 99vw, 800px"
                 data-aspect-ratio=aspectRatio
+                loading="lazy"
             )
 
         h4(data-long=work.Title.length > 10)=work.Title
