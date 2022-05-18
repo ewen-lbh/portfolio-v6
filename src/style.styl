@@ -568,3 +568,40 @@ a.arrow-link
 	font-size 2em
 	margin 0
 	font-weight bold
+
+
+@keyframes spinner-rotate
+	0%
+		transform rotate(0deg)
+
+	100%
+		transform rotate(360deg)
+
+
+
+#media-closeup
+	.loading
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		position absolute
+		top 50%
+		left 50%
+		transform translate(-50%, -50%)
+		z-index -1
+	
+	.spinner
+		height 10rem
+		width 10rem
+	
+	.spinner line
+		stroke primary
+
+	.loading p
+		color primary
+		font-weight bold
+		font-size 1.5em
+	
+	.media
+		transition opacity 1s ease
