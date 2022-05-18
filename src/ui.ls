@@ -3,6 +3,8 @@ open-media-closeup =  ->
 	media-element = it.target.clone-node true
 	media-element.class-list.add \media
 	media-element.set-attribute \src (media-element.dataset.full-src)
+	media-element.remove-attribute \srcset
+	media-element.remove-attribute \sizes
 	popup = document.get-element-by-id \media-closeup
 	target = popup.first-child
 	target.replace-with media-element
