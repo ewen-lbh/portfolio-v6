@@ -1,7 +1,8 @@
 mixin work-card(work, variant = "")
-    - const thumb = work.Metadata.Thumbnail ? work.Media.find(m => m.Source === work.Metadata.Thumbnail) : (work.Media && work.Media.length > 0 ? work.Media[0] : null)
+    - const thumb = work.Media ? work.Media.find(m => m.Path === thumbnailKey(work)) : null
     - const aspectRatio = thumb ? thumb.Dimensions.AspectRatio : null
     - variant = variant !== "" ? variant : aspectRatio === null ? "no-thumb" : aspectRatio <= 1.5 ? "portrait" : aspectRatio <= 1.75 ? "floating" : "landscape"
+
     article.work-card(
         class=`work-card--${variant}`
         style=work.ColorsCSS + (work.Metadata.PageBackground ? `background-image: url(${media(work.ID+"/"+work.Metadata.PageBackground)});` : "") 
@@ -11,9 +12,12 @@ mixin work-card(work, variant = "")
     )
         if thumb
             img.thumb(
-                src=ThumbnailSource(work, {display: 1000, landscape: 1000}[variant] || 500)
+                src=ThumbnailSource(work, 0)
+                height=thumb.Dimensions.Height || null
+                width=thumb.Dimensions.Width || null
+                alt=thumb.Alt
                 srcset=ThumbnailSourcesSet(work)
-                sizes="(max-width: 800px) 99vw, 800px"
+                sizes=`(max-width: 800px) 99vw, ${["landscape", "display"].includes(variant) ? "800px" : `calc(min(400px, 33vh) * ${aspectRatio})`}`
                 data-aspect-ratio=aspectRatio
                 loading="lazy"
             )

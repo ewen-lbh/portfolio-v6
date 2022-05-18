@@ -95,6 +95,8 @@ section.contents
 
 	.element img
 		cursor zoom-in
+		// without this the height HTML attribute that sets the intrinsic height causes the <img> to stretch nightmarishly
+		height auto 
 
 	.element figure[data-content-type="application/pdf"]
 		img
@@ -429,6 +431,9 @@ dialog#media-closeup
 		left 50%
 		max-width 95vw
 		max-height 95vh
+		// (dimension): auto is used to prevent the HTML height/width (that set the intrinsic dimensions) from controlling the displayed dimensions
+		width auto
+		height auto
 		background-color secondary
 		transform translate(-50%, -50%)
 		object-fit contain

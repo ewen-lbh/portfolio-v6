@@ -30,7 +30,7 @@ block content
 									img(
 										src=ThumbnailSource(cell, cellWidthRatio * 1200)
 										srcset=ThumbnailSourcesSet(cell)
-										sizes=`(max-width: 1000px) 95vw, calc(${cellWidthRatio * 1000}px`
+										sizes=`(max-width: 1000px) 95vw, ${cellWidthRatio * 1000}px`
 										width=cell.Dimensions.Width
 										height=cell.Dimensions.Height
 										data-aspect-ratio=cell.Dimensions.AspectRatio
