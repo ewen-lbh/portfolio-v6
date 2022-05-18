@@ -1,6 +1,7 @@
 open-media-closeup =  ->
 	it.prevent-default!
-	media-element = it.target.clone-node true
+	console.log it.target
+	media-element = it.target.closest(\figure).query-selector(\img).clone-node true
 	media-element.class-list.add \media
 	media-element.set-attribute \src (media-element.dataset.full-src)
 	media-element.remove-attribute \srcset
