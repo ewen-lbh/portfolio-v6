@@ -7,6 +7,7 @@ mixin work-card(work, variant = "")
         style=work.ColorsCSS + (work.Metadata.PageBackground ? `background-image: url(${media(work.ID+"/"+work.Metadata.PageBackground)});` : "") 
         data-secondary=work.Metadata.Colors.Secondary
         data-primary=work.Metadata.Colors.Primary
+        data-no-thumb=!thumb
     )
         if thumb
             img.thumb(

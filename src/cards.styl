@@ -92,7 +92,8 @@
     h4,
     .button-link,
     .summary
-        opacity 0
+        ^[-1]:not([data-no-thumb]) &
+            opacity 0
         z-index 2
         transition opacity 0.25s ease
 
