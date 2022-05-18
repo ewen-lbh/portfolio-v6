@@ -31,6 +31,8 @@ block content
 										src=ThumbnailSource(cell, resolution)
 										id=cell.ID
 										alt=cell.Alt
+										width=cell.Dimensions.Width
+										height=cell.Dimensions.Height
 									)
 							when "audio"
 								audio(
@@ -52,7 +54,8 @@ block content
 									id=cell.ID
 									title=cell.Title
 									alt=cell.Alt
-									intrinsicsize=`${cell.Dimensions.Width}x${cell.Dimensions.Height}`
+									width=cell.Dimensions.Width
+									height=cell.Dimensions.Height
 									data-aspect-ratio=cell.Dimensions.AspectRatio
 								)
 
