@@ -166,6 +166,7 @@ database/.lastbuild.yaml
 assets/*.js
 assets/*.css
 assets/*.css.map
+!assets/spinner-animation.css
 media/
 dist.bak/
 

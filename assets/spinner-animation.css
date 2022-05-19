@@ -1,0 +1,377 @@
+/** .spinner .N-left **/
+@keyframes spinner-spinner-N-left {
+  18.181818181818183% {
+/* at 450 - 0 ms */
+    stroke-dashoffset: 0;
+  }
+
+  81.81818181818183% {
+/* at 2025 - 0 ms */
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: 1010;
+  }
+}
+
+.spinner .N-left {
+  animation: spinner-spinner-N-left 2475ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-delay: 0ms;
+}
+
+
+/** .spinner .E1-bottom **/
+@keyframes spinner-spinner-E1-bottom {
+  18.181818181818183% {
+/* at 450 - 0 ms */
+    stroke-dashoffset: 0;
+  }
+
+  81.81818181818183% {
+/* at 2025 - 0 ms */
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: 1010;
+  }
+}
+
+.spinner .E1-bottom {
+  animation: spinner-spinner-E1-bottom 2475ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-delay: 0ms;
+}
+
+
+/** .spinner .E1-right **/
+@keyframes spinner-spinner-E1-right {
+  18.181818181818183% {
+/* at 450 - 0 ms */
+    stroke-dashoffset: 0;
+  }
+
+  81.81818181818183% {
+/* at 2025 - 0 ms */
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: 1010;
+  }
+}
+
+.spinner .E1-right {
+  animation: spinner-spinner-E1-right 2475ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-delay: 0ms;
+}
+
+
+/** .spinner .W-bottom **/
+@keyframes spinner-spinner-W-bottom {
+  18.181818181818183% {
+/* at 450 - 0 ms */
+    stroke-dashoffset: 0;
+  }
+
+  81.81818181818183% {
+/* at 2025 - 0 ms */
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    stroke-dashoffset: 1010;
+  }
+}
+
+.spinner .W-bottom {
+  animation: spinner-spinner-W-bottom 2475ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-delay: 0ms;
+}
+
+
+/** .spinner .E1-middle **/
+@keyframes spinner-spinner-E1-middle {
+  22.22222222222222% {
+/* at 900 - 450 ms */
+    stroke-dashoffset: 0;
+  }
+
+  66.66666666666666% {
+/* at 1800 - 450 ms */
+    stroke-dashoffset: 0;
+  }
+
+  88.88888888888889% {
+/* at 2250 - 450 ms */
+    stroke-dashoffset: 1010;
+  }
+
+  100% {
+    stroke-dashoffset: 1010;
+  }
+}
+
+.spinner .E1-middle {
+  animation: spinner-spinner-E1-middle 2475ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-delay: 450ms;
+}
+
+
+/** .spinner .E2-middle **/
+@keyframes spinner-spinner-E2-middle {
+  22.22222222222222% {
+/* at 900 - 450 ms */
+    stroke-dashoffset: 0;
+  }
+
+  66.66666666666666% {
+/* at 1800 - 450 ms */
+    stroke-dashoffset: 0;
+  }
+
+  88.88888888888889% {
+/* at 2250 - 450 ms */
+    stroke-dashoffset: 1010;
+  }
+
+  100% {
+    stroke-dashoffset: 1010;
+  }
+}
+
+.spinner .E2-middle {
+  animation: spinner-spinner-E2-middle 2475ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-delay: 450ms;
+}
+
+
+/** .spinner .W-middle **/
+@keyframes spinner-spinner-W-middle {
+  22.22222222222222% {
+/* at 900 - 450 ms */
+    stroke-dashoffset: 0;
+  }
+
+  66.66666666666666% {
+/* at 1800 - 450 ms */
+    stroke-dashoffset: 0;
+  }
+
+  88.88888888888889% {
+/* at 2250 - 450 ms */
+    stroke-dashoffset: 1010;
+  }
+
+  100% {
+    stroke-dashoffset: 1010;
+  }
+}
+
+.spinner .W-middle {
+  animation: spinner-spinner-W-middle 2475ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-delay: 450ms;
+}
+
+
+/** .spinner .E1-top **/
+@keyframes spinner-spinner-E1-top {
+  28.57142857142857% {
+/* at 1350 - 900 ms */
+    stroke-dashoffset: 0;
+  }
+
+  57.14285714285714% {
+/* at 1800 - 900 ms */
+    stroke-dashoffset: 1010;
+  }
+
+  100% {
+    stroke-dashoffset: 1010;
+  }
+}
+
+.spinner .E1-top {
+  animation: spinner-spinner-E1-top 2475ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-delay: 900ms;
+}
+
+
+/** .spinner .E2-bottom **/
+@keyframes spinner-spinner-E2-bottom {
+  28.57142857142857% {
+/* at 1350 - 900 ms */
+    stroke-dashoffset: 0;
+  }
+
+  57.14285714285714% {
+/* at 1800 - 900 ms */
+    stroke-dashoffset: 1010;
+  }
+
+  100% {
+    stroke-dashoffset: 1010;
+  }
+}
+
+.spinner .E2-bottom {
+  animation: spinner-spinner-E2-bottom 2475ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-delay: 900ms;
+}
+
+
+/** .spinner .W-right **/
+@keyframes spinner-spinner-W-right {
+  28.57142857142857% {
+/* at 1350 - 900 ms */
+    stroke-dashoffset: 0;
+  }
+
+  57.14285714285714% {
+/* at 1800 - 900 ms */
+    stroke-dashoffset: 1010;
+  }
+
+  100% {
+    stroke-dashoffset: 1010;
+  }
+}
+
+.spinner .W-right {
+  animation: spinner-spinner-W-right 2475ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-delay: 900ms;
+}
+
+
+/** .spinner .N-right **/
+@keyframes spinner-spinner-N-right {
+  28.57142857142857% {
+/* at 1350 - 900 ms */
+    stroke-dashoffset: 0;
+  }
+
+  57.14285714285714% {
+/* at 1800 - 900 ms */
+    stroke-dashoffset: 1010;
+  }
+
+  100% {
+    stroke-dashoffset: 1010;
+  }
+}
+
+.spinner .N-right {
+  animation: spinner-spinner-N-right 2475ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-delay: 900ms;
+}
+
+
+/** .spinner .E1-left **/
+@keyframes spinner-spinner-E1-left {
+  28.57142857142857% {
+/* at 1350 - 900 ms */
+    stroke-dashoffset: 0;
+  }
+
+  57.14285714285714% {
+/* at 1800 - 900 ms */
+    stroke-dashoffset: 1010;
+  }
+
+  100% {
+    stroke-dashoffset: 1010;
+  }
+}
+
+.spinner .E1-left {
+  animation: spinner-spinner-E1-left 2475ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-delay: 900ms;
+}
+
+
+/** .spinner .E2-left **/
+@keyframes spinner-spinner-E2-left {
+  28.57142857142857% {
+/* at 1350 - 900 ms */
+    stroke-dashoffset: 0;
+  }
+
+  57.14285714285714% {
+/* at 1800 - 900 ms */
+    stroke-dashoffset: 1010;
+  }
+
+  100% {
+    stroke-dashoffset: 1010;
+  }
+}
+
+.spinner .E2-left {
+  animation: spinner-spinner-E2-left 2475ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-delay: 900ms;
+}
+
+
+/** .spinner **/
+@keyframes spinner-spinner {
+  60% {
+/* at 2025 - 1350 ms */
+    duration: 675;
+    transform: rotate(1turn);
+  }
+
+  100% {
+    duration: 675;
+    transform: rotate(1turn);
+  }
+}
+
+.spinner {
+  animation: spinner-spinner 2475ms;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-play-state: running;
+  animation-delay: 1350ms;
+}
+
+
+

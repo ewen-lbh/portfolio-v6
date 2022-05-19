@@ -2,6 +2,8 @@ extends ../layout
 
 block append head
 	link(rel="stylesheet" href=asset("vendor/dialog-polyfill.css"))
+	link(rel="stylesheet" href=asset("spinner-animation.css"))
+	//- script(src=asset("vendor/anime.min.js") defer fetchpriority="low" async)
 	+title(CurrentWork.Title)
 
 block content
@@ -118,6 +120,9 @@ block content
 
 	dialog#media-closeup(onclick="this.close()")
 		.media.empty
+		.loading
+			+spinner
+			p(i18n) loading image in full resolution…
 		button.close(onclick="this.parentElement.close()" title="close") ×
 
 	style.

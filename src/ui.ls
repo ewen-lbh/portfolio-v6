@@ -8,13 +8,13 @@ open-media-closeup =  ->
 	media-element.remove-attribute \sizes
 	popup = document.get-element-by-id \media-closeup
 	target = popup.query-selector \.media
+	loading = popup.query-selector \.loading
 	popup.show-modal!
-	if not document.spinner-animation
-		setup-spinner!
-	play-spinner!
+	setup-spinner!
+	# play-spinner!
 	media-element.style.opacity = 0
 	target.replace-with media-element
-	media-element.onload = -> 
+	media-element.onload = ->
 		console.log \loaded-image
 		media-element.style.opacity = 1
 		stop-spinner!
@@ -29,56 +29,62 @@ setup-spinner = ->
 	line = -> ".spinner .#{it}"
 	lines = -> it.map line
 
+	loading = document.get-element-by-id \media-closeup .query-selector \.loading
+
 	document.query-selector \.spinner .query-selector-all \line .for-each ->
 		it.style.stroke-dasharray = 1000
 		it.style.stroke-dashoffset = 1010
 
-	T = 600
+	loading.style.opacity = 1
 
-	document.spinner-timeline = anime.timeline do
-		loop:true
-		duration: T
-		# direction: \alternate
-		easing: \easeInOutExpo
-	
-	keyframe = (delay, obj) -> document.spinner-timeline.add obj, delay * T
-	
-	keyframe 0 do
-		targets: lines <[E1-middle E2-middle W-middle]>
-		stroke-dashoffset: 0
-	keyframe 1 do
-		targets: lines <[E1-top E2-bottom W-right N-right E1-left E2-left]>
-		stroke-dashoffset: 0
-	keyframe 2 do
-		targets: \.spinner
-		rotate: \1turn
-		duration: 2 * T
-	keyframe 2.5 do
-		targets: lines <[E1-top E2-bottom W-right N-right E1-left E2-left]>
-		stroke-dashoffset: 1010
-	keyframe 3 do
-		targets: lines <[E1-middle E2-middle W-middle]>
-		stroke-dashoffset: 1010
-	# keyframe 4.5 do
-	# 	targets: lines <[N-left E1-bottom E1-right W-bottom]>
+	# T = 600
+
+	# document.spinner-timeline = anime.timeline do
+	# 	loop:true
+	# 	duration: T
+	# 	# direction: \alternate
+	# 	easing: \easeInOutExpo
+
+	# keyframe = (delay, obj) -> document.spinner-timeline.add obj, delay * T
+
+	# keyframe 0 do
+	# 	targets: lines <[E1-middle E2-middle W-middle]>
+	# 	stroke-dashoffset: 0
+	# keyframe 1 do
+	# 	targets: lines <[E1-top E2-bottom W-right N-right E1-left E2-left]>
+	# 	stroke-dashoffset: 0
+	# keyframe 2 do
+	# 	targets: \.spinner
+	# 	rotate: \1turn
+	# 	duration: 2 * T
+	# keyframe 2.5 do
+	# 	targets: lines <[E1-top E2-bottom W-right N-right E1-left E2-left]>
 	# 	stroke-dashoffset: 1010
+	# keyframe 3 do
+	# 	targets: lines <[E1-middle E2-middle W-middle]>
+	# 	stroke-dashoffset: 1010
+	# # keyframe 4.5 do
+	# # 	targets: lines <[N-left E1-bottom E1-right W-bottom]>
+	# # 	stroke-dashoffset: 1010
 
-	document.spinner-animation = anime do
-		targets: lines <[N-left E1-bottom E1-right W-bottom]>
-		stroke-dashoffset: 0
-		duration: T
-		easing: \easeInOutSine
-		complete: ->
-			console.log \completed-initial-anim
-			document.spinner-timeline.play!
+	# document.spinner-animation = anime do
+	# 	targets: lines <[N-left E1-bottom E1-right W-bottom]>
+	# 	stroke-dashoffset: 0
+	# 	duration: T
+	# 	easing: \easeInOutSine
+	# 	complete: ->
+	# 		console.log \completed-initial-anim
+	# 		document.spinner-timeline.play!
 
 stop-spinner = ->
-	document.spinner-timeline.pause!
-	document.spinner-timeline.seek 0
-	document.spinner-animation.pause!
-	document.spinner-animation.seek 0
+	loading = document.get-element-by-id \media-closeup .query-selector \.loading
+	loading.style.opacity = 0
+	# document.spinner-timeline.pause!
+	# document.spinner-timeline.seek 0
+	# document.spinner-animation.pause!
+	# document.spinner-animation.seek 0
 
 play-spinner = ->
-	document.spinner-timeline.pause!
-	document.spinner-timeline.seek 0
-	document.spinner-animation.restart!
+	# document.spinner-timeline.pause!
+	# document.spinner-timeline.seek 0
+	# document.spinner-animation.restart!
