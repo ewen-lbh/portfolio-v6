@@ -348,3 +348,8 @@
   learn more at: https://krita.org
   description: |
     Free and open-source digital painting software
+
+- slug: nginx
+  name: NGIИX
+  learn more at: https://nginx.com
+  description: a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache

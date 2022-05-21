@@ -176,3 +176,5 @@ ideas
 *.pug.*.js
 
 assets/page-styles/
+
+database/wakatime.json
