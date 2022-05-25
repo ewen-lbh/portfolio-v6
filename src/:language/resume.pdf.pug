@@ -1,68 +1,107 @@
 extends ../layout
-//- TODO add info about since when I use the technology
+//- TODO add info about since when I use the technology (get creation date of earliest project)
 
 mixin tech-card(tech)
 	- const hoursSpentWith = tech => Object.keys(wakatimeAggregated.languages).includes(tech.URLName) ? Math.floor(wakatimeAggregated.languages[tech.URLName] / 3600) : 0
 	- const preprocessorsOf = { css: ['stylus', "sass", "vue", "nuxt", "svelte"], js: ["typescript", "livescript", "coffeescript", "vue", "nuxt", "svelte"], html: ["pug", "vue", "nuxt", "svelte", "django"], vue: ["nuxt"] }
 	- const hoursIncludingPreprocs = tech => hoursSpentWith(tech) + (Object.keys(preprocessorsOf).includes(tech.URLName) ? preprocessorsOf[tech.URLName].reduce((acc, preproc) => acc + hoursSpentWith({ URLName: preproc }), 0) : 0)
 
-	article.portfolio-card.portfolio-card--technology
+	article.resume-card.resume-card--technology
 		img.logo(src=asset(`logos/${tech.URLName}.svg`))
-		h4
-			if tech.Author
-				span.author=tech.Author
-			| #{tech.DisplayName}
-		
-		- const projectsCount = madeWith(all_works, tech).length
+		.text
+			h4
+				if tech.Author
+					span.author=tech.Author
+				| #{tech.DisplayName}
+			
+			//- p.description!=tech.Description
+			
+			- const projectsCount = madeWith(all_works, tech).length
 
-		if projectsCount
-			p.projects
-				span.count=projectsCount
-				| projects
-				a.link(href=`/using/${tech.URLName}`)
-					+icon("arrow-right")
-					i18n take a look
-		
-		if hoursSpentWith(tech)
-			p.time
-				span.count #{hoursIncludingPreprocs(tech)}+ hours
-				| of use
+			if projectsCount
+				p.projects
+					span.count=projectsCount
+					if projectsCount === 1
+						| project
+					else
+						| projects
+			
+			if hoursIncludingPreprocs(tech)
+				p.time
+					span.count #{hoursIncludingPreprocs(tech)}+&nbsp;
+						if hoursIncludingPreprocs(tech) === 1
+							| hour
+						else
+							| hours
+					| of use
+
+		.button-link: a(href=`/using/${tech.URLName}` i18n) take a look
 
 block append head
 	+title("Ewen Le Bihan: Resume")
 	+page-styles("resume")
 
 block content
-	- const programmingTechnologies = ["asciidoc", "coffeescript", "css", "csharp", "c++", "c", "djangorestframework", "django", "docopt", "fishshell", "go", "html", "javascript", "json", "livescript", "lua", "markdown", "nestjs", "nim", "nuxt", "oclif", "photoshop", "php", "plantuml", "postgresql", "pug", "python", "rubyonrails", "ruby", "rust", "sapper", "sass", "shell", "stylus", "svelte", "toml", "typescript", "vue", "webpack", "yaml", "lark", "raspberry-pi", "fyne", "nginx", "rollup", "vite", "nginx"]
+	- const programmingTechnologies = ["asciidoc", "coffeescript", "css", /* "csharp", "c++", "c", */ "djangorestframework", "django", "docopt", "fishshell", "go", "html", "javascript", "json", "livescript", "lua", "markdown", "nestjs", "nim", "nuxt", "oclif", "php", "plantuml", "postgresql", "pug", "python", "rubyonrails", "ruby", "rust", "sapper", "sass", "shell", "stylus", "svelte", "toml", "typescript", "vue", "webpack", "yaml", "lark", "raspberry-pi", "fyne", "nginx", "rollup", "vite", "nginx"]
 	- const graphicDesignSoftware = ["figma", "gimp", "illustrator", "indesign", "photoshop", "krita", "penpot", "assembly"]
 	- const motionDesignSoftware = ["aftereffects", "premierepro", "lightworks"]
 	- const musicMakingSoftware = ["flstudio", "ableton"]
+	- const preprocessorsOf = { css: ['stylus', "sass", "vue", "nuxt", "svelte"], js: ["typescript", "livescript", "coffeescript", "vue", "nuxt", "svelte"], html: ["pug", "vue", "nuxt", "svelte", "django"], vue: ["nuxt"] }
 	- const hoursSpentWith = tech => Object.keys(wakatimeAggregated.languages).includes(tech.URLName) ? Math.floor(wakatimeAggregated.languages[tech.URLName] / 3600) : 0
 	- const hoursIncludingPreprocs = tech => hoursSpentWith(tech) + (Object.keys(preprocessorsOf).includes(tech.URLName) ? preprocessorsOf[tech.URLName].reduce((acc, preproc) => acc + hoursSpentWith({ URLName: preproc }), 0) : 0)
-	- const technologies = domain => all_technologies.filter(t => domain.includes(t.URLName)).sort((a, b) => hoursIncludingPreprocs(a) - hoursIncludingPreprocs(b)).reverse()
+	- const technologies = domain => all_technologies.filter(t => domain.includes(t.URLName)).sort((a, b) => hoursIncludingPreprocs(a) - hoursIncludingPreprocs(b)+ madeWith(all_works, a).length - madeWith(all_works, b).length).reverse()
 
 	p.pre-h1 Ewen Le Bihan
 	h1 curriculum vitæ
 
-	h2 skills
-	h3 language hello :)
+	section.skills
+		h2 skills
+		h3 language
+		.cards-grid
+			.resume-card.resume-card--language: .text
+				h4 French
+				p Native
+			
+			.resume-card.resume-card--language: .text
+				h4 English
+				dl
+					dt
+						| TOEIC
+					dd
+						| 950
+						span.fraction-slash ⁄
+						| 990
+						span.date 12 March 2020
+					
+					dt CECRL
+					dd C1
 
-	h3 programming
-		.technologies-grid
+					dt ILR
+					dd 4
+
+					dt ACTFL
+					dd S
+
+				
+
+				
+
+		h3 programming
+		.cards-grid
 			each tech in technologies(programmingTechnologies)
 				+tech-card(tech)
 
-	h3 graphic design
-		.technologies-grid
+		h3 graphic design
+		.cards-grid
 			each tech in technologies(graphicDesignSoftware)
 				+tech-card(tech)
 
-	h3 motion design
-		.technologies-grid
+		h3 motion design
+		.cards-grid
 			each tech in technologies(motionDesignSoftware)
 				+tech-card(tech)
 
-	h3 music making
-		.technologies-grid
+		h3 music making
+		.cards-grid
 			each tech in technologies(musicMakingSoftware)
 				+tech-card(tech)
