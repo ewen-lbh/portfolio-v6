@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../ortfo/mk"
+		},
+		{
+			"path": "../ortfo/db"
+		},
+	]
+}
