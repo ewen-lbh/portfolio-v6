@@ -2,6 +2,8 @@
 - const cleanedUp = works => works.filter(w => w.Paragraphs && w.Paragraphs.length && w.Title)
 - const cellWidth = cell => { const [_, __, start, end] = PositionBounds(cell); return end - start + 1 }
 - const layoutWidth = cells => Math.max(...cells.map(cellWidth))
+- const cleanPath = path => path.replace(/index\.html$/, "").replace(/\.html$/, "").replace(/^(fr|en)\//, "")
+- const other_language = current_language === "fr" ? "en" : "fr"
 
 include mixins/work-card
 include mixins/spinner
@@ -30,7 +32,7 @@ html(lang=current_language)
 					//- li: a(i18n href="https://blog.ewen.works") blog
 					li: a(i18n href="/contact") contact
 					li: a(i18n href="/made-with") thanks
-					li: a(i18n onclick=`window.location.hostname = '${ current_language == "fr" ? "en" : "fr" }.ewen.works';`) en français
+					li: a(i18n href=`https://${other_language}.ewen.works/${cleanPath(current_path)}`) en français
 		main
 			block content
 		footer
