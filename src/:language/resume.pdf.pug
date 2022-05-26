@@ -1,44 +1,37 @@
 extends ../layout
 //- TODO add info about since when I use the technology (get creation date of earliest project)
 
-mixin tech-card(tech)
+mixin skill(tech)
 	- const hoursSpentWith = tech => (Object.keys(wakatimeAggregated.languages).includes(tech.URLName) ? Math.floor(wakatimeAggregated.languages[tech.URLName] / 3600) : 0)
 	- const preprocessorsOf = { css: ["stylus", "sass", "vue", "nuxt", "svelte"], js: ["typescript", "livescript", "coffeescript", "vue", "nuxt", "svelte"], html: ["pug", "vue", "nuxt", "svelte", "django"], vue: ["nuxt"] }
 	- const hoursIncludingPreprocs = tech => hoursSpentWith(tech) + (Object.keys(preprocessorsOf).includes(tech.URLName) ? preprocessorsOf[tech.URLName].reduce((acc, preproc) => acc + hoursSpentWith({ URLName: preproc }), 0) : 0)
 
-	article.resume-card.resume-card--technology
+	li.skill
+		- const projectsCount = madeWith(all_works, tech).length
+
 		img.logo(src=asset(`logos/${tech.URLName}.svg`))
-		.text
-			h4
-				if tech.Author
-					span.author= tech.Author
-				| #{ tech.DisplayName }
 
-			//- p.description!=tech.Description
+		h4
+			if tech.Author
+				span.author= tech.Author
+			| #{ tech.DisplayName }:
 
-			- const projectsCount = madeWith(all_works, tech).length
+		if projectsCount > 1
+			a(i18n href=`/using/${tech.URLName}`) #[span.count= projectsCount] projects
+		else if projectsCount === 1
+			a(i18n href=`/${madeWith(all_works, tech)[0].ID}`) #[span.count 1] project
 
-			if projectsCount
-				p.projects
-					span.count= projectsCount
-					if projectsCount === 1
-						| project
+		if hoursIncludingPreprocs(tech)
+			span.time
+				span.count #{ hoursIncludingPreprocs(tech) }+&nbsp;
+					if hoursIncludingPreprocs(tech) === 1
+						| hour
 					else
-						| projects
-
-			if hoursIncludingPreprocs(tech)
-				p.time
-					span.count #{ hoursIncludingPreprocs(tech) }+&nbsp;
-						if hoursIncludingPreprocs(tech) === 1
-							| hour
-						else
-							| hours
-					| of use
-
-		.button-link: a(i18n href=`/using/${tech.URLName}`) take a look
+						| hours
+				| of use
 
 block append head
-	+title("Ewen Le Bihan: Resume")
+	+title("curriculum vitæ")
 	+page-styles("resume")
 
 block content
@@ -49,7 +42,8 @@ block content
 	- const preprocessorsOf = { css: ["stylus", "sass", "vue", "nuxt", "svelte"], js: ["typescript", "livescript", "coffeescript", "vue", "nuxt", "svelte"], html: ["pug", "vue", "nuxt", "svelte", "django"], vue: ["nuxt"] }
 	- const hoursSpentWith = tech => (Object.keys(wakatimeAggregated.languages).includes(tech.URLName) ? Math.floor(wakatimeAggregated.languages[tech.URLName] / 3600) : 0)
 	- const hoursIncludingPreprocs = tech => hoursSpentWith(tech) + (Object.keys(preprocessorsOf).includes(tech.URLName) ? preprocessorsOf[tech.URLName].reduce((acc, preproc) => acc + hoursSpentWith({ URLName: preproc }), 0) : 0)
-	- const technologies = domain => all_technologies.filter(t => domain.includes(t.URLName)).sort((a, b) => hoursIncludingPreprocs(a) - hoursIncludingPreprocs(b)+ madeWith(all_works, a).length - madeWith(all_works, b).length).reverse()
+	- const projectsUsing = tech => madeWith(all_works, tech)
+	- const technologies = domain => all_technologies.filter(t => domain.includes(t.URLName)).filter(t => hoursIncludingPreprocs(t) || projectsUsing(t).length).sort((a, b) => hoursIncludingPreprocs(a) - hoursIncludingPreprocs(b) + projectsUsing(a).length - projectsUsing(b).length).reverse()
 
 	p.pre-h1 Ewen Le Bihan
 	h1 curriculum vitæ
@@ -57,12 +51,12 @@ block content
 	section.skills
 		h2 skills
 		h3 language
-		.cards-grid
-			.resume-card.resume-card--language: .text
+		ul.skills-list
+			li.skill
 				h4 French
 				p Native
 
-			.resume-card.resume-card--language: .text
+			li.skill
 				h4 English
 				dl
 					dt
@@ -83,21 +77,21 @@ block content
 					dd S
 
 		h3 programming
-		.cards-grid
+		ul.skills-list
 			each tech in technologies(programmingTechnologies)
-				+tech-card(tech)
+				+skill(tech)
 
 		h3 graphic design
-		.cards-grid
+		ul.skills-list
 			each tech in technologies(graphicDesignSoftware)
-				+tech-card(tech)
+				+skill(tech)
 
 		h3 motion design
-		.cards-grid
+		ul.skills-list
 			each tech in technologies(motionDesignSoftware)
-				+tech-card(tech)
+				+skill(tech)
 
 		h3 music making
-		.cards-grid
+		ul.skills-list
 			each tech in technologies(musicMakingSoftware)
-				+tech-card(tech)
+				+skill(tech)

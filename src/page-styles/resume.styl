@@ -8,7 +8,7 @@ section
 	margin 0 auto
 
 section.skills
-	max-width calc(3 * (300px + 30px + 2 * 2rem))
+	max-width 1000px
 
 h2, h3
 	margin 0
@@ -22,77 +22,44 @@ h3
 	&:not(:first-of-type)
 		margin-top 2rem
 
-.cards-grid
-	display flex
-	flex-wrap wrap
-	justify-content start
-	align-items start
-	gap 30px
+@media (min-width 800px)
+	.skills-list
+		columns 2
 
-.resume-card
-	width 300px
+.skill
+	display flex
+	align-items center
 	// width unquote("min(300px, calc(100vw - 10px))")
 	break-inside avoid
 	page-break-inside avoid
 	-webkit-column-break-inside avoid
+	gap 0.5rem
 
-	@media print
-		width 260px
-
-	position relative
-	display flex
-	align-self center
-	align-items center
-	padding 1.5rem 2rem
-	height 120px
-	border-radius 5px
-	background #f3f3f3
-	gap 1rem
-
-	.text
-		text-align left
+	&:not(:last-child)
+		margin-bottom 1.5rem
 
 	.logo
-		width 80px
-		height 80px
+		width 2.5em
 		object-fit contain
+		object-position center
 
-	.text p
-		margin 0
-
-	.text .count
+	.count
 		font-weight bold
-
-	.description
-		overflow hidden
-		max-height 2em
-		width calc(400px - 80px - 0.5rem - 1rem)
-		text-overflow ellipsis
-		white-space nowrap
 
 	h4
+		margin 0
 		font-weight bold
-		font-size 1.5rem
+		font-size 1.1rem
 
 		.author
 			opacity 0.75
 
-	.button-link
-		position absolute
-		right 1rem
-		bottom 1rem
-		text-align right
-
-		@media print
-			display none
-
 	dl
-		display flex
-		flex-wrap wrap
-		align-items center
+		display inline-grid
+		grid-template-columns 3rem auto
+		gap 0.5em
 
 	dt, dd
-		display inline-block
 		display flex
 		align-items center
 
