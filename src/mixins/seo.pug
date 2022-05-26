@@ -1,20 +1,25 @@
-mixin seo-tags(image="android-chrome-512x512.png", type="website")
-	//- commented out to prevent robots from thinking the site is live
-		meta(name="description" 		content="Hi! I'm Ewen Le Bihan, interested in almost anything that is both creative and digital: music, graphism, website design, software, motion design… This is my portfolio.")
-		meta(name="keywords" 			content="portfolio,music,graphism,motion design,software,programming,website,design,logo,animation,intro")
-		meta(name="robots" 				content="index, follow")
-		meta(name="language" 			content="[# LANGUAGE NAME #]")
-		meta(name="author" 				content="Ewen Le Bihan")
-		meta(name="twitter:card"		content="summary")
-		meta(name="twitter:site"		content="@ewen_lbh")
-		meta(name="twitter:creator"	content="@ewen_lbh")
-		meta(property="og:image"		content=asset(image))
-		meta(property="og:type"			content=type)
+mixin seo-tags(image="android-chrome-512x512.png", kind="website")
+	meta(
+		content="Hi! I'm Ewen Le Bihan, interested in almost anything that is both creative and digital: music, graphism, website design, software, motion design… This is my portfolio."
+		name="description"
+	)
+	meta(
+		content="portfolio,music,graphism,motion design,software,programming,website,design,logo,animation,intro"
+		name="keywords"
+	)
+	meta(content="index, follow" name="robots")
+	meta(content=current_language name="language")
+	meta(content="Ewen Le Bihan" name="author")
+	meta(content="summary" name="twitter:card")
+	meta(content="@ewen_lbh" name="twitter:site")
+	meta(content="@ewen_lbh" name="twitter:creator")
+	meta(content=asset(image) property="og:image")
+	meta(content=kind property="og:type")
 
 mixin title(title="")
 	if title
 		title ewen.works: #{ title }
-		meta(property="og:title", content=`ewen.works: ${ title }`)
+		meta(content=`ewen.works: ${ title }` property="og:title")
 	else
 		title ewen.works
-		meta(property="og:title", content="ewen.works")
+		meta(content="ewen.works" property="og:title")

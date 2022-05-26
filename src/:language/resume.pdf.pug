@@ -2,8 +2,8 @@ extends ../layout
 //- TODO add info about since when I use the technology (get creation date of earliest project)
 
 mixin tech-card(tech)
-	- const hoursSpentWith = tech => Object.keys(wakatimeAggregated.languages).includes(tech.URLName) ? Math.floor(wakatimeAggregated.languages[tech.URLName] / 3600) : 0
-	- const preprocessorsOf = { css: ['stylus', "sass", "vue", "nuxt", "svelte"], js: ["typescript", "livescript", "coffeescript", "vue", "nuxt", "svelte"], html: ["pug", "vue", "nuxt", "svelte", "django"], vue: ["nuxt"] }
+	- const hoursSpentWith = tech => (Object.keys(wakatimeAggregated.languages).includes(tech.URLName) ? Math.floor(wakatimeAggregated.languages[tech.URLName] / 3600) : 0)
+	- const preprocessorsOf = { css: ["stylus", "sass", "vue", "nuxt", "svelte"], js: ["typescript", "livescript", "coffeescript", "vue", "nuxt", "svelte"], html: ["pug", "vue", "nuxt", "svelte", "django"], vue: ["nuxt"] }
 	- const hoursIncludingPreprocs = tech => hoursSpentWith(tech) + (Object.keys(preprocessorsOf).includes(tech.URLName) ? preprocessorsOf[tech.URLName].reduce((acc, preproc) => acc + hoursSpentWith({ URLName: preproc }), 0) : 0)
 
 	article.resume-card.resume-card--technology
@@ -11,31 +11,31 @@ mixin tech-card(tech)
 		.text
 			h4
 				if tech.Author
-					span.author=tech.Author
-				| #{tech.DisplayName}
-			
+					span.author= tech.Author
+				| #{ tech.DisplayName }
+
 			//- p.description!=tech.Description
-			
+
 			- const projectsCount = madeWith(all_works, tech).length
 
 			if projectsCount
 				p.projects
-					span.count=projectsCount
+					span.count= projectsCount
 					if projectsCount === 1
 						| project
 					else
 						| projects
-			
+
 			if hoursIncludingPreprocs(tech)
 				p.time
-					span.count #{hoursIncludingPreprocs(tech)}+&nbsp;
+					span.count #{ hoursIncludingPreprocs(tech) }+&nbsp;
 						if hoursIncludingPreprocs(tech) === 1
 							| hour
 						else
 							| hours
 					| of use
 
-		.button-link: a(href=`/using/${tech.URLName}` i18n) take a look
+		.button-link: a(i18n href=`/using/${tech.URLName}`) take a look
 
 block append head
 	+title("Ewen Le Bihan: Resume")
@@ -46,8 +46,8 @@ block content
 	- const graphicDesignSoftware = ["figma", "gimp", "illustrator", "indesign", "photoshop", "krita", "penpot", "assembly"]
 	- const motionDesignSoftware = ["aftereffects", "premierepro", "lightworks"]
 	- const musicMakingSoftware = ["flstudio", "ableton"]
-	- const preprocessorsOf = { css: ['stylus', "sass", "vue", "nuxt", "svelte"], js: ["typescript", "livescript", "coffeescript", "vue", "nuxt", "svelte"], html: ["pug", "vue", "nuxt", "svelte", "django"], vue: ["nuxt"] }
-	- const hoursSpentWith = tech => Object.keys(wakatimeAggregated.languages).includes(tech.URLName) ? Math.floor(wakatimeAggregated.languages[tech.URLName] / 3600) : 0
+	- const preprocessorsOf = { css: ["stylus", "sass", "vue", "nuxt", "svelte"], js: ["typescript", "livescript", "coffeescript", "vue", "nuxt", "svelte"], html: ["pug", "vue", "nuxt", "svelte", "django"], vue: ["nuxt"] }
+	- const hoursSpentWith = tech => (Object.keys(wakatimeAggregated.languages).includes(tech.URLName) ? Math.floor(wakatimeAggregated.languages[tech.URLName] / 3600) : 0)
 	- const hoursIncludingPreprocs = tech => hoursSpentWith(tech) + (Object.keys(preprocessorsOf).includes(tech.URLName) ? preprocessorsOf[tech.URLName].reduce((acc, preproc) => acc + hoursSpentWith({ URLName: preproc }), 0) : 0)
 	- const technologies = domain => all_technologies.filter(t => domain.includes(t.URLName)).sort((a, b) => hoursIncludingPreprocs(a) - hoursIncludingPreprocs(b)+ madeWith(all_works, a).length - madeWith(all_works, b).length).reverse()
 
@@ -61,7 +61,7 @@ block content
 			.resume-card.resume-card--language: .text
 				h4 French
 				p Native
-			
+
 			.resume-card.resume-card--language: .text
 				h4 English
 				dl
@@ -72,7 +72,7 @@ block content
 						span.fraction-slash ⁄
 						| 990
 						span.date 12 March 2020
-					
+
 					dt CECRL
 					dd C1
 
@@ -81,10 +81,6 @@ block content
 
 					dt ACTFL
 					dd S
-
-				
-
-				
 
 		h3 programming
 		.cards-grid

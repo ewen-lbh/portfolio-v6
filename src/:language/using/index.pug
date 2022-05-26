@@ -12,9 +12,9 @@ block content
 				li.made-with__item
 					a(href=`/using/${ tech.URLName }` title=translate("More..."))
 						img.made-with__item__logo(
-							src=asset(`logos/${tech.URLName}.svg`)
 							alt=printf(translate("%s’s logo"), tech.DisplayName)
+							src=asset(`logos/${tech.URLName}.svg`)
 						)
 						if tech.Author
-							span.made-with__item__subline=tech.Author
-						span.made-with__item__name=tech.DisplayName
+							span.made-with__item__subline= tech.Author
+						span.made-with__item__name= tech.DisplayName

@@ -1,7 +1,7 @@
 extends ../layout
 
 block append head
-	+title()
+	+title
 
 block content
 	- const latest = latestWork(finished(all_works))
@@ -15,27 +15,22 @@ block content
 			img.icon(src=asset("icons/arrow-right.svg"))
 			span(i18n) Learn more
 
-
 	section#latest
-
 		h2(i18n) most recent one
 
 		+work-card(latest, "display")
 
 	section#finished
-
 		h2(i18n) others
 
 		+gallery(finished(others))
 
 	section#wip
-
 		h2(i18n) work in progress
 
 		+gallery(unfinished(others))
 
 	section#indexes-links
-
 		h2(i18n i18n-context="On homepage, as a section header for indexes") browse works by...
 
 		ul.big-links

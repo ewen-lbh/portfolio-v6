@@ -1,87 +1,94 @@
 extends ../layout
 
 block append head
-	link(rel="stylesheet" href=asset("vendor/dialog-polyfill.css"))
-	link(rel="stylesheet" href=asset("spinner-animation.css"))
+	link(href=asset("vendor/dialog-polyfill.css") rel="stylesheet")
+	link(href=asset("spinner-animation.css") rel="stylesheet")
 	//- script(src=asset("vendor/anime.min.js") defer fetchpriority="low" async)
 	+title(CurrentWork.Title)
 
 block content
 	ul.tags: each tag in CurrentWork.Metadata.Tags.map(lookupTag).filter(t => t !== undefined)
-		li: a(i18n href=`/${ URLName(tag) }`)=tag.Singular
+		li: a(i18n href=`/${ URLName(tag) }`)= tag.Singular
 
 	if IsWIP(CurrentWork)
 		a.work-in-progress(i18n href="/#wip") work in progress
 
-	h1(data-style=CurrentWork.Metadata.Title)=CurrentWork.Title
+	h1(data-style=CurrentWork.Metadata.Title)= CurrentWork.Title
 
 	section.contents
 		each cell in CurrentWorkLayedOut || []
-			div.element(style=CellCSS(cell), data-element-type=cell.Type)
+			.element(data-element-type=cell.Type style=CellCSS(cell))
 				if cell.Type == "paragraph"
 					!= cell.Content
 				if cell.Type == "link" || cell.ContentType == "directory"
-					a(href=cell.URL || media(`${CurrentWork.ID}/${cell.Path}`), id=cell.ID, title=cell.Title)=(cell.Name || cell.Alt)
+					a(
+						href=cell.URL || media(`${CurrentWork.ID}/${cell.Path}`)
+						id=cell.ID
+						title=cell.Title
+					)= cell.Name || cell.Alt
 				if cell.Type == "media" && cell.ContentType != "directory"
-					figure(data-content-type=cell.ContentType data-general-content-type=cell.GeneralContentType)
+					figure(
+						data-content-type=cell.ContentType
+						data-general-content-type=cell.GeneralContentType
+					)
 						- let source = media(`${CurrentWork.ID}/${cell.Path}`)
-						- let cellWidthRatio = cellWidth(cell)/layoutWidth(CurrentWorkLayedOut)
+						- let cellWidthRatio = cellWidth(cell) / layoutWidth(CurrentWorkLayedOut)
 						case cell.GeneralContentType
 							when "pdf"
 								a(href=source title=translate("Click to read the PDF"))
 									img(
+										data-aspect-ratio=cell.Dimensions.AspectRatio
+										height=cell.Dimensions.Height
+										sizes=`(max-width: 1000px) 95vw, ${cellWidthRatio * 1000}px`
 										src=ThumbnailSource(cell, cellWidthRatio * 1200)
 										srcset=ThumbnailSourcesSet(cell)
-										sizes=`(max-width: 1000px) 95vw, ${cellWidthRatio * 1000}px`
 										width=cell.Dimensions.Width
-										height=cell.Dimensions.Height
-										data-aspect-ratio=cell.Dimensions.AspectRatio
 									)
 							when "audio"
 								audio(
-									src=source
-									id=cell.ID
-									title=cell.Title
-									loop=cell.Attributes.Loop
 									autoplay=cell.Attributes.Autoplay
+									controls=cell.Attributes.Controls
+									id=cell.ID
+									loop=cell.Attributes.Loop
 									muted=cell.Attributes.Muted
 									playsinline=cell.Attributes.Playsinline
-									controls=cell.Attributes.Controls
+									src=source
+									title=cell.Title
 								)
-									a(href=source)=source
+									a(href=source)= source
 
 							when "image"
 								img(
-									data-full-src=source
-									src=ThumbnailSource(cell, cellWidthRatio*1200)
-									srcset=ThumbnailSourcesSet(cell)
-									sizes=`(max-width: 1000px) 95vw, calc(${cellWidthRatio * 1000}px`
-									id=cell.ID
-									title=cell.Title
 									alt=cell.Alt
-									width=cell.Dimensions.Width
-									height=cell.Dimensions.Height
 									data-aspect-ratio=cell.Dimensions.AspectRatio
+									data-full-src=source
+									height=cell.Dimensions.Height
+									id=cell.ID
+									sizes=`(max-width: 1000px) 95vw, calc(${cellWidthRatio * 1000}px`
+									src=ThumbnailSource(cell, cellWidthRatio * 1200)
+									srcset=ThumbnailSourcesSet(cell)
+									title=cell.Title
+									width=cell.Dimensions.Width
 								)
 
 							when "video"
 								video(
-									src=source
-									id=cell.ID
-									title=cell.Title
-									loop=cell.Attributes.Loop
 									autoplay=cell.Attributes.Autoplay
+									controls=cell.Attributes.Controls
+									id=cell.ID
+									loop=cell.Attributes.Loop
 									muted=cell.Attributes.Muted
 									playsinline=cell.Attributes.Playsinline
-									controls=cell.Attributes.Controls
+									src=source
+									title=cell.Title
 								)
-									a(href=source)=source
+									a(href=source)= source
 
 							default
-								a(src=source id=cell.ID)=source
+								a(id=cell.ID src=source)= source
 
 						if cell.Title
-							figcaption=cell.Title
+							figcaption= cell.Title
 
 	if CurrentWork.Footnotes
 		section.footnotes
@@ -89,9 +96,9 @@ block content
 			dl.footnotes__list
 				each Value, Key in CurrentWork.Footnotes
 					dt(id=`fn:${Key}`)
-						a(href=`#fn:${Key}`)=Key
+						a(href=`#fn:${Key}`)= Key
 					dd
-						p!=Value
+						p!= Value
 						a.footnotes__list__item__reference-link(i18n href=`#fnref:${Key}`)
 							| ↖ Back to the text
 						//- TODO: handle multiple references (needs chanin >= portfoliodb to add footnotes[].references)
@@ -111,12 +118,12 @@ block content
 					li.made-with__item
 						a(href=`/using/${tech.URLName}` title=translate("More..."))
 							img.made-with__item__logo(
-								src=asset(`logos/${tech.URLName}.svg`)
 								alt=translate(`${tech.DisplayName}’s logo`)
+								src=asset(`logos/${tech.URLName}.svg`)
 							)
 							if tech.Author
-								span.made-with__item__subline=tech.Author
-							span.made-with__item__name=tech.DisplayName
+								span.made-with__item__subline= tech.Author
+							span.made-with__item__name= tech.DisplayName
 
 	dialog#media-closeup(onclick="this.close()")
 		.media.empty
@@ -125,20 +132,17 @@ block content
 			p(i18n) loading image in full resolution…
 		button.close(onclick="this.parentElement.close()" title="close") ×
 
-	style.
-		:root {
-			!{Object.entries(ColorsMap(CurrentWork)).map(([Key, Value]) => `--${Key}: ${Value};`).join("\n")}
-		}
+	style!= `:root { ${Object.entries(ColorsMap(CurrentWork)).map(([Key, Value]) => `--${Key}: ${Value};`).join("\n")} }`
 
 	if CurrentWork.Metadata.PageBackground
 		style.
 			body {
-				background-image: url('!{ media(`${CurrentWork.ID}/${CurrentWork.Metadata.PageBackground}`) }');
+				background-image: url("!{ media(`${CurrentWork.ID}/${CurrentWork.Metadata.PageBackground}`) }");
 			}
 
 	script(src=asset("vendor/dialog-polyfill.js"))
 	script.
-		document.querySelectorAll('dialog').forEach(el => {
-			dialogPolyfill.registerDialog(el)
-		})
+		document.querySelectorAll("dialog").forEach(el => {
+			dialogPolyfill.registerDialog(el);
+		});
 	script(src=asset("ui.js"))

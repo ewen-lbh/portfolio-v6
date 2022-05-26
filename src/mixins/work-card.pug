@@ -1,28 +1,28 @@
 mixin work-card(work, variant = "")
-    - const thumb = work.Media ? work.Media.find(m => m.Path === thumbnailKey(work)) : null
-    - const aspectRatio = thumb ? thumb.Dimensions.AspectRatio : null
-    - variant = variant !== "" ? variant : aspectRatio === null ? "no-thumb" : aspectRatio <= 1.5 ? "portrait" : aspectRatio <= 1.75 ? "floating" : "landscape"
+	- const thumb = work.Media ? work.Media.find(m => m.Path === thumbnailKey(work)) : null
+	- const aspectRatio = thumb ? thumb.Dimensions.AspectRatio : null
+	- variant = variant !== "" ? variant : aspectRatio === null ? "no-thumb" : aspectRatio <= 1.5 ? "portrait" : aspectRatio <= 1.75 ? "floating" : "landscape"
 
-    article.work-card(
-        class=`work-card--${variant}`
-        style=work.ColorsCSS + (work.Metadata.PageBackground ? `background-image: url(${media(work.ID+"/"+work.Metadata.PageBackground)});` : "") 
-        data-secondary=work.Metadata.Colors.Secondary
-        data-primary=work.Metadata.Colors.Primary
-        data-no-thumb=!thumb
-    )
-        if thumb
-            img.thumb(
-                src=ThumbnailSource(work, 0)
-                height=thumb.Dimensions.Height || null
-                width=thumb.Dimensions.Width || null
-                alt=thumb.Alt
-                srcset=ThumbnailSourcesSet(work)
-                sizes=`(max-width: 800px) 99vw, ${["landscape", "display"].includes(variant) ? "800px" : `calc(min(400px, 33vh) * ${aspectRatio})`}`
-                data-aspect-ratio=aspectRatio
-                loading="lazy"
-            )
+	article.work-card(
+		class=`work-card--${variant}`
+		data-no-thumb=!thumb
+		data-primary=work.Metadata.Colors.Primary
+		data-secondary=work.Metadata.Colors.Secondary
+		style=work.ColorsCSS + (work.Metadata.PageBackground ? `background-image: url(${media(work.ID + "/" + work.Metadata.PageBackground)});` : "")
+	)
+		if thumb
+			img.thumb(
+				alt=thumb.Alt
+				data-aspect-ratio=aspectRatio
+				height=thumb.Dimensions.Height || null
+				loading="lazy"
+				sizes=`(max-width: 800px) 99vw, ${["landscape", "display"].includes(variant) ? "800px" : `calc(min(400px, 33vh) * ${aspectRatio})`}`
+				src=ThumbnailSource(work, 0)
+				srcset=ThumbnailSourcesSet(work)
+				width=thumb.Dimensions.Width || null
+			)
 
-        h4(data-long=work.Title.length > 10)=work.Title
-        if work.Summary
-            p.summary=work.Summary
-        .button-link: a(href=`/${ work.ID }` i18n) read more
+		h4(data-long=work.Title.length > 10)= work.Title
+		if work.Summary
+			p.summary= work.Summary
+		.button-link: a(i18n href=`/${ work.ID }`) read more

@@ -1,0 +1,23 @@
+{
+	"semi": false,
+	"pugSemi": false,
+	"singleQuote": false,
+	"arrowParens": "avoid",
+	"pluginSearchDirs": ["."],
+	"pugSingleQuote": false,
+	"pugAttributeSeparator": "as-needed",
+	"pugSortAttributes": "asc",
+	"pugSortAttributesBeginning": ["i18n"],
+	"pugEmptyAttributes": "none",
+	"pugClassNotation": "literal",
+	"pugIdNotation": "literal",
+	"pugClassLocation": "before-attributes",
+	"pugExplicitDiv": false,
+	"stylusSupremacy.insertSemicolons": false,
+	"stylusSupremacy.insertBraces": false,
+	"stylusSupremacy.insertColons": false,
+	"stylusSupremacy.insertParenthesisAroundIfCondition": false,
+	"stylusSupremacy.reduceMarginAndPaddingValues": true,
+	"stylusSupremacy.quoteChar": "\"",
+	"stylusSupremacy.sortProperties": "grouped"
+}

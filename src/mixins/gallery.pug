@@ -3,9 +3,9 @@ include ./work-card
 mixin gallery(works, classes="")
 	each year in yearsOfWorks(works).sort().reverse().filter(y => cleanedUp(createdIn(works, y)).length)
 		if year != 0
-			h3.year=year
+			h3.year= year
 		else
 			h3.year(i18n) Unknown year
-			
+
 		each work in cleanedUp(createdIn(works, year))
 			+work-card(work)

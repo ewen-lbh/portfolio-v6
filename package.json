@@ -5,6 +5,9 @@
 	"license": "CC-BY-NC-ND-4.0",
 	"version": "0.1.0",
 	"scripts": {
+		"pug:format": "prettier --loglevel error --write \"src/**/*.pug\" --plugin-search-dir=./",
+		"stylus:format": "stylus-supremacy format --replace --options .prettierrc src/**/*.styl",
+		"format": "concurrently npm:pug:format npm:stylus:format",
 		"database:build": "ortfodb ~/projects --scattered build database/database.json --config ortfodb.yaml",
 		"pug:build": "ortfomk build src/ with database/database.json to dist/ --write-progress progress.json",
 		"livescript:build": "lsc -c --output assets/ src/*.ls",
@@ -16,22 +19,23 @@
 		"stylus:watch": "concurrently 'stylus --watch --compress --sourcemap src/style.styl src/style.styl -o assets/style.css' 'stylus --watch --compress --sourcemap-base src/ src/page-styles/ -o assets/page-styles/'",
 		"assets:watch": "nodemon   --watch assets        --exec 'pnpm assets:build'",
 		"watch": "concurrently npm:pug:watch npm:livescript:watch npm:assets:watch npm:stylus:watch",
-
 		"pages:upload": "concurrently 'rsync -r --progress dist/en/  ubuntu@ewen.works:/home/user-data/www/en.ewen.works/' 'rsync -r --progress dist/fr/  ubuntu@ewen.works:/home/user-data/www/fr.ewen.works/'",
 		"assets:upload": "rsync -r --progress assets/ ubuntu@ewen.works:/home/user-data/www/assets.ewen.works/",
 		"media:upload": "rsync -r --progress dist/media/ ubuntu@ewen.works:/home/user-data/www/media.ewen.works/",
 		"upload": "concurrently npm:pages:upload npm:assets:upload npm:media:upload",
-
 		"clean": "rm -r dist"
 	},
 	"devDependencies": {
+		"@prettier/plugin-pug": "^2.0.0",
 		"concurrently": "^5.3.0",
 		"gettext-extractor": "^3.5.3",
 		"live-server": "^1.2.2",
 		"livescript": "^1.6.0",
 		"nodemon": "^2.0.7",
+		"prettier": "^2.6.2",
 		"pug-cli": "^1.0.0-alpha6",
 		"stylus": "^0.54.8",
+		"stylus-supremacy": "^2.15.0",
 		"svgo": "^2.3.0"
 	}
 }

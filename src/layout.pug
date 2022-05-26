@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+doctype html
 - const cleanedUp = works => works.filter(w => w.Paragraphs && w.Paragraphs.length && w.Title)
 - const cellWidth = cell => { const [_, __, start, end] = PositionBounds(cell); return end - start + 1 }
 - const layoutWidth = cells => Math.max(...cells.map(cellWidth))
@@ -15,13 +15,13 @@ include mixins/icon
 html(lang=current_language)
 	head: block head
 		meta(charset="UTF-8")
-		meta(name="viewport", content="width=device-width, initial-scale=1.0")
-		link(rel="stylesheet", href=asset("global.css"))
-		link(rel="stylesheet", href=asset("style.css"))
-		link(rel="stylesheet", href=asset("fonts/import.css"))
-		link(rel="stylesheet", href=asset("vendor/progressive-image.css"))
+		meta(content="width=device-width, initial-scale=1.0" name="viewport")
+		link(href=asset("global.css") rel="stylesheet")
+		link(href=asset("style.css") rel="stylesheet")
+		link(href=asset("fonts/import.css") rel="stylesheet")
+		link(href=asset("vendor/progressive-image.css") rel="stylesheet")
 		script(src=asset("vendor/progressive-image.js"))
-		script(src=asset("vendor/instant-page-5.1.0.js") type="module" defer=true)
+		script(defer src=asset("vendor/instant-page-5.1.0.js") type="module")
 	body(data-instant-intensity="viewport")
 		block nav
 			nav
@@ -32,7 +32,10 @@ html(lang=current_language)
 					//- li: a(i18n href="https://blog.ewen.works") blog
 					li: a(i18n href="/contact") contact
 					li: a(i18n href="/made-with") thanks
-					li: a(i18n href=`https://${other_language}.ewen.works/${cleanPath(current_path)}`) en français
+					li: a(
+						i18n
+						href=`https://${other_language}.ewen.works/${cleanPath(current_path)}`
+					) en français
 		main
 			block content
 		footer
@@ -40,14 +43,14 @@ html(lang=current_language)
 				span.links__hint ewen.works/to/
 				dl
 					each site in all_sites
-						dt: a(href=`https://${current_language}.ewen.works/to/${site.Name}`)=site.Name
-						dd(i18n)=site.Purpose
+						dt: a(href=`https://${current_language}.ewen.works/to/${site.Name}`)= site.Name
+						dd(i18n)= site.Purpose
 
 			.credits(role="contentinfo")
 				p(i18n) Made with &lt;3 by Ewen Le Bihan
 				p(i18n) Proudly #[strong not] powered by Wordpress
 				p
 					i18n source code at
-					a(href="https://github.com/ewen-lbh/portfolio")  github.com/ewen-lbh/portfolio
+					a(href="https://github.com/ewen-lbh/portfolio") github.com/ewen-lbh/portfolio
 				a.credits__license(href="https://creativecommons.org/licenses/by-sa/4.0/")
 					img(src=asset("icons/cc-by-sa.svg"))

@@ -1,8 +1,8 @@
 head
-	meta(http-equiv="refresh", content=`1; url=${ CurrentSite.URL }`)
+	meta(content=`1; url=${ CurrentSite.URL }` http-equiv="refresh")
 
 	script.
-		window.location = CurrentSite.URL
+		window.location = CurrentSite.URL;
 
 body
 	h1(i18n) Redirecting you to #{ CurrentSite.Name }...

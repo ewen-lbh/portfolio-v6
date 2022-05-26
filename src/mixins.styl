@@ -4,22 +4,22 @@ text-stroke(stroke, color)
 
 	for i in from .. stroke
 		for j in from .. stroke
-			push(shadow, '' + i * 1px + ' ' + j * 1px + ' 0 ' + color)
+			push(shadow, "" + i * 1px + " " + j * 1px + " 0 " + color)
 
-	text-shadow unquote(join(', ', shadow))
+	text-shadow unquote(join(", ", shadow))
 
 grid-gap(amount)
 	grid-gap amount
 	gap amount
 
 $(variable-name)
-	if variable-name == 'primary'
+	if variable-name == "primary"
 		fallback = black
 
-	if variable-name == 'secondary'
+	if variable-name == "secondary"
 		fallback = white
 
-	var(unquote('--' + variable-name), fallback)
+	var(unquote("--" + variable-name), fallback)
 
 primary = var(--primary, black)
 secondary = var(--secondary, white)
@@ -79,7 +79,7 @@ shape-link()
 		height calc(100% + 2rem)
 		border 2px solid
 		border-color primary // Separate decl. so it's easily overwriteable
-		content ''
+		content ""
 		transform translateX(-50%)
 
 	&:hover::before
@@ -91,8 +91,7 @@ shape-link()
 	&:active::before
 		transform translateX(-50%) rotate(45deg) scale(0.75)
 
-	&,
-	&::before
+	&, &::before
 		transition all 0.25s ease
 
 strikeblink-link()
@@ -115,7 +114,7 @@ strikeblink-link()
 		width 0
 		height 5%
 		background primary
-		content ''
+		content ""
 		transition all 0.25s ease
 		transform translateY(-50%)
 
