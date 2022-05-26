@@ -9,7 +9,7 @@
 		"stylus:format": "stylus-supremacy format --replace --options .prettierrc src/**/*.styl",
 		"format": "concurrently npm:pug:format npm:stylus:format",
 		"database:build": "ortfodb ~/projects --scattered build database/database.json --config ortfodb.yaml",
-		"pug:build": "ortfomk build src/ with database/database.json to dist/ --write-progress progress.json",
+		"pug:build": "ortfomk build src/ with database/database.json to dist/ --load database/wakatime-aggregated.json --write-progress progress.json",
 		"livescript:build": "lsc -c --output assets/ src/*.ls",
 		"stylus:build": "concurrently 'stylus --compress --sourcemap src/style.styl src/style.styl -o assets/style.css' 'stylus --compress --sourcemap-base src/ src/page-styles/ -o assets/page-styles/'",
 		"assets:build": "cp -r assets/* dist/ && svgo --recursive --quiet -f assets/ -o dist/",
