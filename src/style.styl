@@ -34,7 +34,7 @@ h1[data-style=hidden]
 	& + .row > figure
 		margin 0
 		font-size clamp(3rem, 10vw, 7rem)
-	
+
 h1 + p
 	margin 0 auto
 	margin-top -2rem
@@ -96,7 +96,7 @@ section.contents
 	.element img
 		cursor zoom-in
 		// without this the height HTML attribute that sets the intrinsic height causes the <img> to stretch nightmarishly
-		height auto 
+		height auto
 
 	.element figure[data-content-type="application/pdf"]
 		img
@@ -414,6 +414,10 @@ dialog#media-closeup
 	border none
 	background rgba(0, 0, 0, 0.25)
 
+	// &::backdrop
+	// 	background-color primary
+	// 	opacity 0.75
+
 	.close
 		position fixed
 		top 1rem
@@ -593,11 +597,11 @@ a.arrow-link
 		left 50%
 		transform translate(-50%, -50%)
 		z-index -1
-	
+
 	.spinner
 		height 10rem
 		width 10rem
-	
+
 	.spinner line
 		stroke primary
 
@@ -605,6 +609,6 @@ a.arrow-link
 		color primary
 		font-weight bold
 		font-size 1.5em
-	
+
 	.media
 		transition opacity 1s ease
