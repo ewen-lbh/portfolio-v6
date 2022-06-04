@@ -7,6 +7,8 @@ block append head
 	+title(CurrentWork.Title)
 
 block content
+	- const mediaType = contentType => contentType === "application/pdf" ? "pdf" : contentType.split("/")[0]
+
 	ul.tags: each tag in CurrentWork.Metadata.Tags.map(lookupTag).filter(t => t !== undefined)
 		li: a(i18n href=`/${ URLName(tag) }`)= tag.Singular
 
@@ -33,7 +35,7 @@ block content
 					)
 						- let source = media(`${CurrentWork.ID}/${cell.Path}`)
 						- let cellWidthRatio = cellWidth(cell) / layoutWidth(CurrentWorkLayedOut)
-						case cell.GeneralContentType
+						case mediaType(cell.ContentType)
 							when "pdf"
 								a(href=source title=translate("Click to read the PDF"))
 									img(
