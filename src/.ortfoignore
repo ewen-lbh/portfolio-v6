@@ -1,2 +1,3 @@
 mixins/
 layout.pug
+*-layout.pug
