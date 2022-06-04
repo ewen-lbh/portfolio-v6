@@ -38,6 +38,11 @@
   plural:   intros
   description: Short introductory video sequences typically played at the beginning of every video
 
+- singular: thumbnail
+  plural:   thumbnails
+  description: Images that represent a media, such as a video, in a single glance. Might be shown at a small size.
+
+
 - singular: music
   plural:   music
 
