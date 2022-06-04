@@ -2,6 +2,7 @@ extends ../layout
 
 block append head
 	+title(translate("thanks"))
+	+page-styles("thanks")
 
 block content
 	h2 made with…
@@ -16,6 +17,5 @@ block content
 		dt(i18n) efficient and comfortable programming language
 		dd: a(href="https://go.dev") Go
 
-	p
-		a(i18n href="/portfolio") Design and coded by hand
-		| , not using some template or site builder
+	p #[a(i18n href="/portfolio") Designed and coded by hand], not using some template.
+	p Portfolio management system #[a(href="/ortfo") ortfo] created for this.
