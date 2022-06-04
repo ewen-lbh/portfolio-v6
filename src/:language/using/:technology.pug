@@ -1,7 +1,10 @@
 extends ../../layout
 
 block append head
-	+title(printf(translate("works made with %s"), CurrentTech.DisplayName))
+	+metadata(
+		thumbnail=asset(`logos/${CurrentTech.URLName}.svg`)
+		title=printf(translate("works made with %s"), CurrentTech.DisplayName)
+	)
 
 block content
 	img.made-with-page__logo(

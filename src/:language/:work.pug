@@ -8,7 +8,7 @@ block append head
 
 block content
 	- const hours = Object.keys(wakatimeAggregated.projects).includes(CurrentWork.ID) ? Math.floor(wakatimeAggregated.projects[CurrentWork.ID] / 3600) : 0
-	- const mediaType = contentType => contentType === "application/pdf" ? "pdf" : contentType.split("/")[0]
+	- const mediaType = contentType => (contentType === "application/pdf" ? "pdf" : contentType.split("/")[0])
 
 	ul.tags: each tag in CurrentWork.Metadata.Tags.map(lookupTag).filter(t => t !== undefined)
 		li: a(i18n href=`/${ URLName(tag) }`)= tag.Singular
@@ -127,10 +127,10 @@ block content
 							if tech.Author
 								span.made-with__item__subline= tech.Author
 							span.made-with__item__name= tech.DisplayName
-	
+
 	if hours > 1
 		section.hours
-			h2.hours__title #{hours}+ #[i18n hours spent on this]
+			h2.hours__title #{ hours }+ #[i18n hours spent on this]
 
 	dialog#media-closeup(onclick="this.close()")
 		.media.empty
