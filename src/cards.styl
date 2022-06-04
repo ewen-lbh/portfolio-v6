@@ -49,7 +49,7 @@
 		border-radius 0.25rem
 		text-decoration none
 
-		&:hover, &:active
+		+highlighted()
 			background primary
 			color secondary
 
@@ -93,7 +93,7 @@
 		z-index 2
 		transition opacity 0.25s ease
 
-	&:hover, &:active
+	+highlighted()
 		.thumb
 			opacity 0.15
 			transform scale(1)

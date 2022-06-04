@@ -106,8 +106,9 @@ section.contents
 			border 1px solid primary
 			cursor pointer
 
-		a:hover img
-			filter brightness(0.8)
+		+highlighted("a")
+			img
+				filter brightness(0.8)
 
 .made-with
 	padding 5rem 0
@@ -203,7 +204,7 @@ section.contents
 			@media (pointer fine)
 				opacity 0
 
-		li a:hover
+		+highlighted("li a")
 			opacity 1
 			transform scale(1.25)
 
@@ -349,7 +350,7 @@ body
 		content ""
 		transition all 0.25s ease
 
-	&:hover::before, &:active::before
+	+highlighted(then="::before")
 		animation red-dot-blink 0.5s step-start infinite alternate
 
 @keyframes red-dot-blink
@@ -480,7 +481,7 @@ p.intro
 		list-style none
 		text-align center
 
-		&:hover
+		+highlighted()
 			background-color primary
 			color secondary
 
@@ -494,7 +495,7 @@ p.intro
 		height 100%
 		font-size 1.5rem
 
-		&:hover
+		+highlighted()
 			font-size 2rem
 
 .big-links
