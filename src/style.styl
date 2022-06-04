@@ -57,7 +57,7 @@ section.contents
 	padding-bottom 10rem
 	max-width 1000px
 	grid-auto-columns 1fr
-	gap 1em
+	gap 5em 1em
 
 	@media (max-width 1000px)
 		display flex
@@ -113,6 +113,8 @@ section.contents
 	padding 5rem 0
 	background-color white
 	color black
+	width 100vw
+	margin-left -1rem // WARNING: depends on <main>'s margin
 
 	&__title
 		margin-bottom 0
@@ -133,6 +135,7 @@ section.contents
 		&:not(&--fullwidth)
 			display flex
 			justify-content center
+			flex-wrap wrap
 
 	&__item
 		display flex
@@ -402,7 +405,7 @@ dialog#media-closeup
 	width 100%
 	height 100%
 	border none
-	background rgba(0, 0, 0, 0.25)
+	background secondary
 
 	// &::backdrop
 	// background-color primary
@@ -413,10 +416,10 @@ dialog#media-closeup
 		right 1rem
 		border none
 		background transparent
-		color secondary
+		color primary
 		font-size 5rem
 		cursor pointer
-		text-stroke 3px primary
+		// text-stroke 3px primary
 
 	.media
 		position fixed
