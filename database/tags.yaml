@@ -114,3 +114,16 @@
   aliases: [experimental]
   description: |
     Made with the intent to discover, not necessarily to be useful or aesthetic.
+
+- singular: typeface
+  plural: typefaces
+  aliases: [font, fonts]
+  description: |
+    Set of characters (letters, punctuation marks and more) that define how text looks.
+
+# WAITING for ortfo/db#
+# - singular: math experiment
+#   plural: math experiments
+#   description: |
+#     Expriments on mathematics and art, mostly visual interpretations of concepts that could lead to new insights on said concept.
+#   combines: math and experiments and (graphism or video or music or sound)
