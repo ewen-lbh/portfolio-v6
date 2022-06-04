@@ -12,7 +12,7 @@ include mixins/per-page-styles
 include mixins/seo
 include mixins/icon
 
-html(lang=current_language)
+html(lang=current_language prefix="og: http://ogp.me/ns#")
 	head: block head
 		meta(charset="UTF-8")
 		meta(content="width=device-width, initial-scale=1.0" name="viewport")
@@ -22,6 +22,8 @@ html(lang=current_language)
 		link(href=asset("vendor/progressive-image.css") rel="stylesheet")
 		script(src=asset("vendor/progressive-image.js"))
 		script(defer src=asset("vendor/instant-page-5.1.0.js") type="module")
+		+seo-tags
+
 	body(data-instant-intensity="viewport")
 		block nav
 			nav

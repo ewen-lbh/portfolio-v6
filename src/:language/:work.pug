@@ -1,10 +1,44 @@
 extends ../layout
 
 block append head
+	- const hasTag = tagName => CurrentWork.Metadata.Tags.map(lookupTag).map(t => t.Singular).includes(lookupTag(tagName).Singular)
+	- const isAudio = media => media.ContentType.startsWith("audio/")
+	- const isVideo = media => media.ContentType.startsWith("video/")
+	- const audioMediae = (CurrentWork.Media || []).filter(isAudio)
+	- const videoMediae = (CurrentWork.Media || []).filter(isVideo)
+	- const thumb = thumbnailKey(CurrentWork) && (CurrentWork.Media || []).find(m => m.Path === thumbnailKey(CurrentWork))
+
 	link(href=asset("vendor/dialog-polyfill.css") rel="stylesheet")
 	link(href=asset("spinner-animation.css") rel="stylesheet")
-	//- script(src=asset("vendor/anime.min.js") defer fetchpriority="low" async)
-	+title(CurrentWork.Title)
+
+	+metadata({
+		canonical: CurrentWork.ID,
+		kind: hasTag("music") ? "music.album" : "website",
+		thumbnail: ThumbnailSource(CurrentWork, 600),
+		thumbnail_dimensions: thumb ? thumb.Dimensions : {Height: 0, Width: 0, AspectRatio: 0},
+		title: CurrentWork.Title,
+		player_url: audioMediae.length + videoMediae.length ? `https://${current_language}.ewen.works/${CurrentWork.ID}/player` : "",
+		description: CurrentWork.Summary,
+	})
+
+	if hasTag("music")
+		meta(
+			content=CreatedAt(CurrentWork).toISOString()
+			property="music:release_date"
+		)
+		meta(content="ewen-lbh" property="music:musician")
+
+		each audio in audioMediae
+			- let [_, trackNumber, title] = /(\d+)\. (.+)/.exec(audio.Title)
+			meta(content=media(`${CurrentWork.ID}/${audio.Path}`) property="music:song")
+			meta(content="1" property="music:song:disc")
+			meta(content=parseFloat(trackNumber) property="music:song:track")
+
+	else if videoMediae.length === 1
+		meta(
+			content=media(`${CurrentWork.ID}/${videoMediae[0].Path}`)
+			property="og:video"
+		)
 
 block content
 	- const hours = Object.keys(wakatimeAggregated.projects).includes(CurrentWork.ID) ? Math.floor(wakatimeAggregated.projects[CurrentWork.ID] / 3600) : 0
