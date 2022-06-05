@@ -9,5 +9,5 @@ make thumbnails:
 media:
   at: dist/media
 
-build metadata file: database/.lastbuild.yaml
+build metadata file: database/.lastbuild.json
 scattered mode folder: .portfoliodb/
