@@ -90,13 +90,9 @@ play-spinner = ->
 	# document.spinner-animation.restart!
 
 queue-next-track = ->
-	console.log "queuing next track"
 	current-track-number = it.target.get-attribute \title - /\. .+$/ |> parseFloat
-	console.log "next track number is #{current-track-number + 1}"
 	next-track = document.query-selector "[title^=\"0#{current-track-number + 1}. \"]"
-	console.log "found next track element", next-track
 	it.target.add-event-listener \ended, ->
-		console.log "playing queued next track", next-track
 		next-track.play! if next-track
 
 document.query-selector-all "audio[title]" .for-each ->
