@@ -22,10 +22,16 @@ html(lang=current_language prefix="og: http://ogp.me/ns#")
 		link(href=asset("vendor/progressive-image.css") rel="stylesheet")
 		script(src=asset("vendor/progressive-image.js"))
 		script(defer src=asset("vendor/instant-page-5.1.0.js") type="module")
+		script(defer src=asset("ui.js"))
 		+seo-tags
 
 	body(data-instant-intensity="viewport")
 		block nav
+			aside#wip-banner.wip(data-hidden)
+				h1(i18n) work in progress
+				p(i18n) this site is not finished yet. Not all works have been added, and some pages are rough around the edges.
+				button(i18n onclick="hideWipBanner()") fine
+
 			nav
 				ul
 					li: a(i18n href="/") works

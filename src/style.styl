@@ -212,6 +212,55 @@ section.contents
 		li:first-child
 			margin-right 1.25em
 
+aside.wip
+	&[data-hidden]
+		bottom -20em
+
+	position fixed
+	right 0
+	bottom 0
+	left 0
+	z-index 10000
+	display flex
+	justify-content center
+	align-items center
+	min-height 3em
+	padding 1em 0.5em
+	height auto
+	background-color #1389FD
+	color white
+	transition all 0.25s ease
+
+	h1
+		font-size 1.5em
+
+	h1, p
+		margin 0
+		padding 0
+		text-align left
+
+	p
+		margin-left 1em
+
+	button
+		border 2px solid white
+		border-radius .5em
+		background transparent
+		box-shadow none
+		color currentColor
+		font-weight bold
+		font-size inherit
+		font-family inherit
+		cursor pointer
+
+		@media (min-width 1400px)
+			position absolute
+			right 1em
+		
+		+highlighted()
+			background white
+			color #1389fd
+
 nav
 	width 100%
 

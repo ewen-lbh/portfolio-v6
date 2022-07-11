@@ -103,3 +103,9 @@ document.query-selector-all "audio[title]" .for-each ->
 		queue-next-track it
 
 	
+document.hide-wip-banner = ->
+	id \wip-banner .dataset.hidden = yes
+	window.local-storage.set-item \wip-banner-hidden, yes
+
+if not window.local-storage.get-item \wip-banner-hidden
+	delete id \wip-banner .dataset.hidden
