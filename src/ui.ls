@@ -1,3 +1,5 @@
+id = -> document.get-element-by-id it
+
 open-media-closeup =  ->
 	it.prevent-default!
 	console.log it.target
@@ -6,7 +8,7 @@ open-media-closeup =  ->
 	media-element.set-attribute \src (media-element.dataset.full-src)
 	media-element.remove-attribute \srcset
 	media-element.remove-attribute \sizes
-	popup = document.get-element-by-id \media-closeup
+	popup = id \media-closeup
 	target = popup.query-selector \.media
 	loading = popup.query-selector \.loading
 	popup.show-modal!
@@ -29,7 +31,7 @@ setup-spinner = ->
 	line = -> ".spinner .#{it}"
 	lines = -> it.map line
 
-	loading = document.get-element-by-id \media-closeup .query-selector \.loading
+	loading = id \media-closeup .query-selector \.loading
 
 	document.query-selector \.spinner .query-selector-all \line .for-each ->
 		it.style.stroke-dasharray = 1000
@@ -77,7 +79,7 @@ setup-spinner = ->
 	# 		document.spinner-timeline.play!
 
 stop-spinner = ->
-	loading = document.get-element-by-id \media-closeup .query-selector \.loading
+	loading = id \media-closeup .query-selector \.loading
 	loading.style.opacity = 0
 	# document.spinner-timeline.pause!
 	# document.spinner-timeline.seek 0
