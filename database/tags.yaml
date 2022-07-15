@@ -54,7 +54,7 @@
 
 - singular: api
   plural:   apis
-  description: Application Programming Interfaces, mostly <em>Web</em> APIs, meaning machine-redable sites that allow data processing and interaction without going to the client-facing website
+  description: Application Programming Interfaces, mostly _Web_ APIs, meaning machine-redable sites that allow data processing and interaction without going to the client-facing website
   learn more at: https://en.wikipedia.org/wiki/Web_API
 
 - singular: program

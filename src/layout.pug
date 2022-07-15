@@ -52,7 +52,7 @@ html(lang=current_language prefix="og: http://ogp.me/ns#")
 				dl
 					each site in all_sites
 						dt: a(href=`https://${current_language}.ewen.works/to/${site.Name}`)= site.Name
-						dd(i18n)= site.Purpose
+						dd(i18n)!= site.Purpose
 
 			.credits(role="contentinfo")
 				p(i18n) Made with &lt;3 by Ewen Le Bihan
