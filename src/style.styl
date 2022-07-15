@@ -1,7 +1,7 @@
 @import "mixins"
 @import "cards"
 
-ul.tags
+ul.tags-and-collections
 	display flex
 	flex-direction row
 	flex-wrap wrap
@@ -11,11 +11,14 @@ ul.tags
 	li
 		display block
 		padding 0.5rem
+		font-size 1.2em
+	
+	li.part-of-collections
+		margin-left 2em
 
 	a
 		opacity-link()
-		font-size 1.2em
-
+	
 h1
 	padding-top 0.25em
 	text-align center

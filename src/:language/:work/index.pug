@@ -1,4 +1,4 @@
-extends ../layout
+extends ../../layout
 
 block append head
 	- const hasTag = tagName => CurrentWork.Metadata.Tags.map(lookupTag).map(t => t.Singular).includes(lookupTag(tagName).Singular)
@@ -11,15 +11,7 @@ block append head
 	link(href=asset("vendor/dialog-polyfill.css") rel="stylesheet")
 	link(href=asset("spinner-animation.css") rel="stylesheet")
 
-	+metadata({
-		canonical: CurrentWork.ID,
-		kind: hasTag("music") ? "music.album" : "website",
-		thumbnail: ThumbnailSource(CurrentWork, 600),
-		thumbnail_dimensions: thumb ? thumb.Dimensions : {Height: 0, Width: 0, AspectRatio: 0},
-		title: CurrentWork.Title,
-		player_url: audioMediae.length + videoMediae.length ? `https://${current_language}.ewen.works/${CurrentWork.ID}/player` : "",
-		description: CurrentWork.Summary,
-	})
+	+metadata({ canonical: CurrentWork.ID, kind: hasTag("music") ? "music.album" : "website", thumbnail: ThumbnailSource(CurrentWork, 600), thumbnail_dimensions: thumb ? thumb.Dimensions : {Height: 0, Width: 0, AspectRatio: 0}, title: CurrentWork.Title, player_url: audioMediae.length + videoMediae.length ? `https://${current_language}.ewen.works/${CurrentWork.ID}/player` : "", description: CurrentWork.Summary, })
 
 	if hasTag("music")
 		meta(
@@ -44,8 +36,17 @@ block content
 	- const hours = Object.keys(wakatimeAggregated.projects).includes(CurrentWork.ID) ? Math.floor(wakatimeAggregated.projects[CurrentWork.ID] / 3600) : 0
 	- const mediaType = contentType => (contentType === "application/pdf" ? "pdf" : contentType.split("/")[0])
 
-	ul.tags: each tag in CurrentWork.Metadata.Tags.map(lookupTag).filter(t => t !== undefined)
-		li: a(i18n href=`/${ URLName(tag) }`)= tag.Singular
+	ul.tags-and-collections
+		each tag in CurrentWork.Metadata.Tags.map(lookupTag).filter(t => t !== undefined)
+			li: a(i18n href=`/${ URLName(tag) }`)= tag.Singular
+		if CollectionsOfWork(CurrentWork).length
+			li.part-of-collections(i18n)
+				if CollectionsOfWork(CurrentWork).length == 1
+					| part of the collection
+				else
+					| part of the collections
+			each collection in CollectionsOfWork(CurrentWork)
+				li: a(href=`/${ collection.ID }`)= collection.Title
 
 	if IsWIP(CurrentWork)
 		a.work-in-progress(i18n href="/#wip") work in progress

@@ -1,0 +1,21 @@
+extends ../../layout
+
+block content
+	- const latest = latestWork(CurrentCollection.Works)
+
+	h1= CurrentCollection.Title
+	.intro!=CurrentCollection.Description
+	if CurrentCollection.LearnMoreAt
+		a.description__learn-more(href=CurrentCollection.LearnMoreAt)
+			+icon("arrow-right")
+			i18n Learn more
+
+	section#latest
+		h2(i18n) most recent one
+
+		+work-card(latest, "display")
+
+	section#all
+		h2(i18n) all
+
+		+gallery(CurrentCollection.Works)
