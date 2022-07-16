@@ -178,3 +178,4 @@ ideas
 assets/page-styles/
 
 database/wakatime.json
+*.pprof
