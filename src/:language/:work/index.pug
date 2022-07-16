@@ -38,7 +38,7 @@ block content
 
 	ul.tags-and-collections
 		each tag in CurrentWork.Metadata.Tags.map(lookupTag).filter(t => t !== undefined)
-			li: a(i18n href=`/${ URLName(tag) }`)= tag.Singular
+			li.tag: a(i18n href=`/${ URLName(tag) }`)= tag.Singular
 		if CollectionsOfWork(CurrentWork).length
 			li.part-of-collections(i18n)
 				if CollectionsOfWork(CurrentWork).length == 1
@@ -46,7 +46,7 @@ block content
 				else
 					| part of the collections
 			each collection in CollectionsOfWork(CurrentWork)
-				li: a(href=`/${ collection.ID }`)= collection.Title
+				li.collection: a(href=`/${ collection.ID }`)= collection.Title
 
 	if IsWIP(CurrentWork)
 		a.work-in-progress(i18n href="/#wip") work in progress
