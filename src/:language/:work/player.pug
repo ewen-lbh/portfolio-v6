@@ -3,34 +3,34 @@
 p: a(href=`https://ewen.works/${CurrentWork.ID}` target="_blank") learn more
 
 each cell in (CurrentWorkLayedOut || []).filter(c => c.Type == "media" && c.ContentType != "directory")
-    figure
-        - let source = media(`${CurrentWork.ID}/${cell.Path}`)
-        case mediaType(cell.ContentType)
-            when "audio"
-                audio(
-                    autoplay=cell.Attributes.Autoplay
-                    controls=cell.Attributes.Controls
-                    id=cell.ID
-                    loop=cell.Attributes.Loop
-                    muted=cell.Attributes.Muted
-                    playsinline=cell.Attributes.Playsinline
-                    src=source
-                    title=cell.Title
-                )
-                    a(href=source)= source
+	figure
+		- let source = media(`${CurrentWork.ID}/${cell.Path}`)
+		case mediaType(cell.ContentType)
+			when "audio"
+				audio(
+					autoplay=cell.Attributes.Autoplay
+					controls=cell.Attributes.Controls
+					id=cell.ID
+					loop=cell.Attributes.Loop
+					muted=cell.Attributes.Muted
+					playsinline=cell.Attributes.Playsinline
+					src=source
+					title=cell.Title
+				)
+					a(href=source)= source
 
-            when "video"
-                video(
-                    autoplay=cell.Attributes.Autoplay
-                    controls=cell.Attributes.Controls
-                    id=cell.ID
-                    loop=cell.Attributes.Loop
-                    muted=cell.Attributes.Muted
-                    playsinline=cell.Attributes.Playsinline
-                    src=source
-                    title=cell.Title
-                )
-                    a(href=source)= source
+			when "video"
+				video(
+					autoplay=cell.Attributes.Autoplay
+					controls=cell.Attributes.Controls
+					id=cell.ID
+					loop=cell.Attributes.Loop
+					muted=cell.Attributes.Muted
+					playsinline=cell.Attributes.Playsinline
+					src=source
+					title=cell.Title
+				)
+					a(href=source)= source
 
-        if cell.Title
-            figcaption= cell.Title
+		if cell.Title
+			figcaption= cell.Title

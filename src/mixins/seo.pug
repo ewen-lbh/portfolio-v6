@@ -55,7 +55,7 @@ mixin metadata(options = {title: "", thumbnail: "", thumbnail_dimensions: {Heigh
 		meta(content=thumbnail name="thumbnail")
 		meta(content=thumbnail property="og:image")
 		meta(
-			content=player_url ? "player" : (thumbnail_dimensions || {AspectRatio: 0}).AspectRatio > 1.5 ? "summary_large_image" : "summary"
+			content=player_url ? "player" : (thumbnail_dimensions || { AspectRatio: 0 }).AspectRatio > 1.5 ? "summary_large_image" : "summary"
 			name="twitter:card"
 		)
 		meta(content=thumbnail name="twitter:image")

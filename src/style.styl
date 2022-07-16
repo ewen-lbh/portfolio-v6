@@ -12,13 +12,13 @@ ul.tags-and-collections
 		display block
 		padding 0.5rem
 		font-size 1.2em
-	
+
 	li.part-of-collections
 		margin-left 2em
 
 	a
 		opacity-link()
-	
+
 	li.tag a::before
 		content "#"
 
@@ -44,7 +44,6 @@ h1[data-style=hidden]
 h1 + p
 	margin 0 auto
 	margin-top -1rem
-
 	text-align center
 
 h2
@@ -118,11 +117,11 @@ section.contents
 				filter brightness(0.8)
 
 .made-with
+	margin-left -1rem // WARNING: depends on <main>'s margin
 	padding 5rem 0
+	width 100vw
 	background-color white
 	color black
-	width 100vw
-	margin-left -1rem // WARNING: depends on <main>'s margin
 
 	&__title
 		margin-bottom 0
@@ -142,8 +141,8 @@ section.contents
 
 		&:not(&--fullwidth)
 			display flex
-			justify-content center
 			flex-wrap wrap
+			justify-content center
 
 	&__item
 		display flex
@@ -230,8 +229,8 @@ aside.wip
 	display flex
 	justify-content center
 	align-items center
-	min-height 3em
 	padding 1em 0.5em
+	min-height 3em
 	height auto
 	background-color #1389FD
 	color white
@@ -250,7 +249,7 @@ aside.wip
 
 	button
 		border 2px solid white
-		border-radius .5em
+		border-radius 0.5em
 		background transparent
 		box-shadow none
 		color currentColor
@@ -262,7 +261,7 @@ aside.wip
 		@media (min-width 1400px)
 			position absolute
 			right 1em
-		
+
 		+highlighted()
 			background white
 			color #1389fd
@@ -406,7 +405,7 @@ body
 		content ""
 		transition all 0.25s ease
 
-	+highlighted(then="::before")
+	+highlighted(then = "::before")
 		animation red-dot-blink 0.5s step-start infinite alternate
 
 @keyframes red-dot-blink

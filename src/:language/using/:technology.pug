@@ -14,7 +14,7 @@ block content
 		i18n works made with
 		br
 		| #{ CurrentTech.DisplayName }
-	p.description(i18n)!=CurrentTech.Description
+	p.description(i18n)!= CurrentTech.Description
 	if CurrentTech.LearnMoreURL
 		a.description__learn-more(href=CurrentTech.LearnMoreURL) 
 			+icon("arrow-right")

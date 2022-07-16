@@ -4,7 +4,7 @@ block content
 	- const latest = latestWork(CurrentCollection.Works)
 
 	h1= CurrentCollection.Title
-	.intro!=CurrentCollection.Description
+	.intro!= CurrentCollection.Description
 	if CurrentCollection.LearnMoreAt
 		a.description__learn-more(href=CurrentCollection.LearnMoreAt)
 			+icon("arrow-right")
