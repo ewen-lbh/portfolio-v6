@@ -23,6 +23,10 @@
   purpose: "my music"
   username: "Ewen-lbh"
 
+- name: fiverr
+  url: https://fiverr.com/ewen_lbh
+  purpose: i can work for you
+
 - name: "mail"
   url: "mailto:hey@ewen.works"
   purpose: "contact"
