@@ -12,7 +12,7 @@ block content
 				li.made-with__item
 					a(href=`/using/${ tech.URLName }` title=translate("More..."))
 						img.made-with__item__logo(
-							alt=printf(translate("%s’s logo"), tech.DisplayName)
+							alt=translate("%s’s logo", tech.DisplayName)
 							src=asset(`logos/${tech.URLName}.svg`)
 						)
 						if tech.Author

@@ -3,7 +3,7 @@ extends ../../layout
 block append head
 	+metadata(
 		thumbnail=asset(`logos/${CurrentTech.URLName}.svg`)
-		title=printf(translate("works made with %s"), CurrentTech.DisplayName)
+		title=translate("works made with %s", CurrentTech.DisplayName)
 	)
 
 block content
