@@ -2,24 +2,77 @@ id = -> document.get-element-by-id it
 
 open-media-closeup =  ->
 	it.prevent-default!
-	console.log it.target
+	window-scroll = window.scrollY
+
 	media-element = it.target.closest(\figure).query-selector(\img).clone-node true
 	media-element.class-list.add \media
 	media-element.set-attribute \src (media-element.dataset.full-src)
 	media-element.remove-attribute \srcset
 	media-element.remove-attribute \sizes
+
+
 	popup = id \media-closeup
 	target = popup.query-selector \.media
 	loading = popup.query-selector \.loading
-	popup.show-modal!
+	magnifier = popup.query-selector \.magnifier
+
+	if not popup.open
+		popup.show-modal!
 	setup-spinner!
-	# play-spinner!
 	media-element.style.opacity = 0
 	target.replace-with media-element
-	media-element.onload = ->
-		console.log \loaded-image
+
+	media-element.add-event-listener "load", ->
 		media-element.style.opacity = 1
+		magnifier.style.background-image = "url(#{media-element.dataset.full-src})"
 		stop-spinner!
+
+		zoom-factor = -> parseFloat popup.dataset.zoom-factor
+		magnifier-width = -> parseFloat magnifier.style.width - "px"
+		magnifier-height = -> parseFloat magnifier.style.height - "px"
+
+		update-zoom-factor = ->
+			if not (1 < it <= 10)
+				return
+			popup.dataset.zoom-factor = it
+			[media-height, media-width] = <[height width]>.map -> media-element.getBoundingClientRect![it]
+			magnifier.style.background-size = "#{media-width * zoom-factor!}px #{media-height * zoom-factor!}px"
+			magnifier-width = magnifier-height = 50 * zoom-factor!
+			magnifier.style.width = magnifier-width + "px"
+			magnifier.style.height = magnifier-height + "px"
+
+		update-magnifier = ->
+			if not it.keep-transition
+				magnifier.style.transition = "none"
+			for $1 in <[clientX clientY offsetX offsetY]>
+				magnifier.dataset[$1] = it[$1]
+			magnifier.style.left = (it.clientX - magnifier-width!/2) + "px"
+			magnifier.style.top = (it.clientY - magnifier-height!/2) + "px"
+			magnifier.style.background-position = "
+				left -#{it.offsetX * zoom-factor! - magnifier-width!/2}px top -#{it.offsetY * zoom-factor! - magnifier-height!/2}px
+			"
+
+		update-zoom-factor 2
+		magnifier.style.display = \block
+
+		media-element.add-event-listener "mouseout",  -> magnifier.style.display = \none
+		media-element.add-event-listener "mouseover", -> magnifier.style.display = \block
+		media-element.add-event-listener "mousemove", update-magnifier
+		media-element.add-event-listener "wheel", (->
+			it.prevent-default!
+			magnifier.style.transition = "all 250ms ease"
+			update-zoom-factor zoom-factor! + 0.5 * Math.sign it.deltaY
+			update-magnifier(
+				keep-transition: yes
+				clientX: magnifier.dataset.client-x
+				clientY: magnifier.dataset.client-y
+				offsetX: magnifier.dataset.offset-x
+				offsetY: magnifier.dataset.offset-y
+			)
+			window-scroll = window.scrollY
+		), passive: false
+
+
 
 document.query-selector-all \figure .for-each ->
 	content-type = it.dataset.contentType
@@ -39,57 +92,9 @@ setup-spinner = ->
 
 	loading.style.opacity = 1
 
-	# T = 600
-
-	# document.spinner-timeline = anime.timeline do
-	# 	loop:true
-	# 	duration: T
-	# 	# direction: \alternate
-	# 	easing: \easeInOutExpo
-
-	# keyframe = (delay, obj) -> document.spinner-timeline.add obj, delay * T
-
-	# keyframe 0 do
-	# 	targets: lines <[E1-middle E2-middle W-middle]>
-	# 	stroke-dashoffset: 0
-	# keyframe 1 do
-	# 	targets: lines <[E1-top E2-bottom W-right N-right E1-left E2-left]>
-	# 	stroke-dashoffset: 0
-	# keyframe 2 do
-	# 	targets: \.spinner
-	# 	rotate: \1turn
-	# 	duration: 2 * T
-	# keyframe 2.5 do
-	# 	targets: lines <[E1-top E2-bottom W-right N-right E1-left E2-left]>
-	# 	stroke-dashoffset: 1010
-	# keyframe 3 do
-	# 	targets: lines <[E1-middle E2-middle W-middle]>
-	# 	stroke-dashoffset: 1010
-	# # keyframe 4.5 do
-	# # 	targets: lines <[N-left E1-bottom E1-right W-bottom]>
-	# # 	stroke-dashoffset: 1010
-
-	# document.spinner-animation = anime do
-	# 	targets: lines <[N-left E1-bottom E1-right W-bottom]>
-	# 	stroke-dashoffset: 0
-	# 	duration: T
-	# 	easing: \easeInOutSine
-	# 	complete: ->
-	# 		console.log \completed-initial-anim
-	# 		document.spinner-timeline.play!
-
 stop-spinner = ->
 	loading = id \media-closeup .query-selector \.loading
 	loading.style.opacity = 0
-	# document.spinner-timeline.pause!
-	# document.spinner-timeline.seek 0
-	# document.spinner-animation.pause!
-	# document.spinner-animation.seek 0
-
-play-spinner = ->
-	# document.spinner-timeline.pause!
-	# document.spinner-timeline.seek 0
-	# document.spinner-animation.restart!
 
 queue-next-track = ->
 	current-track-number = it.target.get-attribute \title - /\. .+$/ |> parseFloat
@@ -102,7 +107,7 @@ document.query-selector-all "audio[title]" .for-each ->
 		window.title = "ewen.works: ▶ #{it.get-attribute \title } from #{document.query-selector \h1 .inner-text}"
 		queue-next-track it
 
-	
+
 document.hide-wip-banner = ->
 	id \wip-banner .dataset.hidden = yes
 	window.local-storage.set-item \wip-banner-hidden, yes

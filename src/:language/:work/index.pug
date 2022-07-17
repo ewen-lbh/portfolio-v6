@@ -167,12 +167,7 @@ block content
 		section.hours
 			h2.hours__title #{ hours }+ #[i18n hours spent on this]
 
-	dialog#media-closeup(onclick="this.close()")
-		.media.empty
-		.loading
-			+spinner
-			p(i18n) loading image in full resolution…
-		button.close(onclick="this.parentElement.close()" title="close") ×
+	+media-closeup
 
 	style!= `:root { ${Object.entries(ColorsMap(CurrentWork)).map(([Key, Value]) => `--${Key}: ${Value};`).join("\n")} }`
 

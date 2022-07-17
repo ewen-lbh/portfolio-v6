@@ -486,10 +486,19 @@ dialog#media-closeup
 		// (dimension): auto is used to prevent the HTML height/width (that set the intrinsic dimensions) from controlling the displayed dimensions
 		width auto
 		height auto
-		background-color secondary
 		transform translate(-50%, -50%)
 		object-fit contain
 		object-position center
+		cursor none
+
+	.magnifier
+		position fixed
+		background primary
+		z-index 9999
+		border 2px solid primary
+		pointer-events none
+		background-repeat no-repeat
+
 
 p.intro
 	align-self center
