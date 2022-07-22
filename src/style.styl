@@ -489,15 +489,22 @@ dialog#media-closeup
 		transform translate(-50%, -50%)
 		object-fit contain
 		object-position center
-		cursor none
 
 	.magnifier
 		position fixed
-		background primary
+		background secondary
 		z-index 9999
 		border 2px solid primary
 		pointer-events none
 		background-repeat no-repeat
+
+		opacity 0
+
+	@media only screen and (pointer: fine)
+		.magnifier
+			opacity 1
+		.media 
+			cursor none
 
 
 p.intro
