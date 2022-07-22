@@ -218,6 +218,9 @@ section.contents
 			margin-right 1.25em
 
 aside.wip
+	@media print
+		display none
+
 	&[data-hidden]
 		bottom -20em
 
@@ -267,6 +270,8 @@ aside.wip
 			color #1389fd
 
 nav
+	@media print
+		display none
 	width 100%
 
 	ul
