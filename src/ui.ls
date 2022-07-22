@@ -53,24 +53,25 @@ open-media-closeup =  ->
 			"
 
 		update-zoom-factor 2
-		magnifier.style.display = \block
 
-		media-element.add-event-listener "mouseout",  -> magnifier.style.display = \none
-		media-element.add-event-listener "mouseover", -> magnifier.style.display = \block
-		media-element.add-event-listener "mousemove", update-magnifier
-		media-element.add-event-listener "wheel", (->
-			it.prevent-default!
-			magnifier.style.transition = "all 250ms ease"
-			update-zoom-factor zoom-factor! + 0.5 * Math.sign it.deltaY
-			update-magnifier(
-				keep-transition: yes
-				clientX: magnifier.dataset.client-x
-				clientY: magnifier.dataset.client-y
-				offsetX: magnifier.dataset.offset-x
-				offsetY: magnifier.dataset.offset-y
-			)
-			window-scroll = window.scrollY
-		), passive: false
+		if window.match-media "(pointer:fine)" .matches
+			magnifier.style.display = \block
+			media-element.add-event-listener \mouseout,  -> magnifier.style.display = \none
+			media-element.add-event-listener \mouseover, -> magnifier.style.display = \block
+			media-element.add-event-listener \mousemove, update-magnifier
+			media-element.add-event-listener \wheel, (->
+				it.prevent-default!
+				magnifier.style.transition = "all 250ms ease"
+				update-zoom-factor zoom-factor! + 0.5 * Math.sign it.deltaY
+				update-magnifier(
+					keep-transition: yes
+					clientX: magnifier.dataset.client-x
+					clientY: magnifier.dataset.client-y
+					offsetX: magnifier.dataset.offset-x
+					offsetY: magnifier.dataset.offset-y
+				)
+				window-scroll = window.scrollY
+			), passive: false
 
 
 
