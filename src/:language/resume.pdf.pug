@@ -17,9 +17,9 @@ mixin skill(tech)
 			| #{ tech.DisplayName }:
 
 		if projectsCount > 1
-			a(i18n href=`/using/${tech.URLName}`) #[span.count= projectsCount] projects
+			a(href=`/using/${tech.URLName}`)!= translate(`<span class="count">%d</span> projects`, projectsCount)
 		else if projectsCount === 1
-			a(i18n href=`/${madeWith(all_works, tech)[0].ID}`) #[span.count 1] project
+			a(href=`/${madeWith(all_works, tech)[0].ID}`)!= translate(`<span class="count">1</span> project`)
 
 		if hoursIncludingPreprocs(tech)
 			span.time

@@ -10,19 +10,7 @@ msgstr ""
 "Content-Type: \n"
 "Content-Transfer-Encoding: \n"
 
-msgid "<span class=\"count\">13</span> projects"
-msgstr ""
-
 msgid "<span class=\"count\">1</span> project"
-msgstr ""
-
-msgid "<span class=\"count\">2</span> projects"
-msgstr ""
-
-msgid "<span class=\"count\">3</span> projects"
-msgstr ""
-
-msgid "<span class=\"count\">4</span> projects"
 msgstr ""
 
 msgid "%s’s logo"
@@ -40,9 +28,6 @@ msgstr "Un éditeur vectoriel, outil de conception et de prototypage UX collabor
 msgid "A community-maintained Python library for creating mathematical animations"
 msgstr "Une bibliothèque Python permettant la création d'animations mathématiques"
 
-msgid "A library that parses command-line arguments based on a help message. “Don’t write parser code: a good help message already has all the necessary information in it”"
-msgstr ""
-
 msgid "A desktop publishing and typesetting software application used to create works such as posters, flyers, brochures, magazines, newspapers, presentations, books and ebooks"
 msgstr "Un logiciel de publication assistée par ordinateur et de composition utilisé pour créer des œuvres telles que des affiches, des prospectus, des brochures, des magazines, des journaux, des présentations, des livres et des livres électroniques"
 
@@ -52,14 +37,14 @@ msgstr "Un logiciel de création musicale"
 msgid "A digital visual effects, motion graphics, and compositing application"
 msgstr "Une application d'effets visuels numériques, de motion graphics et de compositing"
 
-msgid "A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write."
-msgstr "Un langage de programmation open source dynamique, axé sur la simplicité et la productivité. Il possède une syntaxe élégante, naturelle et facile à écrire."
-
 msgid "A graphism technique that involves the composition of multiple images into a single, cohesive one"
 msgstr "Une technique de graphisme qui implique la composition de plusieurs images en un ensemble cohérent"
 
 msgid "A high-level Python Web framework that encourages rapid development and clean, pragmatic design"
 msgstr "Un framework Web Python de haut niveau qui encourage un développement rapide et une conception propre et pragmatique"
+
+msgid "A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write."
+msgstr "Un langage de programmation open source dynamique, axé sur la simplicité et la productivité. Il possède une syntaxe élégante, naturelle et facile à écrire."
 
 msgid "A high-level programming language that enables interactive web pages"
 msgstr "Un langage de programmation de haut niveau qui permet l'intéractivité de pages web"
@@ -85,14 +70,17 @@ msgstr "Un langage qui se compile en JavaScript et qui ajoute de nombreuses fonc
 msgid "A library that parses command-line arguments based on a help message. “Don't write parser code: a good help message already has all the necessary information in it”"
 msgstr "Une bibliothèque qui analyse les arguments de la ligne de commande sur la base d'un message d'aide. \"N'écrivez pas de code pour parser vos arguments : un bon message d'aide contient déjà toutes les informations nécessaires\"."
 
+msgid "A library that parses command-line arguments based on a help message. “Don’t write parser code: a good help message already has all the necessary information in it”"
+msgstr ""
+
 msgid "A lightweight data-interchange format"
 msgstr "Un format léger d'échange de données"
 
-msgid "A minimal configuration file format that’s easy to read due to obvious semantics. Designed to map unambiguously to a hash table."
-msgstr ""
-
 msgid "A minimal configuration file format that's easy to read due to obvious semantics. Designed to map unambiguously to a hash table."
 msgstr "Un format de fichier de configuration minimal et facile à lire grâce à une sémantique évidente."
+
+msgid "A minimal configuration file format that’s easy to read due to obvious semantics. Designed to map unambiguously to a hash table."
+msgstr ""
 
 msgid "A minimal language to describe interactive, terminal-based text adventure games"
 msgstr "Un langage minimal pour écrire des jeux d'aventure textuelles"
@@ -166,11 +154,11 @@ msgstr "Un éditeur de graphiques vectoriels et un programme de design"
 msgid "A web-application framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC) pattern"
 msgstr "Un framework d'application web qui inclut tout ce qui est nécessaire pour créer des applications web basées sur une base de données selon le motif MVC"
 
-msgid "An advanced open source relational database"
-msgstr "Une base de données relationnelle open source avancée"
-
 msgid "A timeline-based video editing software application"
 msgstr "Un logiciel de montage vidéo"
+
+msgid "An advanced open source relational database"
+msgstr "Une base de données relationnelle open source avancée"
 
 msgid "An intuitive vector graphics editor for iOS"
 msgstr "Un éditeur de graphiques vectoriels intuitive pour iOS"
@@ -184,6 +172,9 @@ msgstr "Un éditeur d'images open source"
 msgid "An open-source language which builds on JavaScript by adding static type definitions"
 msgstr "Un langage open-source qui construit sur JavaScript en ajoutant des définitions de type statiques"
 
+msgid "An straightforward low-level open source programming language supported by Google featuring built-in concurrency and a robust standard library"
+msgstr "Un langage de programmation open source supporté par Google, comprenant une concurrence intégrée et une bibliothèque standard robuste"
+
 msgid "Any piece of work related to languages (programming languages or natural languages)"
 msgstr "Projets liés au langage (langages de programmation ou langages naturels)"
 
@@ -192,9 +183,6 @@ msgstr "Interfaces de programmation d'application, principalement des <em>Web</e
 
 msgid "Back home"
 msgstr "Retour à l'accueil"
-
-msgid "An straightforward low-level open source programming language supported by Google featuring built-in concurrency and a robust standard library"
-msgstr "Un langage de programmation open source supporté par Google, comprenant une concurrence intégrée et une bibliothèque standard robuste"
 
 msgid "Close"
 msgstr "Fermer"
@@ -235,17 +223,20 @@ msgstr "J'expérimente les sons, leurs textures et leur musicalité depuis que j
 msgid "Learn more"
 msgstr "En savoir plus"
 
-msgid "Set of characters (letters, punctuation marks and more) that define how text looks."
-msgstr ""
-
 msgid "Made with the intent to discover, not necessarily to be useful or aesthetic."
 msgstr "Réalisé dans le but de découvrir sans contrainte d'utilité ou d'esthétique."
 
 msgid "More..."
 msgstr "Plus..."
 
+msgid "Made with <3 by Ewen Le Bihan"
+msgstr "Fait avec <3 par Ewen Le Bihan"
+
 msgid "Music covers for albums, EPs and singles"
 msgstr "Pochettes pour albums, EPs et singles"
+
+msgid "Set of characters (letters, punctuation marks and more) that define how text looks."
+msgstr ""
 
 msgid "Open Source design and prototyping platform meant for cross-domain teams. Non dependent on operating systems, Penpot is web based and works with open web standards (SVG)."
 msgstr "Plateforme de conception et prototypage open source visant des équipes multi-domaines. Non dépendante des systèmes d'exploitation, Penpot est un logiciel web et fonctionne avec les standards web ouverts (SVG)."
@@ -264,17 +255,14 @@ msgstr "Fièrement\n"
 "          </strong>\n"
 "          propulsé par Wordpress"
 
-msgid "Made with <3 by Ewen Le Bihan"
-msgstr "Fait avec <3 par Ewen Le Bihan"
-
-msgid "Redirecting you to my github incubator..."
-msgstr ""
-
 msgid "Proudly <strong>not</strong> powered by Wordpress"
 msgstr "Fièrement <strong>non</strong> propulsé par Wordpress"
 
 msgid "Redirecting you to %s..."
 msgstr "Redirection vers %s..."
+
+msgid "Redirecting you to my github incubator..."
+msgstr ""
 
 msgid "School projects and school-related projects"
 msgstr "Projets scolaires et projets liés à l'école"
@@ -321,9 +309,6 @@ msgstr ""
 msgid "about"
 msgstr "à propos"
 
-msgid "flyer"
-msgstr ""
-
 msgid "about me"
 msgstr "à propos"
 
@@ -357,23 +342,8 @@ msgstr "blogue"
 msgid "book"
 msgstr "livre"
 
-msgid "flyers"
-msgstr ""
-
 msgid "banner"
 msgstr "bannière"
-
-msgid "guis"
-msgstr ""
-
-msgid "hours spent on this"
-msgstr ""
-
-msgid "i can work for you"
-msgstr ""
-
-msgid "part of the collection"
-msgstr ""
 
 msgid "books"
 msgstr "livres"
@@ -420,6 +390,9 @@ msgstr "langage de programmation efficient et confortable"
 msgid "en français"
 msgstr "in english"
 
+msgid "flyer"
+msgstr ""
+
 msgid "experiment"
 msgstr "expérience"
 
@@ -428,6 +401,12 @@ msgstr "expérimental"
 
 msgid "experiments"
 msgstr "expériences"
+
+msgid "flyers"
+msgstr ""
+
+msgid "part of the collection"
+msgstr ""
 
 msgid "fine"
 msgstr "c'est pas grave"
@@ -438,6 +417,12 @@ msgstr "notes de bas de page"
 msgid "game"
 msgstr "jeu"
 
+msgid "guis"
+msgstr ""
+
+msgid "hours spent on this"
+msgstr ""
+
 msgid "games"
 msgstr "jeux"
 
@@ -446,6 +431,9 @@ msgstr "graphisme"
 
 msgid "hardware"
 msgstr "matériel informatique"
+
+msgid "i can work for you"
+msgstr ""
 
 msgid "iconography"
 msgstr "icônes"
@@ -540,17 +528,14 @@ msgstr "envoyer un mail à"
 msgid "site"
 msgstr "site"
 
-msgid "slide into my twitter dms"
-msgstr ""
-
-msgid "thumbnail"
-msgstr ""
-
 msgid "sites"
 msgstr "sites"
 
 msgid "slide into my dms at"
 msgstr "contactez-moi par message privé à"
+
+msgid "slide into my twitter dms"
+msgstr ""
 
 msgid "source code at"
 msgstr "code source disponible à"
@@ -563,6 +548,9 @@ msgstr "les technologies que j'utilise"
 
 msgid "thanks"
 msgstr "merci à"
+
+msgid "thumbnail"
+msgstr "miniature"
 
 msgid "the software, frameworks, libraries, materials and services I used to make this"
 msgstr "les logiciels, frameworks, bibliothèques, matériaux et services utilisés pour cette création"
