@@ -7,6 +7,7 @@ block append head
 	- const audioMediae = (CurrentWork.Media || []).filter(isAudio)
 	- const videoMediae = (CurrentWork.Media || []).filter(isVideo)
 	- const thumb = thumbnailKey(CurrentWork) && (CurrentWork.Media || []).find(m => m.Path === thumbnailKey(CurrentWork))
+	//- - const NUMBERED_TRACK_REGEX = /(\d+)\.\s+(.+)/
 
 	link(href=asset("vendor/dialog-polyfill.css") rel="stylesheet")
 	link(href=asset("spinner-animation.css") rel="stylesheet")
@@ -20,11 +21,12 @@ block append head
 		)
 		meta(content="ewen-lbh" property="music:musician")
 
-		each audio in audioMediae
-			- let [_, trackNumber, title] = /(\d+)\. (.+)/.exec(audio.Title)
-			meta(content=media(`${CurrentWork.ID}/${audio.Path}`) property="music:song")
-			meta(content="1" property="music:song:disc")
-			meta(content=parseFloat(trackNumber) property="music:song:track")
+		//- each audio in audioMediae
+		//- 	if NUMBERED_TRACK_REGEX.test(audio.Title)
+		//- 		- let [_, trackNumber, title] = NUMBERED_TRACK_REGEX.\s+(.+)/.exec(audio.Title)
+		//- 		meta(content=media(`${CurrentWork.ID}/${audio.Path}`) property="music:song")
+		//- 		meta(content="1" property="music:song:disc")
+		//- 		meta(content=parseFloat(trackNumber) property="music:song:track")
 
 	else if videoMediae.length === 1
 		meta(
@@ -78,8 +80,8 @@ block content
 										data-aspect-ratio=cell.Dimensions.AspectRatio
 										height=cell.Dimensions.Height
 										sizes=`(max-width: 1000px) 95vw, ${cellWidthRatio * 1000}px`
-										src=ThumbnailSource(cell, cellWidthRatio * 1200)
-										srcset=ThumbnailSourcesSet(cell)
+										src=ThumbnailSource(CurrentWork, cellWidthRatio * 1200, cell.Path)
+										srcset=ThumbnailSourcesSet(CurrentWork, cell.Path)
 										width=cell.Dimensions.Width
 									)
 							when "audio"
@@ -103,8 +105,8 @@ block content
 									height=cell.Dimensions.Height
 									id=cell.ID
 									sizes=`(max-width: 1000px) 95vw, calc(${cellWidthRatio * 1000}px`
-									src=ThumbnailSource(cell, cellWidthRatio * 1200)
-									srcset=ThumbnailSourcesSet(cell)
+									src=ThumbnailSource(CurrentWork, cellWidthRatio * 1200, cell.Path)
+									srcset=ThumbnailSourcesSet(CurrentWork, cell.Path)
 									title=cell.Title
 									width=cell.Dimensions.Width
 								)
