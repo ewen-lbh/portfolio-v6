@@ -6,9 +6,9 @@ development:
 
 production:
   upload to:
-    media:  ssh://ubuntu@ewen.works:~user-data/www/media.ewen.works/
-    translated: ssh://ubuntu@ewen.works:~user-data/www/<language>.ewen.works/
-    rest: ssh://ubuntu@ewen.works:~user-data/www/assets.ewen.works/
+    media:  https://media.ewen.works/
+    translated: https://<language>.ewen.works/
+    rest: https://assets.ewen.works/
 
   available at:
     media: https://media.ewen.works 
