@@ -51,7 +51,7 @@ html(lang=current_language prefix="og: http://ogp.me/ns#")
 			.links
 				span.links__hint ewen.works/to/
 				dl
-					each site in all_sites
+					each site in all_sites.filter(s => s.Purpose)
 						dt: a(href=`https://${current_language}.ewen.works/to/${site.Name}`)= site.Name
 						dd(i18n)!= site.Purpose
 

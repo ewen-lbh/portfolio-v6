@@ -30,3 +30,11 @@
 - name: "mail"
   url: "mailto:hey@ewen.works"
   purpose: "contact"
+
+- name: instagram
+  url: https://instagram.com/ewenlbh
+  purpose: null
+
+- name: linkedin
+  url: https://linkedin.com/in/ewen-lbh
+  purpose: "my carreer"
