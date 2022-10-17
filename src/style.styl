@@ -525,13 +525,6 @@ p.intro
 		text-decoration none
 		underline-link()
 
-	a .icon
-		height 1.3em
-
-	a span
-		underline-link()
-		margin-left 0.5em
-
 .fullheight
 	display flex
 	flex-direction column
@@ -637,6 +630,17 @@ a.arrow-link
 	display flex
 	flex-direction column
 	align-items center
+
+a.iconed-link
+	display inline-flex
+	align-items center
+	weight-link()
+	.icon
+		height 1.3em
+	span
+		underline-link()
+		margin-left 0.5em
+
 
 .work-card
 	margin-bottom 2rem

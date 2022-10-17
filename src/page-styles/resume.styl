@@ -93,13 +93,15 @@ main
 		font-size 0.75em
 
 section.education, section.experience
-
+	h4
+		margin-top 2rem
+		margin-bottom 0.25rem
 	> section
 		flex-direction row
 		align-items start
+		overflow hidden
 		margin-bottom 3rem
 		padding 2rem
-		overflow hidden
 
 	header.timespan
 		font-size 2.75rem
@@ -121,10 +123,22 @@ section.education, section.experience
 		text-decoration none
 		font-weight 900
 		font-size 2rem
-		backdrop-filter opacity(0.5)
 		transition all 0.25s ease
+		backdrop-filter opacity(0.5)
 
 		&:hover
-			background-size 200%	
-			font-size 3rem
+			background-size 200%
 			font-weight normal
+			font-size 3rem
+
+	.learn-more
+		display flex
+		padding-left 0
+		gap 2em
+
+		li
+			padding-left 0
+			list-style none
+
+		a
+			shape-link()

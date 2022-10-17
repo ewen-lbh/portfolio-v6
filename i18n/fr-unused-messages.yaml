@@ -1,6 +1,5 @@
-# Generated at 2022-10-17 02:07:44.817834273 +0200 CEST m=+5.266055073
+# Generated at 2022-10-17 23:35:30.37819239 +0200 CEST m=+11.642253842
 - "A library that parses command-line arguments based on a help message. “Don't write parser code: a good help message already has all the necessary information in it”"
-- "A map of %s"
 - "A minimal configuration file format that's easy to read due to obvious semantics. Designed to map unambiguously to a hash table."
 - "A modern parsing library for Python capable of parsing any context-free grammar"
 - "A programming language that compiles to JavaScript. It adds syntactic sugar inspired by Ruby, Python and Haskell in an effort to enhance JavaScript's brevity and readability. Specific additional features include list comprehension and destructuring assignment"
