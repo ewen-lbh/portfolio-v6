@@ -2,25 +2,56 @@
 	footer, nav
 		display none
 
-section
-	display flex
-	flex-direction column
-	margin 0 auto
+main
+	section
+		display flex
+		flex-direction column
+		margin 0 auto
+		max-width 1000px
 
-section.skills
-	max-width 1000px
+	h2, h3
+		margin 0
+		text-align left
 
-h2, h3
-	margin 0
-	text-align left
+	h3
+		margin-bottom 1rem
+		font-weight bold
+		font-size 1.7em
 
-h3
-	margin-bottom 1rem
-	font-weight bold
-	font-size 1.7em
+		&:not(:first-of-type)
+			margin-top 2rem
 
-	&:not(:first-of-type)
-		margin-top 2rem
+	h3 > p.inline
+		display inline-block
+		margin-left 1rem
+		font-weight normal
+		font-size 1rem
+
+	h4
+		margin 0
+		font-weight bold
+		font-size 1.3rem
+
+		.author
+			opacity 0.75
+
+	dl
+		display inline-grid
+		grid-template-columns 3rem auto
+		gap 0.5em
+
+	dt, dd
+		display flex
+		align-items center
+
+	dt
+		font-weight bold
+		opacity 0.5
+
+	dd
+		margin-right 1rem
+		margin-left 0.25rem
+		font-size 1.5em
 
 @media (min-width 800px)
 	.skills-list
@@ -46,38 +77,54 @@ h3
 	.count
 		font-weight bold
 
-	h4
-		margin 0
-		font-weight bold
-		font-size 1.1rem
-
-		.author
-			opacity 0.75
-
-	dl
-		display inline-grid
-		grid-template-columns 3rem auto
-		gap 0.5em
-
-	dt, dd
-		display flex
-		align-items center
-
-	dt
-		font-weight bold
-		opacity 0.5
-
-	dd
-		margin-right 1rem
-		margin-left 0.25rem
-		font-size 1.5em
-
 	span.date
 		display inline-block
 		margin-left 0.5em
 		font-size 0.6em
 		opacity 0.5
 
+.ranking
 	span.fraction-slash
 		margin 0 0.25rem
 		opacity 0.75
+
+	sup
+		margin-bottom 0.75em
+		font-size 0.75em
+
+section.education, section.experience
+
+	> section
+		flex-direction row
+		align-items start
+		margin-bottom 3rem
+		padding 2rem
+		overflow hidden
+
+	header.timespan
+		font-size 2.75rem
+		transform rotate(180deg)
+		writing-mode vertical-rl
+
+	.results
+		grid-template-columns 8rem auto
+
+	.where
+		display flex
+		justify-content center
+		align-self center
+		align-items center
+		align-content center
+		height 300px
+		background-position center
+		background-size 150%
+		text-decoration none
+		font-weight 900
+		font-size 2rem
+		backdrop-filter opacity(0.5)
+		transition all 0.25s ease
+
+		&:hover
+			background-size 200%	
+			font-size 3rem
+			font-weight normal

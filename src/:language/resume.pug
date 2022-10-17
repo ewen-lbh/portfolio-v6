@@ -14,13 +14,14 @@ mixin skill(tech)
 		h4
 			if tech.Author
 				span.author= tech.Author
+				| &nbsp;
 			| #{ tech.DisplayName }:
 
 		if projectsCount > 1
-			a(href=`/using/${tech.URLName}`)!= translate(`<span class="count">%d</span> projects`, projectsCount)
+			a(href=`/using/${tech.URLName}`) #[span.count=projectsCount] #[i18n projects]
 		else if projectsCount === 1
-			a(href=`/${madeWith(all_works, tech)[0].ID}`)!= translate(`<span class="count">1</span> project`)
-
+			a(href=`/${madeWith(all_works, tech)[0].ID}`) #[span.count 1] #[i18n project]
+		
 		if hoursIncludingPreprocs(tech)
 			span.time
 				span.count #{ hoursIncludingPreprocs(tech) }+&nbsp;
@@ -28,7 +29,7 @@ mixin skill(tech)
 						| hour
 					else
 						| hours
-				| of use
+				| &nbsp;of use
 
 block append head
 	+title("curriculum vitæ")
@@ -53,15 +54,19 @@ block content
 		h3 language
 		ul.skills-list
 			li.skill
-				h4 French
+				h4 Français
 				p Native
+
+			li.skill
+				h4 日本語
+				a(href="https://duome.eu/ewen_lbh/en/ja")=translate("%v-day streak on Duolingo, %v league", duolingoJapanese.streak, duolingoJapanese.league)
 
 			li.skill
 				h4 English
 				dl
 					dt
 						| TOEIC
-					dd
+					dd.ranking
 						| 950
 						span.fraction-slash ⁄
 						| 990
@@ -70,28 +75,71 @@ block content
 					dt CECRL
 					dd C1
 
-					dt ILR
-					dd 4
+					//- dt ILR
+					//- dd 4
 
-					dt ACTFL
-					dd S
+					//- dt ACTFL
+					//- dd S
 
 		h3 programming
+			p.inline work time tracked by #[a(href="https://wakatime.com") WakaTime]
 		ul.skills-list
 			each tech in technologies(programmingTechnologies)
 				+skill(tech)
 
-		h3 graphic design
+		h3 arts
 		ul.skills-list
 			each tech in technologies(graphicDesignSoftware)
 				+skill(tech)
-
-		h3 motion design
-		ul.skills-list
 			each tech in technologies(motionDesignSoftware)
 				+skill(tech)
-
-		h3 music making
-		ul.skills-list
 			each tech in technologies(musicMakingSoftware)
 				+skill(tech)
+
+	section.education
+		h2 education
+
+		section
+			header.timespan 2022—now
+			.content
+				h3 #[abbr(title="École nationale supérieure d'électrotechnique, d'électronique, d'informatique, d'hydraulique et des télécommunications") ENSEEIHT]
+
+				h4 what
+				p.what INP-ENSEEIHT (“École nationale supérieure d'électrotechnique, d'électronique, d'informatique, d'hydraulique et des télécommunication”) A top-ranking engineering graduate school based in Toulouse, France.
+
+				h4 where
+				a.where(href="https://goo.gl/maps/w7PHkAqmQoHCFxFn9" style=`background-image: url(${asset("map-toulouse.png")})`) Toulouse, France
+
+		section
+			header.timespan 2020—2022
+			.content
+				h3 #[abbr(title="Classes préparatoires aux Grandes Écoles") CPGE]
+				h4 what
+				p.what A two-year intensive preparation course for the competitive entrance exams to the top engineering schools (“les Grandes Ecoles”) in France.
+				h4 where
+				a.where(href="https://goo.gl/maps/tacLXnRZyw13UcqJ9" style=`background-image: url(${asset("map-nîmes.png")})`) Nîmes, France
+				h4 results
+				p My ranks at entrance exams
+				dl.results
+					dt: a(href="https://www.concours-mines-telecom.fr/") Mines-Télécom
+					dd.ranking
+						| 1104
+						sup th
+						span.fraction-slash ⁄
+						| 7862
+
+					dt: a(href="https://www.concours-commun-inp.fr/"): abbr(title="Concours commun des instituts nationaux polytechniques") CCINP
+					dd.ranking
+						| 1791
+						sup st
+						span.fraction-slash ⁄
+						| 5467
+
+
+	section.experience
+		h2 experience
+		
+		section
+			header.timespan 
+			.content
+				h3 internship @ #[a(href="")]
