@@ -12225,11 +12225,6 @@
     {
         "id": "the-unconscious-wanders",
         "metadata": {
-            "tags": [
-                "drawing",
-                "graphism",
-                "music"
-            ],
             "colors": {
                 "primary": "",
                 "secondary": "",
@@ -12239,24 +12234,84 @@
             "using": [
                 "photoshop",
                 "fl studio"
+            ],
+            "tags": [
+                "drawing",
+                "graphism",
+                "music"
+            ],
+            "private": true,
+            "layout": [
+                [
+                    "p1",
+                    "m1"
+                ],
+                "p2",
+                [
+                    "m6",
+                    "m11"
+                ],
+                [
+                    "m7",
+                    "m12"
+                ],
+                [
+                    "m8",
+                    "m13"
+                ],
+                [
+                    "m9",
+                    "m14"
+                ],
+                [
+                    "m10",
+                    "m15"
+                ],
+                [
+                    "m2",
+                    "m3",
+                    "m4"
+                ],
+                [
+                    "m5",
+                    "l1"
+                ]
             ]
         },
         "title": {
-            "fr": "The Unconscious’ Wanders",
-            "en": "The Unconscious’ Wanders"
+            "en": "The Unconscious’ Wanders",
+            "fr": "The Unconscious’ Wanders"
         },
         "paragraphs": {
-            "fr": [],
-            "en": []
+            "en": [
+                {
+                    "id": "",
+                    "content": "<p>This album’s title has two meanings, depending on the apostrophe’s placement (before the “s” of “unconscious”, or after), both are equaly valid: this album is a collection of tracks exploring pensive phases of our lives, when we are deep within our thoughts, imagining things, whether it is during the day, in those hollow moments, or while dreaming.</p>"
+                },
+                {
+                    "id": "",
+                    "content": "<p>These tracks are coupled with accumulation drawings without a specific figurative goal that I tend to create, where I only draw what goes through my mind.</p>"
+                }
+            ],
+            "fr": [
+                {
+                    "id": "",
+                    "content": "<p>Littéralement “les errements de l’inconscient” ou “l’inconscient erre” (selon le placement de l’apostrophe), cet album est une collection de morceaux explorant des phases pensives de nos vies, où l’on est plongé dans nos réflexions, dans notre imaginaire, que ce soit en journée, pendant des moments creux, ou pendant le rêve.</p>"
+                },
+                {
+                    "id": "",
+                    "content": "<p>Ces morceaux sont couplés à des dessins d’accumulation sans but figuratif particulier que j’ai tendance à effectuer, où je ne fais que dessiner que ce qui me passe par la tête.</p>"
+                }
+            ]
         },
         "media": {
             "en": [
                 {
-                    "id": "the-unconscious-wanders",
-                    "alt": "Pochette de l’album",
+                    "id": "cover-art-square",
+                    "alt": "",
                     "title": "",
-                    "source": "../the-unconscious-wanders.png",
-                    "path": "the-unconscious-wanders.png",
+                    "source": "../cover-art-square.png",
+                    "path": "cover-art-square.png",
                     "attributes": {
                         "loop": false,
                         "autoplay": false,
@@ -12280,22 +12335,22 @@
                         "tertiary": ""
                     },
                     "thumbnails": {
-                        "1000": "dist/media/the-unconscious-wanders/the-unconscious-wanders@1000.webp",
-                        "100": "dist/media/the-unconscious-wanders/the-unconscious-wanders@100.webp",
-                        "330": "dist/media/the-unconscious-wanders/the-unconscious-wanders@330.webp",
-                        "420": "dist/media/the-unconscious-wanders/the-unconscious-wanders@420.webp",
-                        "500": "dist/media/the-unconscious-wanders/the-unconscious-wanders@500.webp",
-                        "600": "dist/media/the-unconscious-wanders/the-unconscious-wanders@600.webp",
-                        "700": "dist/media/the-unconscious-wanders/the-unconscious-wanders@700.webp",
-                        "800": "dist/media/the-unconscious-wanders/the-unconscious-wanders@800.webp"
+                        "800": "dist/media/the-unconscious-wanders/cover-art-square@800.webp",
+                        "1000": "dist/media/the-unconscious-wanders/cover-art-square@1000.webp",
+                        "100": "dist/media/the-unconscious-wanders/cover-art-square@100.webp",
+                        "330": "dist/media/the-unconscious-wanders/cover-art-square@330.webp",
+                        "420": "dist/media/the-unconscious-wanders/cover-art-square@420.webp",
+                        "500": "dist/media/the-unconscious-wanders/cover-art-square@500.webp",
+                        "600": "dist/media/the-unconscious-wanders/cover-art-square@600.webp",
+                        "700": "dist/media/the-unconscious-wanders/cover-art-square@700.webp"
                     }
                 },
                 {
-                    "id": "whiteboard-drawing",
-                    "alt": "Dessin sur ardoise",
+                    "id": "until-the-novelty-wears-off",
+                    "alt": "",
                     "title": "",
-                    "source": "../whiteboard-drawing.jpg",
-                    "path": "whiteboard-drawing.jpg",
+                    "source": "../…until-the-novelty-wears-off.png",
+                    "path": "…until-the-novelty-wears-off.png",
                     "attributes": {
                         "loop": false,
                         "autoplay": false,
@@ -12303,12 +12358,12 @@
                         "playsinline": false,
                         "controls": true
                     },
-                    "content_type": "image/jpeg",
-                    "size": 350621,
+                    "content_type": "image/png",
+                    "size": 4386483,
                     "dimensions": {
-                        "width": 1325,
-                        "height": 977,
-                        "aspect_ratio": 1.356192
+                        "width": 6000,
+                        "height": 6000,
+                        "aspect_ratio": 1
                     },
                     "online": false,
                     "duration": 0,
@@ -12319,24 +12374,461 @@
                         "tertiary": ""
                     },
                     "thumbnails": {
-                        "420": "dist/media/the-unconscious-wanders/whiteboard-drawing@420.webp",
-                        "500": "dist/media/the-unconscious-wanders/whiteboard-drawing@500.webp",
-                        "600": "dist/media/the-unconscious-wanders/whiteboard-drawing@600.webp",
-                        "700": "dist/media/the-unconscious-wanders/whiteboard-drawing@700.webp",
-                        "800": "dist/media/the-unconscious-wanders/whiteboard-drawing@800.webp",
-                        "1000": "dist/media/the-unconscious-wanders/whiteboard-drawing@1000.webp",
-                        "100": "dist/media/the-unconscious-wanders/whiteboard-drawing@100.webp",
-                        "330": "dist/media/the-unconscious-wanders/whiteboard-drawing@330.webp"
+                        "500": "dist/media/the-unconscious-wanders/until-the-novelty-wears-off@500.webp",
+                        "600": "dist/media/the-unconscious-wanders/until-the-novelty-wears-off@600.webp",
+                        "700": "dist/media/the-unconscious-wanders/until-the-novelty-wears-off@700.webp",
+                        "800": "dist/media/the-unconscious-wanders/until-the-novelty-wears-off@800.webp",
+                        "1000": "dist/media/the-unconscious-wanders/until-the-novelty-wears-off@1000.webp",
+                        "100": "dist/media/the-unconscious-wanders/until-the-novelty-wears-off@100.webp",
+                        "330": "dist/media/the-unconscious-wanders/until-the-novelty-wears-off@330.webp",
+                        "420": "dist/media/the-unconscious-wanders/until-the-novelty-wears-off@420.webp"
+                    }
+                },
+                {
+                    "id": "fragmented-and-too-sensitive-and-already-expired-and-not-profitable",
+                    "alt": "",
+                    "title": "",
+                    "source": "../fragmented-and-too-sensitive-and-already-expired-and-not-profitable.png",
+                    "path": "fragmented-and-too-sensitive-and-already-expired-and-not-profitable.png",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "image/png",
+                    "size": 3765075,
+                    "dimensions": {
+                        "width": 3000,
+                        "height": 3000,
+                        "aspect_ratio": 1
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": false,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        "1000": "dist/media/the-unconscious-wanders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable@1000.webp",
+                        "100": "dist/media/the-unconscious-wanders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable@100.webp",
+                        "330": "dist/media/the-unconscious-wanders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable@330.webp",
+                        "420": "dist/media/the-unconscious-wanders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable@420.webp",
+                        "500": "dist/media/the-unconscious-wanders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable@500.webp",
+                        "600": "dist/media/the-unconscious-wanders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable@600.webp",
+                        "700": "dist/media/the-unconscious-wanders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable@700.webp",
+                        "800": "dist/media/the-unconscious-wanders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable@800.webp"
+                    }
+                },
+                {
+                    "id": "cover-art-typo",
+                    "alt": "",
+                    "title": "",
+                    "source": "../cover-art-typo.png",
+                    "path": "cover-art-typo.png",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "image/png",
+                    "size": 2276245,
+                    "dimensions": {
+                        "width": 3000,
+                        "height": 3000,
+                        "aspect_ratio": 1
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": false,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        "1000": "dist/media/the-unconscious-wanders/cover-art-typo@1000.webp",
+                        "100": "dist/media/the-unconscious-wanders/cover-art-typo@100.webp",
+                        "330": "dist/media/the-unconscious-wanders/cover-art-typo@330.webp",
+                        "420": "dist/media/the-unconscious-wanders/cover-art-typo@420.webp",
+                        "500": "dist/media/the-unconscious-wanders/cover-art-typo@500.webp",
+                        "600": "dist/media/the-unconscious-wanders/cover-art-typo@600.webp",
+                        "700": "dist/media/the-unconscious-wanders/cover-art-typo@700.webp",
+                        "800": "dist/media/the-unconscious-wanders/cover-art-typo@800.webp"
+                    }
+                },
+                {
+                    "id": "tease-1",
+                    "alt": "",
+                    "title": "",
+                    "source": "../tease-1.png",
+                    "path": "tease-1.png",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "image/png",
+                    "size": 996100,
+                    "dimensions": {
+                        "width": 1279,
+                        "height": 720,
+                        "aspect_ratio": 1.776389
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": false,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        "1000": "dist/media/the-unconscious-wanders/tease-1@1000.webp",
+                        "100": "dist/media/the-unconscious-wanders/tease-1@100.webp",
+                        "330": "dist/media/the-unconscious-wanders/tease-1@330.webp",
+                        "420": "dist/media/the-unconscious-wanders/tease-1@420.webp",
+                        "500": "dist/media/the-unconscious-wanders/tease-1@500.webp",
+                        "600": "dist/media/the-unconscious-wanders/tease-1@600.webp",
+                        "700": "dist/media/the-unconscious-wanders/tease-1@700.webp",
+                        "800": "dist/media/the-unconscious-wanders/tease-1@800.webp"
+                    }
+                },
+                {
+                    "id": "fragmented-and-too-sensitive-and-already-expired-and-not-profitable",
+                    "alt": "",
+                    "title": "01. Fragmented and Too Sensitive and Already Expired and Not Profitable",
+                    "source": "../renders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable.flac",
+                    "path": "renders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 14030183,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "dream",
+                    "alt": "",
+                    "title": "02. Dream",
+                    "source": "../renders/dream.flac",
+                    "path": "renders/dream.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 42196949,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "forest-tree-network",
+                    "alt": "",
+                    "title": "03. Forest Tree Network",
+                    "source": "../renders/forest-tree-network.flac",
+                    "path": "renders/forest-tree-network.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 32111846,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "typo",
+                    "alt": "",
+                    "title": "04. Typo",
+                    "source": "../renders/typo.flac",
+                    "path": "renders/typo.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 25182331,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "that-damn-sound",
+                    "alt": "",
+                    "title": "05. That Damn Sound",
+                    "source": "../renders/that-damn-sound.flac",
+                    "path": "renders/that-damn-sound.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 22535080,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "neons",
+                    "alt": "",
+                    "title": "06. Neons",
+                    "source": "../renders/neons.flac",
+                    "path": "renders/neons.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 31781172,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "koi-pond",
+                    "alt": "",
+                    "title": "07. Koi Pond",
+                    "source": "../renders/koi-pond.flac",
+                    "path": "renders/koi-pond.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 33508640,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "mushroom-island",
+                    "alt": "",
+                    "title": "08. Mushroom Island",
+                    "source": "../renders/mushroom-island.flac",
+                    "path": "renders/mushroom-island.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 22918650,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "ocean",
+                    "alt": "",
+                    "title": "09. Ocean",
+                    "source": "../renders/ocean.flac",
+                    "path": "renders/ocean.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 11345772,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "until-the-novelty-wears-off",
+                    "alt": "",
+                    "title": "10. …Until the Novelty Wears Off",
+                    "source": "../renders/…until-the-novelty-wears-off.flac",
+                    "path": "renders/…until-the-novelty-wears-off.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 21045085,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
                     }
                 }
             ],
             "fr": [
                 {
-                    "id": "the-unconscious-wanders",
-                    "alt": "Pochette de l’album",
+                    "id": "cover-art-square",
+                    "alt": "",
                     "title": "",
-                    "source": "../the-unconscious-wanders.png",
-                    "path": "the-unconscious-wanders.png",
+                    "source": "../cover-art-square.png",
+                    "path": "cover-art-square.png",
                     "attributes": {
                         "loop": false,
                         "autoplay": false,
@@ -12360,22 +12852,22 @@
                         "tertiary": ""
                     },
                     "thumbnails": {
-                        "100": "dist/media/the-unconscious-wanders/the-unconscious-wanders@100.webp",
-                        "330": "dist/media/the-unconscious-wanders/the-unconscious-wanders@330.webp",
-                        "420": "dist/media/the-unconscious-wanders/the-unconscious-wanders@420.webp",
-                        "500": "dist/media/the-unconscious-wanders/the-unconscious-wanders@500.webp",
-                        "600": "dist/media/the-unconscious-wanders/the-unconscious-wanders@600.webp",
-                        "700": "dist/media/the-unconscious-wanders/the-unconscious-wanders@700.webp",
-                        "800": "dist/media/the-unconscious-wanders/the-unconscious-wanders@800.webp",
-                        "1000": "dist/media/the-unconscious-wanders/the-unconscious-wanders@1000.webp"
+                        "700": "dist/media/the-unconscious-wanders/cover-art-square@700.webp",
+                        "800": "dist/media/the-unconscious-wanders/cover-art-square@800.webp",
+                        "1000": "dist/media/the-unconscious-wanders/cover-art-square@1000.webp",
+                        "100": "dist/media/the-unconscious-wanders/cover-art-square@100.webp",
+                        "330": "dist/media/the-unconscious-wanders/cover-art-square@330.webp",
+                        "420": "dist/media/the-unconscious-wanders/cover-art-square@420.webp",
+                        "500": "dist/media/the-unconscious-wanders/cover-art-square@500.webp",
+                        "600": "dist/media/the-unconscious-wanders/cover-art-square@600.webp"
                     }
                 },
                 {
-                    "id": "whiteboard-drawing",
-                    "alt": "Dessin sur ardoise",
+                    "id": "until-the-novelty-wears-off",
+                    "alt": "",
                     "title": "",
-                    "source": "../whiteboard-drawing.jpg",
-                    "path": "whiteboard-drawing.jpg",
+                    "source": "../…until-the-novelty-wears-off.png",
+                    "path": "…until-the-novelty-wears-off.png",
                     "attributes": {
                         "loop": false,
                         "autoplay": false,
@@ -12383,12 +12875,12 @@
                         "playsinline": false,
                         "controls": true
                     },
-                    "content_type": "image/jpeg",
-                    "size": 350621,
+                    "content_type": "image/png",
+                    "size": 4386483,
                     "dimensions": {
-                        "width": 1325,
-                        "height": 977,
-                        "aspect_ratio": 1.356192
+                        "width": 6000,
+                        "height": 6000,
+                        "aspect_ratio": 1
                     },
                     "online": false,
                     "duration": 0,
@@ -12399,27 +12891,478 @@
                         "tertiary": ""
                     },
                     "thumbnails": {
-                        "330": "dist/media/the-unconscious-wanders/whiteboard-drawing@330.webp",
-                        "420": "dist/media/the-unconscious-wanders/whiteboard-drawing@420.webp",
-                        "500": "dist/media/the-unconscious-wanders/whiteboard-drawing@500.webp",
-                        "600": "dist/media/the-unconscious-wanders/whiteboard-drawing@600.webp",
-                        "700": "dist/media/the-unconscious-wanders/whiteboard-drawing@700.webp",
-                        "800": "dist/media/the-unconscious-wanders/whiteboard-drawing@800.webp",
-                        "1000": "dist/media/the-unconscious-wanders/whiteboard-drawing@1000.webp",
-                        "100": "dist/media/the-unconscious-wanders/whiteboard-drawing@100.webp"
+                        "500": "dist/media/the-unconscious-wanders/until-the-novelty-wears-off@500.webp",
+                        "600": "dist/media/the-unconscious-wanders/until-the-novelty-wears-off@600.webp",
+                        "700": "dist/media/the-unconscious-wanders/until-the-novelty-wears-off@700.webp",
+                        "800": "dist/media/the-unconscious-wanders/until-the-novelty-wears-off@800.webp",
+                        "1000": "dist/media/the-unconscious-wanders/until-the-novelty-wears-off@1000.webp",
+                        "100": "dist/media/the-unconscious-wanders/until-the-novelty-wears-off@100.webp",
+                        "330": "dist/media/the-unconscious-wanders/until-the-novelty-wears-off@330.webp",
+                        "420": "dist/media/the-unconscious-wanders/until-the-novelty-wears-off@420.webp"
+                    }
+                },
+                {
+                    "id": "fragmented-and-too-sensitive-and-already-expired-and-not-profitable",
+                    "alt": "",
+                    "title": "",
+                    "source": "../fragmented-and-too-sensitive-and-already-expired-and-not-profitable.png",
+                    "path": "fragmented-and-too-sensitive-and-already-expired-and-not-profitable.png",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "image/png",
+                    "size": 3765075,
+                    "dimensions": {
+                        "width": 3000,
+                        "height": 3000,
+                        "aspect_ratio": 1
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": false,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        "700": "dist/media/the-unconscious-wanders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable@700.webp",
+                        "800": "dist/media/the-unconscious-wanders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable@800.webp",
+                        "1000": "dist/media/the-unconscious-wanders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable@1000.webp",
+                        "100": "dist/media/the-unconscious-wanders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable@100.webp",
+                        "330": "dist/media/the-unconscious-wanders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable@330.webp",
+                        "420": "dist/media/the-unconscious-wanders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable@420.webp",
+                        "500": "dist/media/the-unconscious-wanders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable@500.webp",
+                        "600": "dist/media/the-unconscious-wanders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable@600.webp"
+                    }
+                },
+                {
+                    "id": "cover-art-typo",
+                    "alt": "",
+                    "title": "",
+                    "source": "../cover-art-typo.png",
+                    "path": "cover-art-typo.png",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "image/png",
+                    "size": 2276245,
+                    "dimensions": {
+                        "width": 3000,
+                        "height": 3000,
+                        "aspect_ratio": 1
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": false,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        "600": "dist/media/the-unconscious-wanders/cover-art-typo@600.webp",
+                        "700": "dist/media/the-unconscious-wanders/cover-art-typo@700.webp",
+                        "800": "dist/media/the-unconscious-wanders/cover-art-typo@800.webp",
+                        "1000": "dist/media/the-unconscious-wanders/cover-art-typo@1000.webp",
+                        "100": "dist/media/the-unconscious-wanders/cover-art-typo@100.webp",
+                        "330": "dist/media/the-unconscious-wanders/cover-art-typo@330.webp",
+                        "420": "dist/media/the-unconscious-wanders/cover-art-typo@420.webp",
+                        "500": "dist/media/the-unconscious-wanders/cover-art-typo@500.webp"
+                    }
+                },
+                {
+                    "id": "tease-1",
+                    "alt": "",
+                    "title": "",
+                    "source": "../tease-1.png",
+                    "path": "tease-1.png",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "image/png",
+                    "size": 996100,
+                    "dimensions": {
+                        "width": 1279,
+                        "height": 720,
+                        "aspect_ratio": 1.776389
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": false,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        "500": "dist/media/the-unconscious-wanders/tease-1@500.webp",
+                        "600": "dist/media/the-unconscious-wanders/tease-1@600.webp",
+                        "700": "dist/media/the-unconscious-wanders/tease-1@700.webp",
+                        "800": "dist/media/the-unconscious-wanders/tease-1@800.webp",
+                        "1000": "dist/media/the-unconscious-wanders/tease-1@1000.webp",
+                        "100": "dist/media/the-unconscious-wanders/tease-1@100.webp",
+                        "330": "dist/media/the-unconscious-wanders/tease-1@330.webp",
+                        "420": "dist/media/the-unconscious-wanders/tease-1@420.webp"
+                    }
+                },
+                {
+                    "id": "fragmented-and-too-sensitive-and-already-expired-and-not-profitable",
+                    "alt": "",
+                    "title": "01. Fragmented and Too Sensitive and Already Expired and Not Profitable",
+                    "source": "../renders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable.flac",
+                    "path": "renders/fragmented-and-too-sensitive-and-already-expired-and-not-profitable.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 14030183,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "dream",
+                    "alt": "",
+                    "title": "02. Dream",
+                    "source": "../renders/dream.flac",
+                    "path": "renders/dream.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 42196949,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "forest-tree-network",
+                    "alt": "",
+                    "title": "03. Forest Tree Network",
+                    "source": "../renders/forest-tree-network.flac",
+                    "path": "renders/forest-tree-network.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 32111846,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "typo",
+                    "alt": "",
+                    "title": "04. Typo",
+                    "source": "../renders/typo.flac",
+                    "path": "renders/typo.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 25182331,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "that-damn-sound",
+                    "alt": "",
+                    "title": "05. That Damn Sound",
+                    "source": "../renders/that-damn-sound.flac",
+                    "path": "renders/that-damn-sound.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 22535080,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "neons",
+                    "alt": "",
+                    "title": "06. Neons",
+                    "source": "../renders/neons.flac",
+                    "path": "renders/neons.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 31781172,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "koi-pond",
+                    "alt": "",
+                    "title": "07. Koi Pond",
+                    "source": "../renders/koi-pond.flac",
+                    "path": "renders/koi-pond.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 33508640,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "mushroom-island",
+                    "alt": "",
+                    "title": "08. Mushroom Island",
+                    "source": "../renders/mushroom-island.flac",
+                    "path": "renders/mushroom-island.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 22918650,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "ocean",
+                    "alt": "",
+                    "title": "09. Ocean",
+                    "source": "../renders/ocean.flac",
+                    "path": "renders/ocean.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 11345772,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
+                    }
+                },
+                {
+                    "id": "until-the-novelty-wears-off",
+                    "alt": "",
+                    "title": "10. …Until the Novelty Wears Off",
+                    "source": "../renders/…until-the-novelty-wears-off.flac",
+                    "path": "renders/…until-the-novelty-wears-off.flac",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "audio/flac",
+                    "size": 21045085,
+                    "dimensions": {
+                        "width": 0,
+                        "height": 0,
+                        "aspect_ratio": 0
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": true,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        
                     }
                 }
             ]
         },
         "links": {
-            "fr": [],
-            "en": []
+            "en": [
+                {
+                    "id": "more-drawings",
+                    "name": "More drawings",
+                    "title": "",
+                    "url": "/inklings"
+                }
+            ],
+            "fr": [
+                {
+                    "id": "dautres-dessins",
+                    "name": "D’autres dessins",
+                    "title": "",
+                    "url": "/inklings"
+                }
+            ]
         },
         "footnotes": {
-            "fr": {
+            "en": {
                 
             },
-            "en": {
+            "fr": {
                 
             }
         }
