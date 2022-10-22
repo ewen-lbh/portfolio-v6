@@ -125,14 +125,14 @@ document.toggle-nav = ->
 	btn-icon = id \nav-toggle .query-selector \.icon
 	if open
 		# Allow scrolling body
-		unlock-body-scroll!
+		document.unlock-body-scroll!
 		# Change to hamburger
 		btn-icon.inner-text = \≡
 		# Close it 
 		id \nav .dataset.state = \closed
 	else
 		# Disable scroll ony body
-		lock-body-scroll!
+		document.lock-body-scroll!
 		# Change to close button
 		btn-icon.inner-text = \×
 		# Open it
