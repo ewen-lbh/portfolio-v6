@@ -1,5 +1,8 @@
 id = -> document.get-element-by-id it
 
+document.unlock-body-scroll = -> document.body.style.overflow = \auto
+document.lock-body-scroll = -> document.body.style.overflow = \hidden
+
 open-media-closeup =  ->
 	it.prevent-default!
 	window-scroll = window.scrollY
@@ -18,6 +21,7 @@ open-media-closeup =  ->
 
 	if not popup.open
 		popup.show-modal!
+		document.lock-body-scroll!
 	setup-spinner!
 	media-element.style.opacity = 0
 	target.replace-with media-element
@@ -121,14 +125,14 @@ document.toggle-nav = ->
 	btn-icon = id \nav-toggle .query-selector \.icon
 	if open
 		# Allow scrolling body
-		document.body.style.overflow = \auto
+		unlock-body-scroll!
 		# Change to hamburger
 		btn-icon.inner-text = \≡
 		# Close it 
 		id \nav .dataset.state = \closed
 	else
 		# Disable scroll ony body
-		document.body.style.overflow = \hidden
+		lock-body-scroll!
 		# Change to close button
 		btn-icon.inner-text = \×
 		# Open it

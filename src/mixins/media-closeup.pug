@@ -1,8 +1,8 @@
 mixin media-closeup
-	dialog#media-closeup(onclick="this.close()")
+	dialog#media-closeup(onclick="this.close(); unlockBodyScroll()")
 		.media.empty
 		.magnifier
 		.loading
 			+spinner
 			p(i18n) loading image in full resolution…
-		button.close(onclick="this.parentElement.close()" title="close") ×
+		button.close(onclick="this.parentElement.close(); unlockBodyScroll()" title="close") ×
