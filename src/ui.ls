@@ -118,17 +118,18 @@ if not window.local-storage.get-item \wip-banner-hidden
 
 document.toggle-nav = ->
 	open = id \nav .dataset.state === \open
+	btn-icon = id \nav-toggle .query-selector \.icon
 	if open
 		# Allow scrolling body
 		document.body.style.overflow = \auto
 		# Change to hamburger
-		id \nav-toggle .query-selector \img .src = id \nav-toggle .dataset.icon-src-open
-		# Close it
+		btn-icon.inner-text = \≡
+		# Close it 
 		id \nav .dataset.state = \closed
 	else
 		# Disable scroll ony body
 		document.body.style.overflow = \hidden
 		# Change to close button
-		id \nav-toggle .query-selector \img .src = id \nav-toggle .dataset.icon-src-close
+		btn-icon.inner-text = \×
 		# Open it
 		id \nav .dataset.state = \open

@@ -300,21 +300,26 @@ nav
 		position fixed
 		bottom 0
 		right 0
+		width 5rem
+		height 5rem
 		z-index 100
 		padding 0.5rem
 		outline none
 		border none
 		background-color secondary
 		box-shadow none
+		display flex
+		justify-content center
+		align-items center
 
-	#nav-toggle img
-		width 3rem
-		height 3rem
+	#nav-toggle .icon
+		font-size 4rem
+		color primary
 
-	nav:not([data-state=open]) > ul
+	nav#nav:not([data-state=open]) > ul
 		display none
 
-	nav[data-state=open]
+	nav#nav[data-state=open]
 		position fixed
 		top 0
 		right 0

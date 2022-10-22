@@ -33,13 +33,13 @@ html(lang=current_language prefix="og: http://ogp.me/ns#")
 			button(i18n onclick="hideWipBanner()") fine
 
 		block nav
-			nav#nav(data-state="open")
+			nav#nav
 				button#nav-toggle(
 					data-icon-src-close=asset("icons/close.svg")
 					data-icon-src-open=asset("icons/hamburger.svg")
 					onclick="toggleNav()"
 				)
-					img(src=asset("icons/hamburger.svg"))
+					.icon ≡
 				ul
 					li: a(i18n href="/") works
 					li: a(i18n href="/music") music
