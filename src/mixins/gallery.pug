@@ -7,5 +7,5 @@ mixin gallery(works, classes="")
 		else
 			h3.year(i18n) Unknown year
 
-		each work in cleanedUp(createdIn(works, year))
+		each work in MostRecentsFirst(cleanedUp(createdIn(works, year)))
 			+work-card(work)
