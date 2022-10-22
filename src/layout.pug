@@ -27,13 +27,19 @@ html(lang=current_language prefix="og: http://ogp.me/ns#")
 		+seo-tags
 
 	body(data-instant-intensity="viewport")
-		block nav
-			aside#wip-banner.wip(data-hidden)
-				h1(i18n) work in progress
-				p(i18n) this site is not finished yet. Not all works have been added, and some pages are rough around the edges.
-				button(i18n onclick="hideWipBanner()") fine
+		aside#wip-banner.wip(data-hidden)
+			h1(i18n) work in progress
+			p(i18n) this site is not finished yet. Not all works have been added, and some pages are rough around the edges.
+			button(i18n onclick="hideWipBanner()") fine
 
-			nav
+		block nav
+			nav#nav(data-state="open")
+				button#nav-toggle(
+					data-icon-src-close=asset("icons/close.svg")
+					data-icon-src-open=asset("icons/hamburger.svg")
+					onclick="toggleNav()"
+				)
+					img(src=asset("icons/hamburger.svg"))
 				ul
 					li: a(i18n href="/") works
 					li: a(i18n href="/music") music

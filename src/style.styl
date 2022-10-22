@@ -272,6 +272,7 @@ aside.wip
 nav
 	@media print
 		display none
+
 	width 100%
 
 	ul
@@ -294,11 +295,59 @@ nav
 			opacity-link()
 			weight-link()
 
+@media (max-width 600px)
+	#nav-toggle
+		position fixed
+		bottom 0
+		right 0
+		z-index 100
+		padding 0.5rem
+		outline none
+		border none
+		background-color secondary
+		box-shadow none
+
+	#nav-toggle img
+		width 3rem
+		height 3rem
+
+	nav:not([data-state=open]) > ul
+		display none
+
+	nav[data-state=open]
+		position fixed
+		top 0
+		right 0
+		bottom 0
+		left 0
+		z-index 100
+		background-color secondary
+		overflow auto
+		display flex
+		justify-content end
+
+		ul a
+			font-size unquote('calc(min(12vw, 10vh))')
+	
+		ul
+			flex-direction column-reverse
+			align-content center
+			justify-content end
+			margin-right 2rem
+			margin-bottom 5rem
+		
+		ul li
+			padding 0
+			text-align right
+
 @media (min-width 600px)
 	nav:not(.inline)
 		position fixed
 		z-index 100
 		background-color secondary
+
+	#nav-toggle
+		display none
 
 	main
 		padding-top 5rem
@@ -497,20 +546,19 @@ dialog#media-closeup
 
 	.magnifier
 		position fixed
-		background secondary
 		z-index 9999
 		border 2px solid primary
-		pointer-events none
+		background secondary
 		background-repeat no-repeat
-
 		opacity 0
+		pointer-events none
 
-	@media only screen and (pointer: fine)
+	@media only screen and (pointer fine)
 		.magnifier
 			opacity 1
-		.media 
-			cursor none
 
+		.media
+			cursor none
 
 p.intro
 	align-self center
@@ -635,12 +683,13 @@ a.iconed-link
 	display inline-flex
 	align-items center
 	weight-link()
+
 	.icon
 		height 1.3em
+
 	span
 		underline-link()
 		margin-left 0.5em
-
 
 .work-card
 	margin-bottom 2rem
