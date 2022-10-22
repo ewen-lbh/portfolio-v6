@@ -803,12 +803,8 @@
             "en": []
         },
         "footnotes": {
-            "fr": {
-                
-            },
-            "en": {
-                
-            }
+            "fr": {},
+            "en": {}
         }
     },
     {
@@ -1051,12 +1047,8 @@
             ]
         },
         "footnotes": {
-            "en": {
-                
-            },
-            "fr": {
-                
-            }
+            "en": {},
+            "fr": {}
         }
     },
     {
@@ -1619,12 +1611,8 @@
             ]
         },
         "footnotes": {
-            "fr": {
-                
-            },
-            "en": {
-                
-            }
+            "fr": {},
+            "en": {}
         }
     },
     {
@@ -1835,12 +1823,8 @@
             "en": []
         },
         "footnotes": {
-            "fr": {
-                
-            },
-            "en": {
-                
-            }
+            "fr": {},
+            "en": {}
         }
     },
     {
@@ -1993,12 +1977,8 @@
             ]
         },
         "footnotes": {
-            "fr": {
-                
-            },
-            "en": {
-                
-            }
+            "fr": {},
+            "en": {}
         }
     },
     {
@@ -2245,12 +2225,8 @@
             ]
         },
         "footnotes": {
-            "fr": {
-                
-            },
-            "en": {
-                
-            }
+            "fr": {},
+            "en": {}
         }
     },
     {
@@ -2568,9 +2544,7 @@
             "en": {
                 "1": "A psychoanalysis group focusing on children"
             },
-            "fr": {
-                
-            }
+            "fr": {}
         }
     },
     {
@@ -2805,21 +2779,17 @@
             ]
         },
         "footnotes": {
-            "fr": {
-                
-            },
-            "en": {
-                
-            }
+            "fr": {},
+            "en": {}
         }
     },
     {
         "id": "acf-illimité",
         "metadata": {
             "colors": {
-                "primary": "#BAC2E2",
+                "primary": "#EA0B96",
                 "secondary": "#221B4D",
-                "tertiary": "#701D6D"
+                "tertiary": "#BAC2E2"
             },
             "finished": "2022-02-19",
             "started": "2022-02-19",
@@ -3124,9 +3094,7 @@
             ]
         },
         "footnotes": {
-            "fr": {
-                
-            },
+            "fr": {},
             "en": {
                 "1": "lit. “The women does not exist”"
             }
@@ -3363,12 +3331,8 @@
             ]
         },
         "footnotes": {
-            "en": {
-                
-            },
-            "fr": {
-                
-            }
+            "en": {},
+            "fr": {}
         }
     },
     {
@@ -4126,12 +4090,8 @@
             ]
         },
         "footnotes": {
-            "fr": {
-                
-            },
-            "en": {
-                
-            }
+            "fr": {},
+            "en": {}
         }
     },
     {
@@ -4546,12 +4506,8 @@
             ]
         },
         "footnotes": {
-            "en": {
-                
-            },
-            "fr": {
-                
-            }
+            "en": {},
+            "fr": {}
         }
     },
     {
@@ -5247,9 +5203,7 @@
             ]
         },
         "footnotes": {
-            "fr": {
-                
-            },
+            "fr": {},
             "en": {
                 "1": "lit. “Reversing Interpretation”"
             }
@@ -5507,12 +5461,8 @@
             "fr": []
         },
         "footnotes": {
-            "en": {
-                
-            },
-            "fr": {
-                
-            }
+            "en": {},
+            "fr": {}
         }
     },
     {
@@ -5801,9 +5751,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 }
             ],
             "fr": [
@@ -6030,9 +5978,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 }
             ]
         },
@@ -6044,9 +5990,7 @@
             "en": {
                 "1": "Two-year highly selective classes to prepare for the competitive exams to the Grandes Ecoles (The “MPSI” branch specializes in Mathematics &amp; Physics)"
             },
-            "fr": {
-                
-            }
+            "fr": {}
         }
     },
     {
@@ -6313,12 +6257,8 @@
             ]
         },
         "footnotes": {
-            "fr": {
-                
-            },
-            "en": {
-                
-            }
+            "fr": {},
+            "en": {}
         }
     },
     {
@@ -7227,12 +7167,8 @@
             ]
         },
         "footnotes": {
-            "en": {
-                
-            },
-            "fr": {
-                
-            }
+            "en": {},
+            "fr": {}
         }
     },
     {
@@ -7634,12 +7570,8 @@
             "fr": []
         },
         "footnotes": {
-            "en": {
-                
-            },
-            "fr": {
-                
-            }
+            "en": {},
+            "fr": {}
         }
     },
     {
@@ -7844,9 +7776,7 @@
             ]
         },
         "footnotes": {
-            "default": {
-                
-            }
+            "default": {}
         }
     },
     {
@@ -8615,12 +8545,8 @@
             "fr": []
         },
         "footnotes": {
-            "en": {
-                
-            },
-            "fr": {
-                
-            }
+            "en": {},
+            "fr": {}
         }
     },
     {
@@ -8854,12 +8780,8 @@
             ]
         },
         "footnotes": {
-            "en": {
-                
-            },
-            "fr": {
-                
-            }
+            "en": {},
+            "fr": {}
         }
     },
     {
@@ -9035,9 +8957,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "shade",
@@ -9067,9 +8987,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "mole",
@@ -9099,9 +9017,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "wannacry",
@@ -9131,9 +9047,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "petya",
@@ -9163,9 +9077,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "gruxer",
@@ -9195,9 +9107,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "adam-locker",
@@ -9227,9 +9137,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 }
             ],
             "fr": [
@@ -9339,9 +9247,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "shade",
@@ -9371,9 +9277,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "mole",
@@ -9403,9 +9307,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "wannacry",
@@ -9435,9 +9337,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "petya",
@@ -9467,9 +9367,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "gruxer",
@@ -9499,9 +9397,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "adam-locker",
@@ -9531,9 +9427,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 }
             ]
         },
@@ -9592,12 +9486,8 @@
             ]
         },
         "footnotes": {
-            "en": {
-                
-            },
-            "fr": {
-                
-            }
+            "en": {},
+            "fr": {}
         }
     },
     {
@@ -9744,9 +9634,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "neptune-radio-edit",
@@ -9776,9 +9664,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "entropy",
@@ -9808,9 +9694,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "the-event-horizon",
@@ -9840,9 +9724,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "the-event-horizon",
@@ -9872,9 +9754,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "the-event-horizon",
@@ -9904,9 +9784,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 }
             ],
             "en": [
@@ -9977,9 +9855,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "neptune-radio-edit",
@@ -10009,9 +9885,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "entropy",
@@ -10041,9 +9915,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "the-event-horizon",
@@ -10073,9 +9945,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "fermi-paradox",
@@ -10105,9 +9975,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "neptune",
@@ -10137,9 +10005,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 }
             ]
         },
@@ -10162,12 +10028,8 @@
             ]
         },
         "footnotes": {
-            "fr": {
-                
-            },
-            "en": {
-                
-            }
+            "fr": {},
+            "en": {}
         }
     },
     {
@@ -10291,9 +10153,7 @@
             ]
         },
         "footnotes": {
-            "fr": {
-                
-            }
+            "fr": {}
         }
     },
     {
@@ -10336,12 +10196,8 @@
             ]
         },
         "footnotes": {
-            "en": {
-                
-            },
-            "fr": {
-                
-            }
+            "en": {},
+            "fr": {}
         }
     },
     {
@@ -10479,9 +10335,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "nuclear-waste",
@@ -10511,9 +10365,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "stacking-data",
@@ -10543,9 +10395,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "76e54",
@@ -10575,9 +10425,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "terraform",
@@ -10607,9 +10455,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "oktober",
@@ -10639,9 +10485,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "quarry",
@@ -10671,9 +10515,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "mutate",
@@ -10703,9 +10545,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "the-laboratory",
@@ -10735,9 +10575,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "drop-n-slide",
@@ -10767,9 +10605,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 }
             ],
             "fr": [
@@ -10840,9 +10676,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "nuclear-waste",
@@ -10872,9 +10706,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "stacking-data",
@@ -10904,9 +10736,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "76e54",
@@ -10936,9 +10766,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "terraform",
@@ -10968,9 +10796,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "oktober",
@@ -11000,9 +10826,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "quarry",
@@ -11032,9 +10856,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "mutate",
@@ -11064,9 +10886,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "the-laboratory",
@@ -11096,9 +10916,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "drop-n-slide",
@@ -11128,9 +10946,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 }
             ]
         },
@@ -11139,12 +10955,8 @@
             "fr": []
         },
         "footnotes": {
-            "en": {
-                
-            },
-            "fr": {
-                
-            }
+            "en": {},
+            "fr": {}
         }
     },
     {
@@ -11759,12 +11571,8 @@
             "en": []
         },
         "footnotes": {
-            "fr": {
-                
-            },
-            "en": {
-                
-            }
+            "fr": {},
+            "en": {}
         }
     },
     {
@@ -12214,12 +12022,8 @@
             ]
         },
         "footnotes": {
-            "en": {
-                
-            },
-            "fr": {
-                
-            }
+            "en": {},
+            "fr": {}
         }
     },
     {
@@ -12529,9 +12333,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "dream",
@@ -12561,9 +12363,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "forest-tree-network",
@@ -12593,9 +12393,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "typo",
@@ -12625,9 +12423,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "that-damn-sound",
@@ -12657,9 +12453,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "neons",
@@ -12689,9 +12483,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "koi-pond",
@@ -12721,9 +12513,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "mushroom-island",
@@ -12753,9 +12543,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "ocean",
@@ -12785,9 +12573,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "until-the-novelty-wears-off",
@@ -12817,9 +12603,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 }
             ],
             "fr": [
@@ -13046,9 +12830,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "dream",
@@ -13078,9 +12860,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "forest-tree-network",
@@ -13110,9 +12890,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "typo",
@@ -13142,9 +12920,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "that-damn-sound",
@@ -13174,9 +12950,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "neons",
@@ -13206,9 +12980,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "koi-pond",
@@ -13238,9 +13010,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "mushroom-island",
@@ -13270,9 +13040,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "ocean",
@@ -13302,9 +13070,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "until-the-novelty-wears-off",
@@ -13334,9 +13100,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 }
             ]
         },
@@ -13359,12 +13123,8 @@
             ]
         },
         "footnotes": {
-            "en": {
-                
-            },
-            "fr": {
-                
-            }
+            "en": {},
+            "fr": {}
         }
     },
     {
@@ -13526,12 +13286,8 @@
             ]
         },
         "footnotes": {
-            "fr": {
-                
-            },
-            "en": {
-                
-            }
+            "fr": {},
+            "en": {}
         }
     },
     {
@@ -13711,12 +13467,8 @@
             ]
         },
         "footnotes": {
-            "fr": {
-                
-            },
-            "en": {
-                
-            }
+            "fr": {},
+            "en": {}
         }
     },
     {
@@ -14133,12 +13885,8 @@
             ]
         },
         "footnotes": {
-            "en": {
-                
-            },
-            "fr": {
-                
-            }
+            "en": {},
+            "fr": {}
         }
     },
     {
@@ -14254,9 +14002,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "burnout",
@@ -14286,9 +14032,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "concrete",
@@ -14318,9 +14062,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "cold-fingers",
@@ -14350,9 +14092,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "hammer",
@@ -14382,9 +14122,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "drop-of-blood",
@@ -14414,9 +14152,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "9to5",
@@ -14446,9 +14182,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "microelectronics",
@@ -14478,9 +14212,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 }
             ],
             "fr": [
@@ -14551,9 +14283,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "burnout",
@@ -14583,9 +14313,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "concrete",
@@ -14615,9 +14343,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "cold-fingers",
@@ -14647,9 +14373,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "hammer",
@@ -14679,9 +14403,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "drop-of-blood",
@@ -14711,9 +14433,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "9to5",
@@ -14743,9 +14463,7 @@
                         "secondary": "",
                         "tertiary": ""
                     },
-                    "thumbnails": {
-                        
-                    }
+                    "thumbnails": {}
                 },
                 {
                     "id": "microelectronics",
@@ -14775,8 +14493,220 @@
                         "secondary": "",
                         "tertiary": ""
                     },
+                    "thumbnails": {}
+                }
+            ]
+        },
+        "links": {
+            "en": [],
+            "fr": []
+        },
+        "footnotes": {
+            "en": {},
+            "fr": {}
+        }
+    },
+    {
+        "id": "acf-je-suis-ce-que-je-dis",
+        "metadata": {
+            "finished": "2022-10-08",
+            "started": "2022-08-16",
+            "tags": [
+                "graphism",
+                "poster"
+            ],
+            "made with": [
+                "gimp"
+            ],
+            "colors": {
+                "primary": "white",
+                "secondary": "#E20713"
+            }
+        },
+        "title": {
+            "en": "I am what I say",
+            "fr": "Je suis ce que je dis"
+        },
+        "paragraphs": {
+            "fr": [
+                {
+                    "id": "",
+                    "content": "<p>L’<a href=\"/acf\">ACF</a> organise une conférence préparatoire aux 52<sup>e</sup> journées de l’école de la Cause freudienne, portant sur l’assignation identitaire dans le malaise de la civilisation.</p>"
+                },
+                {
+                    "id": "",
+                    "content": "<p>J’ai été chargé de la réalisation de l’affiche annonçant cet évènement, en me basant sur l’affiche de l’école.</p>"
+                }
+            ],
+            "en": [
+                {
+                    "id": "",
+                    "content": "<p><a href=\"/acf\">ACF</a> organizes a preparatory conference for the 52<sup>th</sup> days of the <abbr title=\"<em>École de la Cause freudienne</em>, meaning “School of the freudian Cause”\">ECF</abbr>, which are on the assignement of identities in the unrest of civilization.</p>"
+                },
+                {
+                    "id": "",
+                    "content": "<p>I was tasked with the creation of a poster annoucing the event, based on the school’s poster.</p>"
+                }
+            ]
+        },
+        "media": {
+            "en": [
+                {
+                    "id": "acf-je-suis-ce-que-je-dis-v11",
+                    "alt": "",
+                    "title": "Poster",
+                    "source": "../acf-je-suis-ce-que-je-dis-v1.1.png",
+                    "path": "acf-je-suis-ce-que-je-dis-v1.1.png",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "image/png",
+                    "size": 598320,
+                    "dimensions": {
+                        "width": 2480,
+                        "height": 3508,
+                        "aspect_ratio": 0.706956
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": false,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
                     "thumbnails": {
-                        
+                        "100": "dist/media/acf-je-suis-ce-que-je-dis/acf-je-suis-ce-que-je-dis-v11@100.webp",
+                        "330": "dist/media/acf-je-suis-ce-que-je-dis/acf-je-suis-ce-que-je-dis-v11@330.webp",
+                        "420": "dist/media/acf-je-suis-ce-que-je-dis/acf-je-suis-ce-que-je-dis-v11@420.webp",
+                        "500": "dist/media/acf-je-suis-ce-que-je-dis/acf-je-suis-ce-que-je-dis-v11@500.webp",
+                        "600": "dist/media/acf-je-suis-ce-que-je-dis/acf-je-suis-ce-que-je-dis-v11@600.webp",
+                        "700": "dist/media/acf-je-suis-ce-que-je-dis/acf-je-suis-ce-que-je-dis-v11@700.webp",
+                        "800": "dist/media/acf-je-suis-ce-que-je-dis/acf-je-suis-ce-que-je-dis-v11@800.webp",
+                        "1000": "dist/media/acf-je-suis-ce-que-je-dis/acf-je-suis-ce-que-je-dis-v11@1000.webp"
+                    }
+                },
+                {
+                    "id": "original",
+                    "alt": "",
+                    "title": "School's poster",
+                    "source": "../original.jpeg",
+                    "path": "original.jpeg",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "image/jpeg",
+                    "size": 1888086,
+                    "dimensions": {
+                        "width": 2480,
+                        "height": 3508,
+                        "aspect_ratio": 0.706956
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": false,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        "1000": "dist/media/acf-je-suis-ce-que-je-dis/original@1000.webp",
+                        "100": "dist/media/acf-je-suis-ce-que-je-dis/original@100.webp",
+                        "330": "dist/media/acf-je-suis-ce-que-je-dis/original@330.webp",
+                        "420": "dist/media/acf-je-suis-ce-que-je-dis/original@420.webp",
+                        "500": "dist/media/acf-je-suis-ce-que-je-dis/original@500.webp",
+                        "600": "dist/media/acf-je-suis-ce-que-je-dis/original@600.webp",
+                        "700": "dist/media/acf-je-suis-ce-que-je-dis/original@700.webp",
+                        "800": "dist/media/acf-je-suis-ce-que-je-dis/original@800.webp"
+                    }
+                }
+            ],
+            "fr": [
+                {
+                    "id": "acf-je-suis-ce-que-je-dis-v11",
+                    "alt": "",
+                    "title": "Affiche",
+                    "source": "../acf-je-suis-ce-que-je-dis-v1.1.png",
+                    "path": "acf-je-suis-ce-que-je-dis-v1.1.png",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "image/png",
+                    "size": 598320,
+                    "dimensions": {
+                        "width": 2480,
+                        "height": 3508,
+                        "aspect_ratio": 0.706956
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": false,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        "330": "dist/media/acf-je-suis-ce-que-je-dis/acf-je-suis-ce-que-je-dis-v11@330.webp",
+                        "420": "dist/media/acf-je-suis-ce-que-je-dis/acf-je-suis-ce-que-je-dis-v11@420.webp",
+                        "500": "dist/media/acf-je-suis-ce-que-je-dis/acf-je-suis-ce-que-je-dis-v11@500.webp",
+                        "600": "dist/media/acf-je-suis-ce-que-je-dis/acf-je-suis-ce-que-je-dis-v11@600.webp",
+                        "700": "dist/media/acf-je-suis-ce-que-je-dis/acf-je-suis-ce-que-je-dis-v11@700.webp",
+                        "800": "dist/media/acf-je-suis-ce-que-je-dis/acf-je-suis-ce-que-je-dis-v11@800.webp",
+                        "1000": "dist/media/acf-je-suis-ce-que-je-dis/acf-je-suis-ce-que-je-dis-v11@1000.webp",
+                        "100": "dist/media/acf-je-suis-ce-que-je-dis/acf-je-suis-ce-que-je-dis-v11@100.webp"
+                    }
+                },
+                {
+                    "id": "original",
+                    "alt": "",
+                    "title": "Affiche de l'école",
+                    "source": "../original.jpeg",
+                    "path": "original.jpeg",
+                    "attributes": {
+                        "loop": false,
+                        "autoplay": false,
+                        "muted": false,
+                        "playsinline": false,
+                        "controls": true
+                    },
+                    "content_type": "image/jpeg",
+                    "size": 1888086,
+                    "dimensions": {
+                        "width": 2480,
+                        "height": 3508,
+                        "aspect_ratio": 0.706956
+                    },
+                    "online": false,
+                    "duration": 0,
+                    "has_sound": false,
+                    "extracted_colors": {
+                        "primary": "",
+                        "secondary": "",
+                        "tertiary": ""
+                    },
+                    "thumbnails": {
+                        "800": "dist/media/acf-je-suis-ce-que-je-dis/original@800.webp",
+                        "1000": "dist/media/acf-je-suis-ce-que-je-dis/original@1000.webp",
+                        "100": "dist/media/acf-je-suis-ce-que-je-dis/original@100.webp",
+                        "330": "dist/media/acf-je-suis-ce-que-je-dis/original@330.webp",
+                        "420": "dist/media/acf-je-suis-ce-que-je-dis/original@420.webp",
+                        "500": "dist/media/acf-je-suis-ce-que-je-dis/original@500.webp",
+                        "600": "dist/media/acf-je-suis-ce-que-je-dis/original@600.webp",
+                        "700": "dist/media/acf-je-suis-ce-que-je-dis/original@700.webp"
                     }
                 }
             ]
@@ -14786,12 +14716,8 @@
             "fr": []
         },
         "footnotes": {
-            "en": {
-                
-            },
-            "fr": {
-                
-            }
+            "en": {},
+            "fr": {}
         }
     }
 ]
