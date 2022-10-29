@@ -41,14 +41,6 @@ block content
 	ul.tags-and-collections
 		each tag in CurrentWork.Metadata.Tags.map(lookupTag).filter(t => t !== undefined)
 			li.tag: a(i18n href=`/${ URLName(tag) }`)= tag.Singular
-		if CollectionsOfWork(CurrentWork).length
-			li.part-of-collections(i18n)
-				if CollectionsOfWork(CurrentWork).length == 1
-					| part of the collection
-				else
-					| part of the collections
-			each collection in CollectionsOfWork(CurrentWork)
-				li.collection: a(href=`/${ collection.ID }`)= collection.Title
 
 	if IsWIP(CurrentWork)
 		a.work-in-progress(i18n href="/#wip") work in progress
@@ -164,6 +156,16 @@ block content
 							if tech.Author
 								span.made-with__item__subline= tech.Author
 							span.made-with__item__name= tech.DisplayName
+
+	- const collections = CollectionsOfWork(CurrentWork).filter(c => c.Description !== "")
+	if collections.length
+		section.collections
+			h2.collections__title(i18n) collections
+			p.collections__explainer(i18n) this work is part of the following collection#{ collections.length === 1 ? "" : "s" }
+			ul.collections__list
+				each collection in collections
+					li.collections__item
+						a(href=`/${ collection.ID }`)= collection.Title
 
 	if hours > 1
 		section.hours

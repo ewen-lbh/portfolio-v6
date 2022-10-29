@@ -5,4 +5,7 @@ mixin media-closeup
 		.loading
 			+spinner
 			p(i18n) loading image in full resolution…
-		button.close(onclick="this.parentElement.close(); unlockBodyScroll()" title="close") ×
+		button.close(
+			onclick="this.parentElement.close(); unlockBodyScroll()"
+			title="close"
+		) ×

@@ -4,7 +4,6 @@ block content
 	- const latest = latestWork(CurrentCollection.Works)
 	- const technologies = [...new Set(CurrentCollection.Works.map(w => w.Metadata.MadeWith).filter(t => t!==null).flat().map(lookupTech).filter(t => t !== undefined).map(t => t.URLName))].map(lookupTech)
 
-
 	h1= CurrentCollection.Title
 	.intro!= CurrentCollection.Description
 
@@ -13,11 +12,13 @@ block content
 			+icon("arrow-right")
 			i18n Learn more
 
-
 	section#technologies
 		ul.technologies-list.logos-only
 			each tech in technologies
-				li: a(href=`/using/${tech.URLName}` title=`${tech.Author}${tech.Author ? " "  : ""}${tech.DisplayName}`)
+				li: a(
+					href=`/using/${tech.URLName}`
+					title=`${tech.Author}${tech.Author ? " "  : ""}${tech.DisplayName}`
+				)
 					img(
 						alt=translate(`%s’s logo`, tech.DisplayName)
 						src=asset(`logos/${tech.URLName}.svg`)

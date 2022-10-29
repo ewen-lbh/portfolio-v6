@@ -18,11 +18,11 @@ block content
 			- const musicTracks = tagged(all_works, "music").reduce((totalTracks, work) => totalTracks + work.Media.filter(media => media.ContentType.startsWith("audio/")).length, 0)
 
 			li.skill: a(href="https://en.ewen.works/resume#programming")
-				.figure #{ totalHoursSpentProgramming }+ 
+				.figure #{ totalHoursSpentProgramming }+
 				p.description hours spent programming in #{ mostUsedLanguages.join(", ") } and more
 
 			li.skill: a(href="https://en.ewen.works/design")
-				.figure #{ projectsUsingDesignSoftware }+ 
+				.figure #{ projectsUsingDesignSoftware }+
 				p.description design projects made with software such as Figma, Photoshop, Illustrator, Krita, Premiere Pro or After Effects
 
 			li.skill: a(href="https://en.ewen.works/music")
