@@ -113,13 +113,6 @@ document.query-selector-all "audio[title]" .for-each ->
 		queue-next-track it
 
 
-document.hide-wip-banner = ->
-	id \wip-banner .dataset.hidden = yes
-	window.local-storage.set-item \wip-banner-hidden, yes
-
-if not window.local-storage.get-item \wip-banner-hidden
-	delete id \wip-banner .dataset.hidden
-
 document.toggle-nav = ->
 	open = id \nav .dataset.state === \open
 	btn-icon = id \nav-toggle .query-selector \.icon
@@ -128,7 +121,7 @@ document.toggle-nav = ->
 		document.unlock-body-scroll!
 		# Change to hamburger
 		btn-icon.inner-text = \≡
-		# Close it 
+		# Close it
 		id \nav .dataset.state = \closed
 	else
 		# Disable scroll ony body
@@ -137,3 +130,10 @@ document.toggle-nav = ->
 		btn-icon.inner-text = \×
 		# Open it
 		id \nav .dataset.state = \open
+
+document.hide-wip-banner = ->
+	id \wip-banner .dataset.hidden = yes
+	window.local-storage.set-item \wip-banner-hidden, yes
+
+if not window.local-storage.get-item \wip-banner-hidden
+	delete id \wip-banner .dataset.hidden

@@ -1,0 +1,34 @@
+extends ./layout
+
+block content
+	h1 Hi, I'm Ewen Le Bihan.
+	p.intro I'm interested in almost anything that is both creative &amp; digital.
+
+	section#cringe-video
+		video(src="cringe-video.mp4")
+
+	section#about
+		h2 about me
+		p My skills span a wide range of domains, from programming to design to music production.
+
+		ul.skills
+			- const totalHoursSpentProgramming = Math.floor(Object.values(wakatimeAggregated.languages).reduce((totalHours, seconds) => totalHours + seconds / 3600, 0))
+			- const mostUsedLanguages = (Object.entries(wakatimeAggregated.languages) .filter(a => !["Other", "latex", "markdown", "pug", "yaml", "json", "sass", "vue"].includes(a[0])) .sort((a, b) => b[1] - a[1]) .slice(0, 7) .map(entry => lookupTech(entry[0]).DisplayName))
+			- const projectsUsingDesignSoftware = ["figma", "gimp", "illustrator", "indesign", "photoshop", "krita", "penpot", "assembly", "aftereffects", "premierepro"].reduce((projectsCount, techName) => projectsCount + madeWith(all_works, techName).length, 0)
+			- const musicTracks = tagged(all_works, "music").reduce((totalTracks, work) => totalTracks + work.Media.filter(media => media.ContentType.startsWith("audio/")).length, 0)
+
+			li.skill: a(href="https://en.ewen.works/resume#programming")
+				.figure #{ totalHoursSpentProgramming }+ 
+				p.description hours spent programming in #{ mostUsedLanguages.join(", ") } and more
+
+			li.skill: a(href="https://en.ewen.works/design")
+				.figure #{ projectsUsingDesignSoftware }+ 
+				p.description design projects made with software such as Figma, Photoshop, Illustrator, Krita, Premiere Pro or After Effects
+
+			li.skill: a(href="https://en.ewen.works/music")
+				.figure #{ musicTracks }+
+				p.description tracks released, some on streaming platforms such as Spotify &amp; Apple Music
+
+		a.iconed-link.resume(href="https://en.ewen.works/resume") 
+			img.icon(src=asset("icons/arrow-right.svg")) 
+			span Get my resume

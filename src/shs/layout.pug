@@ -1,0 +1,64 @@
+doctype html
+- const cleanedUp = works => works.filter(w => w.Paragraphs && w.Paragraphs.length && w.Title)
+- const cellWidth = cell => { const [_, __, start, end] = PositionBounds(cell); return end - start + 1 }
+- const layoutWidth = cells => Math.max(...cells.map(cellWidth))
+- const cleanPath = path => path.replace(/index\.html$/, "").replace(/\.html$/, "").replace(/^(fr|en)\//, "").replace(/^shs\//, "")
+- const other_language = current_language === "fr" ? "en" : "fr"
+
+include ../mixins/work-card
+include ../mixins/spinner
+include ../mixins/gallery
+include ../mixins/per-page-styles
+//- include ../mixins/seo
+include ../mixins/icon
+include ../mixins/media-closeup
+
+html.shs(lang=current_language prefix="og: http://ogp.me/ns#")
+	head: block head
+		meta(charset="UTF-8")
+		meta(content="width=device-width, initial-scale=1.0" name="viewport")
+		link(href=asset("global.css") rel="stylesheet")
+		link(href=asset("style.css") rel="stylesheet")
+		link(href=asset("fonts/import.css") rel="stylesheet")
+		link(href=asset("vendor/progressive-image.css") rel="stylesheet")
+		script(src=asset("vendor/progressive-image.js"))
+		script(defer src=asset("vendor/instant-page-5.1.0.js") type="module")
+		script(defer src=asset("ui.js"))
+		+page-styles("shs")
+
+	body(
+		data-clean-path=cleanPath(current_path)
+		data-instant-intensity="viewport"
+	)
+		block nav
+			nav#nav
+				button#nav-toggle(
+					data-icon-src-close=asset("icons/close.svg")
+					data-icon-src-open=asset("icons/hamburger.svg")
+					onclick="toggleNav()"
+				)
+					.icon ≡
+				ul
+					li: a(i18n class={ active: cleanPath(current_path) === "" } href="/") about
+					li: a(i18n href="https://ewen.works/") works
+					each path in ["international-mobility", "civic-engagement", "personal-professional-project"]
+						li: a(i18n class={ active: cleanPath(current_path) === path } href=`/${path}`)= path.replace(/-/g, " ")
+					li: a(i18n href="https://ewen.works/contact") contact
+		main
+			block content
+		footer
+			.links
+				span.links__hint ewen.works/to/
+				dl
+					each site in all_sites.filter(s => s.Purpose)
+						dt: a(href=`https://${current_language}.ewen.works/to/${site.Name}`)= site.Name
+						dd(i18n)!= site.Purpose
+
+			.credits(role="contentinfo")
+				p(i18n) Made with &lt;3 by Ewen Le Bihan
+				p(i18n) Proudly #[strong not] powered by Wordpress
+				p
+					i18n source code at
+					a(href="https://github.com/ewen-lbh/portfolio") github.com/ewen-lbh/portfolio
+				a.credits__license(href="https://creativecommons.org/licenses/by-sa/4.0/")
+					img(src=asset("icons/cc-by-sa.svg"))
