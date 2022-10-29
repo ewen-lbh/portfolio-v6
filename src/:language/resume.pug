@@ -18,10 +18,10 @@ mixin skill(tech)
 			| #{ tech.DisplayName }:
 
 		if projectsCount > 1
-			a(href=`/using/${tech.URLName}`) #[span.count=projectsCount] #[i18n projects]
+			a(href=`/using/${tech.URLName}`) #[span.count= projectsCount] #[i18n projects]
 		else if projectsCount === 1
 			a(href=`/${madeWith(all_works, tech)[0].ID}`) #[span.count 1] #[i18n project]
-		
+
 		if hoursIncludingPreprocs(tech)
 			span.time
 				span.count #{ hoursIncludingPreprocs(tech) }+&nbsp;
@@ -50,8 +50,8 @@ block content
 	h1 curriculum vitæ
 
 	section.skills
-		h2 skills
-		h3 language
+		h2#skills skills
+		h3#language language
 		ul.skills-list
 			li.skill
 				h4 Français
@@ -59,7 +59,7 @@ block content
 
 			li.skill
 				h4 日本語
-				a(href="https://duome.eu/ewen_lbh/en/ja")=translate("%v-day streak on Duolingo, %v league", duolingoJapanese.streak, duolingoJapanese.league)
+				a(href="https://duome.eu/ewen_lbh/en/ja")= translate("%v-day streak on Duolingo, %v league", duolingoJapanese.streak, duolingoJapanese.league)
 
 			li.skill
 				h4 English
@@ -81,13 +81,13 @@ block content
 					//- dt ACTFL
 					//- dd S
 
-		h3 programming
+		h3#programming programming
 			p.inline work time tracked by #[a(href="https://wakatime.com") WakaTime]
 		ul.skills-list
 			each tech in technologies(programmingTechnologies)
 				+skill(tech)
 
-		h3 arts
+		h3#arts arts
 		ul.skills-list
 			each tech in technologies(graphicDesignSoftware)
 				+skill(tech)
@@ -97,7 +97,7 @@ block content
 				+skill(tech)
 
 	section.education
-		h2 education
+		h2#education education
 
 		section
 			header.timespan 2022—now
@@ -108,7 +108,10 @@ block content
 				p.what INP-ENSEEIHT (“École nationale supérieure d'électrotechnique, d'électronique, d'informatique, d'hydraulique et des télécommunication”) A top-ranking engineering graduate school based in Toulouse, France.
 
 				h4 where
-				a.where(href="https://goo.gl/maps/w7PHkAqmQoHCFxFn9" style=`background-image: url(${asset("map-toulouse.png")})`) Toulouse, France
+				a.where(
+					href="https://goo.gl/maps/w7PHkAqmQoHCFxFn9"
+					style=`background-image: url(${asset("map-toulouse.png")})`
+				) Toulouse, France
 
 				h4 learn more
 				ul.learn-more
@@ -122,11 +125,16 @@ block content
 				h4 what
 				p.what A two-year intensive preparation course for the competitive entrance exams to the top engineering schools (“les Grandes Ecoles”) in France.
 				h4 where
-				a.where(href="https://goo.gl/maps/tacLXnRZyw13UcqJ9" style=`background-image: url(${asset("map-nîmes.png")})`) Nîmes, France
+				a.where(
+					href="https://goo.gl/maps/tacLXnRZyw13UcqJ9"
+					style=`background-image: url(${asset("map-nîmes.png")})`
+				) Nîmes, France
 				h4 results
 				p My ranks at entrance exams
 				dl.results
-					dt: a(href="https://www.concours-commun-inp.fr/"): abbr(title="Concours commun des instituts nationaux polytechniques") CCINP
+					dt: a(href="https://www.concours-commun-inp.fr/"): abbr(
+						title="Concours commun des instituts nationaux polytechniques"
+					) CCINP
 					dd.ranking
 						| 1104
 						sup th
@@ -140,10 +148,9 @@ block content
 						span.fraction-slash ⁄
 						| 5467
 
-
 	section.experience
-		h2 experience
-		
+		h2#experience experience
+
 		section
 			header.timespan 2020
 			.content
