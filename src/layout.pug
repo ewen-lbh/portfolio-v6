@@ -41,12 +41,8 @@ html(lang=current_language prefix="og: http://ogp.me/ns#")
 				)
 					.icon ≡
 				ul
-					li: a(i18n href="/") works
-					li: a(i18n href="/music") music
-					li: a(i18n href="/about") about
-					//- li: a(i18n href="https://blog.ewen.works") blog
-					li: a(i18n href="/contact") contact
-					li: a(i18n href="/thanks") thanks
+					each path in ["", "music", "about", "contact", "thanks"]
+						li: a(i18n class={ active: cleanPath(current_path) === path } href=`/${path}`)= path === "" ? "works" : path
 					li: a(
 						i18n
 						href=`https://${other_language}.ewen.works/${cleanPath(current_path)}`
