@@ -116,7 +116,7 @@ section.contents
 			img
 				filter brightness(0.8)
 
-.made-with
+.made-with, .collections
 	margin-left -1rem // WARNING: depends on <main>'s margin
 	padding 5rem 0
 	width 100vw
@@ -216,6 +216,13 @@ section.contents
 
 		li:first-child
 			margin-right 1.25em
+
+.collections__item a
+	shape-link()
+	color black
+	&::before
+		z-index 1
+		border-color black
 
 aside.wip
 	@media print
@@ -741,3 +748,19 @@ a.iconed-link
 
 	.media
 		transition opacity 1s ease
+
+
+.technologies-list.logos-only
+	display flex
+	gap 1em
+	max-width 1000px
+	flex-wrap wrap
+	justify-content center
+	ul
+		padding-left 0
+	li
+		list-style none
+	a
+		opacity-link()
+	img
+		height 3rem
