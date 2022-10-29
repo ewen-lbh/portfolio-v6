@@ -55,7 +55,8 @@ main
 
 @media (min-width 800px)
 	.skills-list
-		columns 2
+		display grid
+		grid-template-columns 1fr 1fr
 
 .skill
 	display flex
@@ -96,6 +97,7 @@ section.education, section.experience
 	h4
 		margin-top 2rem
 		margin-bottom 0.25rem
+
 	> section
 		flex-direction row
 		align-items start
