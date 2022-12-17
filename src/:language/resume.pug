@@ -48,6 +48,11 @@ block content
 
 	p.pre-h1 Ewen Le Bihan
 	h1 curriculum vitæ
+	p.intro: a.iconed-link(
+		href=`https://media.ewen.works/curriculum-vitæ/${new Date().getFullYear()}.pdf`
+	)
+		img.icon(src=asset("icons/arrow-right.svg"))
+		span(i18n) Get a one-page PDF resume
 
 	section.skills
 		h2#skills skills
@@ -107,11 +112,11 @@ block content
 				h4 what
 				p.what INP-ENSEEIHT (“École nationale supérieure d'électrotechnique, d'électronique, d'informatique, d'hydraulique et des télécommunication”) A top-ranking engineering graduate school based in Toulouse, France.
 
-				h4 where
-				a.where(
-					href="https://goo.gl/maps/w7PHkAqmQoHCFxFn9"
-					style=`background-image: url(${asset("map-toulouse.png")})`
-				) Toulouse, France
+				//- h4 where
+				//- a.where(
+				//- 	href="https://goo.gl/maps/w7PHkAqmQoHCFxFn9"
+				//- 	style=`background-image: url(${asset("map-toulouse.png")})`
+				//- ) Toulouse, France
 
 				h4 learn more
 				ul.learn-more
@@ -124,11 +129,11 @@ block content
 				h3 #[abbr(title="Classes préparatoires aux Grandes Écoles") CPGE], Mathematics &amp; Physics
 				h4 what
 				p.what A two-year intensive preparation course for the competitive entrance exams to the top engineering schools (“les Grandes Ecoles”) in France.
-				h4 where
-				a.where(
-					href="https://goo.gl/maps/tacLXnRZyw13UcqJ9"
-					style=`background-image: url(${asset("map-nîmes.png")})`
-				) Nîmes, France
+				//- h4 where
+				//- a.where(
+				//- 	href="https://goo.gl/maps/tacLXnRZyw13UcqJ9"
+				//- 	style=`background-image: url(${asset("map-nîmes.png")})`
+				//- ) Nîmes, France
 				h4 results
 				p My ranks at entrance exams
 				dl.results
@@ -154,4 +159,23 @@ block content
 		section
 			header.timespan 2020
 			.content
-				h3 Sophia Engineering, internship
+				h3 Internship @ Sophia Engineering
+				p Engineering consulting firm
+
+		section
+			header.timespan 2019
+			.content
+				h3 Internship @ l'Atelier
+				p Graphic designer &amp; printer
+
+		section
+			header.timespan 2018
+			.content
+				h3 Internship @ Satellite
+				p Digital audiovisual agency
+
+		section
+			header.timespan 2017
+			.content
+				h3 Internship @ Pages &amp; Images
+				p Audiovisual &amp; transmedia production company

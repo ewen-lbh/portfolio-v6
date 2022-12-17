@@ -1,4 +1,40 @@
 extends ./layout
 
+block append head
+	+page-styles("resume")
+	+title("personal professional project")
+
 block content
 	h1 Personal Professional Project
+
+	section.mjg
+		h2#mjg MyJobGlasses
+		p I met with Pablo Peiro Bertolin, a frontend developer from Apside.
+		img(src="/mjg.png")
+
+	section.experience
+		h2#experience experience
+
+		section
+			header.timespan 2020
+			.content
+				h3 Internship @ Sophia Engineering
+				p Engineering consulting firm
+
+		section
+			header.timespan 2019
+			.content
+				h3 Internship @ l'Atelier
+				p Graphic designer &amp; printer
+
+		section
+			header.timespan 2018
+			.content
+				h3 Internship @ Satellite
+				p Digital audiovisual agency
+
+		section
+			header.timespan 2017
+			.content
+				h3 Internship @ Pages &amp; Images
+				p Audiovisual &amp; transmedia production company

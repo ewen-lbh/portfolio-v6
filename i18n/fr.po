@@ -10,6 +10,9 @@ msgstr ""
 "Content-Type: \n"
 "Content-Transfer-Encoding: \n"
 
+msgid "Get a one-page PDF resume"
+msgstr "CV monopage en PDF"
+
 msgid "%s’s logo"
 msgstr "Logo de %s"
 
@@ -28,8 +31,23 @@ msgstr "Un éditeur vectoriel, outil de conception et de prototypage UX collabor
 msgid "A community-maintained Python library for creating mathematical animations"
 msgstr "Une bibliothèque Python permettant la création d'animations mathématiques"
 
+msgid "civic engagement"
+msgstr ""
+
+msgid "personal professional project"
+msgstr ""
+
 msgid "A desktop publishing and typesetting software application used to create works such as posters, flyers, brochures, magazines, newspapers, presentations, books and ebooks"
 msgstr "Un logiciel de publication assistée par ordinateur et de composition utilisé pour créer des œuvres telles que des affiches, des prospectus, des brochures, des magazines, des journaux, des présentations, des livres et des livres électroniques"
+
+msgid "collections"
+msgstr ""
+
+msgid "international mobility"
+msgstr ""
+
+msgid "this work is part of the following collection"
+msgstr ""
 
 msgid "A digital audio workstation (DAW)"
 msgstr "Un logiciel de création musicale"
@@ -39,12 +57,6 @@ msgstr "Une application d'effets visuels numériques, de motion graphics et de c
 
 msgid "A dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write."
 msgstr "Un langage de programmation open source dynamique, axé sur la simplicité et la productivité. Il possède une syntaxe élégante, naturelle et facile à écrire."
-
-msgid "flyer"
-msgstr ""
-
-msgid "typeface"
-msgstr ""
 
 msgid "A graphism technique that involves the composition of multiple images into a single, cohesive one"
 msgstr "Une technique de graphisme qui implique la composition de plusieurs images en un ensemble cohérent"
@@ -61,18 +73,6 @@ msgstr "Un moteur de template haute performance fortement influencé par <a href
 msgid "A high-quality typesetting & document preparation system"
 msgstr "Un système de composition et de préparation des documents de haute qualité"
 
-msgid "Extensions or add-ons that add features to web browsers"
-msgstr ""
-
-msgid "The stuy of languages"
-msgstr ""
-
-msgid "linguistics"
-msgstr ""
-
-msgid "web extensions"
-msgstr ""
-
 msgid "A human friendly data serialization standard for all programming languages"
 msgstr "Une norme de sérialisation des données pour tous les langages de programmation"
 
@@ -88,20 +88,20 @@ msgstr "Un langage qui se compile en JavaScript et qui ajoute de nombreuses fonc
 msgid "A library that parses command-line arguments based on a help message. “Don't write parser code: a good help message already has all the necessary information in it”"
 msgstr "Une bibliothèque qui analyse les arguments de la ligne de commande sur la base d'un message d'aide. \"N'écrivez pas de code pour parser vos arguments : un bon message d'aide contient déjà toutes les informations nécessaires\"."
 
-msgid "A library that parses command-line arguments based on a help message. “Don’t write parser code: a good help message already has all the necessary information in it”"
-msgstr ""
-
 msgid "A lightweight data-interchange format"
 msgstr "Un format léger d'échange de données"
 
 msgid "A minimal configuration file format that's easy to read due to obvious semantics. Designed to map unambiguously to a hash table."
 msgstr "Un format de fichier de configuration minimal et facile à lire grâce à une sémantique évidente."
 
-msgid "A minimal configuration file format that’s easy to read due to obvious semantics. Designed to map unambiguously to a hash table."
+msgid "flyer"
 msgstr ""
 
 msgid "A minimal language to describe interactive, terminal-based text adventure games"
 msgstr "Un langage minimal pour écrire des jeux d'aventure textuelles"
+
+msgid "typeface"
+msgstr ""
 
 msgid "A modern parsing library for Python capable of parsing any context-free grammar"
 msgstr "Une bibliothèque d'analyse moderne pour Python capable d'analyser toute grammaire non contextuelle"
@@ -121,9 +121,6 @@ msgstr "Un langage de script puissant, efficace, léger et utilisable sur de l'e
 msgid "A programming language that compiles to JavaScript. It adds syntactic sugar inspired by Ruby, Python and Haskell in an effort to enhance JavaScript's brevity and readability. Specific additional features include list comprehension and destructuring assignment"
 msgstr "Un langage de programmation qui se compile en JavaScript. Il ajoute du sucre syntactique inspiré de Ruby, Python et Haskell dans le but d'améliorer la brièveté et la lisibilité de JavaScript. Les caractéristiques supplémentaires spécifiques comprennent la définition de listes en compréhension et l'affectation par déstructuration"
 
-msgid "A programming language that compiles to JavaScript. It adds syntactic sugar inspired by Ruby, Python and Haskell in an effort to enhance JavaScript’s brevity and readability. Specific additional features include list comprehension and destructuring assignment"
-msgstr ""
-
 msgid "A programming language that lets you work quickly and integrate systems more effectively"
 msgstr "Un langage de programmation permettant de travailler rapidement et d'intégrer des systèmes plus efficacement"
 
@@ -133,29 +130,8 @@ msgstr "Un framework Node.js progressif pour construire des applications côté 
 msgid "A radical new approach to building user interfaces. Whereas traditional frameworks like React and Vue do the bulk of their work in the browser, Svelte shifts that work into a compile step that happens when the app is built"
 msgstr "Une approche radicalement nouvelle de la construction d'interfaces utilisateurs. Alors que les frameworks traditionnels comme React et Vue font l'essentiel de leur travail dans le navigateur, Svelte transforme ce travail en une étape de compilation qui se produit lors de la création de l'application"
 
-msgid "A radical new approach to building user interfaces. Whereas traditional frameworks like React and Vue do the bulk of their work in the browser, Svelte shifts that work into a compile step that happens when you build your app."
-msgstr ""
-
-msgid "A set of brand resources like logos and banners that make up a brand’s visal identity"
-msgstr ""
-
-msgid "Free and open-source digital painting software"
-msgstr ""
-
 msgid "A raster graphics editor"
 msgstr "Un éditeur d'images raster"
-
-msgid "Images that represent a media, such as a video, in a single glance. Might be shown at a small size."
-msgstr ""
-
-msgid "Set of characters (letters, punctuation marks and more) that define how text looks."
-msgstr ""
-
-msgid "Web sites, web apps and web-related libraries"
-msgstr ""
-
-msgid "With a scientific side"
-msgstr ""
 
 msgid "hours spent on this"
 msgstr ""
@@ -166,9 +142,6 @@ msgstr "Une série de nano-ordinateurs"
 msgid "A set of brand resources like logos and banners that make up a brand's visal identity"
 msgstr "Un ensemble de ressources de marque, comme des logos et des bannières, qui constituent l'identité visuelle d'une marque"
 
-msgid "A simple cross-platform library to create graphical user interfaces in <a href=\"/using/go\">Go</a> that work on Android, iOS, Linux, MacOS and Windows."
-msgstr ""
-
 msgid "A smart and user-friendly command line shell for Linux, macOS, and the rest of the family"
 msgstr "Un shell en ligne de commande intelligent et convivial pour Linux, macOS et le reste de la famille"
 
@@ -177,9 +150,6 @@ msgstr "Langage de programmation de systèmes compilés, typés statiquement. Il
 
 msgid "A stylesheet language used to describe the presentation of a document written in HTML or XML"
 msgstr "Un langage de feuille de style utilisé pour décrire la présentation d'un document écrit en HTML ou XML"
-
-msgid "part of the collection"
-msgstr ""
 
 msgid "A text document format for writing notes, documentation, articles, books, ebooks, slideshows, web pages, man pages and blogs. AsciiDoc files can be translated to many formats including HTML, PDF, EPUB, man page."
 msgstr "Un format de document texte pour écrire des notes, de la documentation, des articles, des livres, des ebooks, des diaporamas, des pages web, des pages de manuel et des blogs. Les fichiers AsciiDoc peuvent être traduits dans de nombreux formats, notamment HTML, PDF, EPUB ou man page."
@@ -324,12 +294,6 @@ msgstr "Erreur inconnue"
 msgid "Unknown year"
 msgstr "Année inconnue"
 
-msgid "User interfaces that utilize graphical elements such as icons, and images."
-msgstr ""
-
-msgid "a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache"
-msgstr ""
-
 msgid "about"
 msgstr "à propos"
 
@@ -426,9 +390,6 @@ msgstr "expériences"
 msgid "fine"
 msgstr "c'est pas grave"
 
-msgid "flyers"
-msgstr ""
-
 msgid "footnotes"
 msgstr "notes de bas de page"
 
@@ -440,9 +401,6 @@ msgstr "jeux"
 
 msgid "graphism"
 msgstr "graphisme"
-
-msgid "guis"
-msgstr ""
 
 msgid "hardware"
 msgstr "matériel informatique"
@@ -576,17 +534,11 @@ msgstr "merci à"
 msgid "the software, frameworks, libraries, materials and services I used to make this"
 msgstr "les logiciels, frameworks, bibliothèques, matériaux et services utilisés pour cette création"
 
-msgid "thumbnail"
-msgstr "miniature"
-
 msgid "this site is not finished yet. Not all works have been added, and some pages are rough around the edges."
 msgstr "ce site n'est pas encore terminé. Il manque des projets, et certaines pages ne sont pas finiolées."
 
-msgid "thumbnails"
-msgstr ""
-
-msgid "typefaces"
-msgstr ""
+msgid "thumbnail"
+msgstr "miniature"
 
 msgid "typography"
 msgstr "typographie"

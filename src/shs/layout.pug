@@ -9,7 +9,7 @@ include ../mixins/work-card
 include ../mixins/spinner
 include ../mixins/gallery
 include ../mixins/per-page-styles
-//- include ../mixins/seo
+include ../mixins/seo
 include ../mixins/icon
 include ../mixins/media-closeup
 
@@ -40,10 +40,10 @@ html.shs(lang=current_language prefix="og: http://ogp.me/ns#")
 					.icon ≡
 				ul
 					li: a(i18n class={ active: cleanPath(current_path) === "" } href="/") about
-					li: a(i18n href="https://ewen.works/") works
+					li: a(i18n href="https://en.ewen.works/") works
 					each path in ["international-mobility", "civic-engagement", "personal-professional-project"]
 						li: a(i18n class={ active: cleanPath(current_path) === path } href=`/${path}`)= path.replace(/-/g, " ")
-					li: a(i18n href="https://ewen.works/contact") contact
+					li: a(i18n href="https://en.ewen.works/contact") contact
 		main
 			block content
 		footer

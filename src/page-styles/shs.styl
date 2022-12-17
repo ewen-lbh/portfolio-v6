@@ -35,7 +35,6 @@ html.shs
 	.skills
 		display grid
 		padding-left 0
-		list-style none
 		grid-template-columns repeat(auto-fit, minmax(200px, 1fr))
 		gap 2rem
 
@@ -75,6 +74,8 @@ html.shs
 			padding 0.5em
 
 	.meeting-minutes
+		margin 0 auto
+		max-width 500px
 		object-fit contain
 
 	.kanas
@@ -96,3 +97,31 @@ html.shs
 
 	h2
 		margin-bottom 0
+
+	section#intro
+		display flex
+		flex-direction column
+		justify-content center
+		margin 0 auto
+		max-width unqote("calc(min(1000px, 100vw))")
+		gap 2em
+
+		> img
+			grid-area pic
+
+		> h1
+			grid-area title
+
+		> .intro
+			grid-area intro
+
+	.profile-picture
+		margin-top 2em
+		max-width 90vw
+		max-height 33vh
+		clip-path circle()
+
+	section#cringe-video video
+		max-width 800px
+		width 90vw
+		height 100%

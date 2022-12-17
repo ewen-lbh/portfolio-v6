@@ -1,11 +1,13 @@
 extends ./layout
 
 block content
-	h1 Hi, I'm Ewen Le Bihan.
-	p.intro I'm interested in almost anything that is both creative &amp; digital.
+	section#intro
+		img.profile-picture(src="./profilepic.png")
+		h1 Hi, I'm Ewen Le Bihan.
+		p.intro I'm interested in almost anything that is both creative &amp; digital.
 
 	section#cringe-video
-		video(src="cringe-video.mp4")
+		video(controls src="./cringe-video.mp4")
 
 	section#about
 		h2 about me
