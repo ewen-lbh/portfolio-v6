@@ -62,7 +62,7 @@
 
 - singular: command-line
   plural:   command-line
-  aliases:  [cli]
+  aliases:  [cli, command line]
   description: Programs that run in the terminal, a text-based interface for computers.
   learn more at: https://www.hostinger.com/tutorials/what-is-cli
 
@@ -124,15 +124,20 @@
   plural: typefaces
   aliases: [font, fonts]
   description: |
-    Set of characters (letters, punctuation marks and more) that define how text looks.
+    Set of glyphs (letters, punctuation marks and more) that define how text looks.
 
 - singular: linguistics
   plural: linguistics
-  description: The stuy of languages
+  description: The study of language
 
 - singular: web extension
   plural: web extensions
   description: Extensions or add-ons that add features to web browsers
+
+- singular: programming
+  plural: programming
+  description: |
+    Any piece of work that involves programming, such as libraries, programs, scripts, et cætera.
 
 # WAITING for ortfo/db#
 # - singular: math experiment
