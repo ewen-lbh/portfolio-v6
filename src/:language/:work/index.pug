@@ -1,163 +1,155 @@
 extends ../../layout
 
 block append head
-	- const hasTag = tagName => CurrentWork.Metadata.Tags.map(lookupTag).map(t => t.Singular).includes(lookupTag(tagName).Singular)
-	- const isAudio = media => media.ContentType.startsWith("audio/")
-	- const isVideo = media => media.ContentType.startsWith("video/")
-	- const audioMediae = (CurrentWork.Media || []).filter(isAudio)
-	- const videoMediae = (CurrentWork.Media || []).filter(isVideo)
-	- const thumb = thumbnailKey(CurrentWork) && (CurrentWork.Media || []).find(m => m.Path === thumbnailKey(CurrentWork))
+	- const hasTag = tagName => currentWork.metadata.tags.map(lookupTag).map(t => t.singular).includes(lookupTag(tagName).singular)
+	- const isAudio = media => media.contentType.startsWith("audio/")
+	- const isVideo = media => media.contentType.startsWith("video/")
+	- const videos = currentWork.content.blocks.filter(b => b.type === "media" && isVideo(b))
+	- const audios = currentWork.content.blocks.filter(b => b.type === "media" && isAudio(b))
+	- const gridTemplateAreas = constantWidth(currentWork.content.layout).map(row => '"'+ row.map(cell => `block__${cell}`).join(" ") + '"').join(" ")
 	//- - const NUMBERED_TRACK_REGEX = /(\d+)\.\s+(.+)/
 
 	link(href=asset("vendor/dialog-polyfill.css") rel="stylesheet")
 	link(href=asset("spinner-animation.css") rel="stylesheet")
 
-	+metadata({ canonical: CurrentWork.ID, kind: hasTag("music") ? "music.album" : "website", thumbnail: ThumbnailSource(CurrentWork, 600), thumbnail_dimensions: thumb ? thumb.Dimensions : {Height: 0, Width: 0, AspectRatio: 0}, title: CurrentWork.Title, player_url: audioMediae.length + videoMediae.length ? `https://${current_language}.ewen.works/${CurrentWork.ID}/player` : "", description: CurrentWork.Summary, })
+	+metadata({ canonical: currentWork.id, kind: hasTag("music") ? "music.album" : "website", thumbnail: bestThumbnail(currentWork, 600), thumbnail_dimensions: thumb ? thumb.dimensions : {Height: 0, Width: 0, AspectRatio: 0}, title: currentWork.title, player_url: audios.length + videos.length ? `https://${currentLanguage}.ewen.works/${currentWork.id}/player` : "", description: currentWork.summary })
 
 	if hasTag("music")
 		meta(
-			content=CreatedAt(CurrentWork).toISOString()
+			content=CreatedAt(currentWork).toISOString()
 			property="music:release_date"
 		)
 		meta(content="ewen-lbh" property="music:musician")
 
 		//- each audio in audioMediae
-		//- 	if NUMBERED_TRACK_REGEX.test(audio.Title)
-		//- 		- let [_, trackNumber, title] = NUMBERED_TRACK_REGEX.\s+(.+)/.exec(audio.Title)
-		//- 		meta(content=media(`${CurrentWork.ID}/${audio.Path}`) property="music:song")
+		//- 	if NUMBERED_TRACK_REGEX.test(audio.title)
+		//- 		- let [_, trackNumber, title] = NUMBERED_TRACK_REGEX.\s+(.+)/.exec(audio.title)
+		//- 		meta(content=media(`${currentWork.id}/${audio.Path}`) property="music:song")
 		//- 		meta(content="1" property="music:song:disc")
 		//- 		meta(content=parseFloat(trackNumber) property="music:song:track")
 
-	else if videoMediae.length === 1
+	else if videos.length === 1
 		meta(
-			content=media(`${CurrentWork.ID}/${videoMediae[0].Path}`)
+			content=media(`${currentWork.id}/${videos[0].Path}`)
 			property="og:video"
 		)
 
 block content
-	- const hours = Object.keys(wakatimeAggregated.projects).includes(CurrentWork.ID) ? Math.floor(wakatimeAggregated.projects[CurrentWork.ID] / 3600) : 0
+	- const hours = Object.keys(wakatimeAggregated.projects).includes(currentWork.id) ? Math.floor(wakatimeAggregated.projects[currentWork.id] / 3600) : 0
 	- const mediaType = contentType => (contentType === "application/pdf" ? "pdf" : contentType.split("/")[0])
 
 	ul.tags-and-collections
-		each tag in CurrentWork.Metadata.Tags.map(lookupTag).filter(t => t !== undefined)
-			li.tag: a(i18n href=`/${ URLName(tag) }`)= tag.Singular
+		each tag in currentWork.metadata.tags.map(lookupTag).filter(t => t !== undefined)
+			li.tag: a(i18n href=`/${ urlName(tag) }`)= tag.singular
 
-	if IsWIP(CurrentWork)
+	if isWIP(currentWork)
 		a.work-in-progress(i18n href="/#wip") work in progress
 
-	h1(data-style=CurrentWork.Metadata.Title)= CurrentWork.Title
+	h1(data-style=currentWork.metadata.titleStyle)= currentWork.content.title
 
-	section.contents
-		each cell in CurrentWorkLayedOut || []
-			.element(data-element-type=cell.Type style=CellCSS(cell))
-				if cell.Type == "paragraph"
-					!= cell.Content
-				if cell.Type == "link" || cell.ContentType == "directory"
+	section.contents(style=`grid-template-areas: ${gridTemplateAreas};`)
+		each block in currentWork.content.blocks || []
+			.element(data-element-type=block.type style=`grid-area: block__${block.id}`)
+				if block.type == "paragraph"
+					!= block.content
+				if block.type == "link" || block.contentType == "directory"
 					a(
-						href=cell.URL || media(`${CurrentWork.ID}/${cell.Path}`)
-						id=cell.ID
-						title=cell.Title
-					)= cell.Name || cell.Alt
-				if cell.Type == "media" && cell.ContentType != "directory"
+						href=block.url || media(block.distSource)
+						id=block.id
+						title=block.title
+					)=block.text || block.alt
+				if block.type == "media" && block.contentType != "directory"
 					figure(
-						data-content-type=cell.ContentType
-						data-general-content-type=cell.GeneralContentType
+						data-content-type=block.contentType
+						data-general-content-type=mediaType(block.contentType)
 					)
-						- let source = media(`${CurrentWork.ID}/${cell.Path}`)
-						- let cellWidthRatio = cellWidth(cell) / layoutWidth(CurrentWorkLayedOut)
-						case mediaType(cell.ContentType)
+						- let cellWidthRatio = cellWidth(currentWork.content.layout, block.id) / layoutWidth(currentWork.content.layout)
+						case mediaType(block.contentType)
 							when "pdf"
-								a(href=source title=translate("Click to read the PDF"))
+								a(href=media(block.distSource) title=translate("Click to read the PDF"))
 									img(
-										data-aspect-ratio=cell.Dimensions.AspectRatio
-										height=cell.Dimensions.Height
+										data-aspect-ratio=block.dimensions.aspectRatio
+										height=block.dimensions.height
 										sizes=`(max-width: 1000px) 95vw, ${cellWidthRatio * 1000}px`
-										src=ThumbnailSource(CurrentWork, cellWidthRatio * 1200, cell.Path)
-										srcset=ThumbnailSourcesSet(CurrentWork, cell.Path)
-										width=cell.Dimensions.Width
+										src=bestThumbnail(currentWork, cellWidthRatio * 1200)
+										srcset=thumbnailSourcesSet(currentWork, block.Path)
+										width=block.dimensions.width
 									)
 							when "audio"
 								audio(
-									autoplay=cell.Attributes.Autoplay
-									controls=cell.Attributes.Controls
-									id=cell.ID
-									loop=cell.Attributes.Loop
-									muted=cell.Attributes.Muted
-									playsinline=cell.Attributes.Playsinline
-									src=source
-									title=cell.Title
+									autoplay=block.attributes.autoplay
+									controls=block.attributes.controls
+									id=block.id
+									loop=block.attributes.loop
+									muted=block.attributes.muted
+									playsinline=block.attributes.playsinline
+									src=media(block.distSource)
+									title=block.title
 								)
-									a(href=source)= source
+									a(href=media(block.distSource))=media(block.distSource)
 
 							when "image"
 								img(
-									alt=cell.Alt
-									data-aspect-ratio=cell.Dimensions.AspectRatio
+									alt=block.Alt
+									data-aspect-ratio=block.dimensions.aspectRatio
 									data-full-src=source
-									height=cell.Dimensions.Height
-									id=cell.ID
+									height=block.dimensions.height
+									id=block.id
 									sizes=`(max-width: 1000px) 95vw, calc(${cellWidthRatio * 1000}px`
-									src=ThumbnailSource(CurrentWork, cellWidthRatio * 1200, cell.Path)
-									srcset=ThumbnailSourcesSet(CurrentWork, cell.Path)
-									title=cell.Title
-									width=cell.Dimensions.Width
+									src=bestThumbnail(currentWork, cellWidthRatio * 1200)
+									srcset=thumbnailSourcesSet(currentWork)
+									title=block.title
+									width=block.dimensions.width
 								)
 
 							when "video"
 								video(
-									autoplay=cell.Attributes.Autoplay
-									controls=cell.Attributes.Controls
-									id=cell.ID
-									loop=cell.Attributes.Loop
-									muted=cell.Attributes.Muted
-									playsinline=cell.Attributes.Playsinline
+									autoplay=block.attributes.autoplay
+									controls=block.attributes.controls
+									id=block.id
+									loop=block.attributes.loop
+									muted=block.attributes.muted
+									playsinline=block.attributes.playsinline
 									src=source
-									title=cell.Title
+									title=block.title
 								)
-									a(href=source)= source
+									a(href=media(block.distSource))= media(block.distSource)
 
 							default
-								a(id=cell.ID src=source)= source
+								a(id=block.id src=media(block.distSource))= media(block.distSource)
 
-						if cell.Title
-							figcaption= cell.Title
+						if block.title
+							figcaption= block.title
 
-	if CurrentWork.Footnotes
+	if Object.keys(currentWork.content.footnotes).length
 		section.footnotes
 			h2.footnotes__title(i18n) footnotes
 			dl.footnotes__list
-				each Value, Key in CurrentWork.Footnotes
-					dt(id=`fn:${Key}`)
-						a(href=`#fn:${Key}`)= Key
+				each value, key in currentWork.content.footnotes
+					dt(id=`fn:${key}`)
+						a(href=`#fn:${key}`)= key
 					dd
-						p!= Value
-						a.footnotes__list__item__reference-link(i18n href=`#fnref:${Key}`)
+						p!= value
+						a.footnotes__list__item__reference-link(i18n href=`#fnref${key}`)
 							| ↖ Back to the text
-						//- TODO: handle multiple references (needs chanin >= portfoliodb to add footnotes[].references)
-						//- { if (.References).length >= 2 }
-						//- ol.footnotes__list__item__references
-						//- 	{ ran.References >= }
-						//- 	li: a(href="#fnref:{ . }") ↗ { . }
-						//- 	{ end }
-						//- { end }
 
-	if CurrentWork.Metadata.MadeWith.length
+	if currentWork.metadata.madeWith.length
 		section.made-with
 			h2.made-with__title(i18n) made with
 			p.made-with__explainer(i18n) the software, frameworks, libraries, materials and services I used to make this
 			ul.made-with__list
-				each tech in CurrentWork.Metadata.MadeWith.map(lookupTech).filter(t => t !== undefined)
+				each tech in currentWork.metadata.madeWith.map(lookupTech)
 					li.made-with__item
-						a(href=`/using/${tech.URLName}` title=translate("More..."))
+						a(href=`/using/${tech.urlName}` title=translate("More..."))
 							img.made-with__item__logo(
-								alt=translate(`%s’s logo`, tech.DisplayName)
-								src=asset(`logos/${tech.URLName}.svg`)
+								alt=translate(`%s’s logo`, tech.displayName)
+								src=asset(`logos/${tech.urlName}.svg`)
 							)
-							if tech.Author
-								span.made-with__item__subline= tech.Author
-							span.made-with__item__name= tech.DisplayName
+							if tech.author
+								span.made-with__item__subline= tech.author
+							span.made-with__item__name= tech.displayName
 
-	- const collections = CollectionsOfWork(CurrentWork).filter(c => c.Description !== "")
+	- const collections = collectionsOfWork(currentWork).filter(c => c.Description !== "")
 	if collections.length
 		section.collections
 			h2.collections__title(i18n) collections
@@ -165,7 +157,7 @@ block content
 			ul.collections__list
 				each collection in collections
 					li.collections__item
-						a(href=`/${ collection.ID }`)= collection.Title
+						a(href=`/${ collection.id }`)= collection.title
 
 	if hours > 1
 		section.hours
@@ -173,12 +165,12 @@ block content
 
 	+media-closeup
 
-	style!= `:root { ${Object.entries(ColorsMap(CurrentWork)).map(([Key, Value]) => `--${Key}: ${Value};`).join("\n")} }`
+	style!= `:root { ${Object.entries(colorsMap(currentWork)).map(([key, value]) => `--${key}: ${value};`).join("\n")} }`
 
-	if CurrentWork.Metadata.PageBackground
+	if currentWork.metadata.pageBackground
 		style.
 			body {
-				background-image: url("!{ media(`${CurrentWork.ID}/${CurrentWork.Metadata.PageBackground}`) }");
+				background-image: url("!{ media(`${currentWork.id}/${currentWork.metadata.pageBackground}`) }");
 			}
 
 	script(src=asset("vendor/dialog-polyfill.js"))

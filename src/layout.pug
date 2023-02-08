@@ -1,9 +1,9 @@
 doctype html
-- const cleanedUp = works => works.filter(w => w.Paragraphs && w.Paragraphs.length && w.Title)
-- const cellWidth = cell => { const [_, __, start, end] = PositionBounds(cell); return end - start + 1 }
-- const layoutWidth = cells => Math.max(...cells.map(cellWidth))
+- const cleanedUp = works => works.filter(w => w.Paragraphs && w.Paragraphs.length && w.content.title)
+- const cellWidth = (layout, blockID) => Math.max(...layout.map(row => row.filter(cell => cell === blockID).length))
+- const layoutWidth = (layout) => Math.max(...layout.map(row => row.length))
 - const cleanPath = path => path.replace(/index\.html$/, "").replace(/\.html$/, "").replace(/^(fr|en)\//, "")
-- const other_language = current_language === "fr" ? "en" : "fr"
+- const otherLanguage = currentLanguage === "fr" ? "en" : "fr"
 
 include mixins/work-card
 include mixins/spinner
@@ -13,7 +13,7 @@ include mixins/seo
 include mixins/icon
 include mixins/media-closeup
 
-html(lang=current_language prefix="og: http://ogp.me/ns#")
+html(lang=currentLanguage prefix="og: http://ogp.me/ns#")
 	head: block head
 		meta(charset="UTF-8")
 		meta(content="width=device-width, initial-scale=1.0" name="viewport")
@@ -42,10 +42,10 @@ html(lang=current_language prefix="og: http://ogp.me/ns#")
 					.icon ≡
 				ul
 					each path in ["", "music", "about", "contact", "thanks"]
-						li: a(i18n class={ active: cleanPath(current_path) === path } href=`/${path}`)= path === "" ? "works" : path
+						li: a(i18n class={ active: cleanPath(currentPath) === path } href=`/${path}`)= path === "" ? "works" : path
 					li: a(
 						i18n
-						href=`https://${other_language}.ewen.works/${cleanPath(current_path)}`
+						href=`https://${otherLanguage}.ewen.works/${cleanPath(currentPath)}`
 					) en français
 		main
 			block content
@@ -53,8 +53,8 @@ html(lang=current_language prefix="og: http://ogp.me/ns#")
 			.links
 				span.links__hint ewen.works/to/
 				dl
-					each site in all_sites.filter(s => s.Purpose)
-						dt: a(href=`https://${current_language}.ewen.works/to/${site.Name}`)= site.Name
+					each site in allSites.filter(s => s.Purpose)
+						dt: a(href=`https://${currentLanguage}.ewen.works/to/${site.Name}`)= site.Name
 						dd(i18n)!= site.Purpose
 
 			.credits(role="contentinfo")

@@ -351,3 +351,8 @@
   name: NGIИX
   learn more at: https://nginx.com
   description: a web server that can also be used as a reverse proxy, load balancer, mail proxy and HTTP cache
+
+- slug: svg
+  name: SVG
+  learn more at: https://en.wikipedia.org/wiki/SVG
+  description: an XML-based vector image format for defining two-dimensional graphics, having support for interactivity and animation. The SVG specification is an open standard developed by the World Wide Web Consortium since 1999

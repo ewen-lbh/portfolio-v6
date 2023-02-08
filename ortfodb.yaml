@@ -1,10 +1,11 @@
 extract colors:
-  enabled: true
+  enabled: yes
 
 make thumbnails:
   enabled: true
-  sizes: [100, 330, 420, 500, 600, 700, 800, 1000]
-  file name template: <media directory>/<work id>/<media id>@<size>.webp # FIXME should be relative to output media directory
+  sizes: [50, 330, 420, 700, 1000]
+  # TODO be able to do <dist source basename>@<size>.webp (or suffix: @<size>.webp)
+  file name template: <work id>/<block id>@<size>.webp
 
 media:
   at: dist/media

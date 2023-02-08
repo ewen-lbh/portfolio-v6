@@ -7,13 +7,13 @@ block content
 	h1(i18n) technologies i use
 
 	ul.made-with__list.made-with__list--fullwidth
-		each tech in all_technologies
-			if madeWith(all_works, tech).length
+		each tech in allTechnologies
+			if madeWith(allWorks, tech).length
 				li.made-with__item
-					a(href=`/using/${ tech.URLName }` title=translate("More..."))
+					a(href=`/using/${ tech.urlName }` title=translate("More..."))
 						img.made-with__item__logo(
 							alt=translate("%s’s logo", tech.DisplayName)
-							src=asset(`logos/${tech.URLName}.svg`)
+							src=asset(`logos/${tech.urlName}.svg`)
 						)
 						if tech.Author
 							span.made-with__item__subline= tech.Author

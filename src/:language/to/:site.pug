@@ -1,9 +1,9 @@
 head
-	meta(content=`1; url=${ CurrentSite.URL }` http-equiv="refresh")
+	meta(content=`1; url=${ currentSite.URL }` http-equiv="refresh")
 
 	script.
-		window.location = CurrentSite.URL;
+		window.location = currentSite.URL;
 
 body
-	h1= translate("Redirecting you to %s...", CurrentSite.Name)
-	p!= translate('If this doesn\'t work, you can <a href="%s">go to %s</a> by clicking here', CurrentSite.URL, CurrentSite.Name)
+	h1= translate("Redirecting you to %s...", currentSite.Name)
+	p!= translate('If this doesn\'t work, you can <a href="%s">go to %s</a> by clicking here', currentSite.URL, currentSite.Name)

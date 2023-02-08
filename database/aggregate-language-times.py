@@ -32,6 +32,8 @@ for day in wakatime["days"]:
 		per_language_totals[name] += language["seconds"] + language["minutes"] * 60 + language["hours"] * 3600
 
 	for project in day["projects"]:
+		if project["name"] == "condenses":
+			continue # this project was mostly done in overleaf, not point in using wakatime here
 		if project["name"] not in per_project_totals:
 			per_project_totals[project["name"]] = 0
 

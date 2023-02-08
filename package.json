@@ -9,7 +9,7 @@
 		"pug:format": "prettier --loglevel error --write \"src/**/*.pug\" --plugin-search-dir=./",
 		"stylus:format": "stylus-supremacy format --replace --options .prettierrc src/**/*.styl",
 		"format": "concurrently npm:pug:format npm:stylus:format",
-		"database:build": "ortfodb ~/projects --scattered build database/database.json --config ortfodb.yaml",
+		"database:build": "ortfodb ~/projects --scattered build ideaseed to database/database.json --config ortfodb.yaml",
 		"pug:build": "DEADLINKS_CHECK=0 ortfomk build src/ with database/database.json to dist/ --load database/wakatime-aggregated.json --load database/duolingo-japanese.json --write-progress progress.json",
 		"livescript:build": "lsc -c --output assets/ src/*.ls",
 		"stylus:build": "concurrently 'stylus --compress --sourcemap src/style.styl src/style.styl -o assets/style.css' 'stylus --compress --sourcemap-base src/ src/page-styles/ -o assets/page-styles/'",
@@ -28,16 +28,18 @@
 		"clean": "concurrently 'rm -r dist/{fr,en}' 'rm src/**/*.pug*.js'"
 	},
 	"devDependencies": {
-		"@prettier/plugin-pug": "^2.0.0",
+		"@prettier/plugin-pug": "^2.4.1",
 		"concurrently": "^5.3.0",
-		"gettext-extractor": "^3.5.3",
+		"gettext-extractor": "^3.6.1",
 		"live-server": "^1.2.2",
 		"livescript": "^1.6.0",
-		"nodemon": "^2.0.7",
-		"prettier": "^2.6.2",
-		"pug-cli": "^1.0.0-alpha6",
+		"nodemon": "^2.0.20",
+		"prettier": "^2.8.3",
 		"stylus": "^0.54.8",
-		"stylus-supremacy": "^2.15.0",
-		"svgo": "^2.3.0"
+		"stylus-supremacy": "^2.17.5",
+		"svgo": "^2.8.0"
+	},
+	"dependencies": {
+		"@anduh/pug-cli": "1.0.0-alpha8"
 	}
 }

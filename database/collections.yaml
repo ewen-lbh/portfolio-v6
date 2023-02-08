@@ -18,7 +18,7 @@ acf-vd:
   learn more at: https://www.acfvoiedomitienne.fr/l-acf
 
 music:
-  title: {en: I also make electronic music., fr: Je fais aussi de la musique électronique.}
+  title: {en: music, fr: musique}
   includes: '#music'
   description:
     en: I've been experimenting with sounds, their textures and their musicality since I was 7 years old.
@@ -32,16 +32,16 @@ code:
   singular: code
   plural: code
 
-design:
-  title: {en: design, fr: design}
-  includes: '
-    made with photoshop or
-    made with illustrator or
-    made with indesign or
-    made with figma or
-    made with penpot or
-    made with assembly or
-    made with css or
-    made with gimp'
-  singular: design
-  plural: design
+    # design:
+    #   title: {en: design, fr: design}
+    #   includes: '
+    #     made with photoshop or
+    #     made with illustrator or
+    #     made with indesign or
+    #     made with figma or
+    #     made with penpot or
+    #     made with assembly or
+    #     made with css or
+    #     made with gimp'
+    #   singular: design
+    #   plural: design

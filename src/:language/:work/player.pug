@@ -1,36 +1,36 @@
 - const mediaType = contentType => contentType.split("/")[0]
 
-p: a(href=`https://ewen.works/${CurrentWork.ID}` target="_blank") learn more
+p: a(href=`https://ewen.works/${currentWork.id}` target="_blank") learn more
 
-each cell in (CurrentWorkLayedOut || []).filter(c => c.Type == "media" && c.ContentType != "directory")
+each cell in (currentWorkLayedOut || []).filter(c => c.type == "media" && c.contentType != "directory")
 	figure
-		- let source = media(`${CurrentWork.ID}/${cell.Path}`)
-		case mediaType(cell.ContentType)
+		- let source = media(`${currentWork.id}/${cell.Path}`)
+		case mediaType(cell.contentType)
 			when "audio"
 				audio(
-					autoplay=cell.Attributes.Autoplay
-					controls=cell.Attributes.Controls
-					id=cell.ID
-					loop=cell.Attributes.Loop
-					muted=cell.Attributes.Muted
-					playsinline=cell.Attributes.Playsinline
+					autoplay=cell.attributes.autoplay
+					controls=cell.attributes.controls
+					id=cell.id
+					loop=cell.attributes.loop
+					muted=cell.attributes.muted
+					playsinline=cell.attributes.playsinline
 					src=source
-					title=cell.Title
+					title=cell.title
 				)
 					a(href=source)= source
 
 			when "video"
 				video(
-					autoplay=cell.Attributes.Autoplay
-					controls=cell.Attributes.Controls
-					id=cell.ID
-					loop=cell.Attributes.Loop
-					muted=cell.Attributes.Muted
-					playsinline=cell.Attributes.Playsinline
+					autoplay=cell.attributes.autoplay
+					controls=cell.attributes.controls
+					id=cell.id
+					loop=cell.attributes.loop
+					muted=cell.attributes.muted
+					playsinline=cell.attributes.playsinline
 					src=source
-					title=cell.Title
+					title=cell.title
 				)
 					a(href=source)= source
 
-		if cell.Title
-			figcaption= cell.Title
+		if cell.title
+			figcaption= cell.title

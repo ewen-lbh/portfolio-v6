@@ -1,0 +1,103 @@
+- [ ] ortfo
+- [ ] schoolsyst
+	- [ ] ecoleredirect
+	- [ ] learn-it
+	- [ ] gakko
+	- [ ] ecoledirecte-js-scraper
+- [ ] yaml2markdown
+- [ ] shapemaker
+- [ ] forum-des-metiers
+- [ ] basically all my music
+	- [ ] etymology
+	- [ ] miss-you-remix
+	- [ ] morph
+	- [ ] mr-blue-sky-remix
+	- [ ] nihon
+	- [ ] ink
+	- [ ] interstellar
+	- [ ] stranger-things-remixes
+	- [ ] unspecial-effects-remix
+- [ ] mx3
+- [ ] n7beats-* (wip)
+- [ ] papers
+- [ ] penrose-triangle-tshirt (wip)
+- [ ] periodic-table-skeleton
+- [ ] portfolio, mentionning
+	- [ ] portfolio*
+	- [ ] personal-logo
+- [ ] selfportrait (in music collection ?)
+- [ ] programath
+- [ ] platonic-solids (in collection math-is-beautiful)
+- [ ] theoremindmap
+- [ ] (collection: tvn7-*)
+- [ ] クリエート (alias to kuriieto)
+- [ ] parcoursup-dataviz
+- [ ] spotify-browser-metadata-script
+- [ ] strudach
+- [ ] dotfiles
+- [ ] ffcss
+- [ ] ensgaei
+- [ ] smooth cursorify
+- [ ] litex (wip)
+- [ ] indentex (merge with litex)
+- [ ] studentml (merge in litex)
+- [ ] bone fracture detection (with alias TIPE)
+- [ ] nimes (wip)
+- [ ] queyd (wip)
+- [ ] fsorg
+- [ ] crossplain
+- [ ] makisushi (todo me prendre en photo avec)
+- [ ] infrasonic village
+- [ ] ivia (wip)
+- [ ] livre-de-tout (wip)
+- [ ] midibackup (written)
+- [ ] pychemin, mentionning
+	- [ ] hyperis
+- [ ] deliverit (wip)
+- [ ] check-availability
+- [ ] creations (add section to ideaseed)
+- [ ] phelng, mentionning:
+	- [ ] bytdlff
+	- [ ] youtube-batch-dl
+	- [ ] minimal-icons
+- [ ] python-cli-box
+- [ ] python-strip-ansi
+- [ ] python-typed-dotenv
+- [ ] python-initsystem
+- [ ] (collection: python-*)
+- [ ] restapiboys
+- [ ] gitmoji-commit-graphs
+- [ ] acf-*
+- [ ] appstract
+- [ ] estiaig-productions-personnelles, jean-monnet-dossier (mention in /about ?)
+- [ ] fete-des-couleurs
+- [ ] science-is-beautiful (as collection!)
+- [ ] yana (group with queyd?)
+
+## less important
+
+- [ ] z-comme-zadig
+- [ ] freezaxe
+- [ ] reccube
+- [ ] restauration-rapide
+- [ ] slides-oral-bac-russe
+- [ ] affaire-raquin
+- [ ] erwin
+- [ ] innovation-day-world-wide-web
+- [ ] cyrano
+- [ ] publishr (first python project), mentionning:
+	- [ ] mx3-publishr
+- [ ] style-baner
+- [ ] random-language
+- [ ] iupac-naming
+- [ ] clean-my-audios (first bash script)
+- [ ] youtube-music-fixes
+- [ ] allutf8
+- [ ] coding-drama
+- [ ] deploy-tools (mention in deliverit)
+- [ ] les-harobases
+- [ ] math-off-the-grid (wip)
+- [ ] mathriddler (wip)
+- [ ] mazde-neverland-lyrics-video (wip)
+- [ ] universe-anatomy
+- [ ] mirrored

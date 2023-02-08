@@ -1,14 +1,14 @@
 extends ../../layout
 
 block content
-	- const latest = latestWork(CurrentCollection.Works)
-	- const technologies = [...new Set(CurrentCollection.Works.map(w => w.Metadata.MadeWith).filter(t => t!==null).flat().map(lookupTech).filter(t => t !== undefined).map(t => t.URLName))].map(lookupTech)
+	- const technologies = [...new Set(currentCollection.works.map(w => w.metadata.madeWith).flat().map(lookupTech).map(t => t.urlName))].map(lookupTech)
+	- const isMusic = currentCollection.title === "music"
 
-	h1= CurrentCollection.Title
-	.intro!= CurrentCollection.Description
+	h1= isMusic ? translate("I make electronic music.") : currentCollection.title
+	.intro!= currentCollection.description
 
-	if CurrentCollection.LearnMoreAt
-		a.description__learn-more(href=CurrentCollection.LearnMoreAt)
+	if currentCollection.learnMoreAt
+		a.description__learn-more(href=currentCollection.learnMoreAt)
 			+icon("arrow-right")
 			i18n Learn more
 
@@ -16,20 +16,25 @@ block content
 		ul.technologies-list.logos-only
 			each tech in technologies
 				li: a(
-					href=`/using/${tech.URLName}`
-					title=`${tech.Author}${tech.Author ? " "  : ""}${tech.DisplayName}`
+					href=`/using/${tech.urlName}`
+					title=`${tech.author}${tech.author ? " "  : ""}${tech.displayName}`
 				)
 					img(
-						alt=translate(`%s’s logo`, tech.DisplayName)
-						src=asset(`logos/${tech.URLName}.svg`)
+						alt=translate(`%s’s logo`, tech.displayName)
+						src=asset(`logos/${tech.urlName}.svg`)
 					)
+				
+	if currentCollection.works.length > 0
+		section#latest
+			h2(i18n) most recent one
 
-	section#latest
-		h2(i18n) most recent one
+			+work-card(latestWork(currentCollection.works), "display")
 
-		+work-card(latest, "display")
+		section#all
+			h2(i18n) all
 
-	section#all
-		h2(i18n) all
+			+gallery(currentCollection.works)
 
-		+gallery(CurrentCollection.Works)
+	else
+		section#none
+			h2(i18n) nothing to see here.

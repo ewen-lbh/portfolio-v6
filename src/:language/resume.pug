@@ -2,14 +2,14 @@ extends ../layout
 //- TODO add info about since when I use the technology (get creation date of earliest project)
 
 mixin skill(tech)
-	- const hoursSpentWith = tech => (Object.keys(wakatimeAggregated.languages).includes(tech.URLName) ? Math.floor(wakatimeAggregated.languages[tech.URLName] / 3600) : 0)
+	- const hoursSpentWith = tech => (Object.keys(wakatimeAggregated.languages).includes(tech.urlName) ? Math.floor(wakatimeAggregated.languages[tech.urlName] / 3600) : 0)
 	- const preprocessorsOf = { css: ["stylus", "sass", "vue", "nuxt", "svelte"], js: ["typescript", "livescript", "coffeescript", "vue", "nuxt", "svelte"], html: ["pug", "vue", "nuxt", "svelte", "django"], vue: ["nuxt"] }
-	- const hoursIncludingPreprocs = tech => hoursSpentWith(tech) + (Object.keys(preprocessorsOf).includes(tech.URLName) ? preprocessorsOf[tech.URLName].reduce((acc, preproc) => acc + hoursSpentWith({ URLName: preproc }), 0) : 0)
+	- const hoursIncludingPreprocs = tech => hoursSpentWith(tech) + (Object.keys(preprocessorsOf).includes(tech.urlName) ? preprocessorsOf[tech.urlName].reduce((acc, preproc) => acc + hoursSpentWith({ urlName: preproc }), 0) : 0)
 
 	li.skill
-		- const projectsCount = madeWith(all_works, tech).length
+		- const projectsCount = madeWith(allWorks, tech).length
 
-		img.logo(src=asset(`logos/${tech.URLName}.svg`))
+		img.logo(src=asset(`logos/${tech.urlName}.svg`))
 
 		h4
 			if tech.Author
@@ -18,18 +18,19 @@ mixin skill(tech)
 			| #{ tech.DisplayName }:
 
 		if projectsCount > 1
-			a(href=`/using/${tech.URLName}`) #[span.count= projectsCount] #[i18n projects]
+			a(href=`/using/${tech.urlName}`) #[span.count= projectsCount] #[i18n projects]
 		else if projectsCount === 1
-			a(href=`/${madeWith(all_works, tech)[0].ID}`) #[span.count 1] #[i18n project]
+			a(href=`/${madeWith(allWorks, tech)[0].id}`) #[span.count 1] #[i18n project]
 
 		if hoursIncludingPreprocs(tech)
 			span.time
 				span.count #{ hoursIncludingPreprocs(tech) }+&nbsp;
-					if hoursIncludingPreprocs(tech) === 1
-						| hour
-					else
-						| hours
-				| &nbsp;of use
+					i18n
+						if hoursIncludingPreprocs(tech) === 1
+							| hour
+						else
+							| hours
+						| &nbsp;of use
 
 block append head
 	+title("curriculum vitæ")
@@ -41,10 +42,10 @@ block content
 	- const motionDesignSoftware = ["aftereffects", "premierepro", "lightworks"]
 	- const musicMakingSoftware = ["flstudio", "ableton"]
 	- const preprocessorsOf = { css: ["stylus", "sass", "vue", "nuxt", "svelte"], js: ["typescript", "livescript", "coffeescript", "vue", "nuxt", "svelte"], html: ["pug", "vue", "nuxt", "svelte", "django"], vue: ["nuxt"] }
-	- const hoursSpentWith = tech => (Object.keys(wakatimeAggregated.languages).includes(tech.URLName) ? Math.floor(wakatimeAggregated.languages[tech.URLName] / 3600) : 0)
-	- const hoursIncludingPreprocs = tech => hoursSpentWith(tech) + (Object.keys(preprocessorsOf).includes(tech.URLName) ? preprocessorsOf[tech.URLName].reduce((acc, preproc) => acc + hoursSpentWith({ URLName: preproc }), 0) : 0)
-	- const projectsUsing = tech => madeWith(all_works, tech)
-	- const technologies = domain => all_technologies.filter(t => domain.includes(t.URLName)).filter(t => hoursIncludingPreprocs(t) || projectsUsing(t).length).sort((a, b) => hoursIncludingPreprocs(a) - hoursIncludingPreprocs(b) + projectsUsing(a).length - projectsUsing(b).length).reverse()
+	- const hoursSpentWith = tech => (Object.keys(wakatimeAggregated.languages).includes(tech.urlName) ? Math.floor(wakatimeAggregated.languages[tech.urlName] / 3600) : 0)
+	- const hoursIncludingPreprocs = tech => hoursSpentWith(tech) + (Object.keys(preprocessorsOf).includes(tech.urlName) ? preprocessorsOf[tech.urlName].reduce((acc, preproc) => acc + hoursSpentWith({ urlName: preproc }), 0) : 0)
+	- const projectsUsing = tech => madeWith(allWorks, tech)
+	- const technologies = domain => allTechnologies.filter(t => domain.includes(t.urlName)).filter(t => hoursIncludingPreprocs(t) || projectsUsing(t).length).sort((a, b) => hoursIncludingPreprocs(a) - hoursIncludingPreprocs(b) + projectsUsing(a).length - projectsUsing(b).length).reverse()
 
 	p.pre-h1 Ewen Le Bihan
 	h1 curriculum vitæ
@@ -55,12 +56,12 @@ block content
 		span(i18n) Get a one-page PDF resume
 
 	section.skills
-		h2#skills skills
-		h3#language language
+		h2#skills(i18n) skills
+		h3#language(i18n) language
 		ul.skills-list
 			li.skill
 				h4 Français
-				p Native
+				p(i18n) Native
 
 			li.skill
 				h4 日本語
@@ -75,24 +76,24 @@ block content
 						| 950
 						span.fraction-slash ⁄
 						| 990
-						span.date 12 March 2020
+						span.date(i18n) 12 March 2020
 
 					dt CECRL
 					dd C1
 
-					//- dt ILR
-					//- dd 4
+					dt ILR
+					dd 4
 
-					//- dt ACTFL
-					//- dd S
+					dt ACTFL
+					dd S
 
-		h3#programming programming
-			p.inline work time tracked by #[a(href="https://wakatime.com") WakaTime]
+		h3#programming(i18n) programming
+			p.inline(i18n) work time tracked by #[a(href="https://wakatime.com") WakaTime]
 		ul.skills-list
 			each tech in technologies(programmingTechnologies)
 				+skill(tech)
 
-		h3#arts arts
+		h3#arts(i18n) arts
 		ul.skills-list
 			each tech in technologies(graphicDesignSoftware)
 				+skill(tech)
@@ -102,15 +103,15 @@ block content
 				+skill(tech)
 
 	section.education
-		h2#education education
+		h2#education(i18n) education
 
 		section
-			header.timespan 2022—now
+			header.timespan(i18n) 2022—now
 			.content
-				h3 #[abbr(title="École nationale supérieure d'électrotechnique, d'électronique, d'informatique, d'hydraulique et des télécommunications") ENSEEIHT], Computer science
+				h3 #[abbr(title="École nationale supérieure d'électrotechnique, d'électronique, d'informatique, d'hydraulique et des télécommunications") ENSEEIHT], #[i18n Computer science]
 
-				h4 what
-				p.what INP-ENSEEIHT (“École nationale supérieure d'électrotechnique, d'électronique, d'informatique, d'hydraulique et des télécommunication”) A top-ranking engineering graduate school based in Toulouse, France.
+				h4(i18n) what
+				p.what(i18n) INP-ENSEEIHT (“École nationale supérieure d'électrotechnique, d'électronique, d'informatique, d'hydraulique et des télécommunication”), a top-ranking engineering graduate school based in Toulouse, France.
 
 				//- h4 where
 				//- a.where(
@@ -118,7 +119,7 @@ block content
 				//- 	style=`background-image: url(${asset("map-toulouse.png")})`
 				//- ) Toulouse, France
 
-				h4 learn more
+				h4(i18n) learn more
 				ul.learn-more
 					li: a.learn-more(href="https://enseeiht.fr") website
 					li: a.learn-more(href="https://en.wikipedia.org/wiki/ENSEEIHT") wikipedia
@@ -126,56 +127,54 @@ block content
 		section
 			header.timespan 2020—2022
 			.content
-				h3 #[abbr(title="Classes préparatoires aux Grandes Écoles") CPGE], Mathematics &amp; Physics
-				h4 what
+				h3 #[abbr(title="Classes préparatoires aux Grandes Écoles") CPGE], #[i18n Mathematics &amp; Physics]
+				h4(i18n) what
 				p.what A two-year intensive preparation course for the competitive entrance exams to the top engineering schools (“les Grandes Ecoles”) in France.
 				//- h4 where
 				//- a.where(
 				//- 	href="https://goo.gl/maps/tacLXnRZyw13UcqJ9"
 				//- 	style=`background-image: url(${asset("map-nîmes.png")})`
 				//- ) Nîmes, France
-				h4 results
-				p My ranks at entrance exams
+				h4(i18n) results
+				p(i18n) My ranks at entrance exams
 				dl.results
 					dt: a(href="https://www.concours-commun-inp.fr/"): abbr(
 						title="Concours commun des instituts nationaux polytechniques"
 					) CCINP
 					dd.ranking
-						| 1104
-						sup th
+						i18n 1104#[sup th]
 						span.fraction-slash ⁄
 						| 7862
 
 					dt: a(href="https://www.concours-mines-telecom.fr/") Mines-Télécom
 					dd.ranking
-						| 1791
-						sup st
+						i18n 1791#[sup st]
 						span.fraction-slash ⁄
 						| 5467
 
 	section.experience
-		h2#experience experience
+		h2#experience(i18n) experience
 
 		section
 			header.timespan 2020
 			.content
-				h3 Internship @ Sophia Engineering
-				p Engineering consulting firm
+				h3 #[i18n Internship @] #[a(href="https://sophiaengineering.com") Sophia Engineering]
+				p(i18n) Engineering consulting firm
 
 		section
 			header.timespan 2019
 			.content
-				h3 Internship @ l'Atelier
-				p Graphic designer &amp; printer
+				h3 #[i18n Internship @] #[a(href="https://latelier34.fr") l'Atelier]
+				p(i18n) Graphic designer &amp; printer
 
 		section
 			header.timespan 2018
 			.content
-				h3 Internship @ Satellite
-				p Digital audiovisual agency
+				h3 #[i18n Internship @] #[a(href="https://satellite-multimedia.com") Satellite]
+				p(i18n) Digital audiovisual agency
 
 		section
 			header.timespan 2017
 			.content
-				h3 Internship @ Pages &amp; Images
-				p Audiovisual &amp; transmedia production company
+				h3 #[i18n Internship @] #[a(href="https://pagesimages.com") Pages &amp; Images]
+				p(i18n) Audiovisual &amp; transmedia production company

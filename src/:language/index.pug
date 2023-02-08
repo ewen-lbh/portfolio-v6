@@ -4,8 +4,8 @@ block append head
 	+title
 
 block content
-	- const latest = latestWork(finished(all_works))
-	- const others = all_works.filter(w => w.ID !== latest.ID)
+	- const latest = latestWork(finished(allWorks))
+	- const others = allWorks.filter(w => w.id !== latest.id)
 	p.pre-h1(i18n) Hi, I'm Ewen Le Bihan.
 	h1(i18n) These are my creations.
 	p.intro

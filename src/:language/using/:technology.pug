@@ -2,23 +2,23 @@ extends ../../layout
 
 block append head
 	+metadata(
-		thumbnail=asset(`logos/${CurrentTech.URLName}.svg`)
-		title=translate("works made with %s", CurrentTech.DisplayName)
+		thumbnail=asset(`logos/${currentTech.urlName}.svg`)
+		title=translate("works made with %s", currentTech.DisplayName)
 	)
 
 block content
 	img.made-with-page__logo(
-		src=`${ asset(`logos/${CurrentTech.URLName}.svg`) }`
+		src=`${ asset(`logos/${currentTech.urlName}.svg`) }`
 	)
 	h1.made-with-page__header
 		i18n works made with
 		br
-		| #{ CurrentTech.DisplayName }
-	p.description(i18n)!= CurrentTech.Description
-	if CurrentTech.LearnMoreURL
-		a.description__learn-more(href=CurrentTech.LearnMoreURL) 
+		| #{ currentTech.DisplayName }
+	p.description(i18n)!= currentTech.Description
+	if currentTech.LearnMoreURL
+		a.description__learn-more(href=currentTech.LearnMoreURL) 
 			+icon("arrow-right")
 			i18n Learn more
 
 	section.made-with-page__gallery
-		+gallery(madeWith(all_works, CurrentTech), classes=`tech-${ CurrentTech.URLName }`)
+		+gallery(madeWith(allWorks, currentTech), classes=`tech-${ currentTech.urlName }`)

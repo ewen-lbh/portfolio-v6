@@ -1,28 +1,27 @@
 mixin work-card(work, variant = "")
-	- const thumb = work.Media ? work.Media.find(m => m.Path === thumbnailKey(work)) : null
-	- const aspectRatio = thumb ? thumb.Dimensions.AspectRatio : null
-	- variant = variant !== "" ? variant : aspectRatio === null ? "no-thumb" : aspectRatio <= 1.5 ? "portrait" : aspectRatio <= 1.75 ? "floating" : "landscape"
+	- const aspectRatio = blockOfThumbnail(work)?.dimensions.aspectRatio 
+	- variant = variant !== "" ? variant : aspectRatio === undefined ? "no-thumb" : aspectRatio <= 1.5 ? "portrait" : aspectRatio <= 1.75 ? "floating" : "landscape"
 
 	article.work-card(
 		class=`work-card--${variant}`
 		data-no-thumb=!thumb
-		data-primary=work.Metadata.Colors.Primary
-		data-secondary=work.Metadata.Colors.Secondary
-		style=work.ColorsCSS + (work.Metadata.PageBackground ? `background-image: url(${media(work.ID + "/" + work.Metadata.PageBackground)});` : "")
+		data-primary=work.metadata.colors.primary
+		data-secondary=work.metadata.colors.secondary
+		style=work.colorsCSS + (work.metadata.pageBackground ? `background-image: url(${media(work.id + "/" + work.metadata.pageBackground)});` : "")
 	)
 		if thumb
 			img.thumb(
 				alt=thumb.Alt
 				data-aspect-ratio=aspectRatio
-				height=thumb.Dimensions.Height || null
+				height=thumb.dimensions.height || null
 				loading="lazy"
 				sizes=`(max-width: 800px) 99vw, ${["landscape", "display"].includes(variant) ? "800px" : `calc(min(400px, 33vh) * ${aspectRatio})`}`
-				src=ThumbnailSource(work, 0)
-				srcset=ThumbnailSourcesSet(work)
-				width=thumb.Dimensions.Width || null
+				src=bestThumbnail(work, 0)
+				srcset=thumbnailSourcesSet(work)
+				width=thumb.dimensions.width || null
 			)
 
-		h4(data-long=work.Title.length > 10)= work.Title
-		if work.Summary
-			p.summary= work.Summary
-		.button-link: a(i18n href=`/${ work.ID }`) read more
+		h4(data-long=work.content.title.length > 10)= work.content.title
+		if work.summary
+			p.summary= work.summary
+		.button-link: a(i18n href=`/${ work.id }`) read more

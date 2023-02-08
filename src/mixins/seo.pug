@@ -1,24 +1,24 @@
 mixin seo-tags
 	meta(
 		content="portfolio," +
-		all_tags
-			.map(t => t.Singular)
+		allTags
+			.map(t => t.singular)
 			.filter(t => !!t)
 			.join(",")
 		name="keywords"
 	)
 	meta(
-		content={ fr: "fr_FR", en: "en_US" }[current_language]
+		content={ fr: "fr_FR", en: "en_US" }[currentLanguage]
 		property="og:locale"
 	)
 	meta(
-		content=current_language === "fr" ? "en_US" : "fr_FR"
+		content=currentLanguage === "fr" ? "en_US" : "fr_FR"
 		property="og:locale:alternate"
 	)
 	meta(content="ewen.works" property="og:site_name")
 	meta(content="portfolio" name="subject")
 	meta(content="Ewen Le Bihan" name="copyright")
-	meta(content=current_language name="language")
+	meta(content=currentLanguage name="language")
 	meta(content=new Date().toDateString() name="revised")
 	meta(content=new Date().toDateString() name="FSCreated")
 	meta(content="index, follow" name="robots")
@@ -55,14 +55,14 @@ mixin metadata(options = {title: "", thumbnail: "", thumbnail_dimensions: {Heigh
 		meta(content=thumbnail name="thumbnail")
 		meta(content=thumbnail property="og:image")
 		meta(
-			content=player_url ? "player" : (thumbnail_dimensions || { AspectRatio: 0 }).AspectRatio > 1.5 ? "summary_large_image" : "summary"
+			content=player_url ? "player" : (thumbnail_dimensions || { AspectRatio: 0 }).aspectRatio > 1.5 ? "summary_large_image" : "summary"
 			name="twitter:card"
 		)
 		meta(content=thumbnail name="twitter:image")
 		if player_url
 			meta(content=player_url name="twitter:player")
-			meta(content=thumbnail_dimensions.Width name="twitter:player:width")
-			meta(content=thumbnail_dimensions.Height name="twitter:player:height")
+			meta(content=thumbnail_dimensions.width name="twitter:player:width")
+			meta(content=thumbnail_dimensions.height name="twitter:player:height")
 	else
 		meta(content="summary" name="twitter:card")
 

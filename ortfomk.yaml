@@ -2,7 +2,7 @@ development:
   output to:
     media: /media/
     translated: /<language>/
-    rest: /
+    rest: /../assets/
 
 production:
   upload to:
@@ -11,9 +11,9 @@ production:
     rest: https://assets.ewen.works/
 
   available at:
-    media: https://media.ewen.works 
-    translated: https://<language>.ewen.works 
-    rest: https://assets.ewen.works 
+    media: https://media.ewen.works
+    translated: https://<language>.ewen.works
+    rest: https://assets.ewen.works
 
 additional data:
   - database/wakatime-aggregated.json
